@@ -1,0 +1,35 @@
+baseURL = "http://example.org/"
+title = "Cheats and Recipes"
+languageCode = "en-us"
+paginate = 12
+theme = "binario"
+pygmentsCodefences = true
+pygmentsUseClasses = true
+# pygmentsStyle = "vim"
+# pygmentsStyle = "fruity"
+pygmentsStyle = "dracula"
+# pygmentsStyle = "native"
+# pygmentsStyle = "default"
+
+[Params]
+#   colorTheme = "dark-blue" # dark-green, dark-blue, dark-red, dark-violet
+  description = "Cheat sheets for the busy developer."
+  columns = 3
+  mainSections = ["cheats"] # Set main page sections
+  customCSS = ["css/dracula.css", "css/custom.css"]
+  customJS = ["js/custom.js"]
+  social=true
+  summarySort = "name"
+#   post_meta = ["date", "categories"]
+  
+[Params.Social]
+  email = "drmikeh@gmail.com"
+  twitter = "drmikeh"
+  pinterest = "drmikeh2297"
+  linkedin = "drmikehopper"
+  github = "drmikeh"
+  
+[Author]
+  name = "Dr. Mike Hopper"
+  bio = "Software Architect, Engineer, and Instructor"
+  avatar = "img/avatar.jpg"
