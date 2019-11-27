@@ -5,6 +5,7 @@ paginate = 12
 theme = "binario"
 pygmentsCodefences = true
 pygmentsUseClasses = true
+
 # pygmentsStyle = "vim"
 # pygmentsStyle = "fruity"
 pygmentsStyle = "dracula"
@@ -15,7 +16,7 @@ pygmentsStyle = "dracula"
 #   colorTheme = "dark-blue" # dark-green, dark-blue, dark-red, dark-violet
   description = "Cheat sheets for the busy developer."
   columns = 3
-  mainSections = ["cheats"] # Set main page sections
+  mainSections = ["cheat", "recipe"] # Set main page sections
   customCSS = ["css/dracula.css", "css/custom.css"]
   customJS = ["js/custom.js"]
   social=true

@@ -1,6 +1,7 @@
 ---
 title: Functional JavaScript
 description: Cheat sheet for functional programming with JavaScript
+date: 2019-11-24
 reviewed: true
 toc: true
 related: true
