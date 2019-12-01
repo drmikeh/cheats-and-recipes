@@ -5,11 +5,11 @@ reviewed: false
 toc: true
 related: true
 categories:
-    - 'React'
+    - 'react'
 tags:
-    - 'React'
-    - 'Router'
-    - 'JavaScript'
+    - 'react'
+    - 'router'
+    - 'javascript'
     - 'library'
     - 'framework'
 ---

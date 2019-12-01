@@ -5,10 +5,10 @@ reviewed: false
 toc: true
 related: true
 categories:
-    - 'Others'
+    - 'other'
 tags:
     - 'regex'
-    - 'JavaScript'
+    - 'javascript'
 ---
 
 Regular Expressions are a powerful way to do pattern matching on strings.

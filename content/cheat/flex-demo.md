@@ -6,9 +6,9 @@ toc: true
 authorbox: true
 related: true
 categories:
-    - 'Flexbox'
+    - 'flexbox'
 tags:
-    - 'Flexbox'
+    - 'flexbox'
 ---
 
 This is just a test page for using Flexbox with Hugo.

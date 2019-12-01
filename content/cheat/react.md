@@ -6,10 +6,10 @@ authorbox: true
 toc: true
 related: true
 categories:
-    - 'React'
+    - 'react'
 tags:
-    - 'React'
-    - 'JavaScript'
+    - 'react'
+    - 'javascript'
     - 'library'
     - 'framework'
 ---

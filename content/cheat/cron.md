@@ -5,9 +5,9 @@ reviewed: false
 toc: true
 related: true
 categories:
-    - 'CLI'
+    - 'cli'
 tags:
-    - 'CLI'
+    - 'cli'
     - 'cron'
 ---
 

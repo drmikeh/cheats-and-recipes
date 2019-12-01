@@ -5,9 +5,9 @@ reviewed: false
 toc: true
 related: true
 categories:
-    - 'Misc'
+    - 'other'
 tags:
-    - 'Misc'
+    - 'other'
 ---
 
 Semver, short for "semantic versioning" is a versioning system that encodes the impact of changes between releases on the public interface directly into the version string.

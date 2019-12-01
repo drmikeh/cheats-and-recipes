@@ -5,10 +5,10 @@ reviewed: false
 toc: true
 related: true
 categories:
-    - 'CLI'
+    - 'cli'
 tags:
-    - 'CLI'
-    - 'Homebrew'
+    - 'cli'
+    - 'homebrew'
     - 'MacOS'
 ---
 

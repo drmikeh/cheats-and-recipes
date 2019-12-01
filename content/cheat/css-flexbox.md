@@ -5,10 +5,10 @@ reviewed: false
 toc: true
 related: true
 categories:
-    - 'CSS'
+    - 'css'
 tags:
-    - 'CSS'
-    - 'Flexbox'
+    - 'css'
+    - 'flexbox'
     - 'styling'
     - 'layout'
 ---

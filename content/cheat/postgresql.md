@@ -5,9 +5,9 @@ reviewed: true
 toc: true
 related: true
 categories:
-    - 'Database'
+    - 'database'
 tags:
-    - 'Database'
+    - 'database'
     - 'PostgreSQL'
 ---
 

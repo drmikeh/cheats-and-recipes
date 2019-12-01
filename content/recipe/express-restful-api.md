@@ -1,21 +1,23 @@
 ---
-title: Express
-description: Cheat sheet for the Express Framework for Node.js
+title: Express RESTful API Server
+description: Express RESTful API Server with Knex and PostgreSQL and deployed to PCF.
 reviewed: true
 authorbox: true
 toc: true
 related: true
 categories:
-    - 'Express'
+    - 'express'
 tags:
-    - 'Express'
-    - 'JavaScript'
+    - 'express'
+    - 'javascript'
     - 'server'
+    - 'rest'
+    - 'api'
     - 'library'
     - 'framework'
 ---
 
-Express is a fast, unopinionated, and lightweight web framework for Node.js
+Express RESTful API Server with Knex and PostgreSQL and deployed to PCF.
 <!--more-->
 
 ## Using the Express Application Generator

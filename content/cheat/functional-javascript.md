@@ -6,9 +6,9 @@ reviewed: true
 toc: true
 related: true
 categories:
-    - 'JavaScript'
+    - 'javascript'
 tags:
-    - 'JavaScript'
+    - 'javascript'
     - 'functional programming'
 ---
 

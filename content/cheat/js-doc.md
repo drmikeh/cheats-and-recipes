@@ -5,9 +5,9 @@ reviewed: false
 toc: true
 related: true
 categories:
-    - 'JavaScript'
+    - 'javascript'
 tags:
-    - 'JavaScript'
+    - 'javascript'
     - 'jsdoc'
 ---
 

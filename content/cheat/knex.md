@@ -5,12 +5,12 @@ reviewed: false
 toc: true
 related: true
 categories:
-    - 'JavaScript'
+    - 'javascript'
     - 'NodeJS'
     - 'database'
 tags:
     - 'knex'
-    - 'JavaScript'
+    - 'javascript'
     - 'NodeJS'
     - 'database'
     - 'library'

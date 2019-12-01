@@ -5,11 +5,11 @@ reviewed: false
 toc: true
 related: true
 categories:
-    - 'CLI'
+    - 'cli'
 tags:
-    - 'Bash'
-    - 'Shell'
-    - 'Command Line'
+    - 'bash'
+    - 'shell'
+    - 'cli'
 ---
 
 Bash is a popular command line shell found in Unix and MacOS operating systems.
