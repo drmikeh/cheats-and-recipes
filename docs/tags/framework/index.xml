@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>framework on Cheats and Recipes</title>
+    <link>http://example.org/tags/framework/</link>
+    <description>Recent content in framework on Cheats and Recipes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://example.org/tags/framework/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Express RESTful API Server</title>
+      <link>http://example.org/recipe/express-restful-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/recipe/express-restful-api/</guid>
+      <description>&lt;p&gt;Express RESTful API Server with Knex and PostgreSQL and deployed to PCF.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>React</title>
+      <link>http://example.org/cheat/react/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/cheat/react/</guid>
+      <description>&lt;p&gt;React.js is a declarative, component based JavaScript library for building user interfaces.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>React Router</title>
+      <link>http://example.org/cheat/react-router/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/cheat/react-router/</guid>
+      <description>&lt;p&gt;React Router is a dynamic, distributed router for React.js.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#1b1b1b">
+	<title>CSS Grid | Cheats and Recipes</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Cheat sheet for CSS Grid">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/dracula.css">
+	<link rel="stylesheet" href="/css/custom.css">
+	<link rel="icon" href="/icons/16.png" sizes="16x16" type="image/png">
+	<link rel="icon" href="/icons/32.png" sizes="32x32" type="image/png">
+		
+</head>
+<body>
+	<header class="header">
+	<a class="logo" href="/">Cheats and Recipes</a>
+	
+<nav class="main-nav" role="navigation">
+	<button id="toggle" class="main-nav__btn" aria-label="Menu toggle" aria-expanded="false" tabindex="0">
+		<div class="main-nav__btn-box" tabindex="-1">
+			<svg class="main-nav__icon icon-menu" width="18" height="18" viewBox="0 0 18 18">
+				<path class="icon-menu__burger" d="M18 0v3.6H0V0h18zM0 10.8h18V7.2H0v3.6zM0 18h18v-3.6H0V18z"/>
+				<path class="icon-menu__x" d="M11.55 9L18 15.45 15.45 18 9 11.55 2.55 18 0 15.45 6.45 9 0 2.55 2.55 0 9 6.45 15.45 0 18 2.55 11.55 9z"/>
+			</svg>
+		</div>
+	</button>
+	<ul id="menu" class="main-nav__list">
+			<li class="main-nav__item">
+				<a class="main-nav__link" href="/about/">
+					
+					<span class="main-nav__text">About Hugo</span>
+					
+				</a>
+			</li>
+	</ul>
+</nav>
+</header>
+	<div class="primary">
+	
+	<main class="main">
+		<div class="single block">
+			<article class="post">
+				<h1 class="post__title">CSS Grid</h1>
+<details class="post__toc toc" >
+	<summary class="toc__title">Table of Contents</summary>
+	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#container">Container</a></li>
+<li><a href="#child">Child</a></li>
+</ul></li>
+<li><a href="#references">References</a></li>
+</ul></li>
+</ul>
+</nav>
+</details>
+
+				<div class="post__content"><p>Use CSS Grid to control the layout of HTML elements in 2 dimensions (horizontal and vertical).</p>
+
+<h3 id="container">Container</h3>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">grid-container</span> <span class="p">{</span>
+    <span class="c">/* Display properties */</span>
+    <span class="k">display</span><span class="p">:</span> <span class="k">grid</span><span class="p">;</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">inline</span><span class="o">-</span><span class="k">grid</span><span class="p">;</span>
+    <span class="k">display</span><span class="p">:</span> <span class="n">subgrid</span><span class="p">;</span>
+
+    <span class="c">/* Columns and rows */</span>
+    <span class="k">grid-template-columns</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span> <span class="mi">2</span><span class="kt">rem</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span> <span class="c">/* Measurement units */</span>
+    <span class="k">grid-template-columns</span><span class="p">:</span> <span class="mi">25</span><span class="kt">%</span> <span class="mi">50</span><span class="kt">%</span> <span class="mi">25</span><span class="kt">%</span><span class="p">;</span> <span class="c">/* Percentage units */</span>
+    <span class="k">grid-template-columns</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span> <span class="kc">auto</span> <span class="mi">1</span><span class="kt">rem</span> <span class="mi">2</span><span class="n">fr</span><span class="p">;</span> <span class="c">/* Fill remaining widths with auto or fr units */</span>
+    <span class="k">grid-template-columns</span><span class="p">:</span> <span class="nf">repeat</span><span class="p">(</span>
+        <span class="mi">12</span><span class="p">,</span>
+        <span class="mi">1</span><span class="n">fr</span>
+    <span class="p">);</span> <span class="c">/* Repeat columns without needing to write them */</span>
+
+    <span class="k">grid-template-rows</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span> <span class="mi">10</span><span class="kt">%</span> <span class="kc">auto</span> <span class="nf">repeat</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="kt">px</span><span class="p">);</span> <span class="c">/* Mix any group, same rules work for rows */</span>
+
+    <span class="c">/* Automatic columns and rows */</span>
+
+    <span class="k">grid-auto-columns</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span> <span class="c">/* No matter how many columns, each column will be this same width */</span>
+    <span class="k">grid-auto-rows</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span> <span class="c">/* No matter how many rows, each row will be this same height */</span>
+
+    <span class="c">/* Areas */</span>
+    <span class="k">grid-template-areas</span><span class="p">:</span>
+        <span class="s1">&#39;header header&#39;</span>
+        <span class="s1">&#39;main aside&#39;</span>
+        <span class="s1">&#39;footer footer&#39;</span><span class="p">;</span> <span class="c">/* Grid-style */</span>
+
+    <span class="k">grid-template-areas</span><span class="p">:</span> <span class="s1">&#39;header header&#39;</span> <span class="s1">&#39;main aside&#39;</span> <span class="s1">&#39;footer footer&#39;</span><span class="p">;</span> <span class="c">/* Inline-style */</span>
+
+    <span class="c">/* Template shorthand */</span>
+    <span class="k">grid-template</span><span class="p">:</span>
+        <span class="s1">&#39;header header&#39;</span> <span class="kc">auto</span>
+        <span class="s1">&#39;main aside&#39;</span> <span class="mi">100</span><span class="kt">vh</span>
+        <span class="s1">&#39;footer footer&#39;</span> <span class="mi">10</span><span class="kt">rem</span>
+        <span class="o">/</span> <span class="mi">80</span><span class="kt">%</span> <span class="mi">20</span><span class="kt">%</span><span class="p">;</span>
+
+    <span class="c">/* The above is the same as below long-hand */</span>
+    <span class="k">grid-template-columns</span><span class="p">:</span> <span class="mi">80</span><span class="kt">%</span> <span class="mi">20</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">grid-template-rows</span><span class="p">:</span> <span class="kc">auto</span> <span class="mi">100</span><span class="kt">vh</span> <span class="mi">10</span><span class="kt">rem</span><span class="p">;</span>
+    <span class="k">grid-template-areas</span><span class="p">:</span>
+        <span class="s1">&#39;header header&#39;</span>
+        <span class="s1">&#39;main aside&#39;</span>
+        <span class="s1">&#39;footer footer&#39;</span><span class="p">;</span>
+
+    <span class="c">/* Gaps */</span>
+    <span class="k">grid-row-gap</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+    <span class="k">grid-column-gap</span><span class="p">:</span> <span class="mf">0.5</span><span class="kt">rem</span><span class="p">;</span> <span class="c">/* Define values separately */</span>
+
+    <span class="k">grid-gap</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span> <span class="mf">0.5</span><span class="kt">rem</span><span class="p">;</span> <span class="c">/* Short-hand for row / column */</span>
+    <span class="k">grid-gap</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span> <span class="c">/* Gap in both dimensions */</span>
+
+    <span class="c">/* Item justification (horizontal or column alignment) */</span>
+    <span class="k">justify-items</span><span class="p">:</span> <span class="kc">start</span><span class="p">;</span> <span class="c">/* Align items to the left */</span>
+    <span class="k">justify-items</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span> <span class="c">/* Align items centered within its column */</span>
+    <span class="k">justify-items</span><span class="p">:</span> <span class="kc">end</span><span class="p">;</span> <span class="c">/* Align items to the right */</span>
+    <span class="k">justify-items</span><span class="p">:</span> <span class="kc">stretch</span><span class="p">;</span> <span class="c">/* (default) Fills available area (horizontally) */</span>
+
+    <span class="c">/* Item alignment (vertical or row alignment) */</span>
+    <span class="k">align-items</span><span class="p">:</span> <span class="kc">start</span><span class="p">;</span> <span class="c">/* Align items to the top */</span>
+    <span class="k">align-items</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span> <span class="c">/* Align items centered within its row */</span>
+    <span class="k">align-items</span><span class="p">:</span> <span class="kc">end</span><span class="p">;</span> <span class="c">/* Align items to the bottom */</span>
+    <span class="k">align-items</span><span class="p">:</span> <span class="kc">stretch</span><span class="p">;</span> <span class="c">/* (default) Fills available area (vertically) */</span>
+
+    <span class="c">/* Place item shorthand */</span>
+    <span class="n">place-items</span><span class="p">:</span> <span class="kc">start</span> <span class="kc">stretch</span><span class="p">;</span>
+
+    <span class="c">/* The above is the same as below long-hand */</span>
+    <span class="k">align-items</span><span class="p">:</span> <span class="kc">start</span><span class="p">;</span>
+    <span class="k">justify-items</span><span class="p">:</span> <span class="kc">stretch</span><span class="p">;</span>
+
+    <span class="c">/* Content justification (horizontal or column alignment) */</span>
+    <span class="k">justify-content</span><span class="p">:</span> <span class="kc">start</span><span class="p">;</span> <span class="c">/* Align content to the left */</span>
+    <span class="k">justify-content</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span> <span class="c">/* Align content centered horizontally within the grid */</span>
+    <span class="k">justify-content</span><span class="p">:</span> <span class="kc">end</span><span class="p">;</span> <span class="c">/* Align content to the right */</span>
+    <span class="k">justify-content</span><span class="p">:</span> <span class="kc">stretch</span><span class="p">;</span> <span class="c">/* (default) Fills available area (horizontally) */</span>
+
+    <span class="k">justify-content</span><span class="p">:</span> <span class="kc">space</span><span class="o">-</span><span class="n">around</span><span class="p">;</span> <span class="c">/* Chooses a space for both sides of the columns like a left and right margin */</span>
+    <span class="k">justify-content</span><span class="p">:</span> <span class="kc">space</span><span class="o">-</span><span class="n">between</span><span class="p">;</span> <span class="c">/* Chooses a space to go between columns, no margins on outside of content */</span>
+    <span class="k">justify-content</span><span class="p">:</span> <span class="kc">space</span><span class="o">-</span><span class="n">evenly</span><span class="p">;</span> <span class="c">/* Chooses a space that goes between all columns and edges consistently */</span>
+
+    <span class="c">/* Content alignment (horizontal or column alignment) */</span>
+    <span class="k">align-content</span><span class="p">:</span> <span class="kc">start</span><span class="p">;</span> <span class="c">/* Align content to the top */</span>
+    <span class="k">align-content</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span> <span class="c">/* Align content centered vertically within the grid */</span>
+    <span class="k">align-content</span><span class="p">:</span> <span class="kc">end</span><span class="p">;</span> <span class="c">/* Align content to the bottom */</span>
+    <span class="k">align-content</span><span class="p">:</span> <span class="kc">stretch</span><span class="p">;</span> <span class="c">/* (default) Fills available area (vertically) */</span>
+
+    <span class="k">align-content</span><span class="p">:</span> <span class="kc">space</span><span class="o">-</span><span class="n">around</span><span class="p">;</span> <span class="c">/* Chooses a space for the top and bottom of the rows like a top and bottom margin */</span>
+    <span class="k">align-content</span><span class="p">:</span> <span class="kc">space</span><span class="o">-</span><span class="n">between</span><span class="p">;</span> <span class="c">/* Chooses a space to go between rows, no margins on outside of content */</span>
+    <span class="k">align-content</span><span class="p">:</span> <span class="kc">space</span><span class="o">-</span><span class="n">evenly</span><span class="p">;</span> <span class="c">/* Chooses a space that goes between all rows and edges consistently */</span>
+
+    <span class="c">/* Place item shorthand */</span>
+    <span class="n">place-content</span><span class="p">:</span> <span class="kc">center</span> <span class="kc">start</span><span class="p">;</span>
+
+    <span class="c">/* The above is the same as below long-hand */</span>
+    <span class="k">align-content</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+    <span class="k">justify-content</span><span class="p">:</span> <span class="kc">start</span><span class="p">;</span>
+
+    <span class="c">/* Automatic grid positioning */</span>
+
+    <span class="k">grid-auto-flow</span><span class="p">:</span> <span class="kc">row</span><span class="p">;</span> <span class="c">/* Left-to-right rows, then top-to-bottom*/</span>
+    <span class="k">grid-auto-flow</span><span class="p">:</span> <span class="kc">column</span><span class="p">;</span> <span class="c">/* Top-to-bottom columns, then left-to-right */</span>
+    <span class="k">grid-auto-flow</span><span class="p">:</span> <span class="n">dense</span><span class="p">;</span> <span class="c">/* Responds with best-guess on left-to-right, top-to-bottom order with advanced layouts */</span>
+
+    <span class="c">/* There is one final shorthand for all container properties in one */</span>
+
+    <span class="c">/* Explicit grid columns, rows, and areas */</span>
+    <span class="k">grid</span><span class="p">:</span>
+        <span class="s1">&#39;header header&#39;</span> <span class="kc">auto</span>
+        <span class="s1">&#39;main aside&#39;</span> <span class="mi">100</span><span class="kt">vh</span>
+        <span class="s1">&#39;footer footer&#39;</span> <span class="mi">10</span><span class="kt">rem</span>
+        <span class="o">/</span> <span class="mi">80</span><span class="kt">%</span> <span class="mi">20</span><span class="kt">%</span><span class="p">;</span> <span class="c">/* You can include a template as the only value, which is equivalent to below */</span>
+    <span class="k">grid-template</span><span class="p">:</span>
+        <span class="s1">&#39;header header&#39;</span> <span class="kc">auto</span>
+        <span class="s1">&#39;main aside&#39;</span> <span class="mi">100</span><span class="kt">vh</span>
+        <span class="s1">&#39;footer footer&#39;</span> <span class="mi">10</span><span class="kt">rem</span>
+        <span class="o">/</span> <span class="mi">80</span><span class="kt">%</span> <span class="mi">20</span><span class="kt">%</span><span class="p">;</span> <span class="c">/* Which is again equivalent to below */</span>
+    <span class="k">grid-template-columns</span><span class="p">:</span> <span class="mi">80</span><span class="kt">%</span> <span class="mi">20</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">grid-template-rows</span><span class="p">:</span> <span class="kc">auto</span> <span class="mi">100</span><span class="kt">vh</span> <span class="mi">10</span><span class="kt">rem</span><span class="p">;</span>
+    <span class="k">grid-template-areas</span><span class="p">:</span>
+        <span class="s1">&#39;header header&#39;</span>
+        <span class="s1">&#39;main aside&#39;</span>
+        <span class="s1">&#39;footer footer&#39;</span><span class="p">;</span>
+
+    <span class="c">/* Automatic grid flows */</span>
+    <span class="k">grid</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span> <span class="o">/</span> <span class="kc">auto</span><span class="o">-</span><span class="k">flow</span> <span class="n">dense</span> <span class="mi">1</span><span class="n">fr</span><span class="p">;</span> <span class="c">/* You can include rows, a flow, and automatic columns, which is equivalent to below */</span>
+    <span class="k">grid-template-rows</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+    <span class="k">grid-auto-flow</span><span class="p">:</span> <span class="n">dense</span><span class="p">;</span>
+    <span class="k">grid-auto-columns</span><span class="p">:</span> <span class="mi">1</span><span class="n">fr</span><span class="p">;</span>
+
+    <span class="k">grid</span><span class="p">:</span> <span class="kc">auto</span><span class="o">-</span><span class="k">flow</span> <span class="n">dense</span> <span class="mi">1</span><span class="kt">rem</span> <span class="o">/</span> <span class="nf">repeat</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">);</span> <span class="c">/* Conversely, you can do the same thing with automatic rows, and defined columns */</span>
+    <span class="k">grid-auto-flow</span><span class="p">:</span> <span class="n">dense</span><span class="p">;</span>
+    <span class="k">grid-auto-rows</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+    <span class="k">grid-template-columns</span><span class="p">:</span> <span class="nf">repeat</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="child">Child</h3>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">grid-child</span> <span class="p">{</span>
+    <span class="c">/* Column position */</span>
+    <span class="k">grid-column-start</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">grid-column-end</span><span class="p">:</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="k">grid-column</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="c">/* Short hand */</span>
+    <span class="k">grid-column</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">span</span> <span class="mi">2</span><span class="p">;</span> <span class="c">/* Span 2 columns without explicitly defining an endpoint */</span>
+    <span class="k">grid-column</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span> <span class="c">/* Start in and occupy a single column */</span>
+
+    <span class="c">/* Row position */</span>
+    <span class="k">grid-row-start</span><span class="p">:</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">grid-row-end</span><span class="p">:</span> <span class="mi">4</span><span class="p">;</span>
+
+    <span class="k">grid-row</span><span class="p">:</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">4</span><span class="p">;</span> <span class="c">/* Short hand */</span>
+    <span class="k">grid-row</span><span class="p">:</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">span</span> <span class="mi">3</span><span class="p">;</span> <span class="c">/* Span 3 rows without explicitly defining an endpoint */</span>
+    <span class="k">grid-row</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span> <span class="c">/* Start in and occupy a single row */</span>
+
+    <span class="c">/* Area positioning */</span>
+    <span class="k">grid-area</span><span class="p">:</span> <span class="n">header</span><span class="p">;</span> <span class="c">/* You can use a named grid area from the container */</span>
+
+    <span class="k">grid-area</span><span class="p">:</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="c">/* Or you can use positioning. This is equivalent to... */</span>
+    <span class="k">grid-row-start</span><span class="p">:</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">grid-column-start</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">grid-row-end</span><span class="p">:</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="k">grid-column-end</span><span class="p">:</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="c">/* Self justification (horizontal or column alignment) */</span>
+    <span class="k">justify-self</span><span class="p">:</span> <span class="kc">start</span><span class="p">;</span> <span class="c">/* Align item to the left */</span>
+    <span class="k">justify-self</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span> <span class="c">/* Align item centered within its column */</span>
+    <span class="k">justify-self</span><span class="p">:</span> <span class="kc">end</span><span class="p">;</span> <span class="c">/* Align item to the right */</span>
+    <span class="k">justify-self</span><span class="p">:</span> <span class="kc">stretch</span><span class="p">;</span> <span class="c">/* (default) Fills available area (horizontally) */</span>
+
+    <span class="c">/* Self alignment (vertical or row alignment) */</span>
+    <span class="k">align-self</span><span class="p">:</span> <span class="kc">start</span><span class="p">;</span> <span class="c">/* Align item to the top */</span>
+    <span class="k">align-self</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span> <span class="c">/* Align item centered within its row */</span>
+    <span class="k">align-self</span><span class="p">:</span> <span class="kc">end</span><span class="p">;</span> <span class="c">/* Align item to the bottom */</span>
+    <span class="k">align-self</span><span class="p">:</span> <span class="kc">stretch</span><span class="p">;</span> <span class="c">/* (default) Fills available area (vertically) */</span>
+
+    <span class="c">/* Placement shorthand */</span>
+    <span class="n">place-self</span><span class="p">:</span> <span class="kc">start</span> <span class="kc">stretch</span><span class="p">;</span>
+
+    <span class="c">/* The above is the same as below long-hand */</span>
+    <span class="k">align-self</span><span class="p">:</span> <span class="kc">start</span><span class="p">;</span>
+    <span class="k">justify-self</span><span class="p">:</span> <span class="kc">stretch</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="http://grid.malven.co/">GRID: A simple visual cheatsheet</a></li>
+<li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/">CSS Tricks: A Complete Guide to Grid</a></li>
+<li><a href="https://caniuse.com/#feat=css-grid">Browser support</a></li>
+</ul></div>
+				
+				<footer class="post__footer">
+					
+					
+				</footer>
+				
+			</article>
+		</div>
+    </main>
+    
+
+<div class="tags block">
+    <h3 class="tags__title">Tags</h3>
+    <div class="post__tags">
+                <a class="post__tag btn" href="/tags/css/">css</a>
+                <a class="post__tag btn" href="/tags/grid/">grid</a>
+                <a class="post__tag btn" href="/tags/styling/">styling</a>
+                <a class="post__tag btn" href="/tags/layout/">layout</a>
+    </div>
+</div>
+
+	
+	
+
+
+
+<div class="related block">
+	<h3 class="related__title">Related</h3>
+	<ul class="related__list">
+		
+		<li class="related__item"><a class="related__link" href="/cheat/css-flexbox/">CSS flexbox</a></li>
+		
+		<li class="related__item"><a class="related__link" href="/recipe/css/">CSS Recipes</a></li>
+		
+	</ul>
+</div>
+
+	
+
+	</div>
+	<footer class="footer">
+<div class="footer__social social">
+		<a class="social__link" target="_blank" rel="noopener noreferrer" href="mailto:drmikeh@gmail.com">
+			<svg class="social__icon" aria-label="Email" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M299 268l124 106c-4 4-10 7-17 7H106c-7 0-13-3-17-7l124-106 43 38 43-38zm-43 13L89 138c4-4 10-7 17-7h300c7 0 13 3 17 7L256 281zm54-23l121-105v208L310 258zM81 153l121 105L81 361V153z"/></svg>
+		</a>
+		<a class="social__link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/drmikeh">
+			<svg class="social__icon" aria-label="Twitter" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M437 152a72 72 0 0 1-40 12 72 72 0 0 0 32-40 72 72 0 0 1-45 17 72 72 0 0 0-122 65 200 200 0 0 1-145-74 72 72 0 0 0 22 94 72 72 0 0 1-32-7 72 72 0 0 0 56 69 72 72 0 0 1-32 1 72 72 0 0 0 67 50 200 200 0 0 1-105 29 200 200 0 0 0 309-179 200 200 0 0 0 35-37"/></svg>
+		</a>
+		<a class="social__link" target="_blank" rel="noopener noreferrer" href="https://www.pinterest.com/drmikeh2297">
+			<svg class="social__icon" aria-label="Pinterest" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="m265 65c-104 0-157 75-157 138 0 37 14 71 45 83 5 2 10 0 12-5l3-18c2-6 1-7-2-12-9-11-15-24-15-43 0-56 41-106 108-106 60 0 92 37 92 85 0 64-28 116-70 116-23 0-40-18-34-42 6-27 19-57 19-77 0-18-9-34-30-34-24 0-42 25-42 58 0 20 7 34 7 34l-29 120a249 249 0 0 0 2 86l3-1c2-3 31-37 40-72l16-61c7 15 29 28 53 28 71 0 119-64 119-151 0-66-56-126-140-126z"/></svg>
+		</a>
+		<a class="social__link" target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/drmikehopper">
+			<svg class="social__icon" aria-label="LinkedIn" role="img" width="32" height="32" viewBox="0 0 512 512"><circle cx="142" cy="138" r="37"/><path stroke-width="66" d="M244 194v198M142 194v198"/><path d="M276 282c0-20 13-40 36-40 24 0 33 18 33 45v105h66V279c0-61-32-89-76-89-34 0-51 19-59 32"/></svg>
+		</a>
+		<a class="social__link" target="_blank" rel="noopener noreferrer" href="https://github.com/drmikeh">
+			<svg class="social__icon" aria-label="Github" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg>
+		</a>
+</div>
+	<div class="footer__copyright">© 2019 Cheats and Recipes. <span class="footer__copyright-credits">Powered by <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/vimux/binario" rel="nofollow noopener" target="_blank">Binario</a> theme.</span></div>
+</footer>
+<script src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+</body>
+</html>

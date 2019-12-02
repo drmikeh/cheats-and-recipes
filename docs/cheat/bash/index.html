@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#1b1b1b">
+	<title>Bash scripting | Cheats and Recipes</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Cheat sheet for Bash Shell">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/dracula.css">
+	<link rel="stylesheet" href="/css/custom.css">
+	<link rel="icon" href="/icons/16.png" sizes="16x16" type="image/png">
+	<link rel="icon" href="/icons/32.png" sizes="32x32" type="image/png">
+		
+</head>
+<body>
+	<header class="header">
+	<a class="logo" href="/">Cheats and Recipes</a>
+	
+<nav class="main-nav" role="navigation">
+	<button id="toggle" class="main-nav__btn" aria-label="Menu toggle" aria-expanded="false" tabindex="0">
+		<div class="main-nav__btn-box" tabindex="-1">
+			<svg class="main-nav__icon icon-menu" width="18" height="18" viewBox="0 0 18 18">
+				<path class="icon-menu__burger" d="M18 0v3.6H0V0h18zM0 10.8h18V7.2H0v3.6zM0 18h18v-3.6H0V18z"/>
+				<path class="icon-menu__x" d="M11.55 9L18 15.45 15.45 18 9 11.55 2.55 18 0 15.45 6.45 9 0 2.55 2.55 0 9 6.45 15.45 0 18 2.55 11.55 9z"/>
+			</svg>
+		</div>
+	</button>
+	<ul id="menu" class="main-nav__list">
+			<li class="main-nav__item">
+				<a class="main-nav__link" href="/about/">
+					
+					<span class="main-nav__text">About Hugo</span>
+					
+				</a>
+			</li>
+	</ul>
+</nav>
+</header>
+	<div class="primary">
+	
+	<main class="main">
+		<div class="single block">
+			<article class="post">
+				<h1 class="post__title">Bash scripting</h1>
+<details class="post__toc toc" >
+	<summary class="toc__title">Table of Contents</summary>
+	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#getting-started">Getting Started</a>
+<ul>
+<li><a href="#a-basic-script">A Basic Script</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#string-quotes">String quotes</a></li>
+<li><a href="#shell-execution">Shell execution</a></li>
+<li><a href="#conditional-execution">Conditional execution</a></li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#conditionals">Conditionals</a></li>
+<li><a href="#strict-mode">Strict mode</a></li>
+<li><a href="#brace-expansion">Brace expansion</a></li>
+</ul></li>
+<li><a href="#parameter-expansions">Parameter expansions</a>
+<ul>
+<li><a href="#basics">Basics</a></li>
+<li><a href="#substitution">Substitution</a></li>
+<li><a href="#comments">Comments</a></li>
+<li><a href="#substrings">Substrings</a></li>
+<li><a href="#length">Length</a></li>
+<li><a href="#manipulation">Manipulation</a></li>
+<li><a href="#default-values">Default values</a></li>
+</ul></li>
+<li><a href="#loops">Loops</a>
+<ul>
+<li><a href="#basic-for-loop">Basic for loop</a></li>
+<li><a href="#c-like-for-loop">C-like for loop</a></li>
+<li><a href="#ranges">Ranges</a>
+<ul>
+<li><a href="#with-step-size">With step size</a></li>
+</ul></li>
+<li><a href="#reading-lines">Reading lines</a></li>
+<li><a href="#forever">Forever</a></li>
+</ul></li>
+<li><a href="#functions-1">Functions</a>
+<ul>
+<li><a href="#defining-functions">Defining functions</a></li>
+<li><a href="#returning-values">Returning values</a></li>
+<li><a href="#raising-errors">Raising errors</a></li>
+<li><a href="#arguments">Arguments</a></li>
+</ul></li>
+<li><a href="#conditionals-1">Conditionals</a>
+<ul>
+<li><a href="#conditions">Conditions</a></li>
+<li><a href="#file-conditions">File conditions</a></li>
+<li><a href="#example">Example</a></li>
+</ul></li>
+<li><a href="#arrays">Arrays</a>
+<ul>
+<li><a href="#defining-arrays">Defining arrays</a></li>
+<li><a href="#working-with-arrays">Working with arrays</a></li>
+<li><a href="#operations">Operations</a></li>
+<li><a href="#iteration">Iteration</a></li>
+</ul></li>
+<li><a href="#dictionaries">Dictionaries</a>
+<ul>
+<li><a href="#defining">Defining</a></li>
+<li><a href="#working-with-dictionaries">Working with dictionaries</a></li>
+<li><a href="#iteration-1">Iteration</a>
+<ul>
+<li><a href="#iterate-over-values">Iterate over values</a></li>
+<li><a href="#iterate-over-keys">Iterate over keys</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#options">Options</a>
+<ul>
+<li><a href="#options-1">Options</a></li>
+<li><a href="#glob-options">Glob options</a></li>
+</ul></li>
+<li><a href="#history">History</a>
+<ul>
+<li><a href="#commands">Commands</a></li>
+<li><a href="#expansions">Expansions</a></li>
+<li><a href="#operations-1">Operations</a></li>
+<li><a href="#slices">Slices</a></li>
+</ul></li>
+<li><a href="#miscellaneous">Miscellaneous</a>
+<ul>
+<li><a href="#numeric-calculations">Numeric calculations</a></li>
+<li><a href="#subshells">Subshells</a></li>
+<li><a href="#redirection">Redirection</a></li>
+<li><a href="#inspecting-commands">Inspecting commands</a></li>
+<li><a href="#trap-errors">Trap errors</a></li>
+<li><a href="#case-switch">Case/switch</a></li>
+<li><a href="#source-relative">Source relative</a></li>
+<li><a href="#printf">printf</a></li>
+<li><a href="#directory-of-script">Directory of script</a></li>
+<li><a href="#getting-options">Getting options</a></li>
+<li><a href="#heredoc">Heredoc</a></li>
+<li><a href="#reading-input">Reading input</a></li>
+<li><a href="#special-variables">Special variables</a></li>
+<li><a href="#go-to-previous-directory">Go to previous directory</a></li>
+<li><a href="#check-for-command-s-result">Check for command&rsquo;s result</a></li>
+<li><a href="#grep-check">Grep check</a></li>
+</ul></li>
+<li><a href="#also-see">Also see</a></li>
+</ul></li>
+</ul>
+</nav>
+</details>
+
+				<div class="post__content"><p>Bash is a popular command line shell found in Unix and MacOS operating systems.</p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<h3 id="a-basic-script">A Basic Script</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/env bash
+</span><span class="cp"></span>
+<span class="nv">NAME</span><span class="o">=</span><span class="s2">&#34;John&#34;</span>
+<span class="nb">echo</span> <span class="s2">&#34;Hello </span><span class="nv">$NAME</span><span class="s2">!&#34;</span></code></pre></div>
+<h3 id="variables">Variables</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">NAME</span><span class="o">=</span><span class="s2">&#34;John&#34;</span>
+<span class="nb">echo</span> <span class="nv">$NAME</span>
+<span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$NAME</span><span class="s2">&#34;</span>
+<span class="nb">echo</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">NAME</span><span class="si">}</span><span class="s2">!&#34;</span></code></pre></div>
+<h3 id="string-quotes">String quotes</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">NAME</span><span class="o">=</span><span class="s2">&#34;John&#34;</span>
+<span class="nb">echo</span> <span class="s2">&#34;Hi </span><span class="nv">$NAME</span><span class="s2">&#34;</span>  <span class="c1">#=&gt; Hi John</span>
+<span class="nb">echo</span> <span class="s1">&#39;Hi $NAME&#39;</span>  <span class="c1">#=&gt; Hi $NAME</span></code></pre></div>
+<h3 id="shell-execution">Shell execution</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">&#34;I&#39;m in </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&#34;</span>
+<span class="nb">echo</span> <span class="s2">&#34;I&#39;m in `pwd`&#34;</span>
+<span class="c1"># Same</span></code></pre></div>
+<p>See <a href="http://wiki.bash-hackers.org/syntax/expansion/cmdsubst">Command substitution</a></p>
+
+<h3 id="conditional-execution">Conditional execution</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git commit <span class="o">&amp;&amp;</span> git push
+git commit <span class="o">||</span> <span class="nb">echo</span> <span class="s2">&#34;Commit failed&#34;</span></code></pre></div>
+<h3 id="functions">Functions</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">get_name<span class="o">()</span> <span class="o">{</span>
+  <span class="nb">echo</span> <span class="s2">&#34;John&#34;</span>
+<span class="o">}</span>
+
+<span class="nb">echo</span> <span class="s2">&#34;You are </span><span class="k">$(</span>get_name<span class="k">)</span><span class="s2">&#34;</span></code></pre></div>
+<h3 id="conditionals">Conditionals</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">[[</span> -z <span class="s2">&#34;</span><span class="nv">$string</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34;String is empty&#34;</span>
+<span class="k">elif</span> <span class="o">[[</span> -n <span class="s2">&#34;</span><span class="nv">$string</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34;String is not empty&#34;</span>
+<span class="k">fi</span></code></pre></div>
+<p>See: <a href="#conditionals">Conditionals</a></p>
+
+<h3 id="strict-mode">Strict mode</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">set</span> -euo pipefail
+<span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\n\t&#39;</span></code></pre></div>
+<p>See: <a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/">Unofficial bash strict mode</a></p>
+
+<h3 id="brace-expansion">Brace expansion</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="o">{</span>A,B<span class="o">}</span>.js</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>{A,B}</code></td>
+<td>Same as <code>A B</code></td>
+</tr>
+
+<tr>
+<td><code>{A,B}.js</code></td>
+<td>Same as <code>A.js B.js</code></td>
+</tr>
+
+<tr>
+<td><code>{1..5}</code></td>
+<td>Same as <code>1 2 3 4 5</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>See: <a href="http://wiki.bash-hackers.org/syntax/expansion/brace">Brace expansion</a></p>
+
+<h2 id="parameter-expansions">Parameter expansions</h2>
+
+<h3 id="basics">Basics</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">name</span><span class="o">=</span><span class="s2">&#34;John&#34;</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="si">}</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="p">/J/j</span><span class="si">}</span>    <span class="c1">#=&gt; &#34;john&#34; (substitution)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">2</span><span class="si">}</span>    <span class="c1">#=&gt; &#34;Jo&#34; (slicing)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="p">::</span><span class="nv">2</span><span class="si">}</span>     <span class="c1">#=&gt; &#34;Jo&#34; (slicing)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="p">:</span><span class="k">:-</span><span class="nv">1</span><span class="si">}</span>    <span class="c1">#=&gt; &#34;Joh&#34; (slicing)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="p">:(-1)</span><span class="si">}</span>   <span class="c1">#=&gt; &#34;n&#34; (slicing from right)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="p">:(-2):</span><span class="nv">1</span><span class="si">}</span> <span class="c1">#=&gt; &#34;h&#34; (slicing from right)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">food</span><span class="k">:-</span><span class="nv">Cake</span><span class="si">}</span>  <span class="c1">#=&gt; $food or &#34;Cake&#34;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">length</span><span class="o">=</span><span class="m">2</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">length</span><span class="si">}</span>  <span class="c1">#=&gt; &#34;Jo&#34;</span></code></pre></div>
+<p>See: <a href="http://wiki.bash-hackers.org/syntax/pe">Parameter expansion</a></p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">STR</span><span class="o">=</span><span class="s2">&#34;/path/to/foo.cpp&#34;</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">STR</span><span class="p">%.cpp</span><span class="si">}</span>    <span class="c1"># /path/to/foo</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">STR</span><span class="p">%.cpp</span><span class="si">}</span>.o  <span class="c1"># /path/to/foo.o</span>
+
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">STR</span><span class="p">##*.</span><span class="si">}</span>     <span class="c1"># cpp (extension)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">STR</span><span class="p">##*/</span><span class="si">}</span>     <span class="c1"># foo.cpp (basepath)</span>
+
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">STR</span><span class="p">#*/</span><span class="si">}</span>      <span class="c1"># path/to/foo.cpp</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">STR</span><span class="p">##*/</span><span class="si">}</span>     <span class="c1"># foo.cpp</span>
+
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">STR</span><span class="p">/foo/bar</span><span class="si">}</span> <span class="c1"># /path/to/bar.cpp</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">STR</span><span class="o">=</span><span class="s2">&#34;Hello world&#34;</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">STR</span><span class="p">:</span><span class="nv">6</span><span class="p">:</span><span class="nv">5</span><span class="si">}</span>   <span class="c1"># &#34;world&#34;</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">STR</span><span class="k">:-</span><span class="nv">5</span><span class="p">:</span><span class="nv">5</span><span class="si">}</span>  <span class="c1"># &#34;world&#34;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">SRC</span><span class="o">=</span><span class="s2">&#34;/path/to/foo.cpp&#34;</span>
+<span class="nv">BASE</span><span class="o">=</span><span class="si">${</span><span class="nv">SRC</span><span class="p">##*/</span><span class="si">}</span>   <span class="c1">#=&gt; &#34;foo.cpp&#34; (basepath)</span>
+<span class="nv">DIR</span><span class="o">=</span><span class="si">${</span><span class="nv">SRC</span><span class="p">%</span><span class="nv">$BASE</span><span class="si">}</span>  <span class="c1">#=&gt; &#34;/path/to/&#34; (dirpath)</span></code></pre></div>
+<h3 id="substitution">Substitution</h3>
+
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>${FOO%suffix}</code></td>
+<td>Remove suffix</td>
+</tr>
+
+<tr>
+<td><code>${FOO#prefix}</code></td>
+<td>Remove prefix</td>
+</tr>
+
+<tr>
+<td>&mdash;</td>
+<td>&mdash;</td>
+</tr>
+
+<tr>
+<td><code>${FOO%%suffix}</code></td>
+<td>Remove long suffix</td>
+</tr>
+
+<tr>
+<td><code>${FOO##prefix}</code></td>
+<td>Remove long prefix</td>
+</tr>
+
+<tr>
+<td>&mdash;</td>
+<td>&mdash;</td>
+</tr>
+
+<tr>
+<td><code>${FOO/from/to}</code></td>
+<td>Replace first match</td>
+</tr>
+
+<tr>
+<td><code>${FOO//from/to}</code></td>
+<td>Replace all</td>
+</tr>
+
+<tr>
+<td>&mdash;</td>
+<td>&mdash;</td>
+</tr>
+
+<tr>
+<td><code>${FOO/%from/to}</code></td>
+<td>Replace suffix</td>
+</tr>
+
+<tr>
+<td><code>${FOO/#from/to}</code></td>
+<td>Replace prefix</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="comments">Comments</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Single line comment</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">: <span class="s1">&#39;
+</span><span class="s1">This is a
+</span><span class="s1">multi line
+</span><span class="s1">comment
+</span><span class="s1">&#39;</span></code></pre></div>
+<h3 id="substrings">Substrings</h3>
+
+<p>| <code>${FOO:0:3}</code> | Substring <em>(position, length)</em> |
+| <code>${FOO:-3:3}</code> | Substring from the right |</p>
+
+<h3 id="length">Length</h3>
+
+<p>| <code>${#FOO}</code> | Length of <code>$FOO</code> |</p>
+
+<h3 id="manipulation">Manipulation</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">STR</span><span class="o">=</span><span class="s2">&#34;HELLO WORLD!&#34;</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">STR</span><span class="p">,</span><span class="si">}</span>   <span class="c1">#=&gt; &#34;hELLO WORLD!&#34; (lowercase 1st letter)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">STR</span><span class="p">,,</span><span class="si">}</span>  <span class="c1">#=&gt; &#34;hello world!&#34; (all lowercase)</span>
+
+<span class="nv">STR</span><span class="o">=</span><span class="s2">&#34;hello world!&#34;</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">STR</span><span class="p">^</span><span class="si">}</span>   <span class="c1">#=&gt; &#34;Hello world!&#34; (uppercase 1st letter)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">STR</span><span class="p">^^</span><span class="si">}</span>  <span class="c1">#=&gt; &#34;HELLO WORLD!&#34; (all uppercase)</span></code></pre></div>
+<h3 id="default-values">Default values</h3>
+
+<table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>${FOO:-val}</code></td>
+<td><code>$FOO</code>, or <code>val</code> if not set</td>
+</tr>
+
+<tr>
+<td><code>${FOO:=val}</code></td>
+<td>Set <code>$FOO</code> to <code>val</code> if not set</td>
+</tr>
+
+<tr>
+<td><code>${FOO:+val}</code></td>
+<td><code>val</code> if <code>$FOO</code> is set</td>
+</tr>
+
+<tr>
+<td><code>${FOO:?message}</code></td>
+<td>Show error message and exit if <code>$FOO</code> is not set</td>
+</tr>
+</tbody>
+</table>
+
+<p>The <code>:</code> is optional (eg, <code>${FOO=word}</code> works)</p>
+
+<h2 id="loops">Loops</h2>
+
+<h3 id="basic-for-loop">Basic for loop</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">for</span> i in /etc/rc.*<span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="nv">$i</span>
+<span class="k">done</span></code></pre></div>
+<h3 id="c-like-for-loop">C-like for loop</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">for</span> <span class="o">((</span><span class="nv">i</span> <span class="o">=</span> <span class="m">0</span> <span class="p">;</span> i &lt; <span class="m">100</span> <span class="p">;</span> i++<span class="o">))</span><span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="nv">$i</span>
+<span class="k">done</span></code></pre></div>
+<h3 id="ranges">Ranges</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">for</span> i in <span class="o">{</span><span class="m">1</span>..5<span class="o">}</span><span class="p">;</span> <span class="k">do</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Welcome </span><span class="nv">$i</span><span class="s2">&#34;</span>
+<span class="k">done</span></code></pre></div>
+<h4 id="with-step-size">With step size</h4>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">for</span> i in <span class="o">{</span><span class="m">5</span>..50..5<span class="o">}</span><span class="p">;</span> <span class="k">do</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Welcome </span><span class="nv">$i</span><span class="s2">&#34;</span>
+<span class="k">done</span></code></pre></div>
+<h3 id="reading-lines">Reading lines</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">&lt; file.txt <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> line<span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="nv">$line</span>
+<span class="k">done</span></code></pre></div>
+<h3 id="forever">Forever</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">while</span> true<span class="p">;</span> <span class="k">do</span>
+  ···
+<span class="k">done</span></code></pre></div>
+<h2 id="functions-1">Functions</h2>
+
+<h3 id="defining-functions">Defining functions</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">myfunc<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&#34;hello </span><span class="nv">$1</span><span class="s2">&#34;</span>
+<span class="o">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Same as above (alternate syntax)</span>
+<span class="k">function</span> myfunc<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&#34;hello </span><span class="nv">$1</span><span class="s2">&#34;</span>
+<span class="o">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">myfunc <span class="s2">&#34;John&#34;</span></code></pre></div>
+<h3 id="returning-values">Returning values</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">myfunc<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">local</span> <span class="nv">myresult</span><span class="o">=</span><span class="s1">&#39;some value&#39;</span>
+    <span class="nb">echo</span> <span class="nv">$myresult</span>
+<span class="o">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">result</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>myfunc<span class="k">)</span><span class="s2">&#34;</span></code></pre></div>
+<h3 id="raising-errors">Raising errors</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">myfunc<span class="o">()</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="m">1</span>
+<span class="o">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">if</span> myfunc<span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34;success&#34;</span>
+<span class="k">else</span>
+  <span class="nb">echo</span> <span class="s2">&#34;failure&#34;</span>
+<span class="k">fi</span></code></pre></div>
+<h3 id="arguments">Arguments</h3>
+
+<table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>$#</code></td>
+<td>Number of arguments</td>
+</tr>
+
+<tr>
+<td><code>$*</code></td>
+<td>All arguments</td>
+</tr>
+
+<tr>
+<td><code>$@</code></td>
+<td>All arguments, starting from first</td>
+</tr>
+
+<tr>
+<td><code>$1</code></td>
+<td>First argument</td>
+</tr>
+</tbody>
+</table>
+
+<p>See <a href="http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables">Special parameters</a>.</p>
+
+<h2 id="conditionals-1">Conditionals</h2>
+
+<h3 id="conditions">Conditions</h3>
+
+<p>Note that <code>[[</code> is actually a command/program that returns either <code>0</code> (true) or <code>1</code> (false). Any program that obeys the same logic (like all base utils, such as <code>grep(1)</code> or <code>ping(1)</code>) can be used as condition, see examples.</p>
+
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>[[ -z STRING ]]</code></td>
+<td>Empty string</td>
+</tr>
+
+<tr>
+<td><code>[[ -n STRING ]]</code></td>
+<td>Not empty string</td>
+</tr>
+
+<tr>
+<td><code>[[ STRING == STRING ]]</code></td>
+<td>Equal</td>
+</tr>
+
+<tr>
+<td><code>[[ STRING != STRING ]]</code></td>
+<td>Not Equal</td>
+</tr>
+
+<tr>
+<td>&mdash;</td>
+<td>&mdash;</td>
+</tr>
+
+<tr>
+<td><code>[[ NUM -eq NUM ]]</code></td>
+<td>Equal</td>
+</tr>
+
+<tr>
+<td><code>[[ NUM -ne NUM ]]</code></td>
+<td>Not equal</td>
+</tr>
+
+<tr>
+<td><code>[[ NUM -lt NUM ]]</code></td>
+<td>Less than</td>
+</tr>
+
+<tr>
+<td><code>[[ NUM -le NUM ]]</code></td>
+<td>Less than or equal</td>
+</tr>
+
+<tr>
+<td><code>[[ NUM -gt NUM ]]</code></td>
+<td>Greater than</td>
+</tr>
+
+<tr>
+<td><code>[[ NUM -ge NUM ]]</code></td>
+<td>Greater than or equal</td>
+</tr>
+
+<tr>
+<td>&mdash;</td>
+<td>&mdash;</td>
+</tr>
+
+<tr>
+<td><code>[[ STRING =~ STRING ]]</code></td>
+<td>Regexp</td>
+</tr>
+
+<tr>
+<td>&mdash;</td>
+<td>&mdash;</td>
+</tr>
+
+<tr>
+<td><code>(( NUM &lt; NUM ))</code></td>
+<td>Numeric conditions</td>
+</tr>
+
+<tr>
+<td>&mdash;</td>
+<td>&mdash;</td>
+</tr>
+
+<tr>
+<td><code>[[ -o noclobber ]]</code></td>
+<td>If OPTIONNAME is enabled</td>
+</tr>
+
+<tr>
+<td>&mdash;</td>
+<td>&mdash;</td>
+</tr>
+
+<tr>
+<td><code>[[ ! EXPR ]]</code></td>
+<td>Not</td>
+</tr>
+
+<tr>
+<td><code>[[ X ]] &amp;&amp; [[ Y ]]</code></td>
+<td>And</td>
+</tr>
+
+<tr>
+<td>`[[ X ]]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="file-conditions">File conditions</h3>
+
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>[[ -e FILE ]]</code></td>
+<td>Exists</td>
+</tr>
+
+<tr>
+<td><code>[[ -r FILE ]]</code></td>
+<td>Readable</td>
+</tr>
+
+<tr>
+<td><code>[[ -h FILE ]]</code></td>
+<td>Symlink</td>
+</tr>
+
+<tr>
+<td><code>[[ -d FILE ]]</code></td>
+<td>Directory</td>
+</tr>
+
+<tr>
+<td><code>[[ -w FILE ]]</code></td>
+<td>Writable</td>
+</tr>
+
+<tr>
+<td><code>[[ -s FILE ]]</code></td>
+<td>Size is &gt; 0 bytes</td>
+</tr>
+
+<tr>
+<td><code>[[ -f FILE ]]</code></td>
+<td>File</td>
+</tr>
+
+<tr>
+<td><code>[[ -x FILE ]]</code></td>
+<td>Executable</td>
+</tr>
+
+<tr>
+<td>&mdash;</td>
+<td>&mdash;</td>
+</tr>
+
+<tr>
+<td><code>[[ FILE1 -nt FILE2 ]]</code></td>
+<td>1 is more recent than 2</td>
+</tr>
+
+<tr>
+<td><code>[[ FILE1 -ot FILE2 ]]</code></td>
+<td>2 is more recent than 1</td>
+</tr>
+
+<tr>
+<td><code>[[ FILE1 -ef FILE2 ]]</code></td>
+<td>Same files</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="example">Example</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># String</span>
+<span class="k">if</span> <span class="o">[[</span> -z <span class="s2">&#34;</span><span class="nv">$string</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34;String is empty&#34;</span>
+<span class="k">elif</span> <span class="o">[[</span> -n <span class="s2">&#34;</span><span class="nv">$string</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34;String is not empty&#34;</span>
+<span class="k">fi</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Combinations</span>
+<span class="k">if</span> <span class="o">[[</span> X <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">[[</span> Y <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  ...
+<span class="k">fi</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Equal</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$A</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;</span><span class="nv">$B</span><span class="s2">&#34;</span> <span class="o">]]</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Regex</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;A&#34;</span> <span class="o">=</span>~ <span class="s2">&#34;.&#34;</span> <span class="o">]]</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">((</span> <span class="nv">$a</span> &lt; <span class="nv">$b</span> <span class="o">))</span><span class="p">;</span> <span class="k">then</span>
+   <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$a</span><span class="s2"> is smaller than </span><span class="nv">$b</span><span class="s2">&#34;</span>
+<span class="k">fi</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">[[</span> -e <span class="s2">&#34;file.txt&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34;file exists&#34;</span>
+<span class="k">fi</span></code></pre></div>
+<h2 id="arrays">Arrays</h2>
+
+<h3 id="defining-arrays">Defining arrays</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">Fruits</span><span class="o">=(</span><span class="s1">&#39;Apple&#39;</span> <span class="s1">&#39;Banana&#39;</span> <span class="s1">&#39;Orange&#39;</span><span class="o">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">Fruits<span class="o">[</span><span class="m">0</span><span class="o">]=</span><span class="s2">&#34;Apple&#34;</span>
+Fruits<span class="o">[</span><span class="m">1</span><span class="o">]=</span><span class="s2">&#34;Banana&#34;</span>
+Fruits<span class="o">[</span><span class="m">2</span><span class="o">]=</span><span class="s2">&#34;Orange&#34;</span></code></pre></div>
+<h3 id="working-with-arrays">Working with arrays</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="si">${</span><span class="nv">Fruits</span><span class="p">[0]</span><span class="si">}</span>           <span class="c1"># Element #0</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">Fruits</span><span class="p">[@]</span><span class="si">}</span>           <span class="c1"># All elements, space-separated</span>
+<span class="nb">echo</span> <span class="si">${#</span><span class="nv">Fruits</span><span class="p">[@]</span><span class="si">}</span>          <span class="c1"># Number of elements</span>
+<span class="nb">echo</span> <span class="si">${#</span><span class="nv">Fruits</span><span class="si">}</span>             <span class="c1"># String length of the 1st element</span>
+<span class="nb">echo</span> <span class="si">${#</span><span class="nv">Fruits</span><span class="p">[3]</span><span class="si">}</span>          <span class="c1"># String length of the Nth element</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">Fruits</span><span class="p">[@]:</span><span class="nv">3</span><span class="p">:</span><span class="nv">2</span><span class="si">}</span>       <span class="c1"># Range (from position 3, length 2)</span></code></pre></div>
+<h3 id="operations">Operations</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">Fruits</span><span class="o">=(</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">Fruits</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;Watermelon&#34;</span><span class="o">)</span>    <span class="c1"># Push</span>
+<span class="nv">Fruits</span><span class="o">+=(</span><span class="s1">&#39;Watermelon&#39;</span><span class="o">)</span>                  <span class="c1"># Also Push</span>
+<span class="nv">Fruits</span><span class="o">=(</span> <span class="si">${</span><span class="nv">Fruits</span><span class="p">[@]/Ap*/</span><span class="si">}</span> <span class="o">)</span>            <span class="c1"># Remove by regex match</span>
+<span class="nb">unset</span> Fruits<span class="o">[</span><span class="m">2</span><span class="o">]</span>                         <span class="c1"># Remove one item</span>
+<span class="nv">Fruits</span><span class="o">=(</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">Fruits</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="o">)</span>                 <span class="c1"># Duplicate</span>
+<span class="nv">Fruits</span><span class="o">=(</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">Fruits</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">Veggies</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="o">)</span> <span class="c1"># Concatenate</span>
+<span class="nv">lines</span><span class="o">=(</span><span class="sb">`</span>cat <span class="s2">&#34;logfile&#34;</span><span class="sb">`</span><span class="o">)</span>                 <span class="c1"># Read from file</span></code></pre></div>
+<h3 id="iteration">Iteration</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">for</span> i in <span class="s2">&#34;</span><span class="si">${</span><span class="nv">arrayName</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="nv">$i</span>
+<span class="k">done</span></code></pre></div>
+<h2 id="dictionaries">Dictionaries</h2>
+
+<h3 id="defining">Defining</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">declare</span> -A sounds</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sounds<span class="o">[</span>dog<span class="o">]=</span><span class="s2">&#34;bark&#34;</span>
+sounds<span class="o">[</span>cow<span class="o">]=</span><span class="s2">&#34;moo&#34;</span>
+sounds<span class="o">[</span>bird<span class="o">]=</span><span class="s2">&#34;tweet&#34;</span>
+sounds<span class="o">[</span>wolf<span class="o">]=</span><span class="s2">&#34;howl&#34;</span></code></pre></div>
+<p>Declares <code>sound</code> as a Dictionary object (aka associative array).</p>
+
+<h3 id="working-with-dictionaries">Working with dictionaries</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="si">${</span><span class="nv">sounds</span><span class="p">[dog]</span><span class="si">}</span> <span class="c1"># Dog&#39;s sound</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">sounds</span><span class="p">[@]</span><span class="si">}</span>   <span class="c1"># All values</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="p">!sounds[@]</span><span class="si">}</span>  <span class="c1"># All keys</span>
+<span class="nb">echo</span> <span class="si">${#</span><span class="nv">sounds</span><span class="p">[@]</span><span class="si">}</span>  <span class="c1"># Number of elements</span>
+<span class="nb">unset</span> sounds<span class="o">[</span>dog<span class="o">]</span>   <span class="c1"># Delete dog</span></code></pre></div>
+<h3 id="iteration-1">Iteration</h3>
+
+<h4 id="iterate-over-values">Iterate over values</h4>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">for</span> val in <span class="s2">&#34;</span><span class="si">${</span><span class="nv">sounds</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="nv">$val</span>
+<span class="k">done</span></code></pre></div>
+<h4 id="iterate-over-keys">Iterate over keys</h4>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">for</span> key in <span class="s2">&#34;</span><span class="si">${</span><span class="p">!sounds[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="nv">$key</span>
+<span class="k">done</span></code></pre></div>
+<h2 id="options">Options</h2>
+
+<h3 id="options-1">Options</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">set</span> -o noclobber  <span class="c1"># Avoid overlay files (echo &#34;hi&#34; &gt; foo)</span>
+<span class="nb">set</span> -o errexit    <span class="c1"># Used to exit upon error, avoiding cascading errors</span>
+<span class="nb">set</span> -o pipefail   <span class="c1"># Unveils hidden failures</span>
+<span class="nb">set</span> -o nounset    <span class="c1"># Exposes unset variables</span></code></pre></div>
+<h3 id="glob-options">Glob options</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">set</span> -o nullglob    <span class="c1"># Non-matching globs are removed  (&#39;*.foo&#39; =&gt; &#39;&#39;)</span>
+<span class="nb">set</span> -o failglob    <span class="c1"># Non-matching globs throw errors</span>
+<span class="nb">set</span> -o nocaseglob  <span class="c1"># Case insensitive globs</span>
+<span class="nb">set</span> -o globdots    <span class="c1"># Wildcards match dotfiles (&#34;*.sh&#34; =&gt; &#34;.foo.sh&#34;)</span>
+<span class="nb">set</span> -o globstar    <span class="c1"># Allow ** for recursive matches (&#39;lib/**/*.rb&#39; =&gt; &#39;lib/a/b/c.rb&#39;)</span></code></pre></div>
+<p>Set <code>GLOBIGNORE</code> as a colon-separated list of patterns to be removed from glob
+matches.</p>
+
+<h2 id="history">History</h2>
+
+<h3 id="commands">Commands</h3>
+
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>history</code></td>
+<td>Show history</td>
+</tr>
+
+<tr>
+<td><code>shopt -s histverify</code></td>
+<td>Don&rsquo;t execute expanded result immediately</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="expansions">Expansions</h3>
+
+<table>
+<thead>
+<tr>
+<th>Sequence</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>!$</code></td>
+<td>Expand last parameter of most recent command</td>
+</tr>
+
+<tr>
+<td><code>!*</code></td>
+<td>Expand all parameters of most recent command</td>
+</tr>
+
+<tr>
+<td><code>!-n</code></td>
+<td>Expand <code>n</code>th most recent command</td>
+</tr>
+
+<tr>
+<td><code>!n</code></td>
+<td>Expand <code>n</code>th command in history</td>
+</tr>
+
+<tr>
+<td><code>!&lt;command&gt;</code></td>
+<td>Expand most recent invocation of command <code>&lt;command&gt;</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="operations-1">Operations</h3>
+
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>!!</code></td>
+<td>Execute last command again</td>
+</tr>
+
+<tr>
+<td><code>!!:s/&lt;FROM&gt;/&lt;TO&gt;/</code></td>
+<td>Replace first occurrence of <code>&lt;FROM&gt;</code> to <code>&lt;TO&gt;</code> in most recent command</td>
+</tr>
+
+<tr>
+<td><code>!!:gs/&lt;FROM&gt;/&lt;TO&gt;/</code></td>
+<td>Replace all occurrences of <code>&lt;FROM&gt;</code> to <code>&lt;TO&gt;</code> in most recent command</td>
+</tr>
+
+<tr>
+<td><code>!$:t</code></td>
+<td>Expand only basename from last parameter of most recent command</td>
+</tr>
+
+<tr>
+<td><code>!$:h</code></td>
+<td>Expand only directory from last parameter of most recent command</td>
+</tr>
+</tbody>
+</table>
+
+<p><code>!!</code> and <code>!$</code> can be replaced with any valid expansion.</p>
+
+<h3 id="slices">Slices</h3>
+
+<table>
+<thead>
+<tr>
+<th>Sequence</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>!!:n</code></td>
+<td>Expand only <code>n</code>th token from most recent command (command is <code>0</code>; first argument is <code>1</code>)</td>
+</tr>
+
+<tr>
+<td><code>!^</code></td>
+<td>Expand first argument from most recent command</td>
+</tr>
+
+<tr>
+<td><code>!$</code></td>
+<td>Expand last token from most recent command</td>
+</tr>
+
+<tr>
+<td><code>!!:n-m</code></td>
+<td>Expand range of tokens from most recent command</td>
+</tr>
+
+<tr>
+<td><code>!!:n-$</code></td>
+<td>Expand <code>n</code>th token to last from most recent command</td>
+</tr>
+</tbody>
+</table>
+
+<p><code>!!</code> can be replaced with any valid expansion i.e. <code>!cat</code>, <code>!-2</code>, <code>!42</code>, etc.</p>
+
+<h2 id="miscellaneous">Miscellaneous</h2>
+
+<h3 id="numeric-calculations">Numeric calculations</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">$((</span>a <span class="o">+</span> <span class="m">200</span><span class="k">))</span>      <span class="c1"># Add 200 to $a</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">$((</span>RANDOM%<span class="o">=</span><span class="m">200</span><span class="k">))</span>  <span class="c1"># Random number 0..200</span></code></pre></div>
+<h3 id="subshells">Subshells</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">(</span><span class="nb">cd</span> somedir<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&#34;I&#39;m now in </span><span class="nv">$PWD</span><span class="s2">&#34;</span><span class="o">)</span>
+<span class="nb">pwd</span> <span class="c1"># still in first directory</span></code></pre></div>
+<h3 id="redirection">Redirection</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">python hello.py &gt; output.txt   <span class="c1"># stdout to (file)</span>
+python hello.py &gt;&gt; output.txt  <span class="c1"># stdout to (file), append</span>
+python hello.py <span class="m">2</span>&gt; error.log   <span class="c1"># stderr to (file)</span>
+python hello.py <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>           <span class="c1"># stderr to stdout</span>
+python hello.py <span class="m">2</span>&gt;/dev/null    <span class="c1"># stderr to (null)</span>
+python hello.py <span class="p">&amp;</span>&gt;/dev/null    <span class="c1"># stdout and stderr to (null)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">python hello.py &lt; foo.txt      <span class="c1"># feed foo.txt to stdin for python</span></code></pre></div>
+<h3 id="inspecting-commands">Inspecting commands</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">command</span> -V <span class="nb">cd</span>
+<span class="c1">#=&gt; &#34;cd is a function/alias/whatever&#34;</span></code></pre></div>
+<h3 id="trap-errors">Trap errors</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">trap</span> <span class="s1">&#39;echo Error at about $LINENO&#39;</span> ERR</code></pre></div>
+<p>or</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">traperr<span class="o">()</span> <span class="o">{</span>
+  <span class="nb">echo</span> <span class="s2">&#34;ERROR: </span><span class="si">${</span><span class="nv">BASH_SOURCE</span><span class="p">[1]</span><span class="si">}</span><span class="s2"> at about </span><span class="si">${</span><span class="nv">BASH_LINENO</span><span class="p">[0]</span><span class="si">}</span><span class="s2">&#34;</span>
+<span class="o">}</span>
+
+<span class="nb">set</span> -o errtrace
+<span class="nb">trap</span> traperr ERR</code></pre></div>
+<h3 id="case-switch">Case/switch</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">case</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> in
+  start <span class="p">|</span> up<span class="o">)</span>
+    vagrant up
+    <span class="p">;;</span>
+
+  *<span class="o">)</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Usage: </span><span class="nv">$0</span><span class="s2"> {start|stop|ssh}&#34;</span>
+    <span class="p">;;</span>
+<span class="k">esac</span></code></pre></div>
+<h3 id="source-relative">Source relative</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">source</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">0</span><span class="p">%/*</span><span class="si">}</span><span class="s2">/../share/foo.sh&#34;</span></code></pre></div>
+<h3 id="printf">printf</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">printf</span> <span class="s2">&#34;Hello %s, I&#39;m %s&#34;</span> Sven Olga
+<span class="c1">#=&gt; &#34;Hello Sven, I&#39;m Olga</span>
+
+<span class="nb">printf</span> <span class="s2">&#34;1 + 1 = %d&#34;</span> <span class="m">2</span>
+<span class="c1">#=&gt; &#34;1 + 1 = 2&#34;</span>
+
+<span class="nb">printf</span> <span class="s2">&#34;This is how you print a float: %f&#34;</span> <span class="m">2</span>
+<span class="c1">#=&gt; &#34;This is how you print a float: 2.000000&#34;</span></code></pre></div>
+<h3 id="directory-of-script">Directory of script</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">0</span><span class="p">%/*</span><span class="si">}</span><span class="s2">&#34;</span></code></pre></div>
+<h3 id="getting-options">Getting options</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">while</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">=</span>~ ^- <span class="o">&amp;&amp;</span> ! <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;--&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">do</span> <span class="k">case</span> <span class="nv">$1</span> in
+  -V <span class="p">|</span> --version <span class="o">)</span>
+    <span class="nb">echo</span> <span class="nv">$version</span>
+    <span class="nb">exit</span>
+    <span class="p">;;</span>
+  -s <span class="p">|</span> --string <span class="o">)</span>
+    shift<span class="p">;</span> <span class="nv">string</span><span class="o">=</span><span class="nv">$1</span>
+    <span class="p">;;</span>
+  -f <span class="p">|</span> --flag <span class="o">)</span>
+    <span class="nv">flag</span><span class="o">=</span><span class="m">1</span>
+    <span class="p">;;</span>
+<span class="k">esac</span><span class="p">;</span> shift<span class="p">;</span> <span class="k">done</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s1">&#39;--&#39;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span> shift<span class="p">;</span> <span class="k">fi</span></code></pre></div>
+<h3 id="heredoc">Heredoc</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">cat <span class="s">&lt;&lt;END
+</span><span class="s">hello world
+</span><span class="s">END</span></code></pre></div>
+<h3 id="reading-input">Reading input</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> -n <span class="s2">&#34;Proceed? [y/n]: &#34;</span>
+<span class="nb">read</span> ans
+<span class="nb">echo</span> <span class="nv">$ans</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">read</span> -n <span class="m">1</span> ans    <span class="c1"># Just one character</span></code></pre></div>
+<h3 id="special-variables">Special variables</h3>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>$?</code></td>
+<td>Exit status of last task</td>
+</tr>
+
+<tr>
+<td><code>$!</code></td>
+<td>PID of last background task</td>
+</tr>
+
+<tr>
+<td><code>$$</code></td>
+<td>PID of shell</td>
+</tr>
+
+<tr>
+<td><code>$0</code></td>
+<td>Filename of the shell script</td>
+</tr>
+</tbody>
+</table>
+
+<p>See <a href="http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables">Special parameters</a>.</p>
+
+<h3 id="go-to-previous-directory">Go to previous directory</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">pwd</span> <span class="c1"># /home/user/foo</span>
+<span class="nb">cd</span> bar/
+<span class="nb">pwd</span> <span class="c1"># /home/user/foo/bar</span>
+<span class="nb">cd</span> -
+<span class="nb">pwd</span> <span class="c1"># /home/user/foo</span></code></pre></div>
+<h3 id="check-for-command-s-result">Check for command&rsquo;s result</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">if</span> ping -c <span class="m">1</span> google.com<span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34;It appears you have a working internet connection&#34;</span>
+<span class="k">fi</span></code></pre></div>
+<h3 id="grep-check">Grep check</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">if</span> grep -q <span class="s1">&#39;foo&#39;</span> ~/.bash_history<span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34;You appear to have typed &#39;foo&#39; in the past&#34;</span>
+<span class="k">fi</span></code></pre></div>
+<h2 id="also-see">Also see</h2>
+
+<ul>
+<li><a href="http://wiki.bash-hackers.org/">Bash-hackers wiki</a> <em>(bash-hackers.org)</em></li>
+<li><a href="http://wiki.bash-hackers.org/syntax/shellvars">Shell vars</a> <em>(bash-hackers.org)</em></li>
+<li><a href="https://learnxinyminutes.com/docs/bash/">Learn bash in y minutes</a> <em>(learnxinyminutes.com)</em></li>
+<li><a href="http://mywiki.wooledge.org/BashGuide">Bash Guide</a> <em>(mywiki.wooledge.org)</em></li>
+<li><a href="https://www.shellcheck.net/">ShellCheck</a> <em>(shellcheck.net)</em></li>
+</ul></div>
+				
+				<footer class="post__footer">
+					
+					
+				</footer>
+				
+			</article>
+		</div>
+    </main>
+    
+
+<div class="tags block">
+    <h3 class="tags__title">Tags</h3>
+    <div class="post__tags">
+                <a class="post__tag btn" href="/tags/bash/">bash</a>
+                <a class="post__tag btn" href="/tags/shell/">shell</a>
+                <a class="post__tag btn" href="/tags/cli/">cli</a>
+    </div>
+</div>
+
+	
+	
+
+
+
+<div class="related block">
+	<h3 class="related__title">Related</h3>
+	<ul class="related__list">
+		
+		<li class="related__item"><a class="related__link" href="/cheat/cron/">Cron</a></li>
+		
+		<li class="related__item"><a class="related__link" href="/cheat/homebrew/">Homebrew</a></li>
+		
+	</ul>
+</div>
+
+	
+
+	</div>
+	<footer class="footer">
+<div class="footer__social social">
+		<a class="social__link" target="_blank" rel="noopener noreferrer" href="mailto:drmikeh@gmail.com">
+			<svg class="social__icon" aria-label="Email" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M299 268l124 106c-4 4-10 7-17 7H106c-7 0-13-3-17-7l124-106 43 38 43-38zm-43 13L89 138c4-4 10-7 17-7h300c7 0 13 3 17 7L256 281zm54-23l121-105v208L310 258zM81 153l121 105L81 361V153z"/></svg>
+		</a>
+		<a class="social__link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/drmikeh">
+			<svg class="social__icon" aria-label="Twitter" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M437 152a72 72 0 0 1-40 12 72 72 0 0 0 32-40 72 72 0 0 1-45 17 72 72 0 0 0-122 65 200 200 0 0 1-145-74 72 72 0 0 0 22 94 72 72 0 0 1-32-7 72 72 0 0 0 56 69 72 72 0 0 1-32 1 72 72 0 0 0 67 50 200 200 0 0 1-105 29 200 200 0 0 0 309-179 200 200 0 0 0 35-37"/></svg>
+		</a>
+		<a class="social__link" target="_blank" rel="noopener noreferrer" href="https://www.pinterest.com/drmikeh2297">
+			<svg class="social__icon" aria-label="Pinterest" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="m265 65c-104 0-157 75-157 138 0 37 14 71 45 83 5 2 10 0 12-5l3-18c2-6 1-7-2-12-9-11-15-24-15-43 0-56 41-106 108-106 60 0 92 37 92 85 0 64-28 116-70 116-23 0-40-18-34-42 6-27 19-57 19-77 0-18-9-34-30-34-24 0-42 25-42 58 0 20 7 34 7 34l-29 120a249 249 0 0 0 2 86l3-1c2-3 31-37 40-72l16-61c7 15 29 28 53 28 71 0 119-64 119-151 0-66-56-126-140-126z"/></svg>
+		</a>
+		<a class="social__link" target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/drmikehopper">
+			<svg class="social__icon" aria-label="LinkedIn" role="img" width="32" height="32" viewBox="0 0 512 512"><circle cx="142" cy="138" r="37"/><path stroke-width="66" d="M244 194v198M142 194v198"/><path d="M276 282c0-20 13-40 36-40 24 0 33 18 33 45v105h66V279c0-61-32-89-76-89-34 0-51 19-59 32"/></svg>
+		</a>
+		<a class="social__link" target="_blank" rel="noopener noreferrer" href="https://github.com/drmikeh">
+			<svg class="social__icon" aria-label="Github" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg>
+		</a>
+</div>
+	<div class="footer__copyright">© 2019 Cheats and Recipes. <span class="footer__copyright-credits">Powered by <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/vimux/binario" rel="nofollow noopener" target="_blank">Binario</a> theme.</span></div>
+</footer>
+<script src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+</body>
+</html>

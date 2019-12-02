@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#1b1b1b">
+	<title>Express RESTful API Server | Cheats and Recipes</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Express RESTful API Server with Knex and PostgreSQL and deployed to PCF.">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/dracula.css">
+	<link rel="stylesheet" href="/css/custom.css">
+	<link rel="icon" href="/icons/16.png" sizes="16x16" type="image/png">
+	<link rel="icon" href="/icons/32.png" sizes="32x32" type="image/png">
+		
+</head>
+<body>
+	<header class="header">
+	<a class="logo" href="/">Cheats and Recipes</a>
+	
+<nav class="main-nav" role="navigation">
+	<button id="toggle" class="main-nav__btn" aria-label="Menu toggle" aria-expanded="false" tabindex="0">
+		<div class="main-nav__btn-box" tabindex="-1">
+			<svg class="main-nav__icon icon-menu" width="18" height="18" viewBox="0 0 18 18">
+				<path class="icon-menu__burger" d="M18 0v3.6H0V0h18zM0 10.8h18V7.2H0v3.6zM0 18h18v-3.6H0V18z"/>
+				<path class="icon-menu__x" d="M11.55 9L18 15.45 15.45 18 9 11.55 2.55 18 0 15.45 6.45 9 0 2.55 2.55 0 9 6.45 15.45 0 18 2.55 11.55 9z"/>
+			</svg>
+		</div>
+	</button>
+	<ul id="menu" class="main-nav__list">
+			<li class="main-nav__item">
+				<a class="main-nav__link" href="/about/">
+					
+					<span class="main-nav__text">About Hugo</span>
+					
+				</a>
+			</li>
+	</ul>
+</nav>
+</header>
+	<div class="primary">
+	
+	<main class="main">
+		<div class="single block">
+			<article class="post">
+				<h1 class="post__title">Express RESTful API Server</h1>
+<details class="post__toc toc" >
+	<summary class="toc__title">Table of Contents</summary>
+	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#using-the-express-application-generator">Using the Express Application Generator</a></li>
+<li><a href="#adding-additional-libraries">Adding Additional Libraries</a></li>
+<li><a href="#example-package-json">Example <code>package.json</code></a></li>
+<li><a href="#example-app-js">Example <code>app.js</code></a></li>
+<li><a href="#creating-the-knexfile-js-configuration-file">Creating the <code>knexfile.js</code> configuration file.</a>
+<ul>
+<li><a href="#sample-knexfile-js">Sample <code>knexfile.js</code></a></li>
+<li><a href="#sample-env-file">Sample <code>.env</code> file</a></li>
+</ul></li>
+<li><a href="#an-example-knex-migration-script">An Example Knex Migration Script</a></li>
+<li><a href="#example-knex-database-connecction-file">Example Knex Database Connecction File</a></li>
+<li><a href="#a-generic-knex-model-factory">A Generic Knex Model Factory</a></li>
+<li><a href="#example-model-using-create-model">Example Model using <code>create-model</code></a></li>
+<li><a href="#exporting-all-model-files-programmatically">Exporting all Model Files Programmatically</a></li>
+<li><a href="#example-routes-file">Example Routes File</a></li>
+<li><a href="#tests-for-example-routes-file">Tests for Example Routes File</a></li>
+<li><a href="#pcf-deployment">PCF Deployment</a>
+<ul>
+<li><a href="#sample-manifest-yml-file">Sample <code>manifest.yml</code> file</a></li>
+<li><a href="#sample-cfignore-file">Sample <code>.cfignore</code> file</a></li>
+<li><a href="#login-to-pcf-and-push-server">Login to PCF and push server</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+</details>
+
+				<div class="post__content"><p>Express RESTful API Server with Knex and PostgreSQL and deployed to PCF.</p>
+
+<h2 id="using-the-express-application-generator">Using the Express Application Generator</h2>
+
+<p>You can scaffold a new Express project with the <a href="https://expressjs.com/en/starter/generator.html">express application generator</a>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npx express-generator --no-view --git &lt;app-name&gt;
+<span class="nb">cd</span> &lt;app-name&gt;
+yarn                <span class="c1"># or run `npm install`</span></code></pre></div>
+<h2 id="adding-additional-libraries">Adding Additional Libraries</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">yarn add cfenv          <span class="c1"># for reading PCF environment variables</span>
+yarn add dotenv         <span class="c1"># for reading variables from a `.env` file</span>
+yarn add pg             <span class="c1"># for connecting to a PostgreSQL database</span>
+yarn add morgan         <span class="c1"># for enhanced logging to console</span>
+yarn add cors           <span class="c1"># for configuring CORS support</span>
+yarn add jest           <span class="c1"># test runner and assertion library</span>
+yarn add jest-extended  <span class="c1"># additional assertions for jest</span>
+yarn add supertest      <span class="c1"># for testing RESTful API endpoints</span></code></pre></div>
+<h2 id="example-package-json">Example <code>package.json</code></h2>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;my-server&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.0.0&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;private&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&#34;scripts&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;start&#34;</span><span class="p">:</span> <span class="s2">&#34;NODE_ENV=production node ./bin/www&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;dev&#34;</span><span class="p">:</span> <span class="s2">&#34;NODE_ENV=development PORT=3002 DEBUG=my-server:* nodemon --inspect ./bin/www&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;migrate&#34;</span><span class="p">:</span> <span class="s2">&#34;knex migrate:latest&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;seed&#34;</span><span class="p">:</span> <span class="s2">&#34;knex seed:run&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;db-reset&#34;</span><span class="p">:</span> <span class="s2">&#34;knex migrate:rollback all &amp;&amp; yarn migrate &amp;&amp; yarn seed &amp;&amp; psql -d todos -f set-sequence.sql&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;db-reset-prod&#34;</span><span class="p">:</span> <span class="s2">&#34;knex --env production migrate:rollback all &amp;&amp; knex --env production migrate:latest &amp;&amp; knex --env production seed:run&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;db-verify&#34;</span><span class="p">:</span> <span class="s2">&#34;psql -d todos -f verify.sql&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;db-verify-prod&#34;</span><span class="p">:</span> <span class="s2">&#34;psql -h ld00228 -U todoapp -d todoapp -f verify.sql&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;model-tester&#34;</span><span class="p">:</span> <span class="s2">&#34;NODE_ENV=test jest --testPathPattern=\&#34;models/.*\\.test\\.js\&#34;&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;route-tester&#34;</span><span class="p">:</span> <span class="s2">&#34;NODE_ENV=test PORT=3004 jest --testPathPattern=\&#34;routes/.*\\.test\\.js\&#34;&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;test&#34;</span><span class="p">:</span> <span class="s2">&#34;yarn model-tester &amp;&amp; yarn route-tester&#34;</span>
+    <span class="p">},</span>
+    <span class="nt">&#34;dependencies&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;cfenv&#34;</span><span class="p">:</span> <span class="s2">&#34;1.2.2&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;cookie-parser&#34;</span><span class="p">:</span> <span class="s2">&#34;~1.4.3&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;cors&#34;</span><span class="p">:</span> <span class="s2">&#34;2.8.5&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;debug&#34;</span><span class="p">:</span> <span class="s2">&#34;~2.6.9&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;dotenv&#34;</span><span class="p">:</span> <span class="s2">&#34;8.2.0&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;express&#34;</span><span class="p">:</span> <span class="s2">&#34;~4.16.0&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;knex&#34;</span><span class="p">:</span> <span class="s2">&#34;0.19.5&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;morgan&#34;</span><span class="p">:</span> <span class="s2">&#34;~1.9.0&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;pg&#34;</span><span class="p">:</span> <span class="s2">&#34;7.12.1&#34;</span>
+    <span class="p">},</span>
+    <span class="nt">&#34;devDependencies&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;jest&#34;</span><span class="p">:</span> <span class="s2">&#34;^24.9.0&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;jest-extended&#34;</span><span class="p">:</span> <span class="s2">&#34;^0.11.2&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;supertest&#34;</span><span class="p">:</span> <span class="s2">&#34;^4.0.2&#34;</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<h2 id="example-app-js">Example <code>app.js</code></h2>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">cors</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;cors&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">cookieParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;cookie-parser&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;body-parser&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">logger</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;morgan&#39;</span><span class="p">)</span>
+
+<span class="kr">const</span> <span class="nx">indexRouter</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./routes/index&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">usersRouter</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./routes/users&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">todosRouter</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./routes/todos&#39;</span><span class="p">)</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">()</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+    <span class="nx">cors</span><span class="p">({</span>
+        <span class="nx">origin</span><span class="o">:</span> <span class="sr">/homedepot\.com$/</span><span class="p">,</span>
+        <span class="nx">optionsSuccessStatus</span><span class="o">:</span> <span class="mi">200</span> <span class="c1">// some legacy browsers (IE11, various SmartTVs) choke on 204
+</span><span class="c1"></span>    <span class="p">})</span>
+<span class="p">)</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">())</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">!==</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">logger</span><span class="p">(</span><span class="s1">&#39;dev&#39;</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span> <span class="nx">extended</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}))</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">cookieParser</span><span class="p">())</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">indexRouter</span><span class="p">)</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">,</span> <span class="nx">usersRouter</span><span class="p">)</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/todos&#39;</span><span class="p">,</span> <span class="nx">todosRouter</span><span class="p">)</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">app</span>
+</code></pre></div>
+<h2 id="creating-the-knexfile-js-configuration-file">Creating the <code>knexfile.js</code> configuration file.</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">knex init</code></pre></div>
+<h3 id="sample-knexfile-js">Sample <code>knexfile.js</code></h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">cfenv</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;cfenv&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">debug</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;debug&#39;</span><span class="p">)(</span><span class="s1">&#39;my-server&#39;</span><span class="p">)</span>
+
+<span class="kr">const</span> <span class="nx">appEnv</span> <span class="o">=</span> <span class="nx">cfenv</span><span class="p">.</span><span class="nx">getAppEnv</span><span class="p">()</span>
+<span class="kr">const</span> <span class="nx">credentials</span> <span class="o">=</span> <span class="nx">appEnv</span><span class="p">.</span><span class="nx">getServiceCreds</span><span class="p">(</span><span class="s1">&#39;my-server-db&#39;</span><span class="p">)</span>
+
+<span class="c1">// console.log(&#39;credentials:&#39;, JSON.stringify(credentials, null, 4));
+</span><span class="c1"></span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">development</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">client</span><span class="o">:</span> <span class="s1">&#39;postgresql&#39;</span><span class="p">,</span>
+        <span class="nx">connection</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
+            <span class="nx">database</span><span class="o">:</span> <span class="s1">&#39;todos&#39;</span><span class="p">,</span>
+            <span class="nx">charset</span><span class="o">:</span> <span class="s1">&#39;utf8&#39;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="nx">production</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">client</span><span class="o">:</span> <span class="s1">&#39;postgresql&#39;</span><span class="p">,</span>
+        <span class="nx">connection</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">host</span><span class="o">:</span> <span class="nx">credentials</span> <span class="o">?</span> <span class="nx">credentials</span><span class="p">.</span><span class="nx">host</span> <span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DB_HOST</span><span class="p">,</span>
+            <span class="nx">database</span><span class="o">:</span> <span class="nx">credentials</span> <span class="o">?</span> <span class="nx">credentials</span><span class="p">.</span><span class="nx">database</span> <span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DB_NAME</span><span class="p">,</span>
+            <span class="nx">user</span><span class="o">:</span> <span class="nx">credentials</span> <span class="o">?</span> <span class="nx">credentials</span><span class="p">.</span><span class="nx">user</span> <span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DB_USER</span><span class="p">,</span>
+            <span class="nx">password</span><span class="o">:</span> <span class="nx">credentials</span>
+                <span class="o">?</span> <span class="nx">credentials</span><span class="p">.</span><span class="nx">password</span>
+                <span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DB_PASSWORD</span>
+        <span class="p">},</span>
+        <span class="nx">pool</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">min</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="nx">max</span><span class="o">:</span> <span class="mi">10</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="sample-env-file">Sample <code>.env</code> file</h3>
+
+<pre><code>DB_HOST=&lt;hostname&gt;.homedepot.com
+DB_NAME=&lt;db_name&gt;
+DB_USER=&lt;db_user_name&gt;
+DB_PASSWORD=&lt;db_password&gt;
+</code></pre>
+
+<h2 id="an-example-knex-migration-script">An Example Knex Migration Script</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">knex migrate:make create_todos</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// migrations/20191021101030_create_todos.js
+</span><span class="c1"></span><span class="nx">exports</span><span class="p">.</span><span class="nx">up</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">knex</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">knex</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">hasTable</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">exists</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">exists</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">knex</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">createTable</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">table</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">table</span>
+                    <span class="p">.</span><span class="nx">increments</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+                    <span class="p">.</span><span class="nx">primary</span><span class="p">()</span>
+                    <span class="p">.</span><span class="nx">comment</span><span class="p">(</span><span class="s1">&#39;Auto-generated id&#39;</span><span class="p">)</span>
+                <span class="nx">table</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>
+                <span class="nx">table</span><span class="p">.</span><span class="kr">boolean</span><span class="p">(</span><span class="s1">&#39;completed&#39;</span><span class="p">)</span>
+                <span class="nx">table</span><span class="p">.</span><span class="nx">timestamps</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+            <span class="p">})</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">down</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">knex</span><span class="p">,</span> <span class="nb">Promise</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">knex</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">dropTableIfExists</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="example-knex-database-connecction-file">Example Knex Database Connecction File</h2>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="s1">&#39;use strict&#39;</span>
+
+<span class="kr">const</span> <span class="nx">env</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">||</span> <span class="s1">&#39;development&#39;</span>
+<span class="kr">const</span> <span class="nx">knexfile</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../knexfile&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">knex</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;knex&#39;</span><span class="p">)(</span><span class="nx">knexfile</span><span class="p">[</span><span class="nx">env</span><span class="p">])</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">knex</span>
+</code></pre></div>
+<h2 id="a-generic-knex-model-factory">A Generic Knex Model Factory</h2>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// helpers/create-model.js
+</span><span class="c1"></span><span class="s1">&#39;use strict&#39;</span>
+
+<span class="c1">// The guts of a model that uses Knexjs to store and retrieve data from a
+</span><span class="c1">// database using the provided `knex` instance. Custom functionality can be
+</span><span class="c1">// composed on top of this set of common guts.
+</span><span class="c1">//
+</span><span class="c1">// The idea is that these are the most-used types of functions that most/all
+</span><span class="c1">// &#34;models&#34; will want to have. They can be overriden/modified/extended if
+</span><span class="c1">// needed by composing a new object out of the one returned by this function ;)
+</span><span class="c1"></span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">({</span>
+    <span class="nx">knex</span><span class="p">,</span>
+    <span class="nx">name</span><span class="p">,</span>
+    <span class="nx">tableName</span><span class="p">,</span>
+    <span class="nx">selectableProps</span><span class="p">,</span>
+    <span class="nx">sortArray</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="nx">timeout</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">create</span> <span class="o">=</span> <span class="nx">props</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">delete</span> <span class="nx">props</span><span class="p">.</span><span class="nx">id</span> <span class="c1">// not allowed to set `id`
+</span><span class="c1"></span>
+        <span class="k">return</span> <span class="nx">knex</span>
+            <span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">returning</span><span class="p">(</span><span class="nx">selectableProps</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">into</span><span class="p">(</span><span class="nx">tableName</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">timeout</span><span class="p">(</span><span class="nx">timeout</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kr">const</span> <span class="nx">findAll</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span>
+        <span class="nx">knex</span>
+            <span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="nx">selectableProps</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">tableName</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">modify</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">queryBuilder</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">sortArray</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(({</span> <span class="nx">field</span><span class="p">,</span> <span class="nx">direction</span> <span class="p">})</span> <span class="p">=&gt;</span>
+                    <span class="nx">queryBuilder</span><span class="p">.</span><span class="nx">orderBy</span><span class="p">(</span><span class="nx">field</span><span class="p">,</span> <span class="nx">direction</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">})</span>
+            <span class="p">.</span><span class="nx">orderBy</span><span class="p">(</span><span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;asc&#39;</span><span class="p">)</span> <span class="c1">// TODO: make configurable
+</span><span class="c1"></span>            <span class="p">.</span><span class="nx">timeout</span><span class="p">(</span><span class="nx">timeout</span><span class="p">)</span>
+
+    <span class="kr">const</span> <span class="nx">find</span> <span class="o">=</span> <span class="nx">filters</span> <span class="p">=&gt;</span>
+        <span class="nx">knex</span>
+            <span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="nx">selectableProps</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">tableName</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">where</span><span class="p">(</span><span class="nx">filters</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">timeout</span><span class="p">(</span><span class="nx">timeout</span><span class="p">)</span>
+
+    <span class="c1">// Same as `find` but only returns the first match if &gt;1 are found.
+</span><span class="c1"></span>    <span class="kr">const</span> <span class="nx">findOne</span> <span class="o">=</span> <span class="nx">filters</span> <span class="p">=&gt;</span>
+        <span class="nx">find</span><span class="p">(</span><span class="nx">filters</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">results</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">results</span><span class="p">))</span> <span class="k">return</span> <span class="nx">results</span>
+
+            <span class="k">return</span> <span class="nx">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="p">})</span>
+
+    <span class="kr">const</span> <span class="nx">findById</span> <span class="o">=</span> <span class="nx">id</span> <span class="p">=&gt;</span>
+        <span class="nx">knex</span>
+            <span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="nx">selectableProps</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">tableName</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">where</span><span class="p">({</span> <span class="nx">id</span> <span class="p">})</span>
+            <span class="p">.</span><span class="nx">timeout</span><span class="p">(</span><span class="nx">timeout</span><span class="p">)</span>
+
+    <span class="kr">const</span> <span class="nx">update</span> <span class="o">=</span> <span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">props</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">delete</span> <span class="nx">props</span><span class="p">.</span><span class="nx">id</span> <span class="c1">// not allowed to set `id`
+</span><span class="c1"></span>
+        <span class="k">return</span> <span class="nx">knex</span>
+            <span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">tableName</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">where</span><span class="p">({</span> <span class="nx">id</span> <span class="p">})</span>
+            <span class="p">.</span><span class="nx">returning</span><span class="p">(</span><span class="nx">selectableProps</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">timeout</span><span class="p">(</span><span class="nx">timeout</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kr">const</span> <span class="nx">destroy</span> <span class="o">=</span> <span class="nx">id</span> <span class="p">=&gt;</span>
+        <span class="nx">knex</span>
+            <span class="p">.</span><span class="nx">del</span><span class="p">()</span>
+            <span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">tableName</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">where</span><span class="p">({</span> <span class="nx">id</span> <span class="p">})</span>
+            <span class="p">.</span><span class="nx">timeout</span><span class="p">(</span><span class="nx">timeout</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="p">,</span>
+        <span class="nx">tableName</span><span class="p">,</span>
+        <span class="nx">selectableProps</span><span class="p">,</span>
+        <span class="nx">timeout</span><span class="p">,</span>
+        <span class="nx">create</span><span class="p">,</span>
+        <span class="nx">findAll</span><span class="p">,</span>
+        <span class="nx">find</span><span class="p">,</span>
+        <span class="nx">findOne</span><span class="p">,</span>
+        <span class="nx">findById</span><span class="p">,</span>
+        <span class="nx">update</span><span class="p">,</span>
+        <span class="nx">destroy</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="example-model-using-create-model">Example Model using <code>create-model</code></h2>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// models/todo.js
+</span><span class="c1"></span><span class="s1">&#39;use strict&#39;</span>
+
+<span class="kr">const</span> <span class="nx">createModel</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../helpers/create-model&#39;</span><span class="p">)</span>
+
+<span class="kr">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;Todo&#39;</span>
+<span class="kr">const</span> <span class="nx">tableName</span> <span class="o">=</span> <span class="s1">&#39;todos&#39;</span>
+
+<span class="kr">const</span> <span class="nx">selectableProps</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;completed&#39;</span><span class="p">,</span> <span class="s1">&#39;updated_at&#39;</span><span class="p">,</span> <span class="s1">&#39;created_at&#39;</span><span class="p">]</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">knex</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">model</span> <span class="o">=</span> <span class="nx">createModel</span><span class="p">({</span>
+        <span class="nx">knex</span><span class="p">,</span>
+        <span class="nx">name</span><span class="p">,</span>
+        <span class="nx">tableName</span><span class="p">,</span>
+        <span class="nx">selectableProps</span><span class="p">,</span>
+        <span class="nx">sortArray</span><span class="o">:</span> <span class="p">[{</span> <span class="nx">field</span><span class="o">:</span> <span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="nx">direction</span><span class="o">:</span> <span class="s1">&#39;asc&#39;</span> <span class="p">}]</span>
+    <span class="p">})</span>
+
+    <span class="k">return</span> <span class="nx">model</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="exporting-all-model-files-programmatically">Exporting all Model Files Programmatically</h2>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// models/index.js
+</span><span class="c1"></span><span class="s1">&#39;use strict&#39;</span>
+
+<span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">knex</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../config/database&#39;</span><span class="p">)</span>
+
+<span class="kr">const</span> <span class="nx">getModelFiles</span> <span class="o">=</span> <span class="nx">dir</span> <span class="p">=&gt;</span>
+    <span class="nx">fs</span>
+        <span class="p">.</span><span class="nx">readdirSync</span><span class="p">(</span><span class="nx">dir</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">file</span> <span class="p">=&gt;</span> <span class="nx">file</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">file</span> <span class="o">!==</span> <span class="s1">&#39;index.js&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">file</span> <span class="p">=&gt;</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">dir</span><span class="p">,</span> <span class="nx">file</span><span class="p">))</span>
+
+<span class="c1">// Gather up all model files (i.e., any file present in the current directory
+</span><span class="c1">// that is not this file) and export them as properties of an object such that
+</span><span class="c1">// they may be imported using destructuring like
+</span><span class="c1">// `const { MyModel } = require(&#39;./models&#39;)` where there is a model named
+</span><span class="c1">// `MyModel` present in the exported object of gathered models.
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">files</span> <span class="o">=</span> <span class="nx">getModelFiles</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">)</span>
+
+<span class="kr">const</span> <span class="nx">models</span> <span class="o">=</span> <span class="nx">files</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">modelsObj</span><span class="p">,</span> <span class="nx">filename</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">initModel</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
+    <span class="kr">const</span> <span class="nx">model</span> <span class="o">=</span> <span class="nx">initModel</span><span class="p">(</span><span class="nx">knex</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">model</span><span class="p">)</span> <span class="nx">modelsObj</span><span class="p">[</span><span class="nx">model</span><span class="p">.</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">model</span>
+
+    <span class="k">return</span> <span class="nx">modelsObj</span>
+<span class="p">},</span> <span class="p">{})</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">models</span>
+</code></pre></div>
+<h2 id="example-routes-file">Example Routes File</h2>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// routes/todos.js
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="p">{</span> <span class="nx">Todo</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../models&#39;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">router</span> <span class="o">=</span> <span class="nx">express</span><span class="p">.</span><span class="nx">Router</span><span class="p">()</span>
+
+<span class="nx">router</span>
+    <span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">addTodo</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">getTodos</span><span class="p">)</span>
+
+<span class="nx">router</span>
+    <span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">&#39;/:id&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">getTodo</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">updateTodo</span><span class="p">)</span>
+    <span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">deleteTodo</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="nx">getTodos</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Todo</span><span class="p">.</span><span class="nx">findAll</span><span class="p">()</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">todos</span> <span class="p">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">todos</span><span class="p">))</span>
+        <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">getTodo</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">todoId</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span>
+
+    <span class="nx">Todo</span><span class="p">.</span><span class="nx">findById</span><span class="p">(</span><span class="nx">todoId</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">todo</span> <span class="p">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">todo</span><span class="p">))</span>
+        <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">addTodo</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">props</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span>
+
+    <span class="nx">Todo</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">todos</span> <span class="p">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">todos</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">updateTodo</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">todoId</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span>
+    <span class="kr">const</span> <span class="nx">props</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span>
+
+    <span class="nx">Todo</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">todoId</span><span class="p">,</span> <span class="nx">props</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">todos</span> <span class="p">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">todos</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">deleteTodo</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">todoId</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span>
+
+    <span class="nx">Todo</span><span class="p">.</span><span class="nx">destroy</span><span class="p">(</span><span class="nx">todoId</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">deleteCount</span> <span class="p">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">deleteCount</span><span class="p">))</span>
+        <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">router</span>
+</code></pre></div>
+<h2 id="tests-for-example-routes-file">Tests for Example Routes File</h2>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// routes/todos.test.js
+</span><span class="c1"></span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jest-extended&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">supertest</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;supertest&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">TodosErrors</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../models/TodosErrors&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="s1">&#39;3000&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">supertest</span><span class="p">(</span><span class="sb">`localhost:</span><span class="si">${</span><span class="nx">port</span><span class="si">}</span><span class="sb">/api/todos`</span><span class="p">);</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Todos Routes&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+
+    <span class="kd">let</span> <span class="nx">server</span><span class="p">;</span>
+    <span class="nx">beforeAll</span><span class="p">(</span><span class="nx">next</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">server</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../bin/www&#39;</span><span class="p">);</span>
+        <span class="nx">next</span><span class="p">();</span>
+    <span class="p">});</span>
+    <span class="nx">afterAll</span><span class="p">(</span><span class="nx">next</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">server</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+        <span class="nx">next</span><span class="p">();</span>
+    <span class="p">});</span>
+
+    <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;INDEX ROUTE&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return a 200 response and return 3 todos each having a title&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="kr">const</span> <span class="nx">todos</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todos</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">();</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todos</span><span class="p">).</span><span class="nx">toBeArray</span><span class="p">();</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todos</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todos</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Learn Redux&#39;</span><span class="p">);</span>
+                    <span class="nx">todos</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">todo</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                        <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">);</span>
+                    <span class="p">});</span>
+                    <span class="nx">done</span><span class="p">();</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+                <span class="p">});</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+
+    <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;SHOW ROUTE&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return a 404 response when given an invalid id&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/123&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">notFound</span><span class="p">.</span><span class="nx">code</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="kr">const</span> <span class="nx">error</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">();</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">notFound</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+                    <span class="nx">done</span><span class="p">();</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+                <span class="p">});</span>
+        <span class="p">});</span>
+        <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return a 200 response and return Learn Redux when given the proper id&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/2&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="kr">const</span> <span class="nx">todo</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">();</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Learn Redux&#39;</span><span class="p">);</span>
+                    <span class="nx">done</span><span class="p">();</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+                <span class="p">});</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+
+    <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;CREATE ROUTE&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return a 422 response and return an error message when given an empty title&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">api</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">send</span><span class="p">({</span>
+                    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">invalidTitle</span><span class="p">.</span><span class="nx">code</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="kr">const</span> <span class="nx">error</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">invalidTitle</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+                    <span class="nx">done</span><span class="p">();</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+                <span class="p">});</span>
+        <span class="p">});</span>
+        <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return the new todo when given a valid title and default the completed status to false&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">api</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">send</span><span class="p">({</span>
+                    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Learn TDD&#39;</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">201</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="kr">const</span> <span class="nx">todo</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">();</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Learn TDD&#39;</span><span class="p">);</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;completed&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+                    <span class="nx">done</span><span class="p">();</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+                <span class="p">});</span>
+        <span class="p">});</span>
+        <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return the new todo when given a valid title and a completed status of true&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">api</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">send</span><span class="p">({</span>
+                    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Learn TDD&#39;</span><span class="p">,</span>
+                    <span class="nx">completed</span><span class="o">:</span> <span class="kc">true</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">201</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="kr">const</span> <span class="nx">todo</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">();</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Learn TDD&#39;</span><span class="p">);</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;completed&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+                    <span class="nx">done</span><span class="p">();</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+                <span class="p">});</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+
+    <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;UPDATE ROUTE&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return a 404 response and when given an invalid id&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">api</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">&#39;/123&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">send</span><span class="p">({</span>
+                    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Learn go&#39;</span><span class="p">,</span>
+                    <span class="nx">completed</span><span class="o">:</span> <span class="kc">false</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">notFound</span><span class="p">.</span><span class="nx">code</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="kr">const</span> <span class="nx">error</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">();</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">notFound</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+                    <span class="nx">done</span><span class="p">();</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+                <span class="p">});</span>
+        <span class="p">});</span>
+        <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return a 422 response and return an error message when given an empty title&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">api</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">&#39;/2&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">send</span><span class="p">({</span>
+                    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                    <span class="nx">completed</span><span class="o">:</span> <span class="kc">true</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">invalidTitle</span><span class="p">.</span><span class="nx">code</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="kr">const</span> <span class="nx">error</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">invalidTitle</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+                    <span class="nx">done</span><span class="p">();</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+                <span class="p">});</span>
+        <span class="p">});</span>
+        <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return a 200 response and return the updated todo when given a valid title&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">api</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">&#39;/2&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">send</span><span class="p">({</span>
+                    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Learn go&#39;</span><span class="p">,</span>
+                    <span class="nx">completed</span><span class="o">:</span> <span class="kc">true</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="kr">const</span> <span class="nx">todo</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">();</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Learn go&#39;</span><span class="p">);</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;completed&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+                    <span class="nx">done</span><span class="p">();</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+                <span class="p">});</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+
+    <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;destroyTodo&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return a 404 response when given an invalid id&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">api</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">&#39;/123&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">notFound</span><span class="p">.</span><span class="nx">code</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="kr">const</span> <span class="nx">error</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">();</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">notFound</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+                    <span class="nx">done</span><span class="p">();</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+                <span class="p">});</span>
+        <span class="p">});</span>
+        <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return the deleted todo when given a valid id&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">api</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">&#39;/3&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="kr">const</span> <span class="nx">todo</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">();</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Learn GraphQL&#39;</span><span class="p">);</span>
+                    <span class="nx">done</span><span class="p">();</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+                <span class="p">});</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+<h2 id="pcf-deployment">PCF Deployment</h2>
+
+<h3 id="sample-manifest-yml-file">Sample <code>manifest.yml</code> file</h3>
+<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml">---<span class="w">
+</span><span class="w"></span>applications<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>my-server<span class="w">
+</span><span class="w">      </span>command<span class="p">:</span><span class="w"> </span>npm<span class="w"> </span>start<span class="w">
+</span><span class="w">      </span>buildpack<span class="p">:</span><span class="w"> </span>https<span class="p">:</span>//github.com/cloudfoundry/nodejs-buildpack</code></pre></div>
+<h3 id="sample-cfignore-file">Sample <code>.cfignore</code> file</h3>
+
+<pre><code>node_modules
+</code></pre>
+
+<h3 id="login-to-pcf-and-push-server">Login to PCF and push server</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">cf login -a https://api.run-np.homedepot.com -u &lt;ldap-user-id&gt; -o &lt;org-name&gt; -s &lt;space-name&gt;
+cf push
+open https://login.run-np.homedepot.com   <span class="c1"># To open PCF Apps Manager - login with LDAP credentials</span></code></pre></div></div>
+				
+				<footer class="post__footer">
+					
+					
+				</footer>
+				
+			</article>
+		</div>
+    </main>
+    
+
+<div class="tags block">
+    <h3 class="tags__title">Tags</h3>
+    <div class="post__tags">
+                <a class="post__tag btn" href="/tags/express/">express</a>
+                <a class="post__tag btn" href="/tags/javascript/">javascript</a>
+                <a class="post__tag btn" href="/tags/server/">server</a>
+                <a class="post__tag btn" href="/tags/rest/">rest</a>
+                <a class="post__tag btn" href="/tags/api/">api</a>
+                <a class="post__tag btn" href="/tags/library/">library</a>
+                <a class="post__tag btn" href="/tags/framework/">framework</a>
+    </div>
+</div>
+
+	
+<div class="authorbox block">
+    <h3>Author</h3>
+	<div class="author">
+		<figure class="author__avatar">
+			<img class="author__img" alt="Dr. Mike Hopper avatar" src="/img/avatar.jpg" height="90" width="90">
+		</figure>
+		<div class="author__body">
+			<div class="author__name">
+				Dr. Mike Hopper
+			</div>
+			<div class="author__bio">Software Architect, Engineer, and Instructor</div>
+		</div>
+	</div>
+</div>
+	
+
+
+
+<div class="related block">
+	<h3 class="related__title">Related</h3>
+	<ul class="related__list">
+		
+		<li class="related__item"><a class="related__link" href="/cheat/react/">React</a></li>
+		
+		<li class="related__item"><a class="related__link" href="/cheat/react-router/">React Router</a></li>
+		
+		<li class="related__item"><a class="related__link" href="/cheat/knex/">Knex</a></li>
+		
+		<li class="related__item"><a class="related__link" href="/cheat/functional-javascript/">Functional JavaScript</a></li>
+		
+		<li class="related__item"><a class="related__link" href="/cheat/es-2015/">ES2015&#43;</a></li>
+		
+	</ul>
+</div>
+
+	
+
+	</div>
+	<footer class="footer">
+<div class="footer__social social">
+		<a class="social__link" target="_blank" rel="noopener noreferrer" href="mailto:drmikeh@gmail.com">
+			<svg class="social__icon" aria-label="Email" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M299 268l124 106c-4 4-10 7-17 7H106c-7 0-13-3-17-7l124-106 43 38 43-38zm-43 13L89 138c4-4 10-7 17-7h300c7 0 13 3 17 7L256 281zm54-23l121-105v208L310 258zM81 153l121 105L81 361V153z"/></svg>
+		</a>
+		<a class="social__link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/drmikeh">
+			<svg class="social__icon" aria-label="Twitter" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M437 152a72 72 0 0 1-40 12 72 72 0 0 0 32-40 72 72 0 0 1-45 17 72 72 0 0 0-122 65 200 200 0 0 1-145-74 72 72 0 0 0 22 94 72 72 0 0 1-32-7 72 72 0 0 0 56 69 72 72 0 0 1-32 1 72 72 0 0 0 67 50 200 200 0 0 1-105 29 200 200 0 0 0 309-179 200 200 0 0 0 35-37"/></svg>
+		</a>
+		<a class="social__link" target="_blank" rel="noopener noreferrer" href="https://www.pinterest.com/drmikeh2297">
+			<svg class="social__icon" aria-label="Pinterest" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="m265 65c-104 0-157 75-157 138 0 37 14 71 45 83 5 2 10 0 12-5l3-18c2-6 1-7-2-12-9-11-15-24-15-43 0-56 41-106 108-106 60 0 92 37 92 85 0 64-28 116-70 116-23 0-40-18-34-42 6-27 19-57 19-77 0-18-9-34-30-34-24 0-42 25-42 58 0 20 7 34 7 34l-29 120a249 249 0 0 0 2 86l3-1c2-3 31-37 40-72l16-61c7 15 29 28 53 28 71 0 119-64 119-151 0-66-56-126-140-126z"/></svg>
+		</a>
+		<a class="social__link" target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/drmikehopper">
+			<svg class="social__icon" aria-label="LinkedIn" role="img" width="32" height="32" viewBox="0 0 512 512"><circle cx="142" cy="138" r="37"/><path stroke-width="66" d="M244 194v198M142 194v198"/><path d="M276 282c0-20 13-40 36-40 24 0 33 18 33 45v105h66V279c0-61-32-89-76-89-34 0-51 19-59 32"/></svg>
+		</a>
+		<a class="social__link" target="_blank" rel="noopener noreferrer" href="https://github.com/drmikeh">
+			<svg class="social__icon" aria-label="Github" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg>
+		</a>
+</div>
+	<div class="footer__copyright">© 2019 Cheats and Recipes. <span class="footer__copyright-credits">Powered by <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/vimux/binario" rel="nofollow noopener" target="_blank">Binario</a> theme.</span></div>
+</footer>
+<script src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+</body>
+</html>

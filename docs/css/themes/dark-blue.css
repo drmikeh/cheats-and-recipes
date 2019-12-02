@@ -1,0 +1,74 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: #77baff;
+}
+
+code {
+	color: #77baff;
+}
+
+th {
+	color: #77baff;
+}
+
+.toc__title:focus {
+	outline: rgba(119, 186, 255, 0.3) auto 1px;
+}
+
+.highlight {
+	color: #77baff;
+}
+
+.copy-code-button {
+	color: #272822;
+	background-color: #77baff;
+	border-color: #272822;
+}
+
+.copy-code-button:hover {
+	color: white;
+	background-color: #5080a0;
+	border-color: #272822;
+}
+
+.copy-code-button:focus {
+	color: white;
+	/* Avoid an ugly focus outline on click in Chrome,
+       but darken the button for accessibility.
+       See https://stackoverflow.com/a/25298082/1481479 */
+	background-color: #5080a0;
+	outline: 0;
+}
+
+a {
+	color: #77baff;
+}
+
+blockquote {
+	border-color: #77baff;
+}
+
+mark {
+	background-color: #77baff;
+}
+
+.logo:hover {
+	color: #77baff;
+}
+
+.main-nav__btn {
+	fill: #77baff;
+}
+
+.toc {
+	color: #77baff;
+}
+
+.share__icon {
+	fill: #77baff;
+	stroke: #77baff;
+}
