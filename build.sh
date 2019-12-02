@@ -1,3 +1,3 @@
 #!/bin/bash
 
-hugo && rm -rf docs && mv public docs
+rm -rf public && hugo && rm -rf docs && mv public docs

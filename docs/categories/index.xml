@@ -2,102 +2,102 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Cheats and Recipes</title>
-    <link>http://example.org/categories/</link>
+    <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/</link>
     <description>Recent content in Categories on Cheats and Recipes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 24 Nov 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>javascript</title>
-      <link>http://example.org/categories/javascript/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/javascript/</link>
       <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/categories/javascript/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cli</title>
-      <link>http://example.org/categories/cli/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/cli/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/categories/cli/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/cli/</guid>
       <description></description>
     </item>
     
     <item>
       <title>css</title>
-      <link>http://example.org/categories/css/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/css/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/categories/css/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/css/</guid>
       <description></description>
     </item>
     
     <item>
       <title>database</title>
-      <link>http://example.org/categories/database/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/database/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/categories/database/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/database/</guid>
       <description></description>
     </item>
     
     <item>
       <title>express</title>
-      <link>http://example.org/categories/express/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/express/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/categories/express/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/express/</guid>
       <description></description>
     </item>
     
     <item>
       <title>flexbox</title>
-      <link>http://example.org/categories/flexbox/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/flexbox/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/categories/flexbox/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/flexbox/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go</title>
-      <link>http://example.org/categories/go/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/go/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/categories/go/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>NodeJS</title>
-      <link>http://example.org/categories/nodejs/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/nodejs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/categories/nodejs/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/nodejs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>other</title>
-      <link>http://example.org/categories/other/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/other/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/categories/other/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/other/</guid>
       <description></description>
     </item>
     
     <item>
       <title>react</title>
-      <link>http://example.org/categories/react/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/react/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/categories/react/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/react/</guid>
       <description></description>
     </item>
     

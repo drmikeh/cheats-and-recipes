@@ -2,336 +2,336 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Cheats and Recipes</title>
-    <link>http://example.org/tags/</link>
+    <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/</link>
     <description>Recent content in Tags on Cheats and Recipes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 24 Nov 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>functional programming</title>
-      <link>http://example.org/tags/functional-programming/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/functional-programming/</link>
       <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/functional-programming/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/functional-programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>javascript</title>
-      <link>http://example.org/tags/javascript/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/javascript/</link>
       <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/javascript/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>api</title>
-      <link>http://example.org/tags/api/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/api/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/api/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Array</title>
-      <link>http://example.org/tags/array/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/array/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/array/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/array/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bash</title>
-      <link>http://example.org/tags/bash/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/bash/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/bash/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/bash/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cli</title>
-      <link>http://example.org/tags/cli/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cli/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/cli/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cli/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cron</title>
-      <link>http://example.org/tags/cron/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cron/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/cron/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cron/</guid>
       <description></description>
     </item>
     
     <item>
       <title>css</title>
-      <link>http://example.org/tags/css/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/css/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/css/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/css/</guid>
       <description></description>
     </item>
     
     <item>
       <title>database</title>
-      <link>http://example.org/tags/database/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/database/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/database/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/database/</guid>
       <description></description>
     </item>
     
     <item>
       <title>date</title>
-      <link>http://example.org/tags/date/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/date/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/date/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/date/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ES-2015</title>
-      <link>http://example.org/tags/es-2015/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/es-2015/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/es-2015/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/es-2015/</guid>
       <description></description>
     </item>
     
     <item>
       <title>express</title>
-      <link>http://example.org/tags/express/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/express/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/express/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/express/</guid>
       <description></description>
     </item>
     
     <item>
       <title>flexbox</title>
-      <link>http://example.org/tags/flexbox/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/flexbox/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/flexbox/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/flexbox/</guid>
       <description></description>
     </item>
     
     <item>
       <title>framework</title>
-      <link>http://example.org/tags/framework/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/framework/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/framework/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/framework/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go</title>
-      <link>http://example.org/tags/go/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/go/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/go/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>golang</title>
-      <link>http://example.org/tags/golang/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/golang/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/golang/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>grid</title>
-      <link>http://example.org/tags/grid/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/grid/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/grid/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/grid/</guid>
       <description></description>
     </item>
     
     <item>
       <title>homebrew</title>
-      <link>http://example.org/tags/homebrew/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/homebrew/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/homebrew/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/homebrew/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jsdoc</title>
-      <link>http://example.org/tags/jsdoc/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/jsdoc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/jsdoc/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/jsdoc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>knex</title>
-      <link>http://example.org/tags/knex/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/knex/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/knex/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/knex/</guid>
       <description></description>
     </item>
     
     <item>
       <title>language</title>
-      <link>http://example.org/tags/language/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/language/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/language/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/language/</guid>
       <description></description>
     </item>
     
     <item>
       <title>layout</title>
-      <link>http://example.org/tags/layout/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/layout/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/layout/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/layout/</guid>
       <description></description>
     </item>
     
     <item>
       <title>library</title>
-      <link>http://example.org/tags/library/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/library/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/library/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/library/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MacOS</title>
-      <link>http://example.org/tags/macos/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/macos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/macos/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/macos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>NodeJS</title>
-      <link>http://example.org/tags/nodejs/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/nodejs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/nodejs/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/nodejs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>other</title>
-      <link>http://example.org/tags/other/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/other/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/other/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/other/</guid>
       <description></description>
     </item>
     
     <item>
       <title>PostgreSQL</title>
-      <link>http://example.org/tags/postgresql/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/postgresql/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/postgresql/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/postgresql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>promises</title>
-      <link>http://example.org/tags/promises/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/promises/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/promises/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/promises/</guid>
       <description></description>
     </item>
     
     <item>
       <title>react</title>
-      <link>http://example.org/tags/react/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/react/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/react/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/react/</guid>
       <description></description>
     </item>
     
     <item>
       <title>regex</title>
-      <link>http://example.org/tags/regex/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/regex/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/regex/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/regex/</guid>
       <description></description>
     </item>
     
     <item>
       <title>rest</title>
-      <link>http://example.org/tags/rest/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/rest/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/rest/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/rest/</guid>
       <description></description>
     </item>
     
     <item>
       <title>router</title>
-      <link>http://example.org/tags/router/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/router/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/router/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/router/</guid>
       <description></description>
     </item>
     
     <item>
       <title>server</title>
-      <link>http://example.org/tags/server/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/server/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/server/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/server/</guid>
       <description></description>
     </item>
     
     <item>
       <title>shell</title>
-      <link>http://example.org/tags/shell/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/shell/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/shell/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/shell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>styling</title>
-      <link>http://example.org/tags/styling/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/styling/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/styling/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/styling/</guid>
       <description></description>
     </item>
     
     <item>
       <title>web</title>
-      <link>http://example.org/tags/web/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/web/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/web/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/web/</guid>
       <description></description>
     </item>
     

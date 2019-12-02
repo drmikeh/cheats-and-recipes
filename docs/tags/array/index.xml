@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Array on Cheats and Recipes</title>
-    <link>http://example.org/tags/array/</link>
+    <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/array/</link>
     <description>Recent content in Array on Cheats and Recipes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="http://example.org/tags/array/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/array/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>JavaScript Modern Array Methods</title>
-      <link>http://example.org/cheat/js-array-methods/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/js-array-methods/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/cheat/js-array-methods/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/js-array-methods/</guid>
       <description>&lt;p&gt;Array methods are a powerful way to iterate over an array to create a new Array or value.&lt;/p&gt;</description>
     </item>
     

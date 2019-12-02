@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>react on Cheats and Recipes</title>
-    <link>http://example.org/categories/react/</link>
+    <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/react/</link>
     <description>Recent content in react on Cheats and Recipes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="http://example.org/categories/react/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/react/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>React</title>
-      <link>http://example.org/cheat/react/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/react/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/cheat/react/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/react/</guid>
       <description>&lt;p&gt;React.js is a declarative, component based JavaScript library for building user interfaces.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>React Router</title>
-      <link>http://example.org/cheat/react-router/</link>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/react-router/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/cheat/react-router/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/react-router/</guid>
       <description>&lt;p&gt;React Router is a dynamic, distributed router for React.js.&lt;/p&gt;</description>
     </item>
     
