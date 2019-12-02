@@ -1,6 +1,7 @@
 baseURL = "https://pages.github.homedepot.com/mah3093/cheats-and-recipes/"
 title = "Cheats and Recipes"
 languageCode = "en-us"
+buildDrafts = false
 paginate = 12
 theme = "binario"
 pygmentsCodefences = true
