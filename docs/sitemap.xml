@@ -72,6 +72,14 @@
   </url>
   
   <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/cloud/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cloud/</loc>
+  </url>
+  
+  <url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/cron/</loc>
   </url>
   
@@ -100,11 +108,11 @@
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/database/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/database/</loc>
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/database/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/database/</loc>
   </url>
   
   <url>
@@ -120,11 +128,11 @@
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/express/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/express/</loc>
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/express/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/express/</loc>
   </url>
   
   <url>
@@ -136,11 +144,11 @@
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/flexbox/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/flexbox/</loc>
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/flexbox/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/flexbox/</loc>
   </url>
   
   <url>
@@ -232,11 +240,23 @@
   </url>
   
   <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/other/</loc>
+  </url>
+  
+  <url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/other/</loc>
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/other/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/pcf/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/pcf/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/pivotal-cloud-foundry/</loc>
   </url>
   
   <url>
