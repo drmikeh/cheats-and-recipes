@@ -81,10 +81,10 @@ When the left is partial (eg, `1.2`), missing pieces are assumed to be `0` (eg, 
 
 ### Combining ranges
 
-| Range              | Description           |
-| ------------------ | --------------------- |
-| `>=0.14 <16`       | And (space-separated) |
-| `0.14.x || 15.x.x` | Or (pipe-separated)   |
+| Range                      | Description           |
+| -------------------------- | --------------------- |
+| `>=0.14 <16`               | And (space-separated) |
+| 0.14.x &#124;&#124; 15.x.x | Or (pipe-separated)   |
 
 ### Pre-releases
 
