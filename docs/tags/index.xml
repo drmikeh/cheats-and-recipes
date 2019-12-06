@@ -57,6 +57,15 @@
     </item>
     
     <item>
+      <title>ci/cd</title>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/ci/cd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/ci/cd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>cli</title>
       <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cli/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -71,6 +80,24 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloud foundry</title>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cloud-foundry/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cloud-foundry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>concourse</title>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/concourse/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/concourse/</guid>
       <description></description>
     </item>
     
@@ -134,6 +161,15 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/flexbox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fly</title>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/fly/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/fly/</guid>
       <description></description>
     </item>
     
@@ -264,11 +300,11 @@
     </item>
     
     <item>
-      <title>pivotal cloud foundry</title>
-      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/pivotal-cloud-foundry/</link>
+      <title>pivotal</title>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/pivotal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/pivotal-cloud-foundry/</guid>
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/pivotal/</guid>
       <description></description>
     </item>
     

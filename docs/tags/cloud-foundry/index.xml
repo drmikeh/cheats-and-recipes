@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>pivotal cloud foundry on Cheats and Recipes</title>
-    <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/pivotal-cloud-foundry/</link>
-    <description>Recent content in pivotal cloud foundry on Cheats and Recipes</description>
+    <title>cloud foundry on Cheats and Recipes</title>
+    <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cloud-foundry/</link>
+    <description>Recent content in cloud foundry on Cheats and Recipes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/pivotal-cloud-foundry/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cloud-foundry/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -16,7 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/pcf/</guid>
-      <description>&lt;p&gt;PCF is a application PaaS (Platform as a Service) cloud platform.&lt;/p&gt;</description>
+      <description>&lt;p&gt;PCF is an application PaaS (Platform as a Service) cloud platform.&lt;/p&gt;</description>
     </item>
     
   </channel>

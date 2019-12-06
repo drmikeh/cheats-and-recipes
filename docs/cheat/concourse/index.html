@@ -5,15 +5,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#1b1b1b">
-	<title>Tags | Cheats and Recipes</title>
+	<title>Pivotal Concourse | Cheats and Recipes</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	<meta name="description" content="">
+	<meta name="description" content="Cheat sheet for Pivotal Concourse">
 	<link rel="stylesheet" href="/mah3093/cheats-and-recipes/css/main.css">
 	<link rel="stylesheet" href="/mah3093/cheats-and-recipes/css/dracula.css">
 	<link rel="stylesheet" href="/mah3093/cheats-and-recipes/css/custom.css">
 	<link rel="icon" href="/mah3093/cheats-and-recipes/icons/16.png" sizes="16x16" type="image/png">
 	<link rel="icon" href="/mah3093/cheats-and-recipes/icons/32.png" sizes="32x32" type="image/png">
-	<link rel="alternate" type="application/rss+xml" href="/mah3093/cheats-and-recipes/tags/index.xml" title="Cheats and Recipes">
 		
 </head>
 <body>
@@ -43,81 +42,140 @@
 	<div class="primary">
 	
 	<main class="main">
-            <div class="page block">
-                <h1 class="page__title">Tags</h1>
-                
-            </div>
-		<div class="cards">
-			
-				<div class="card card--3col">
-					<article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/tags/regex/">regex</a>
-    </h1>
-</article>
-				</div>
-			
-				<div class="card card--3col">
-					<article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/tags/rest/">rest</a>
-    </h1>
-</article>
-				</div>
-			
-				<div class="card card--3col">
-					<article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/tags/router/">router</a>
-    </h1>
-</article>
-				</div>
-			
-				<div class="card card--3col">
-					<article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/tags/server/">server</a>
-    </h1>
-</article>
-				</div>
-			
-				<div class="card card--3col">
-					<article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/tags/shell/">shell</a>
-    </h1>
-</article>
-				</div>
-			
-				<div class="card card--3col">
-					<article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/tags/styling/">styling</a>
-    </h1>
-</article>
-				</div>
-			
-				<div class="card card--3col">
-					<article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/tags/web/">web</a>
-    </h1>
-</article>
-				</div>
-			
+		<div class="single block">
+			<article class="post">
+				<h1 class="post__title">Pivotal Concourse</h1>
+<details class="post__toc toc" >
+	<summary class="toc__title">Table of Contents</summary>
+	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#fly-commands">fly commands</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+</details>
+
+				<div class="post__content"><p>Pivotal Concourse is a CI/CD tool.</p>
+
+<h3 id="fly-commands">fly commands</h3>
+
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Command</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Get help</td>
+<td><code>fly -h</code> or <code>fly command -h</code></td>
+</tr>
+
+<tr>
+<td>Login and specify target</td>
+<td><code>fly -t myTarget login --concourse-url url-of-my-concourse-server</code></td>
+</tr>
+
+<tr>
+<td>List saved targets</td>
+<td><code>fly targets</code></td>
+</tr>
+
+<tr>
+<td>Download and replace the current fly from the target</td>
+<td><code>fly -t myTarget sync</code></td>
+</tr>
+
+<tr>
+<td>See your saved targets</td>
+<td><code>cat ~/.flyrc</code></td>
+</tr>
+
+<tr>
+<td>Execute a task</td>
+<td><code>fly -t myTarget e -c hello_world.yml</code></td>
+</tr>
+
+<tr>
+<td>Set Pipeline (pushes the pipeline.yml file)</td>
+<td><code>fly -t myTarget sp -c pipeline.yml -p myPipeline -l myParameters.yml</code></td>
+</tr>
+
+<tr>
+<td>Unpause Pipeline</td>
+<td><code>fly -t myTarget up -p myPipeline</code></td>
+</tr>
+
+<tr>
+<td>Pause Pipeline</td>
+<td><code>fly -t myTarget pp -p myPipeline</code></td>
+</tr>
+
+<tr>
+<td>View the results of recent builds across all pipelines</td>
+<td><code>fly -t myTarget builds</code></td>
+</tr>
+
+<tr>
+<td>View the results of a previous build</td>
+<td><code>fly -t myTarget watch --build build_number</code></td>
+</tr>
+
+<tr>
+<td>Manually trigger a job</td>
+<td><code>fly -t myTarget tj -j myPipeline/jobName -w</code></td>
+</tr>
+
+<tr>
+<td>Destroy Pipeline</td>
+<td><code>fly -t myTarget dp -p myPipeline</code></td>
+</tr>
+</tbody>
+</table></div>
+				
+				<footer class="post__footer">
+					
+					
+				</footer>
+				
+			</article>
 		</div>
-	</main>
-	
-<div class="pagination block">
-	<a class="pagination__item pagination__item--desktop" href="/mah3093/cheats-and-recipes/tags/">1</a>
-	
-	<a class="pagination__item pagination__item--desktop" href="/mah3093/cheats-and-recipes/tags/page/2/">2</a>
-	
-	<a class="pagination__item pagination__item--desktop" href="/mah3093/cheats-and-recipes/tags/page/3/">3</a>
-	
-	<span class="pagination__item pagination__item--active" data-total="4">4</span>
-	
+    </main>
+    
+
+<div class="tags block">
+    <h3 class="tags__title">Tags</h3>
+    <div class="post__tags">
+                <a class="post__tag btn" href="/mah3093/cheats-and-recipes/tags/pivotal/">pivotal</a>
+                <a class="post__tag btn" href="/mah3093/cheats-and-recipes/tags/concourse/">concourse</a>
+                <a class="post__tag btn" href="/mah3093/cheats-and-recipes/tags/fly/">fly</a>
+                <a class="post__tag btn" href="/mah3093/cheats-and-recipes/tags/cloud/">cloud</a>
+                <a class="post__tag btn" href="/mah3093/cheats-and-recipes/tags/ci/cd/">ci/cd</a>
+    </div>
 </div>
+
+	
+	
+
+
+
+<div class="related block">
+	<h3 class="related__title">Related</h3>
+	<ul class="related__list">
+		
+		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/pcf/">Pivotal Cloud Foundry</a></li>
+		
+	</ul>
+</div>
+
+	
 
 	</div>
 	<footer class="footer">
