@@ -5,15 +5,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#1b1b1b">
-	<title>react | Cheats and Recipes</title>
+	<title>React Recipes | Cheats and Recipes</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	<meta name="description" content="">
+	<meta name="description" content="Recipes for building React applications">
 	<link rel="stylesheet" href="/mah3093/cheats-and-recipes/css/main.css">
 	<link rel="stylesheet" href="/mah3093/cheats-and-recipes/css/dracula.css">
 	<link rel="stylesheet" href="/mah3093/cheats-and-recipes/css/custom.css">
 	<link rel="icon" href="/mah3093/cheats-and-recipes/icons/16.png" sizes="16x16" type="image/png">
 	<link rel="icon" href="/mah3093/cheats-and-recipes/icons/32.png" sizes="32x32" type="image/png">
-	<link rel="alternate" type="application/rss+xml" href="/mah3093/cheats-and-recipes/tags/react/index.xml" title="Cheats and Recipes">
 		
 </head>
 <body>
@@ -43,41 +42,90 @@
 	<div class="primary">
 	
 	<main class="main">
-            <div class="page block">
-                <h1 class="page__title">react</h1>
-                
-            </div>
-		<div class="cards">
-			
-				<div class="card card--3col">
-					<article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/cheat/react/">React</a>
-    </h1>
-	<div class="post__content"><p>React.js is a declarative, component based JavaScript library for building user interfaces.</p></div>
-</article>
-				</div>
-			
-				<div class="card card--3col">
-					<article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/recipe/react/">React Recipes</a>
-    </h1>
-	<div class="post__content"><p>Recipes for building React applications.</p></div>
-</article>
-				</div>
-			
-				<div class="card card--3col">
-					<article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/cheat/react-router/">React Router</a>
-    </h1>
-	<div class="post__content"><p>React Router is a dynamic, distributed router for React.js.</p></div>
-</article>
-				</div>
-			
+		<div class="single block">
+			<article class="post">
+				<h1 class="post__title">React Recipes</h1>
+<details class="post__toc toc" >
+	<summary class="toc__title">Table of Contents</summary>
+	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#how-to-count-renders">How to Count Renders</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+</details>
+
+				<div class="post__content"><p>Recipes for building React applications.</p>
+
+<h3 id="how-to-count-renders">How to Count Renders</h3>
+<div class="highlight"><pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="c1">// define a Logger component that logs how many times it has been called
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">Logger</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">numRenders</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">useRef</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+  <span class="o">++</span><span class="nx">numRenders</span><span class="p">.</span><span class="nx">current</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`You have rendered me </span><span class="si">${</span><span class="nx">numRenders</span><span class="p">.</span><span class="nx">current</span><span class="si">}</span><span class="sb"> times.`</span><span class="p">)</span>
+  <span class="k">return</span> <span class="kc">null</span>
+<span class="p">}</span>
+
+<span class="c1">// use the Logger component in your component
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">MyComponent</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="p">&lt;</span><span class="nt">Logger</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">World</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div></div>
+				
+				<footer class="post__footer">
+					
+					
+				</footer>
+				
+			</article>
 		</div>
-	</main>
+    </main>
+    
+
+<div class="tags block">
+    <h3 class="tags__title">Tags</h3>
+    <div class="post__tags">
+                <a class="post__tag btn" href="/mah3093/cheats-and-recipes/tags/react/">react</a>
+    </div>
+</div>
+
+	
+<div class="authorbox block">
+    <h3>Author</h3>
+	<div class="author">
+		<figure class="author__avatar">
+			<img class="author__img" alt="Dr. Mike Hopper avatar" src="/mah3093/cheats-and-recipes/img/avatar.jpg" height="90" width="90">
+		</figure>
+		<div class="author__body">
+			<div class="author__name">
+				Dr. Mike Hopper
+			</div>
+			<div class="author__bio">Software Architect, Engineer, and Instructor</div>
+		</div>
+	</div>
+</div>
+	
+
+
+
+<div class="related block">
+	<h3 class="related__title">Related</h3>
+	<ul class="related__list">
+		
+		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/react/">React</a></li>
+		
+		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/react-router/">React Router</a></li>
+		
+	</ul>
+</div>
+
 	
 
 	</div>
