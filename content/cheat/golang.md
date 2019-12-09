@@ -1,5 +1,5 @@
 ---
-title: Go
+title: Go Cheatsheet
 description: Cheat sheet for Go.
 reviewed: false
 toc: true

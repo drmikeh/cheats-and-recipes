@@ -1,5 +1,5 @@
 ---
-title: CSS Grid
+title: CSS Grid Cheatsheet
 description: Cheat sheet for CSS Grid
 reviewed: false
 toc: true

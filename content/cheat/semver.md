@@ -1,5 +1,5 @@
 ---
-title: Semver
+title: SemVer Cheatsheet
 description: Cheat sheet for semantic versioning
 reviewed: false
 toc: true

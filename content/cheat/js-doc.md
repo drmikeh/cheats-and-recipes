@@ -1,5 +1,5 @@
 ---
-title: JSDoc
+title: JSDoc Cheatsheet
 description: Cheat sheet for the JSDOC syntax.
 reviewed: false
 toc: true

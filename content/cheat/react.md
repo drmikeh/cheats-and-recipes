@@ -1,5 +1,5 @@
 ---
-title: React
+title: React Cheatsheet
 description: Cheat sheet for React.js
 reviewed: true
 authorbox: true
@@ -15,6 +15,7 @@ tags:
 ---
 
 React.js is a declarative, component based JavaScript library for building user interfaces.
+
 <!--more-->
 
 ## Stateful Class Component

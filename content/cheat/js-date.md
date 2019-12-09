@@ -1,5 +1,5 @@
 ---
-title: JavaScript Date
+title: JavaScript Date Cheatsheet
 description: Cheat sheet for JavaScript Promises
 reviewed: true
 toc: true
@@ -19,11 +19,11 @@ The JavaScript Date constructor function and methods of Date objects.
 
 ```js
 // Now
-new Date()                          // returns Date object with value of now
-new Date(1419785527580)             // returns Date object from milliseconds since epoch
-new Date("May 17, 1995 03:24:00")   // Date format
-new Date("2013-03-01T01:10:00")     // ISO date format
-new Date(2014, 2, 1, 13, 0, 59, 0)  // year, month, day, hour, minute, second, milliseconds
+new Date() // returns Date object with value of now
+new Date(1419785527580) // returns Date object from milliseconds since epoch
+new Date('May 17, 1995 03:24:00') // Date format
+new Date('2013-03-01T01:10:00') // ISO date format
+new Date(2014, 2, 1, 13, 0, 59, 0) // year, month, day, hour, minute, second, milliseconds
 ```
 
 Months are zero-indexed (eg, January is `0`).

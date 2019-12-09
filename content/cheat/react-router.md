@@ -1,5 +1,5 @@
 ---
-title: React Router
+title: React Router Cheatsheet
 description: Cheat sheet for React Router
 reviewed: false
 toc: true

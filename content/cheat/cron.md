@@ -1,5 +1,5 @@
 ---
-title: Cron
+title: Cron Cheatsheet
 description: Cheat sheet for cron
 reviewed: false
 toc: true

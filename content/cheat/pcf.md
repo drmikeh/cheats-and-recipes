@@ -1,5 +1,5 @@
 ---
-title: Pivotal Cloud Foundry
+title: Pivotal Cloud Foundry Cheatsheet
 description: Cheat sheet for Pivotal Cloud Foundry
 reviewed: false
 toc: true

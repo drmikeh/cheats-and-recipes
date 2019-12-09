@@ -1,5 +1,5 @@
 ---
-title: regex
+title: RegEx Cheatsheet
 description: Cheat sheet for the regular expressesions
 reviewed: false
 toc: true

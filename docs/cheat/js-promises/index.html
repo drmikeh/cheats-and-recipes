@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#1b1b1b">
-	<title>JavaScript Promises | Cheats and Recipes</title>
+	<title>JavaScript Promises Cheatsheet | Cheats and Recipes</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="Cheat sheet for JavaScript Promises">
 	<link rel="stylesheet" href="/mah3093/cheats-and-recipes/css/main.css">
@@ -50,7 +50,7 @@
 	<main class="main">
 		<div class="single block">
 			<article class="post">
-				<h1 class="post__title">JavaScript Promises</h1>
+				<h1 class="post__title">JavaScript Promises Cheatsheet</h1>
 <details class="post__toc toc" >
 	<summary class="toc__title">Table of Contents</summary>
 	<nav id="TableOfContents">
@@ -120,15 +120,20 @@
 
 <p>Example:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">try</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="p">[</span><span class="nx">departments</span><span class="p">,</span> <span class="nx">products</span><span class="p">,</span> <span class="nx">cart</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nx">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
-        <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/departments&#39;</span><span class="p">),</span>
-        <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/products&#39;</span><span class="p">),</span>
-        <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/cart&#39;</span><span class="p">)</span>
-    <span class="p">])).</span><span class="nx">map</span><span class="p">(</span><span class="nx">r</span> <span class="p">=&gt;</span> <span class="nx">r</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
+    <span class="kr">const</span> <span class="p">[</span><span class="nx">departments</span><span class="p">,</span> <span class="nx">products</span><span class="p">,</span> <span class="nx">cart</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="nx">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+            <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/departments&#39;</span><span class="p">),</span>
+            <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/products&#39;</span><span class="p">),</span>
+            <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/cart&#39;</span><span class="p">)</span>
+        <span class="p">])</span>
+    <span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">r</span> <span class="p">=&gt;</span> <span class="nx">r</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
-        <span class="nx">departments</span><span class="p">,</span> <span class="nx">products</span><span class="p">,</span> <span class="nx">cart</span><span class="p">,</span> <span class="nx">loading</span><span class="o">:</span> <span class="kc">false</span>
+        <span class="nx">departments</span><span class="p">,</span>
+        <span class="nx">products</span><span class="p">,</span>
+        <span class="nx">cart</span><span class="p">,</span>
+        <span class="nx">loading</span><span class="o">:</span> <span class="kc">false</span>
     <span class="p">})</span>
-<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;ERROR:&#39;</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">updating</span><span class="o">:</span> <span class="kc">false</span> <span class="p">})</span>
     <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;ERROR: &#39;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>
@@ -163,15 +168,15 @@
 	<h3 class="related__title">Related</h3>
 	<ul class="related__list">
 		
-		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/es-2015/">ES2015&#43;</a></li>
+		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/es-2015/">ES2015&#43; Cheatsheet</a></li>
 		
-		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/functional-javascript/">Functional JavaScript</a></li>
+		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/functional-javascript/">Functional JavaScript Cheatsheet</a></li>
 		
-		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/recipe/express-restful-api/">Express RESTful API Server</a></li>
+		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/recipe/express-restful-api/">Express RESTful API Server Recipe</a></li>
 		
-		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/js-doc/">JSDoc</a></li>
+		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/js-doc/">JSDoc Cheatsheet</a></li>
 		
-		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/js-date/">JavaScript Date</a></li>
+		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/js-date/">JavaScript Date Cheatsheet</a></li>
 		
 	</ul>
 </div>

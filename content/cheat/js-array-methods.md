@@ -1,5 +1,5 @@
 ---
-title: JavaScript Modern Array Methods
+title: JavaScript Modern Array Methods Cheatsheet
 description: Cheat sheet for the JavaScript Modern Array Methods
 reviewed: true
 toc: true

@@ -1,5 +1,5 @@
 ---
-title: JavaScript Promises
+title: JavaScript Promises Cheatsheet
 description: Cheat sheet for JavaScript Promises
 reviewed: true
 toc: true
@@ -80,15 +80,20 @@ Example:
 
 ```js
 try {
-    const [departments, products, cart] = (await Promise.all([
-        axios.get('/departments'),
-        axios.get('/products'),
-        axios.get('/cart')
-    ])).map(r => r.data)
+    const [departments, products, cart] = (
+        await Promise.all([
+            axios.get('/departments'),
+            axios.get('/products'),
+            axios.get('/cart')
+        ])
+    ).map(r => r.data)
     this.setState({
-        departments, products, cart, loading: false
+        departments,
+        products,
+        cart,
+        loading: false
     })
-} catch(e) {
+} catch (e) {
     console.error('ERROR:', e)
     this.setState({ updating: false })
     alert('ERROR: ' + e.message)

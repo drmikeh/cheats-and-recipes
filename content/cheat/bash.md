@@ -1,5 +1,5 @@
 ---
-title: Bash scripting
+title: Bash Cheatsheet
 description: Cheat sheet for Bash Shell
 reviewed: false
 toc: true

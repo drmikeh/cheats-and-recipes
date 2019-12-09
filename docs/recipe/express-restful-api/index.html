@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#1b1b1b">
-	<title>Express RESTful API Server | Cheats and Recipes</title>
+	<title>Express RESTful API Server Recipe | Cheats and Recipes</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="Express RESTful API Server with Knex and PostgreSQL and deployed to PCF.">
 	<link rel="stylesheet" href="/mah3093/cheats-and-recipes/css/main.css">
@@ -50,7 +50,7 @@
 	<main class="main">
 		<div class="single block">
 			<article class="post">
-				<h1 class="post__title">Express RESTful API Server</h1>
+				<h1 class="post__title">Express RESTful API Server Recipe</h1>
 <details class="post__toc toc" >
 	<summary class="toc__title">Table of Contents</summary>
 	<nav id="TableOfContents">
@@ -160,7 +160,7 @@ yarn add supertest      <span class="c1"># for testing RESTful API endpoints</sp
 <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">!==</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">logger</span><span class="p">(</span><span class="s1">&#39;dev&#39;</span><span class="p">));</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">logger</span><span class="p">(</span><span class="s1">&#39;dev&#39;</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
@@ -461,24 +461,23 @@ DB_PASSWORD=&lt;db_password&gt;
 </code></pre></div>
 <h2 id="tests-for-example-routes-file">Tests for Example Routes File</h2>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// routes/todos.test.js
-</span><span class="c1"></span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jest-extended&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">supertest</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;supertest&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">TodosErrors</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../models/TodosErrors&#39;</span><span class="p">);</span>
+</span><span class="c1"></span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jest-extended&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">supertest</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;supertest&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">TodosErrors</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../models/TodosErrors&#39;</span><span class="p">)</span>
 
-<span class="kr">const</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="s1">&#39;3000&#39;</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">supertest</span><span class="p">(</span><span class="sb">`localhost:</span><span class="si">${</span><span class="nx">port</span><span class="si">}</span><span class="sb">/api/todos`</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="s1">&#39;3000&#39;</span>
+<span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">supertest</span><span class="p">(</span><span class="sb">`localhost:</span><span class="si">${</span><span class="nx">port</span><span class="si">}</span><span class="sb">/api/todos`</span><span class="p">)</span>
 
 <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Todos Routes&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-
-    <span class="kd">let</span> <span class="nx">server</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">server</span>
     <span class="nx">beforeAll</span><span class="p">(</span><span class="nx">next</span> <span class="p">=&gt;</span> <span class="p">{</span>
-        <span class="nx">server</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../bin/www&#39;</span><span class="p">);</span>
-        <span class="nx">next</span><span class="p">();</span>
-    <span class="p">});</span>
+        <span class="nx">server</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../bin/www&#39;</span><span class="p">)</span>
+        <span class="nx">next</span><span class="p">()</span>
+    <span class="p">})</span>
     <span class="nx">afterAll</span><span class="p">(</span><span class="nx">next</span> <span class="p">=&gt;</span> <span class="p">{</span>
-        <span class="nx">server</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-        <span class="nx">next</span><span class="p">();</span>
-    <span class="p">});</span>
+        <span class="nx">server</span><span class="p">.</span><span class="nx">close</span><span class="p">()</span>
+        <span class="nx">next</span><span class="p">()</span>
+    <span class="p">})</span>
 
     <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;INDEX ROUTE&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
         <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return a 200 response and return 3 todos each having a title&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
@@ -486,21 +485,21 @@ DB_PASSWORD=&lt;db_password&gt;
                 <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="kr">const</span> <span class="nx">todos</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todos</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">();</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todos</span><span class="p">).</span><span class="nx">toBeArray</span><span class="p">();</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todos</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todos</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Learn Redux&#39;</span><span class="p">);</span>
+                    <span class="kr">const</span> <span class="nx">todos</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todos</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">()</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todos</span><span class="p">).</span><span class="nx">toBeArray</span><span class="p">()</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todos</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todos</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Learn Redux&#39;</span><span class="p">)</span>
                     <span class="nx">todos</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">todo</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                        <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">);</span>
-                    <span class="p">});</span>
-                    <span class="nx">done</span><span class="p">();</span>
+                        <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>
+                    <span class="p">})</span>
+                    <span class="nx">done</span><span class="p">()</span>
                 <span class="p">})</span>
                 <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
-                <span class="p">});</span>
-        <span class="p">});</span>
-    <span class="p">});</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+                <span class="p">})</span>
+        <span class="p">})</span>
+    <span class="p">})</span>
 
     <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;SHOW ROUTE&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
         <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return a 404 response when given an invalid id&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
@@ -508,30 +507,33 @@ DB_PASSWORD=&lt;db_password&gt;
                 <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">notFound</span><span class="p">.</span><span class="nx">code</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="kr">const</span> <span class="nx">error</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">();</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">notFound</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-                    <span class="nx">done</span><span class="p">();</span>
+                    <span class="kr">const</span> <span class="nx">error</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">()</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span>
+                        <span class="s1">&#39;message&#39;</span><span class="p">,</span>
+                        <span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">notFound</span><span class="p">.</span><span class="nx">message</span>
+                    <span class="p">)</span>
+                    <span class="nx">done</span><span class="p">()</span>
                 <span class="p">})</span>
                 <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
-                <span class="p">});</span>
-        <span class="p">});</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+                <span class="p">})</span>
+        <span class="p">})</span>
         <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return a 200 response and return Learn Redux when given the proper id&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
             <span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/2&#39;</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="kr">const</span> <span class="nx">todo</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">();</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Learn Redux&#39;</span><span class="p">);</span>
-                    <span class="nx">done</span><span class="p">();</span>
+                    <span class="kr">const</span> <span class="nx">todo</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">()</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Learn Redux&#39;</span><span class="p">)</span>
+                    <span class="nx">done</span><span class="p">()</span>
                 <span class="p">})</span>
                 <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
-                <span class="p">});</span>
-        <span class="p">});</span>
-    <span class="p">});</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+                <span class="p">})</span>
+        <span class="p">})</span>
+    <span class="p">})</span>
 
     <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;CREATE ROUTE&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
         <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return a 422 response and return an error message when given an empty title&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
@@ -542,14 +544,17 @@ DB_PASSWORD=&lt;db_password&gt;
                 <span class="p">})</span>
                 <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">invalidTitle</span><span class="p">.</span><span class="nx">code</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="kr">const</span> <span class="nx">error</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">invalidTitle</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-                    <span class="nx">done</span><span class="p">();</span>
+                    <span class="kr">const</span> <span class="nx">error</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span>
+                        <span class="s1">&#39;message&#39;</span><span class="p">,</span>
+                        <span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">invalidTitle</span><span class="p">.</span><span class="nx">message</span>
+                    <span class="p">)</span>
+                    <span class="nx">done</span><span class="p">()</span>
                 <span class="p">})</span>
                 <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
-                <span class="p">});</span>
-        <span class="p">});</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+                <span class="p">})</span>
+        <span class="p">})</span>
         <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return the new todo when given a valid title and default the completed status to false&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
             <span class="nx">api</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
@@ -558,16 +563,16 @@ DB_PASSWORD=&lt;db_password&gt;
                 <span class="p">})</span>
                 <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">201</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="kr">const</span> <span class="nx">todo</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">();</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Learn TDD&#39;</span><span class="p">);</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;completed&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
-                    <span class="nx">done</span><span class="p">();</span>
+                    <span class="kr">const</span> <span class="nx">todo</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">()</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Learn TDD&#39;</span><span class="p">)</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;completed&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
+                    <span class="nx">done</span><span class="p">()</span>
                 <span class="p">})</span>
                 <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
-                <span class="p">});</span>
-        <span class="p">});</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+                <span class="p">})</span>
+        <span class="p">})</span>
         <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return the new todo when given a valid title and a completed status of true&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
             <span class="nx">api</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
@@ -577,17 +582,17 @@ DB_PASSWORD=&lt;db_password&gt;
                 <span class="p">})</span>
                 <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">201</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="kr">const</span> <span class="nx">todo</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">();</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Learn TDD&#39;</span><span class="p">);</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;completed&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-                    <span class="nx">done</span><span class="p">();</span>
+                    <span class="kr">const</span> <span class="nx">todo</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">()</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Learn TDD&#39;</span><span class="p">)</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;completed&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+                    <span class="nx">done</span><span class="p">()</span>
                 <span class="p">})</span>
                 <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
-                <span class="p">});</span>
-        <span class="p">});</span>
-    <span class="p">});</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+                <span class="p">})</span>
+        <span class="p">})</span>
+    <span class="p">})</span>
 
     <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;UPDATE ROUTE&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
         <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return a 404 response and when given an invalid id&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
@@ -599,15 +604,18 @@ DB_PASSWORD=&lt;db_password&gt;
                 <span class="p">})</span>
                 <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">notFound</span><span class="p">.</span><span class="nx">code</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="kr">const</span> <span class="nx">error</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">();</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">notFound</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-                    <span class="nx">done</span><span class="p">();</span>
+                    <span class="kr">const</span> <span class="nx">error</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">()</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span>
+                        <span class="s1">&#39;message&#39;</span><span class="p">,</span>
+                        <span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">notFound</span><span class="p">.</span><span class="nx">message</span>
+                    <span class="p">)</span>
+                    <span class="nx">done</span><span class="p">()</span>
                 <span class="p">})</span>
                 <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
-                <span class="p">});</span>
-        <span class="p">});</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+                <span class="p">})</span>
+        <span class="p">})</span>
         <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return a 422 response and return an error message when given an empty title&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
             <span class="nx">api</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">&#39;/2&#39;</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
@@ -617,14 +625,17 @@ DB_PASSWORD=&lt;db_password&gt;
                 <span class="p">})</span>
                 <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">invalidTitle</span><span class="p">.</span><span class="nx">code</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="kr">const</span> <span class="nx">error</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">invalidTitle</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-                    <span class="nx">done</span><span class="p">();</span>
+                    <span class="kr">const</span> <span class="nx">error</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span>
+                        <span class="s1">&#39;message&#39;</span><span class="p">,</span>
+                        <span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">invalidTitle</span><span class="p">.</span><span class="nx">message</span>
+                    <span class="p">)</span>
+                    <span class="nx">done</span><span class="p">()</span>
                 <span class="p">})</span>
                 <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
-                <span class="p">});</span>
-        <span class="p">});</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+                <span class="p">})</span>
+        <span class="p">})</span>
         <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return a 200 response and return the updated todo when given a valid title&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
             <span class="nx">api</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">&#39;/2&#39;</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
@@ -634,17 +645,17 @@ DB_PASSWORD=&lt;db_password&gt;
                 <span class="p">})</span>
                 <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="kr">const</span> <span class="nx">todo</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">();</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Learn go&#39;</span><span class="p">);</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;completed&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-                    <span class="nx">done</span><span class="p">();</span>
+                    <span class="kr">const</span> <span class="nx">todo</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">()</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Learn go&#39;</span><span class="p">)</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;completed&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+                    <span class="nx">done</span><span class="p">()</span>
                 <span class="p">})</span>
                 <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
-                <span class="p">});</span>
-        <span class="p">});</span>
-    <span class="p">});</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+                <span class="p">})</span>
+        <span class="p">})</span>
+    <span class="p">})</span>
 
     <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;destroyTodo&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
         <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return a 404 response when given an invalid id&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
@@ -652,31 +663,34 @@ DB_PASSWORD=&lt;db_password&gt;
                 <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">notFound</span><span class="p">.</span><span class="nx">code</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="kr">const</span> <span class="nx">error</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">();</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">notFound</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-                    <span class="nx">done</span><span class="p">();</span>
+                    <span class="kr">const</span> <span class="nx">error</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">()</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">error</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span>
+                        <span class="s1">&#39;message&#39;</span><span class="p">,</span>
+                        <span class="nx">TodosErrors</span><span class="p">.</span><span class="nx">notFound</span><span class="p">.</span><span class="nx">message</span>
+                    <span class="p">)</span>
+                    <span class="nx">done</span><span class="p">()</span>
                 <span class="p">})</span>
                 <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
-                <span class="p">});</span>
-        <span class="p">});</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+                <span class="p">})</span>
+        <span class="p">})</span>
         <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;should return the deleted todo when given a valid id&#39;</span><span class="p">,</span> <span class="nx">done</span> <span class="p">=&gt;</span> <span class="p">{</span>
             <span class="nx">api</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">&#39;/3&#39;</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Accept&#39;</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
                 <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="kr">const</span> <span class="nx">todo</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">();</span>
-                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Learn GraphQL&#39;</span><span class="p">);</span>
-                    <span class="nx">done</span><span class="p">();</span>
+                    <span class="kr">const</span> <span class="nx">todo</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeNull</span><span class="p">()</span>
+                    <span class="nx">expect</span><span class="p">(</span><span class="nx">todo</span><span class="p">).</span><span class="nx">toHaveProperty</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Learn GraphQL&#39;</span><span class="p">)</span>
+                    <span class="nx">done</span><span class="p">()</span>
                 <span class="p">})</span>
                 <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
-                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
-                <span class="p">});</span>
-        <span class="p">});</span>
-    <span class="p">});</span>
-<span class="p">});</span>
+                    <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+                <span class="p">})</span>
+        <span class="p">})</span>
+    <span class="p">})</span>
+<span class="p">})</span>
 </code></pre></div>
 <h2 id="pcf-deployment">PCF Deployment</h2>
 
@@ -742,15 +756,15 @@ open https://login.run-np.homedepot.com   <span class="c1"># To open PCF Apps Ma
 	<h3 class="related__title">Related</h3>
 	<ul class="related__list">
 		
-		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/react/">React</a></li>
+		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/react/">React Cheatsheet</a></li>
 		
-		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/react-router/">React Router</a></li>
+		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/react-router/">React Router Cheatsheet</a></li>
 		
-		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/knex/">Knex</a></li>
+		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/knex/">Knex Cheatsheet</a></li>
 		
-		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/functional-javascript/">Functional JavaScript</a></li>
+		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/functional-javascript/">Functional JavaScript Cheatsheet</a></li>
 		
-		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/es-2015/">ES2015&#43;</a></li>
+		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/es-2015/">ES2015&#43; Cheatsheet</a></li>
 		
 	</ul>
 </div>

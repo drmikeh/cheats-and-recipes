@@ -1,5 +1,5 @@
 ---
-title: Homebrew
+title: Homebrew Cheatsheet
 description: Cheat sheet for the Homebrew package manager for MacOS.
 reviewed: false
 toc: true

@@ -1,5 +1,5 @@
 ---
-title: PostgreSQL
+title: PostgreSQL Cheatsheet
 description: Cheat sheet for PostgreSQL
 reviewed: true
 toc: true

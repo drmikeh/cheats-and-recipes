@@ -1,5 +1,5 @@
 ---
-title: CSS flexbox
+title: CSS Flexbox Cheatsheet
 description: Cheat sheet for Flexbox
 reviewed: false
 toc: true

@@ -1,5 +1,5 @@
 ---
-title: Functional JavaScript
+title: Functional JavaScript Cheatsheet
 description: Cheat sheet for functional programming with JavaScript
 date: 2019-11-24
 reviewed: true

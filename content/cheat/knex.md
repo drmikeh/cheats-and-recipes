@@ -1,5 +1,5 @@
 ---
-title: Knex
+title: Knex Cheatsheet
 description: Cheat sheet for React.js
 reviewed: false
 toc: true
