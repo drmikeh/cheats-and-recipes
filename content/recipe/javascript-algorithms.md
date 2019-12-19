@@ -47,7 +47,7 @@ const incAndDouble = pipe(inc, double)
 console.log(incAndDouble(3))
 ```
 
-### LCM & GCD
+### GCD & LCM
 
 ```js
 // Greatest common divisor of 2 integers
@@ -74,17 +74,6 @@ function lcm(array) {
 const array = [6, 18, 42]
 console.log(gcd(array))
 console.log(lcm(array))
-```
-
-### LCM - Least Common Multiple
-
-```js
-function lcm(array) {
-    // Least common multiple of a list of integers
-    var n = 1
-    for (var i = 0; i < array.length; ++i) n = lcm2(array[i], n)
-    return n
-}
 ```
 
 ### Generating Combinations of Two
