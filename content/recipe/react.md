@@ -35,6 +35,14 @@ function MyComponent() {
 }
 ```
 
+### Using `useEffect` to console.log updates to state variables
+
+```js
+useEffect(() => {
+    console.table(todos)
+}, [todos])
+```
+
 ### A RESTful / CRUD Custom Hook
 
 First define a service using Axios:

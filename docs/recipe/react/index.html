@@ -60,6 +60,7 @@
 <li>
 <ul>
 <li><a href="#how-to-count-renders">How to Count Renders</a></li>
+<li><a href="#using-useeffect-to-console-log-updates-to-state-variables">Using <code>useEffect</code> to console.log updates to state variables</a></li>
 <li><a href="#a-restful-crud-custom-hook">A RESTful / CRUD Custom Hook</a></li>
 </ul></li>
 </ul></li>
@@ -85,6 +86,11 @@
         <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">World</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre></div>
+<h3 id="using-useeffect-to-console-log-updates-to-state-variables">Using <code>useEffect</code> to console.log updates to state variables</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">table</span><span class="p">(</span><span class="nx">todos</span><span class="p">)</span>
+<span class="p">},</span> <span class="p">[</span><span class="nx">todos</span><span class="p">])</span>
+</code></pre></div>
 <h3 id="a-restful-crud-custom-hook">A RESTful / CRUD Custom Hook</h3>
 
 <p>First define a service using Axios:</p>
