@@ -219,7 +219,11 @@
   <span class="cm">/* side-effect code goes here */</span>
   <span class="cm">/* optionally return a cleanup function */</span>
   <span class="p">},</span>
-  <span class="cm">/* optional array of triggers */</span>
+  <span class="cm">/* optional array of triggers:
+</span><span class="cm">    * if not provided / is `undefined` - run the effect after every render
+</span><span class="cm">    * `[]` - an empty array, run the effect after the component is mounted (componentDidMount)
+</span><span class="cm">    * `[a, b, c]` - a non-empty array, run the effect when any of these state or property values mutates (i.e. refers to a new memory location)
+</span><span class="cm">   */</span>
 <span class="p">}</span></code></pre></div>
 <h3 id="usecontext">useContext</h3>
 
@@ -407,7 +411,7 @@
 			<svg class="social__icon" aria-label="Github" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg>
 		</a>
 </div>
-	<div class="footer__copyright">© 2019 Cheats and Recipes. <span class="footer__copyright-credits">Powered by <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/vimux/binario" rel="nofollow noopener" target="_blank">Binario</a> theme.</span></div>
+	<div class="footer__copyright">© 2020 Cheats and Recipes. <span class="footer__copyright-credits">Powered by <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/vimux/binario" rel="nofollow noopener" target="_blank">Binario</a> theme.</span></div>
 </footer>
 <script src="/mah3093/cheats-and-recipes/js/custom.js"></script>
 </body>
