@@ -131,10 +131,10 @@ React.useEffect(() => {
   /* optionally return a cleanup function */
   },
   /* optional array of triggers:
-    * if not provided / is `undefined` - run the effect after every render
-    * `[]` - an empty array, run the effect after the component is mounted (componentDidMount)
-    * `[a, b, c]` - a non-empty array, run the effect when any of these state or property values mutates (i.e. refers to a new memory location)
-   */
+        - `undefined` (if not provided): runs the effect after every render
+        - `[]`: an empty array, runs the effect after the component is mounted (componentDidMount)
+        - `[a, b, c]`: a non-empty array, runs the effect when any of these state or property values mutates (i.e. refers to a new memory location)
+  */
 }
 ```
 

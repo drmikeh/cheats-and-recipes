@@ -220,10 +220,10 @@
   <span class="cm">/* optionally return a cleanup function */</span>
   <span class="p">},</span>
   <span class="cm">/* optional array of triggers:
-</span><span class="cm">    * if not provided / is `undefined` - run the effect after every render
-</span><span class="cm">    * `[]` - an empty array, run the effect after the component is mounted (componentDidMount)
-</span><span class="cm">    * `[a, b, c]` - a non-empty array, run the effect when any of these state or property values mutates (i.e. refers to a new memory location)
-</span><span class="cm">   */</span>
+</span><span class="cm">        - `undefined` (if not provided): runs the effect after every render
+</span><span class="cm">        - `[]`: an empty array, runs the effect after the component is mounted (componentDidMount)
+</span><span class="cm">        - `[a, b, c]`: a non-empty array, runs the effect when any of these state or property values mutates (i.e. refers to a new memory location)
+</span><span class="cm">  */</span>
 <span class="p">}</span></code></pre></div>
 <h3 id="usecontext">useContext</h3>
 
