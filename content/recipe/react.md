@@ -37,9 +37,25 @@ function MyComponent() {
 
 ### A RESTful / CRUD Custom Hook
 
-First define a service using Axios
+First define a service using Axios:
 
 ```js
+// TodoService.js
+import axios from 'axios'
+
+const API = axios.create({
+    baseURL: '/api/todos'
+})
+
+const TodoService = {
+    reset: () => API.delete('/reset'),
+    get: () => API.get('/'),
+    put: todo => API.put(`/${todo.id}`, todo),
+    post: todo => API.post('/', todo),
+    delete: id => API.delete(`/${id}`)
+}
+
+export default TodoService
 ```
 
 Then define a _generic_ custom hook:
@@ -48,6 +64,7 @@ Then define a _generic_ custom hook:
 -   uses Dependency Injection for doing CRUD operations via a Service
 
 ```jsx
+// use-crud.js
 import { useState, useEffect } from 'react'
 import toastr from '../toastr'
 import 'toastr/build/toastr.min.css'
@@ -158,6 +175,7 @@ export default useCrud
 Usage:
 
 ```jsx
+// TodoApp.jsx
 import useCrud from '../../hooks/use-crud'
 
 const TodoApp = () => {
