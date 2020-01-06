@@ -60,6 +60,7 @@
 <li>
 <ul>
 <li><a href="#how-to-count-renders">How to Count Renders</a></li>
+<li><a href="#a-restful-crud-custom-hook">A RESTful / CRUD Custom Hook</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -82,6 +83,152 @@
     <span class="k">return</span> <span class="p">{</span>
         <span class="p">&lt;</span><span class="nt">Logger</span> <span class="p">/&gt;</span>
         <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">World</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="a-restful-crud-custom-hook">A RESTful / CRUD Custom Hook</h3>
+
+<p>First define a service using Axios</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">
+</code></pre></div>
+<p>Then define a <em>generic</em> custom hook:</p>
+
+<ul>
+<li>generic in that it works for any RESTful endpoint</li>
+
+<li><p>uses Dependency Injection for doing CRUD operations via a Service</p>
+<div class="highlight"><pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="p">{</span> <span class="nx">useState</span><span class="p">,</span> <span class="nx">useEffect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
+<span class="kr">import</span> <span class="nx">toastr</span> <span class="nx">from</span> <span class="s1">&#39;../toastr&#39;</span>
+<span class="kr">import</span> <span class="s1">&#39;toastr/build/toastr.min.css&#39;</span>
+
+<span class="kd">function</span> <span class="nx">useCrud</span><span class="p">(</span><span class="nx">service</span><span class="p">,</span> <span class="nx">initialValue</span><span class="p">,</span> <span class="nx">initialLoading</span><span class="p">)</span> <span class="p">{</span>
+<span class="kr">const</span> <span class="p">[</span><span class="nx">items</span><span class="p">,</span> <span class="nx">setItems</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="nx">initialValue</span><span class="p">)</span>
+<span class="kr">const</span> <span class="p">[</span><span class="nx">loading</span><span class="p">,</span> <span class="nx">setLoading</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="nx">initialLoading</span><span class="p">)</span>
+
+<span class="c1">// initial load of items
+</span><span class="c1"></span><span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="p">;(</span><span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="nx">setLoading</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+            <span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">service</span><span class="p">.</span><span class="nx">get</span><span class="p">()</span>
+            <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">setLoading</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+                <span class="nx">setItems</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
+            <span class="p">},</span> <span class="mi">800</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">toastr</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">})()</span>
+<span class="p">},</span> <span class="p">[])</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">create</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">service</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span>
+        <span class="nx">setItems</span><span class="p">([...</span><span class="nx">items</span><span class="p">,</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">])</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">toastr</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">destroy</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="c1">// Filter all items except the one to be removed
+</span><span class="c1"></span>        <span class="kr">const</span> <span class="nx">remaining</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">id</span> <span class="o">!==</span> <span class="nx">id</span><span class="p">)</span>
+        <span class="nx">await</span> <span class="nx">service</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+        <span class="nx">setItems</span><span class="p">(</span><span class="nx">remaining</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">toastr</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">destroyMany</span><span class="p">(</span><span class="nx">filter</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">keepers</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="o">!</span><span class="nx">filter</span><span class="p">(</span><span class="nx">item</span><span class="p">))</span>
+    <span class="kr">const</span> <span class="nx">losers</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="nx">filter</span><span class="p">(</span><span class="nx">item</span><span class="p">))</span>
+    <span class="kr">const</span> <span class="nx">promises</span> <span class="o">=</span> <span class="nx">losers</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="nx">service</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">id</span><span class="p">))</span>
+    <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">promises</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">responses</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">setItems</span><span class="p">(</span><span class="nx">keepers</span><span class="p">)</span>
+        <span class="p">})</span>
+        <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;HERE&#39;</span><span class="p">)</span>
+            <span class="nx">toastr</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+        <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">update</span><span class="p">(</span><span class="nx">updatedItem</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">service</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">updatedItem</span><span class="p">)</span>
+        <span class="kr">const</span> <span class="nx">updatedItemFromServer</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span>
+        <span class="kr">const</span> <span class="nx">newItems</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span>
+            <span class="nx">item</span><span class="p">.</span><span class="nx">id</span> <span class="o">!==</span> <span class="nx">updatedItemFromServer</span><span class="p">.</span><span class="nx">id</span>
+                <span class="o">?</span> <span class="nx">item</span>
+                <span class="o">:</span> <span class="nx">updatedItemFromServer</span>
+        <span class="p">)</span>
+        <span class="nx">setItems</span><span class="p">(</span><span class="nx">newItems</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">toastr</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">length</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">items</span> <span class="o">?</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span> <span class="o">:</span> <span class="mi">0</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">find</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">items</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">id</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">filter</span><span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">items</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">fn</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">reduce</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">initialValue</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">items</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">initialValue</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">return</span> <span class="p">{</span>
+    <span class="nx">loading</span><span class="p">,</span>
+    <span class="nx">items</span><span class="p">,</span>
+    <span class="nx">setItems</span><span class="p">,</span>
+    <span class="nx">create</span><span class="p">,</span>
+    <span class="nx">destroy</span><span class="p">,</span>
+    <span class="nx">destroyMany</span><span class="p">,</span>
+    <span class="nx">update</span><span class="p">,</span>
+    <span class="nx">length</span><span class="p">,</span>
+    <span class="nx">find</span><span class="p">,</span>
+    <span class="nx">filter</span><span class="p">,</span>
+    <span class="nx">reduce</span>
+<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">useCrud</span></code></pre></div></li>
+</ul>
+
+<p>Usage:</p>
+<div class="highlight"><pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">useCrud</span> <span class="nx">from</span> <span class="s1">&#39;../../hooks/use-crud&#39;</span>
+
+<span class="kr">const</span> <span class="nx">TodoApp</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">todos</span> <span class="o">=</span> <span class="nx">useCrud</span><span class="p">(</span><span class="nx">TodoService</span><span class="p">,</span> <span class="p">[])</span>
+
+    <span class="kd">function</span> <span class="nx">onUpdateTitle</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">title</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">foundTodo</span> <span class="o">=</span> <span class="nx">todos</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+        <span class="kr">const</span> <span class="nx">updatedTodo</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="p">...</span><span class="nx">foundTodo</span><span class="p">,</span>
+            <span class="nx">title</span>
+        <span class="p">}</span>
+        <span class="nx">todos</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">updatedTodo</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">onToggleCompleted</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">foundTodo</span> <span class="o">=</span> <span class="nx">todos</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+        <span class="kr">const</span> <span class="nx">updatedTodo</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="p">...</span><span class="nx">foundTodo</span><span class="p">,</span>
+            <span class="nx">completed</span><span class="o">:</span> <span class="o">!</span><span class="nx">foundTodo</span><span class="p">.</span><span class="nx">completed</span>
+        <span class="p">}</span>
+        <span class="nx">todos</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">updatedTodo</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">onDeleteCompleted</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">todos</span><span class="p">.</span><span class="nx">destroyMany</span><span class="p">(</span><span class="nx">todo</span> <span class="p">=&gt;</span> <span class="nx">todo</span><span class="p">.</span><span class="nx">completed</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre></div></div>
 				
