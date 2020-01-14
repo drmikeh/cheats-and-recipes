@@ -54,59 +54,54 @@
 <details class="post__toc toc" >
 	<summary class="toc__title">Table of Contents</summary>
 	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#remove-blue-border-from-focussed-buttons">Remove Blue Border From Focussed Buttons</a></li>
-<li><a href="#remove-bullets-from-an-unordered-list">Remove bullets from an Unordered List</a></li>
-<li><a href="#button-click-animation">Button Click Animation</a></li>
-<li><a href="#styling-a-definition-list">Styling a Definition List</a></li>
-<li><a href="#center-and-vertically-align-with-flexbox">Center and Vertically Align with Flexbox</a></li>
-<li><a href="#a-card-layout-with-flexbox-or-grid">A Card Layout with Flexbox or Grid</a></li>
-<li><a href="#a-pretty-box-in-a-box">A Pretty Box in a Box</a></li>
-<li><a href="#color-palette">Color Palette</a></li>
-<li><a href="#background-with-gradient">Background with Gradient</a></li>
-<li><a href="#holy-grail-layout-with-grid-and-flexbox">Holy Grail Layout with Grid and Flexbox</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#remove-blue-border-from-focussed-buttons">Remove Blue Border From Focussed Buttons</a></li>
+        <li><a href="#remove-bullets-from-an-unordered-list">Remove bullets from an Unordered List</a></li>
+        <li><a href="#button-click-animation">Button Click Animation</a></li>
+        <li><a href="#styling-a-definition-list">Styling a Definition List</a></li>
+        <li><a href="#center-and-vertically-align-with-flexbox">Center and Vertically Align with Flexbox</a></li>
+        <li><a href="#a-card-layout-with-flexbox-or-grid">A Card Layout with Flexbox or Grid</a></li>
+        <li><a href="#a-pretty-box-in-a-box">A Pretty Box in a Box</a></li>
+        <li><a href="#color-palette">Color Palette</a></li>
+        <li><a href="#background-with-gradient">Background with Gradient</a></li>
+        <li><a href="#holy-grail-layout-with-grid-and-flexbox">Holy Grail Layout with Grid and Flexbox</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 </details>
 
 				<div class="post__content"><p>Common recipes for CSS and SCSS.</p>
-
 <h3 id="remove-blue-border-from-focussed-buttons">Remove Blue Border From Focussed Buttons</h3>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">button</span><span class="p">:</span><span class="nd">focus</span> <span class="p">{</span>
     <span class="k">outline</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<h3 id="remove-bullets-from-an-unordered-list">Remove bullets from an Unordered List</h3>
+<span class="p">}</span>
+</code></pre></div><h3 id="remove-bullets-from-an-unordered-list">Remove bullets from an Unordered List</h3>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">ul</span> <span class="p">{</span>
     <span class="k">list-style-type</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<h3 id="button-click-animation">Button Click Animation</h3>
-
+<span class="p">}</span>
+</code></pre></div><h3 id="button-click-animation">Button Click Animation</h3>
 <p>See a live demo <a href="https://codepen.io/drmikeh/pen/LYYwvgN">here</a>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">button</span> <span class="p">{</span>
-  <span class="k">background</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="mi">211</span><span class="p">,</span> <span class="mi">211</span><span class="p">,</span> <span class="mi">211</span><span class="p">);</span>
+  <span class="k">background</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="mi">211</span><span class="p">,</span> <span class="mi">211</span><span class="p">,</span> <span class="mi">211</span><span class="p">)</span><span class="p">;</span>
   <span class="k">border</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
   <span class="k">border-radius</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
   <span class="k">font-size</span><span class="p">:</span> <span class="mf">1.5</span><span class="kt">rem</span><span class="p">;</span>
-  <span class="k">box-shadow</span><span class="p">:</span> <span class="mi">2</span><span class="kt">px</span> <span class="mi">2</span><span class="kt">px</span> <span class="mi">5</span><span class="kt">px</span> <span class="mi">2</span><span class="kt">px</span> <span class="nb">rgb</span><span class="p">(</span><span class="mi">96</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">96</span><span class="p">);</span>
+  <span class="k">box-shadow</span><span class="p">:</span> <span class="mi">2</span><span class="kt">px</span> <span class="mi">2</span><span class="kt">px</span> <span class="mi">5</span><span class="kt">px</span> <span class="mi">2</span><span class="kt">px</span> <span class="nb">rgb</span><span class="p">(</span><span class="mi">96</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">96</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nt">button</span><span class="p">:</span><span class="nd">active</span> <span class="p">{</span>
-  <span class="k">background-color</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">160</span><span class="p">);</span>
-  <span class="k">transform</span><span class="p">:</span> <span class="nb">translate</span><span class="p">(</span><span class="mi">2</span><span class="kt">px</span><span class="p">,</span> <span class="mi">2</span><span class="kt">px</span><span class="p">);</span>
+  <span class="k">background-color</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">160</span><span class="p">)</span><span class="p">;</span>
+  <span class="k">transform</span><span class="p">:</span> <span class="nb">translate</span><span class="p">(</span><span class="mi">2</span><span class="kt">px</span><span class="p">,</span> <span class="mi">2</span><span class="kt">px</span><span class="p">)</span><span class="p">;</span>
   <span class="k">box-shadow</span><span class="p">:</span> <span class="kc">inset</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nt">button</span><span class="p">:</span><span class="nd">focus</span> <span class="p">{</span>
   <span class="k">outline</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<h3 id="styling-a-definition-list">Styling a Definition List</h3>
-
+<span class="p">}</span>
+</code></pre></div><h3 id="styling-a-definition-list">Styling a Definition List</h3>
 <p>See a live demo <a href="https://codepen.io/drmikeh/pen/gOOVydG">here</a>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">dl</span> <span class="p">{</span>
   <span class="k">border</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#ccc</span><span class="p">;</span>
@@ -129,9 +124,8 @@
   <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">110</span><span class="kt">px</span><span class="p">;</span>
   <span class="k">padding</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mf">0.5</span><span class="kt">em</span> <span class="mi">0</span><span class="p">;</span>
   <span class="k">font-style</span><span class="p">:</span> <span class="kc">italic</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<h3 id="center-and-vertically-align-with-flexbox">Center and Vertically Align with Flexbox</h3>
-
+<span class="p">}</span>
+</code></pre></div><h3 id="center-and-vertically-align-with-flexbox">Center and Vertically Align with Flexbox</h3>
 <p>For a demo see: <a href="https://codepen.io/drmikeh/pen/mdybNbd">Center and Vertically Align with Flexbox</a></p>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
     <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
@@ -142,9 +136,8 @@
 
 <span class="p">.</span><span class="nc">container</span> <span class="o">&gt;</span> <span class="o">*</span> <span class="p">{</span>
     <span class="k">margin</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<h3 id="a-card-layout-with-flexbox-or-grid">A Card Layout with Flexbox or Grid</h3>
-
+<span class="p">}</span>
+</code></pre></div><h3 id="a-card-layout-with-flexbox-or-grid">A Card Layout with Flexbox or Grid</h3>
 <p>See live example <a href="https://codepen.io/drmikeh/pen/xxxvRNW?editors=1100">here</a>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">body</span> <span class="p">{</span>
   <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
@@ -159,7 +152,7 @@
 
 <span class="p">.</span><span class="nc">cards-grid</span> <span class="p">{</span>
   <span class="k">display</span><span class="p">:</span> <span class="k">grid</span><span class="p">;</span>
-  <span class="k">grid-template-columns</span><span class="p">:</span> <span class="nf">repeat</span><span class="p">(</span><span class="kc">auto</span><span class="o">-</span><span class="kc">fill</span><span class="p">,</span> <span class="nf">minmax</span><span class="p">(</span><span class="mi">270</span><span class="kt">px</span><span class="p">,</span> <span class="mi">1</span><span class="n">fr</span><span class="p">));</span>
+  <span class="k">grid-template-columns</span><span class="p">:</span> <span class="nf">repeat</span><span class="p">(</span><span class="kc">auto</span><span class="o">-</span><span class="kc">fill</span><span class="p">,</span> <span class="nf">minmax</span><span class="p">(</span><span class="mi">270</span><span class="kt">px</span><span class="p">,</span> <span class="mi">1</span><span class="n">fr</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
   <span class="k">grid-column-gap</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
   <span class="k">grid-row-gap</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
 <span class="p">}</span>
@@ -190,9 +183,9 @@
   <span class="k">padding</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
   <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
   <span class="k">justify-content</span><span class="p">:</span> <span class="kc">flex</span><span class="o">-</span><span class="kc">end</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<h3 id="a-pretty-box-in-a-box">A Pretty Box in a Box</h3>
-<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.container</span> <span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="a-pretty-box-in-a-box">A Pretty Box in a Box</h3>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.</span><span class="nc">container</span> <span class="p">{</span>
   <span class="nt">text-align</span><span class="nd">:</span> <span class="nt">center</span><span class="p">;</span>
   <span class="nt">background</span><span class="nd">:</span> <span class="nt">rgb</span><span class="o">(</span><span class="nt">240</span><span class="o">,</span> <span class="nt">240</span><span class="o">,</span> <span class="nt">240</span><span class="o">)</span><span class="p">;</span>
   <span class="nt">max-width</span><span class="nd">:</span> <span class="nt">600px</span><span class="p">;</span>
@@ -203,34 +196,30 @@
 <span class="p">}</span>
 
 <span class="k">@mixin</span><span class="nf"> pretty-box</span> <span class="p">{</span>
-  <span class="nt">border</span><span class="nd">:</span> <span class="nt">1px</span> <span class="nt">solid</span> <span class="nt">rgba</span><span class="o">(</span><span class="nt">192</span><span class="o">,</span> <span class="nt">192</span><span class="o">,</span> <span class="nt">192</span><span class="o">,</span> <span class="nt">0</span><span class="nc">.2</span><span class="o">)</span><span class="p">;</span>
+  <span class="nt">border</span><span class="nd">:</span> <span class="nt">1px</span> <span class="nt">solid</span> <span class="nt">rgba</span><span class="o">(</span><span class="nt">192</span><span class="o">,</span> <span class="nt">192</span><span class="o">,</span> <span class="nt">192</span><span class="o">,</span> <span class="nt">0</span><span class="nc">.</span><span class="nc">2</span><span class="o">)</span><span class="p">;</span>
   <span class="nt">border-radius</span><span class="nd">:</span> <span class="nt">10px</span><span class="p">;</span>
   <span class="nt">background</span><span class="nd">:</span> <span class="nt">rgb</span><span class="o">(</span><span class="nt">228</span><span class="o">,</span> <span class="nt">228</span><span class="o">,</span> <span class="nt">228</span><span class="o">)</span><span class="p">;</span>
   <span class="nt">padding</span><span class="nd">:</span> <span class="nt">20px</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<h3 id="color-palette">Color Palette</h3>
-
+<span class="p">}</span>
+</code></pre></div><h3 id="color-palette">Color Palette</h3>
 <p>See a live demo <a href="https://codepen.io/drmikeh/pen/RwwxWrM?editors=1100">here</a>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nv">$color-red</span><span class="o">:</span> <span class="mh">#FF0000</span><span class="p">;</span>
 <span class="nv">$color-green</span><span class="o">:</span> <span class="mh">#00FF00</span><span class="p">;</span>
 <span class="nv">$color-blue</span><span class="o">:</span> <span class="mh">#0000FF</span><span class="p">;</span>
 
 <span class="c1">// colors from my Bear theme
-</span><span class="c1"></span><span class="nv">$grayblue1</span><span class="o">:</span> <span class="nf">rgb</span><span class="p">(</span><span class="mi">20</span><span class="o">,</span> <span class="mi">28</span><span class="o">,</span> <span class="mi">41</span><span class="p">)</span>
-<span class="nv">$grayblue2</span><span class="o">:</span> <span class="nf">rgb</span><span class="p">(</span><span class="mi">25</span><span class="o">,</span> <span class="mi">33</span><span class="o">,</span> <span class="mi">51</span><span class="p">)</span>
-<span class="nv">$orangeyellow</span><span class="o">:</span> <span class="nf">rgb</span><span class="p">(</span><span class="mi">240</span><span class="o">,</span> <span class="mi">182</span><span class="o">,</span> <span class="mi">82</span><span class="p">)</span>
-<span class="nv">$gray</span><span class="o">:</span> <span class="nf">rgb</span><span class="p">(</span><span class="mi">177</span><span class="o">,</span> <span class="mi">176</span><span class="o">,</span> <span class="mi">176</span><span class="p">)</span>
-<span class="nv">$slateblue</span><span class="o">:</span> <span class="nf">rgb</span><span class="p">(</span><span class="mi">82</span><span class="o">,</span> <span class="mi">138</span><span class="o">,</span> <span class="mi">157</span><span class="p">)</span>
-<span class="nv">$almostblack</span><span class="o">:</span> <span class="nf">rgb</span><span class="p">(</span><span class="mi">9</span><span class="o">,</span> <span class="mi">12</span><span class="o">,</span> <span class="mi">18</span><span class="p">)</span>
-<span class="nv">$almostwhite</span><span class="o">:</span> <span class="nf">rgb</span><span class="p">(</span><span class="mi">247</span><span class="o">,</span> <span class="mi">247</span><span class="o">,</span> <span class="mi">239</span><span class="p">)</span></code></pre></div>
-<h3 id="background-with-gradient">Background with Gradient</h3>
-
+</span><span class="c1"></span><span class="nv">$grayblue1</span><span class="o">:</span> <span class="nf">rgb</span><span class="p">(</span><span class="mi">20</span><span class="kt"></span><span class="o">,</span> <span class="mi">28</span><span class="kt"></span><span class="o">,</span> <span class="mi">41</span><span class="kt"></span><span class="p">)</span>
+<span class="nv">$grayblue2</span><span class="o">:</span> <span class="nf">rgb</span><span class="p">(</span><span class="mi">25</span><span class="kt"></span><span class="o">,</span> <span class="mi">33</span><span class="kt"></span><span class="o">,</span> <span class="mi">51</span><span class="kt"></span><span class="p">)</span>
+<span class="nv">$orangeyellow</span><span class="o">:</span> <span class="nf">rgb</span><span class="p">(</span><span class="mi">240</span><span class="kt"></span><span class="o">,</span> <span class="mi">182</span><span class="kt"></span><span class="o">,</span> <span class="mi">82</span><span class="kt"></span><span class="p">)</span>
+<span class="nv">$gray</span><span class="o">:</span> <span class="nf">rgb</span><span class="p">(</span><span class="mi">177</span><span class="kt"></span><span class="o">,</span> <span class="mi">176</span><span class="kt"></span><span class="o">,</span> <span class="mi">176</span><span class="kt"></span><span class="p">)</span>
+<span class="nv">$slateblue</span><span class="o">:</span> <span class="nf">rgb</span><span class="p">(</span><span class="mi">82</span><span class="kt"></span><span class="o">,</span> <span class="mi">138</span><span class="kt"></span><span class="o">,</span> <span class="mi">157</span><span class="kt"></span><span class="p">)</span>
+<span class="nv">$almostblack</span><span class="o">:</span> <span class="nf">rgb</span><span class="p">(</span><span class="mi">9</span><span class="kt"></span><span class="o">,</span> <span class="mi">12</span><span class="kt"></span><span class="o">,</span> <span class="mi">18</span><span class="kt"></span><span class="p">)</span>
+<span class="nv">$almostwhite</span><span class="o">:</span> <span class="nf">rgb</span><span class="p">(</span><span class="mi">247</span><span class="kt"></span><span class="o">,</span> <span class="mi">247</span><span class="kt"></span><span class="o">,</span> <span class="mi">239</span><span class="kt"></span><span class="p">)</span>
+</code></pre></div><h3 id="background-with-gradient">Background with Gradient</h3>
 <p>See a live demo <a href="https://codepen.io/drmikeh/pen/wvvVZXy">here</a>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">background</span><span class="o">:</span> <span class="nt">linear-gradient</span><span class="o">(</span><span class="nt">90deg</span><span class="o">,</span> <span class="p">#</span><span class="nn">667eea</span> <span class="nt">0</span><span class="o">%,</span> <span class="p">#</span><span class="nn">764ba2</span> <span class="nt">100</span><span class="o">%);</span></code></pre></div>
-<h3 id="holy-grail-layout-with-grid-and-flexbox">Holy Grail Layout with Grid and Flexbox</h3>
-
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">background</span><span class="o">:</span> <span class="nt">linear-gradient</span><span class="o">(</span><span class="nt">90deg</span><span class="o">,</span> <span class="p">#</span><span class="nn">667eea</span> <span class="nt">0</span><span class="o">%</span><span class="o">,</span> <span class="p">#</span><span class="nn">764ba2</span> <span class="nt">100</span><span class="o">%</span><span class="o">)</span><span class="o">;</span>
+</code></pre></div><h3 id="holy-grail-layout-with-grid-and-flexbox">Holy Grail Layout with Grid and Flexbox</h3>
 <p>For a live demo see <a href="https://codepen.io/drmikeh/pen/BayBzLa?editors=1100">Holy Grail Layout with Grid and Flexbox</a></p>
-
 <p>Also see: <a href="https://codepen.io/drmikeh/pen/GRgKmpy?editors=0100">Holy Grail Layout with Grid and Flexbox with Cards</a></p>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="c">/* for smaller screens we use flexbox */</span>
 <span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
@@ -288,7 +277,8 @@
   <span class="k">font-size</span><span class="p">:</span> <span class="mf">1.2</span><span class="kt">rem</span><span class="p">;</span>
   <span class="k">background-color</span><span class="p">:</span> <span class="mh">#6a3</span><span class="p">;</span>
   <span class="k">color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div></div>
+<span class="p">}</span>
+</code></pre></div></div>
 				
 				<footer class="post__footer">
 					

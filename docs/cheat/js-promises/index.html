@@ -54,88 +54,74 @@
 <details class="post__toc toc" >
 	<summary class="toc__title">Table of Contents</summary>
 	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#making-promises">Making promises</a></li>
-<li><a href="#using-promises">Using promises</a></li>
-<li><a href="#using-promises-with-finally">Using promises with finally</a></li>
-<li><a href="#promise-functions">Promise functions</a></li>
-<li><a href="#async-await">Async-await</a></li>
-<li><a href="#promise-all-with-async-await">Promise.all with async-await</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#making-promises">Making promises</a></li>
+        <li><a href="#using-promises">Using promises</a></li>
+        <li><a href="#using-promises-with-finally">Using promises with finally</a></li>
+        <li><a href="#promise-functions">Promise functions</a></li>
+        <li><a href="#async-await">Async-await</a></li>
+        <li><a href="#promiseall-with-async-await">Promise.all with async-await</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 </details>
 
 				<div class="post__content"><p>A promise represents the eventual result of an asynchronous operation. JavaScript promises were added to the language in ES-2015.</p>
-
 <h3 id="making-promises">Making promises</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">ok</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">resolve</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
         <span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
     <span class="p">}</span>
-<span class="p">})</span>
-</code></pre></div>
-<p>For asynchronous programming, see: <a href="https://babeljs.io/learn-es2015/#promises">Promises</a></p>
-
+<span class="p">}</span><span class="p">)</span>
+</code></pre></div><p>For asynchronous programming, see: <a href="https://babeljs.io/learn-es2015/#promises">Promises</a></p>
 <h3 id="using-promises">Using promises</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">promise</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="err">···</span> <span class="p">})</span>
-  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="err">···</span> <span class="p">})</span>
-</code></pre></div>
-<h3 id="using-promises-with-finally">Using promises with finally</h3>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="err">·</span><span class="err">·</span><span class="err">·</span> <span class="p">}</span><span class="p">)</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="err">·</span><span class="err">·</span><span class="err">·</span> <span class="p">}</span><span class="p">)</span>
+</code></pre></div><h3 id="using-promises-with-finally">Using promises with finally</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">promise</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="err">···</span> <span class="p">})</span>
-  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="err">···</span> <span class="p">})</span>
-  <span class="p">.</span><span class="k">finally</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// logic independent of success/error })
-</span></code></pre></div>
-<p>The handler is called when the promise is fulfilled or rejected.</p>
-
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="err">·</span><span class="err">·</span><span class="err">·</span> <span class="p">}</span><span class="p">)</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="err">·</span><span class="err">·</span><span class="err">·</span> <span class="p">}</span><span class="p">)</span>
+  <span class="p">.</span><span class="k">finally</span><span class="p">(</span><span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// logic independent of success/error })
+</span></code></pre></div><p>The handler is called when the promise is fulfilled or rejected.</p>
 <h3 id="promise-functions">Promise functions</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
-<span class="nb">Promise</span><span class="p">.</span><span class="nx">race</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
-<span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
-<span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="async-await">Async-await</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">async</span> <span class="kd">function</span> <span class="nx">run</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">getUser</span><span class="p">()</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
+<span class="nb">Promise</span><span class="p">.</span><span class="nx">race</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
+<span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
+<span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
+</code></pre></div><h3 id="async-await">Async-await</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">async</span> <span class="kd">function</span> <span class="nx">run</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">getUser</span><span class="p">(</span><span class="p">)</span>
     <span class="kr">const</span> <span class="nx">tweets</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">getTweets</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">[</span><span class="nx">user</span><span class="p">,</span> <span class="nx">tweets</span><span class="p">]</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><code>async</code> functions are another way of using promises.</p>
-
+</code></pre></div><p><code>async</code> functions are another way of using promises.</p>
 <p>See: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">async function</a></p>
-
-<h3 id="promise-all-with-async-await">Promise.all with async-await</h3>
-
+<h3 id="promiseall-with-async-await">Promise.all with async-await</h3>
 <p>Use <code>Promise.all</code> to execute concurrent asynchronous operations and wait for them all to resolve (or any of them to reject).</p>
-
 <p>Example:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">try</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="p">[</span><span class="nx">departments</span><span class="p">,</span> <span class="nx">products</span><span class="p">,</span> <span class="nx">cart</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="nx">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
-            <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/departments&#39;</span><span class="p">),</span>
-            <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/products&#39;</span><span class="p">),</span>
+        <span class="nx">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="p">[</span>
+            <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/departments&#39;</span><span class="p">)</span><span class="p">,</span>
+            <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/products&#39;</span><span class="p">)</span><span class="p">,</span>
             <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/cart&#39;</span><span class="p">)</span>
-        <span class="p">])</span>
-    <span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">r</span> <span class="p">=&gt;</span> <span class="nx">r</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+        <span class="p">]</span><span class="p">)</span>
+    <span class="p">)</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">r</span> <span class="p">=&gt;</span> <span class="nx">r</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">(</span><span class="p">{</span>
         <span class="nx">departments</span><span class="p">,</span>
         <span class="nx">products</span><span class="p">,</span>
         <span class="nx">cart</span><span class="p">,</span>
         <span class="nx">loading</span><span class="o">:</span> <span class="kc">false</span>
-    <span class="p">})</span>
+    <span class="p">}</span><span class="p">)</span>
 <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;ERROR:&#39;</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">updating</span><span class="o">:</span> <span class="kc">false</span> <span class="p">})</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">(</span><span class="p">{</span> <span class="nx">updating</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span><span class="p">)</span>
     <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;ERROR: &#39;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div></div>

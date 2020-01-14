@@ -54,27 +54,24 @@
 <details class="post__toc toc" >
 	<summary class="toc__title">Table of Contents</summary>
 	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#functions">Functions</a></li>
-<li><a href="#types">Types</a></li>
-<li><a href="#variables">Variables</a></li>
-<li><a href="#typedef">Typedef</a></li>
-<li><a href="#typedef-shorthand">Typedef Shorthand</a></li>
-<li><a href="#importing-types">Importing types</a></li>
-<li><a href="#other-keywords">Other keywords</a></li>
-<li><a href="#renaming">Renaming</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#functions">Functions</a></li>
+        <li><a href="#types">Types</a></li>
+        <li><a href="#variables">Variables</a></li>
+        <li><a href="#typedef">Typedef</a></li>
+        <li><a href="#typedef-shorthand">Typedef Shorthand</a></li>
+        <li><a href="#importing-types">Importing types</a></li>
+        <li><a href="#other-keywords">Other keywords</a></li>
+        <li><a href="#renaming">Renaming</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 </details>
 
 				<div class="post__content"><p>JSDoc 3 is an API documentation generator for JavaScript, similar to Javadoc or phpDocumentor. You add documentation comments directly to your source code, right alongside the code itself. The JSDoc tool will scan your source code and generate an HTML documentation website for you.</p>
-
 <h3 id="functions">Functions</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/**
 </span><span class="cm"> * This is a function.
@@ -90,11 +87,8 @@
 <span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">n</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>See: <a href="http://usejsdoc.org/index.html">http://usejsdoc.org/index.html</a></p>
-
+</code></pre></div><p>See: <a href="http://usejsdoc.org/index.html">http://usejsdoc.org/index.html</a></p>
 <h3 id="types">Types</h3>
-
 <table>
 <thead>
 <tr>
@@ -102,52 +96,42 @@
 <th>Description</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>@param {string=} n</code></td>
 <td>Optional</td>
 </tr>
-
 <tr>
 <td><code>@param {string} [n]</code></td>
 <td>Optional</td>
 </tr>
-
 <tr>
 <td><code>@param {(string\|number)} n</code></td>
 <td>Multiple types</td>
 </tr>
-
 <tr>
 <td><code>@param {*} n</code></td>
 <td>Any type</td>
 </tr>
-
 <tr>
 <td><code>@param {...string} n</code></td>
 <td>Repeatable arguments</td>
 </tr>
-
 <tr>
 <td><code>@param {string} [n=&quot;hi&quot;]</code></td>
 <td>Optional with default</td>
 </tr>
-
 <tr>
 <td><code>@param {string[]} n</code></td>
 <td>Array of strings</td>
 </tr>
-
 <tr>
 <td><code>@return {Promise&lt;string[]&gt;} n</code></td>
 <td>Promise fulfilled by array of strings</td>
 </tr>
 </tbody>
 </table>
-
 <p>See: <a href="http://usejsdoc.org/tags-type.html">http://usejsdoc.org/tags-type.html</a></p>
-
 <h3 id="variables">Variables</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/**
 </span><span class="cm"> * @type {number}
@@ -157,8 +141,7 @@
 </span><span class="cm"> * @const {number}
 </span><span class="cm"> */</span>
 <span class="kr">const</span> <span class="nx">FOO</span> <span class="o">=</span> <span class="mi">1</span>
-</code></pre></div>
-<h3 id="typedef">Typedef</h3>
+</code></pre></div><h3 id="typedef">Typedef</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/**
 </span><span class="cm"> * A song
 </span><span class="cm"> * @typedef {Object} Song
@@ -171,10 +154,8 @@
 </span><span class="cm"> * @param {Song} song - The {@link Song} to be played
 </span><span class="cm"> */</span>
 
-<span class="kd">function</span> <span class="nx">play</span><span class="p">(</span><span class="nx">song</span><span class="p">)</span> <span class="p">{}</span>
-</code></pre></div>
-<p>See: <a href="http://usejsdoc.org/tags-typedef.html">http://usejsdoc.org/tags-typedef.html</a></p>
-
+<span class="kd">function</span> <span class="nx">play</span><span class="p">(</span><span class="nx">song</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span>
+</code></pre></div><p>See: <a href="http://usejsdoc.org/tags-typedef.html">http://usejsdoc.org/tags-typedef.html</a></p>
 <h3 id="typedef-shorthand">Typedef Shorthand</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/**
 </span><span class="cm"> * A song
@@ -185,10 +166,8 @@
 </span><span class="cm"> * @param {Song} song - The {@link Song} to be played
 </span><span class="cm"> */</span>
 
-<span class="kd">function</span> <span class="nx">play</span><span class="p">(</span><span class="nx">song</span><span class="p">)</span> <span class="p">{}</span>
-</code></pre></div>
-<p>See: <a href="http://usejsdoc.org/tags-typedef.html">http://usejsdoc.org/tags-typedef.html</a></p>
-
+<span class="kd">function</span> <span class="nx">play</span><span class="p">(</span><span class="nx">song</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span>
+</code></pre></div><p>See: <a href="http://usejsdoc.org/tags-typedef.html">http://usejsdoc.org/tags-typedef.html</a></p>
 <h3 id="importing-types">Importing types</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/**
 </span><span class="cm"> * @typedef {import(&#39;./Foo&#39;).default} Bar
@@ -198,10 +177,8 @@
 </span><span class="cm"> * @param {Bar} x
 </span><span class="cm"> */</span>
 
-<span class="kd">function</span> <span class="nx">test</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{}</span>
-</code></pre></div>
-<p>This syntax is <a href="https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript#import-types">TypeScript-specific</a>.</p>
-
+<span class="kd">function</span> <span class="nx">test</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span>
+</code></pre></div><p>This syntax is <a href="https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript#import-types">TypeScript-specific</a>.</p>
 <h3 id="other-keywords">Other keywords</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/**
 </span><span class="cm"> * @throws {FooException}
@@ -212,14 +189,12 @@
 </span><span class="cm"> * @function
 </span><span class="cm"> * @class
 </span><span class="cm"> */</span>
-</code></pre></div>
-<h3 id="renaming">Renaming</h3>
+</code></pre></div><h3 id="renaming">Renaming</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/*
 </span><span class="cm"> * @alias Foo.bar
 </span><span class="cm"> * @name Foo.bar
 </span><span class="cm"> */</span>
-</code></pre></div>
-<p>Prefer <code>alias</code> over <code>name</code>. See: <a href="http://usejsdoc.org/tags-alias.html">http://usejsdoc.org/tags-alias.html</a></p></div>
+</code></pre></div><p>Prefer <code>alias</code> over <code>name</code>. See: <a href="http://usejsdoc.org/tags-alias.html">http://usejsdoc.org/tags-alias.html</a></p></div>
 				
 				<footer class="post__footer">
 					

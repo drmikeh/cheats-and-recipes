@@ -54,25 +54,20 @@
 <details class="post__toc toc" >
 	<summary class="toc__title">Table of Contents</summary>
 	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#my-git-aliases">My Git Aliases</a></li>
-<li><a href="#git-extras">Git Extras</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#my-git-aliases">My Git Aliases</a></li>
+        <li><a href="#git-extras">Git Extras</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 </details>
 
 				<div class="post__content"><p>Recipes for using Git.</p>
-
 <h3 id="my-git-aliases">My Git Aliases</h3>
-
 <p>I have these in my <code>~/.gitconfig</code>:</p>
-
 <pre><code>co = checkout
 diffs = diff --staged
 g = log --graph --all --branches --decorate --pretty=format:'[%C(auto)%h%Creset][%C(cyan)%an %ar%Creset]%C(auto)%d%Creset %s %C(auto)%Creset'
@@ -81,9 +76,7 @@ lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen
 ls = log --stat --all --decorate
 unmerged = branch --no-merged master
 unpushed = log --branches --not --remotes --no-walk --decorate --oneline
-</code></pre>
-
-<p>I have these in my <code>~/.alias</code> file:</p>
+</code></pre><p>I have these in my <code>~/.alias</code> file:</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">alias</span> <span class="nv">homegit</span><span class="o">=</span><span class="s1">&#39;export GITHUB_HOST=github.com&#39;</span>
 <span class="nb">alias</span> <span class="nv">workgit</span><span class="o">=</span><span class="s1">&#39;export GITHUB_HOST=github.homedepot.com&#39;</span>
 <span class="nb">alias</span> <span class="nv">gchd</span><span class="o">=</span><span class="s1">&#39;git config user.email michael_a_hopper@homedepot.com&#39;</span>
@@ -100,12 +93,11 @@ unpushed = log --branches --not --remotes --no-walk --decorate --oneline
 <span class="nb">alias</span> <span class="nv">gb</span><span class="o">=</span><span class="s1">&#39;git branch -a&#39;</span>
 <span class="nb">alias</span> <span class="nv">gi</span><span class="o">=</span><span class="s1">&#39;git remote show origin&#39;</span>
 <span class="nb">alias</span> <span class="nv">gr</span><span class="o">=</span><span class="s1">&#39;git remote -v&#39;</span>
-<span class="nb">alias</span> <span class="nv">gpum</span><span class="o">=</span><span class="s1">&#39;git pull upstream master&#39;</span></code></pre></div>
-<h3 id="git-extras">Git Extras</h3>
-
+<span class="nb">alias</span> <span class="nv">gpum</span><span class="o">=</span><span class="s1">&#39;git pull upstream master&#39;</span>
+</code></pre></div><h3 id="git-extras">Git Extras</h3>
 <p>I use some of the commands available from <a href="https://github.com/tj/git-extras">git-extras</a>. You can instal <code>git-extras</code> with <code>homebrew</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">brew install git-extras</code></pre></div>
-<p>My favorite <code>git-extras</code> commands are:</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">brew install git-extras
+</code></pre></div><p>My favorite <code>git-extras</code> commands are:</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">git <span class="nb">alias</span>  <span class="c1"># easily add an alias to the .gitconfig file</span>
 git ignore <span class="c1"># easily add a line to the local .gitignore file</span>
 git info   <span class="c1"># show detailed information about the repo</span>
@@ -118,7 +110,8 @@ git standup <span class="o">[</span>-d n<span class="o">]</span> <span class="c1
 git obliterate <span class="c1"># Completely remove a file from the repository, including past commits and tags</span>
 git local-commits <span class="c1"># List all commits on the local branch that have not yet been sent to origin</span>
 git pr <span class="c1"># Checks out a pull request from GitHub</span>
-git delta <span class="c1"># Lists files that differ from another branch</span></code></pre></div></div>
+git delta <span class="c1"># Lists files that differ from another branch</span>
+</code></pre></div></div>
 				
 				<footer class="post__footer">
 					

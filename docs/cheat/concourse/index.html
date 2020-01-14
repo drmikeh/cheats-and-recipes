@@ -54,22 +54,18 @@
 <details class="post__toc toc" >
 	<summary class="toc__title">Table of Contents</summary>
 	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#fly-commands">fly commands</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#fly-commands">fly commands</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 </details>
 
 				<div class="post__content"><p>Pivotal Concourse is a CI/CD tool.</p>
-
 <h3 id="fly-commands">fly commands</h3>
-
 <table>
 <thead>
 <tr>
@@ -77,68 +73,55 @@
 <th>Command</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>Get help</td>
 <td><code>fly -h</code> or <code>fly command -h</code></td>
 </tr>
-
 <tr>
 <td>Login and specify target</td>
 <td><code>fly -t myTarget login --concourse-url url-of-my-concourse-server</code></td>
 </tr>
-
 <tr>
 <td>List saved targets</td>
 <td><code>fly targets</code></td>
 </tr>
-
 <tr>
 <td>Download and replace the current fly from the target</td>
 <td><code>fly -t myTarget sync</code></td>
 </tr>
-
 <tr>
 <td>See your saved targets</td>
 <td><code>cat ~/.flyrc</code></td>
 </tr>
-
 <tr>
 <td>Execute a task</td>
 <td><code>fly -t myTarget e -c hello_world.yml</code></td>
 </tr>
-
 <tr>
 <td>Set Pipeline (pushes the pipeline.yml file)</td>
 <td><code>fly -t myTarget sp -c pipeline.yml -p myPipeline -l myParameters.yml</code></td>
 </tr>
-
 <tr>
 <td>Unpause Pipeline</td>
 <td><code>fly -t myTarget up -p myPipeline</code></td>
 </tr>
-
 <tr>
 <td>Pause Pipeline</td>
 <td><code>fly -t myTarget pp -p myPipeline</code></td>
 </tr>
-
 <tr>
 <td>View the results of recent builds across all pipelines</td>
 <td><code>fly -t myTarget builds</code></td>
 </tr>
-
 <tr>
 <td>View the results of a previous build</td>
 <td><code>fly -t myTarget watch --build build_number</code></td>
 </tr>
-
 <tr>
 <td>Manually trigger a job</td>
 <td><code>fly -t myTarget tj -j myPipeline/jobName -w</code></td>
 </tr>
-
 <tr>
 <td>Destroy Pipeline</td>
 <td><code>fly -t myTarget dp -p myPipeline</code></td>

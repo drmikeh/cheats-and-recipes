@@ -54,30 +54,26 @@
 <details class="post__toc toc" >
 	<summary class="toc__title">Table of Contents</summary>
 	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#shell-commands">Shell Commands</a></li>
-<li><a href="#psql-commands">psql Commands</a></li>
-</ul></li>
-<li><a href="#references">References</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#shell-commands">Shell Commands</a></li>
+        <li><a href="#psql-commands">psql Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
 </nav>
 </details>
 
 				<div class="post__content"><p>PostgreSQL is a relational database.</p>
-
 <h3 id="shell-commands">Shell Commands</h3>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">createdb &lt;dbname&gt;                               <span class="c1"># create a database</span>
 dropdb &lt;dbname&gt;                                 <span class="c1"># delete a database</span>
 psql                                            <span class="c1"># login to default database &amp; default user</span>
 psql -d &lt;dbname&gt; -f &lt;filename&gt;                  <span class="c1"># connect to the specified database and run a SQL script</span>
-psql -h &lt;hostname&gt; -U &lt;username&gt; -d &lt;dbname&gt;    <span class="c1"># login to remote database</span></code></pre></div>
-<h3 id="psql-commands">psql Commands</h3>
-
+psql -h &lt;hostname&gt; -U &lt;username&gt; -d &lt;dbname&gt;    <span class="c1"># login to remote database</span>
+</code></pre></div><h3 id="psql-commands">psql Commands</h3>
 <table>
 <thead>
 <tr>
@@ -85,72 +81,58 @@ psql -h &lt;hostname&gt; -U &lt;username&gt; -d &lt;dbname&gt;    <span class="c
 <th>Description</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>\l</code></td>
 <td>list all databases</td>
 </tr>
-
 <tr>
 <td><code>\c &lt;database&gt;</code></td>
-<td>connect to <database></td>
+<td>connect to <!-- raw HTML omitted --></td>
 </tr>
-
 <tr>
 <td><code>\d</code></td>
 <td>list all tables and other objects</td>
 </tr>
-
 <tr>
 <td><code>\dt</code></td>
 <td>list all tables</td>
 </tr>
-
 <tr>
 <td><code>\du</code></td>
 <td>list all users and their roles</td>
 </tr>
-
 <tr>
 <td><code>\d &lt;table_name&gt;</code></td>
-<td>list details about <table_name></td>
+<td>list details about &lt;table_name&gt;</td>
 </tr>
-
 <tr>
 <td><code>\h</code></td>
 <td>show help</td>
 </tr>
-
 <tr>
 <td><code>\q</code></td>
 <td>quit</td>
 </tr>
-
 <tr>
 <td><code>CREATE USER &lt;username&gt; with encrypted password 'my-password'</code></td>
 <td>create a user</td>
 </tr>
-
 <tr>
 <td><code>ALTER USER &lt;username&gt; SUPERUSER;</code></td>
 <td>make a user an admin user</td>
 </tr>
-
 <tr>
 <td><code>CREATE DATABASE &lt;username&gt;;</code></td>
 <td>create a database</td>
 </tr>
-
 <tr>
 <td><code>GRANT ALL PRIVILEGES ON DATABASE &lt;dbname&gt; TO &lt;username&gt;;</code></td>
 <td>grant all privileges</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="references">References</h2>
-
 <ul>
 <li><a href="https://www.postgresql.org/">Official PostgreSQL Website</a></li>
 </ul></div>

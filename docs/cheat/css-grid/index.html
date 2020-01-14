@@ -54,22 +54,19 @@
 <details class="post__toc toc" >
 	<summary class="toc__title">Table of Contents</summary>
 	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#container">Container</a></li>
-<li><a href="#child">Child</a></li>
-</ul></li>
-<li><a href="#references">References</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#container">Container</a></li>
+        <li><a href="#child">Child</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
 </nav>
 </details>
 
 				<div class="post__content"><p>Use CSS Grid to control the layout of HTML elements in 2 dimensions (horizontal and vertical).</p>
-
 <h3 id="container">Container</h3>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">grid-container</span> <span class="p">{</span>
     <span class="c">/* Display properties */</span>
@@ -84,9 +81,9 @@
     <span class="k">grid-template-columns</span><span class="p">:</span> <span class="nf">repeat</span><span class="p">(</span>
         <span class="mi">12</span><span class="p">,</span>
         <span class="mi">1</span><span class="n">fr</span>
-    <span class="p">);</span> <span class="c">/* Repeat columns without needing to write them */</span>
+    <span class="p">)</span><span class="p">;</span> <span class="c">/* Repeat columns without needing to write them */</span>
 
-    <span class="k">grid-template-rows</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span> <span class="mi">10</span><span class="kt">%</span> <span class="kc">auto</span> <span class="nf">repeat</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="kt">px</span><span class="p">);</span> <span class="c">/* Mix any group, same rules work for rows */</span>
+    <span class="k">grid-template-rows</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span> <span class="mi">10</span><span class="kt">%</span> <span class="kc">auto</span> <span class="nf">repeat</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="kt">px</span><span class="p">)</span><span class="p">;</span> <span class="c">/* Mix any group, same rules work for rows */</span>
 
     <span class="c">/* Automatic columns and rows */</span>
 
@@ -201,12 +198,12 @@
     <span class="k">grid-auto-flow</span><span class="p">:</span> <span class="n">dense</span><span class="p">;</span>
     <span class="k">grid-auto-columns</span><span class="p">:</span> <span class="mi">1</span><span class="n">fr</span><span class="p">;</span>
 
-    <span class="k">grid</span><span class="p">:</span> <span class="kc">auto</span><span class="o">-</span><span class="k">flow</span> <span class="n">dense</span> <span class="mi">1</span><span class="kt">rem</span> <span class="o">/</span> <span class="nf">repeat</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">);</span> <span class="c">/* Conversely, you can do the same thing with automatic rows, and defined columns */</span>
+    <span class="k">grid</span><span class="p">:</span> <span class="kc">auto</span><span class="o">-</span><span class="k">flow</span> <span class="n">dense</span> <span class="mi">1</span><span class="kt">rem</span> <span class="o">/</span> <span class="nf">repeat</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">)</span><span class="p">;</span> <span class="c">/* Conversely, you can do the same thing with automatic rows, and defined columns */</span>
     <span class="k">grid-auto-flow</span><span class="p">:</span> <span class="n">dense</span><span class="p">;</span>
     <span class="k">grid-auto-rows</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
-    <span class="k">grid-template-columns</span><span class="p">:</span> <span class="nf">repeat</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
-<h3 id="child">Child</h3>
+    <span class="k">grid-template-columns</span><span class="p">:</span> <span class="nf">repeat</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="child">Child</h3>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">grid-child</span> <span class="p">{</span>
     <span class="c">/* Column position */</span>
     <span class="k">grid-column-start</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
@@ -251,9 +248,8 @@
     <span class="c">/* The above is the same as below long-hand */</span>
     <span class="k">align-self</span><span class="p">:</span> <span class="kc">start</span><span class="p">;</span>
     <span class="k">justify-self</span><span class="p">:</span> <span class="kc">stretch</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<h2 id="references">References</h2>
-
+<span class="p">}</span>
+</code></pre></div><h2 id="references">References</h2>
 <ul>
 <li><a href="http://grid.malven.co/">GRID: A simple visual cheatsheet</a></li>
 <li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/">CSS Tricks: A Complete Guide to Grid</a></li>

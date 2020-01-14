@@ -54,26 +54,21 @@
 <details class="post__toc toc" >
 	<summary class="toc__title">Table of Contents</summary>
 	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#format">Format</a>
-<ul>
-<li><a href="#format-1">Format</a></li>
-<li><a href="#examples">Examples</a></li>
-<li><a href="#crontab">Crontab</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#format">Format</a>
+      <ul>
+        <li><a href="#format-1">Format</a></li>
+        <li><a href="#examples">Examples</a></li>
+        <li><a href="#crontab">Crontab</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 </details>
 
 				<div class="post__content"><p>A time-based job scheduler in Unix-like computer operating systems.</p>
-
 <h2 id="format">Format</h2>
-
 <h3 id="format-1">Format</h3>
-
 <pre><code>Min  Hour Day  Mon  Weekday
 *    *    *    *    *  command to be executed
 ┬    ┬    ┬    ┬    ┬
@@ -82,10 +77,7 @@
 │    │    └───────────  Day      (1..31)
 │    └────────────────  Hour     (0..23)
 └─────────────────────  Minute   (0..59)
-</code></pre>
-
-<h3 id="examples">Examples</h3>
-
+</code></pre><h3 id="examples">Examples</h3>
 <table>
 <thead>
 <tr>
@@ -93,40 +85,33 @@
 <th>Description</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>0 * * * *</code></td>
 <td>every hour</td>
 </tr>
-
 <tr>
 <td><code>*/15 * * * *</code></td>
 <td>every 15 mins</td>
 </tr>
-
 <tr>
 <td><code>0 */2 * * *</code></td>
 <td>every 2 hours</td>
 </tr>
-
 <tr>
 <td><code>0 0 * * 0</code></td>
 <td>every Sunday midnight</td>
 </tr>
-
 <tr>
 <td>&mdash;</td>
 <td>&mdash;</td>
 </tr>
-
 <tr>
 <td><code>@reboot</code></td>
 <td>every reboot</td>
 </tr>
 </tbody>
 </table>
-
 <h3 id="crontab">Crontab</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Adding tasks easily</span>
 <span class="nb">echo</span> <span class="s2">&#34;@reboot echo hi&#34;</span> <span class="p">|</span> crontab
@@ -135,7 +120,8 @@
 crontab -e
 
 <span class="c1"># List tasks</span>
-crontab -l <span class="o">[</span>-u user<span class="o">]</span></code></pre></div></div>
+crontab -l <span class="o">[</span>-u user<span class="o">]</span>
+</code></pre></div></div>
 				
 				<footer class="post__footer">
 					

@@ -54,22 +54,18 @@
 <details class="post__toc toc" >
 	<summary class="toc__title">Table of Contents</summary>
 	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#cf-commands">cf commands</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#cf-commands">cf commands</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 </details>
 
 				<div class="post__content"><p>PCF is an application PaaS (Platform as a Service) cloud platform.</p>
-
 <h3 id="cf-commands">cf commands</h3>
-
 <table>
 <thead>
 <tr>
@@ -77,58 +73,47 @@
 <th>Command</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>Get help</td>
 <td><code>cf -h</code> or <code>cf command -h</code></td>
 </tr>
-
 <tr>
 <td>Login and specify target</td>
 <td><code>cf login -a https://api.run-np.homedepot.com -u ldap_id -o org_name -s space_name</code></td>
 </tr>
-
 <tr>
 <td>List organizations</td>
 <td><code>cf orgs</code> or <code>cf o</code></td>
 </tr>
-
 <tr>
 <td>Create a new org</td>
 <td><code>cf co org_name</code></td>
 </tr>
-
 <tr>
 <td>Create a new space</td>
 <td><code>cf create-space org_name</code></td>
 </tr>
-
 <tr>
 <td>Show list of buildpacks</td>
 <td><code>cf buildpacks</code></td>
 </tr>
-
 <tr>
 <td>Deploy an app</td>
 <td><code>cf push</code></td>
 </tr>
-
 <tr>
 <td>Restart an app</td>
 <td><code>cf restage</code></td>
 </tr>
-
 <tr>
 <td>See what apps are running</td>
 <td><code>cf apps</code> or <code>cf a</code></td>
 </tr>
-
 <tr>
 <td>Show environment variables</td>
 <td><code>cf env [app_name]</code></td>
 </tr>
-
 <tr>
 <td>Show the recent log entries</td>
 <td><code>cf logs app_name -recent</code></td>

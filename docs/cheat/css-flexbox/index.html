@@ -54,31 +54,29 @@
 <details class="post__toc toc" >
 	<summary class="toc__title">Table of Contents</summary>
 	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#simple-example">Simple example</a></li>
-<li><a href="#container">Container</a></li>
-<li><a href="#child">Child</a></li>
-</ul></li>
-<li><a href="#recipes">Recipes</a>
-<ul>
-<li><a href="#vertical-center">Vertical center</a></li>
-<li><a href="#reordering">Reordering</a></li>
-<li><a href="#mobile-layout">Mobile layout</a></li>
-<li><a href="#vertical">Vertical</a></li>
-<li><a href="#left-and-right">Left and right</a></li>
-</ul></li>
-<li><a href="#references">References</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#simple-example">Simple example</a></li>
+        <li><a href="#container">Container</a></li>
+        <li><a href="#child">Child</a></li>
+      </ul>
+    </li>
+    <li><a href="#recipes">Recipes</a>
+      <ul>
+        <li><a href="#vertical-center">Vertical center</a></li>
+        <li><a href="#reordering">Reordering</a></li>
+        <li><a href="#mobile-layout">Mobile layout</a></li>
+        <li><a href="#vertical">Vertical</a></li>
+        <li><a href="#left-and-right">Left and right</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
 </nav>
 </details>
 
 				<div class="post__content"><p>Use CSS Flexbox to control the layout of HTML elements in a single dimension (horizontal or vertical).</p>
-
 <h3 id="simple-example">Simple example</h3>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
     <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
@@ -86,8 +84,8 @@
 
 <span class="p">.</span><span class="nc">container</span> <span class="o">&gt;</span> <span class="nt">div</span> <span class="p">{</span>
     <span class="k">flex</span><span class="p">:</span> <span class="mi">1</span> <span class="mi">1</span> <span class="kc">auto</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<h3 id="container">Container</h3>
+<span class="p">}</span>
+</code></pre></div><h3 id="container">Container</h3>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
     <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
     <span class="k">display</span><span class="p">:</span> <span class="kc">inline</span><span class="o">-</span><span class="kc">flex</span><span class="p">;</span>
@@ -108,8 +106,8 @@
     <span class="k">justify-content</span><span class="p">:</span> <span class="kc">flex</span><span class="o">-</span><span class="kc">start</span><span class="p">;</span> <span class="c">/* horizontal alignment - default */</span>
     <span class="k">justify-content</span><span class="p">:</span> <span class="kc">flex</span><span class="o">-</span><span class="kc">end</span><span class="p">;</span>
     <span class="k">justify-content</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<h3 id="child">Child</h3>
+<span class="p">}</span>
+</code></pre></div><h3 id="child">Child</h3>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">container</span> <span class="o">&gt;</span> <span class="nt">div</span> <span class="p">{</span>
     <span class="c">/* This: */</span>
     <span class="k">flex</span><span class="p">:</span> <span class="mi">1</span> <span class="mi">0</span> <span class="kc">auto</span><span class="p">;</span>
@@ -123,24 +121,23 @@
 
     <span class="k">align-self</span><span class="p">:</span> <span class="kc">flex</span><span class="o">-</span><span class="kc">start</span><span class="p">;</span> <span class="c">/* left */</span>
     <span class="k">margin-left</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span> <span class="c">/* right */</span>
-<span class="p">}</span></code></pre></div>
-<h2 id="recipes">Recipes</h2>
-
+<span class="p">}</span>
+</code></pre></div><h2 id="recipes">Recipes</h2>
 <h3 id="vertical-center">Vertical center</h3>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
     <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
     <span class="k">align-items</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span> <span class="c">/* vertical */</span>
     <span class="k">justify-content</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span> <span class="c">/* horizontal */</span>
-<span class="p">}</span></code></pre></div>
-<h3 id="reordering">Reordering</h3>
+<span class="p">}</span>
+</code></pre></div><h3 id="reordering">Reordering</h3>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">container</span> <span class="o">&gt;</span> <span class="p">.</span><span class="nc">top</span> <span class="p">{</span>
     <span class="k">order</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="p">.</span><span class="nc">container</span> <span class="o">&gt;</span> <span class="p">.</span><span class="nc">bottom</span> <span class="p">{</span>
     <span class="k">order</span><span class="p">:</span> <span class="mi">2</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<h3 id="mobile-layout">Mobile layout</h3>
+<span class="p">}</span>
+</code></pre></div><h3 id="mobile-layout">Mobile layout</h3>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
     <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
     <span class="k">flex-direction</span><span class="p">:</span> <span class="kc">column</span><span class="p">;</span>
@@ -152,24 +149,21 @@
 
 <span class="p">.</span><span class="nc">container</span> <span class="o">&gt;</span> <span class="p">.</span><span class="nc">content</span> <span class="p">{</span>
     <span class="k">flex</span><span class="p">:</span> <span class="mi">1</span> <span class="mi">0</span> <span class="kc">auto</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<p>A fixed-height top bar and a dynamic-height content area.</p>
-
+<span class="p">}</span>
+</code></pre></div><p>A fixed-height top bar and a dynamic-height content area.</p>
 <h3 id="vertical">Vertical</h3>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
     <span class="k">align-items</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<p>Vertically-center all items.</p>
-
+<span class="p">}</span>
+</code></pre></div><p>Vertically-center all items.</p>
 <h3 id="left-and-right">Left and right</h3>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">menu</span> <span class="o">&gt;</span> <span class="p">.</span><span class="nc">left</span> <span class="p">{</span>
     <span class="k">align-self</span><span class="p">:</span> <span class="kc">flex</span><span class="o">-</span><span class="kc">start</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="p">.</span><span class="nc">menu</span> <span class="o">&gt;</span> <span class="p">.</span><span class="nc">right</span> <span class="p">{</span>
     <span class="k">align-self</span><span class="p">:</span> <span class="kc">flex</span><span class="o">-</span><span class="kc">end</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<h2 id="references">References</h2>
-
+<span class="p">}</span>
+</code></pre></div><h2 id="references">References</h2>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes">MDN: Using CSS flexbox</a></li>
 <li><a href="http://www.sketchingwithcss.com/samplechapter/cheatsheet.html">Ultimate flexbox cheatsheet</a></li>
