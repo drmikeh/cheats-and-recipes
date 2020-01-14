@@ -127,7 +127,7 @@ This works nicely with <code>generator</code> functions because <code>requestIdl
                     <span class="k">return</span> <span class="nx">scheduleBatch</span><span class="p">(</span><span class="p">)</span>
                 <span class="p">}</span>
             <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nx">val</span><span class="p">.</span><span class="nx">done</span><span class="p">)</span>
-            <span class="nx">onComplete</span><span class="p">(</span><span class="nx">val</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
+            <span class="nx">onComplete</span> <span class="o">&amp;&amp;</span> <span class="nx">onComplete</span><span class="p">(</span><span class="nx">val</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
         <span class="p">}</span><span class="p">)</span>
     <span class="p">}</span>
     <span class="nx">scheduleBatch</span><span class="p">(</span><span class="p">)</span>
@@ -163,6 +163,9 @@ This works nicely with <code>generator</code> functions because <code>requestIdl
 <span class="p">}</span>
 
 <span class="nx">testItOut</span><span class="p">(</span><span class="p">)</span>
+</code></pre></div><p>And the HTML for this example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">h1</span><span class="p"></span><span class="p">&gt;</span>Using requestIdleCallback with a JavaScript Generator<span class="p">&lt;</span><span class="p">/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;result&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;result&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div></div>
 				
 				<footer class="post__footer">

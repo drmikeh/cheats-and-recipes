@@ -92,7 +92,7 @@ function runNicely(it, onYield, onComplete) {
                     return scheduleBatch()
                 }
             } while (!val.done)
-            onComplete(val.value)
+            onComplete && onComplete(val.value)
         })
     }
     scheduleBatch()
