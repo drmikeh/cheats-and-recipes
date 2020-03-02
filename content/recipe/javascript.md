@@ -15,18 +15,73 @@ Recipes for the JavaScript language.
 
 <!--more-->
 
-### A Delay function with Async / Await
+### A range function
 
 ```js
-function delay(millis) {
+const range = (start, stop, step) =>
+    Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step)
+```
+
+usage:
+
+```js
+const data = range(0, 10, 2) // [0, 2, 4, 6, 8, 10]
+```
+
+### A sleep function with Async / Await
+
+```js
+// as a classic function
+function sleep(millis) {
     return new Promise(res => setTimeout(res, millis))
 }
+// or as a one-liner:
+const sleep = millis => new Promise(res => setTimeout(res, millis))
+```
 
+usage:
+
+```js
 async function main() {
     console.log('Hello')
-    await delay(2000)
+    await sleep(2000)
     console.log('World')
 }
+```
+
+### Lifting promises via transforming a function
+
+```js
+// Using Lift to transform a function that works with values
+// to a function that works with Promises
+const liftP = func => (...args) => Promise.all(args).then(values => func(...values))
+```
+
+**Usage:**
+
+```js
+/**
+ * @param {number} x
+ * @param {number} x
+ * @returns {number}
+ */
+const add = (x, y) => x + y // a simple function
+
+/**
+ * @param {Promise<number>} x
+ * @param {Promise<number>} x
+ * @returns {Promise<number>}
+ */
+const addP = liftP(add) // transform the function to work with promises
+
+const promise1 = Promise.resolve(3)
+const promise2 = Promise.resolve(4)
+const promiseValue = addP(promise1, promise2)
+promiseValue.then(v => console.log({ v }))
+
+const pv3 = addP(5, 7)
+console.log({ pv3 })
+pv3.then(v3 => console.log({ v3 }))
 ```
 
 ### Reading a Data File

@@ -14,7 +14,18 @@ tags:
 ---
 
 Common recipes for CSS and SCSS.
+
 <!--more-->
+
+### Responsive Font Size
+
+You can have a font size grow or shrink based on the size of the viewport. This is handy for banners and headers.
+
+```css
+.header {
+    font-size: calc(10px + 1vmin);  /* minimum of 10px + 1% of the viewport's larger dimension (width or height)
+}
+```
 
 ### Remove Blue Border From Focussed Buttons
 
@@ -38,21 +49,21 @@ See a live demo [here](https://codepen.io/drmikeh/pen/LYYwvgN).
 
 ```css
 button {
-  background: rgb(211, 211, 211);
-  border: none;
-  border-radius: 5px;
-  font-size: 1.5rem;
-  box-shadow: 2px 2px 5px 2px rgb(96, 96, 96);
+    background: rgb(211, 211, 211);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    box-shadow: 2px 2px 5px 2px rgb(96, 96, 96);
 }
 
 button:active {
-  background-color: rgb(160, 160, 160);
-  transform: translate(2px, 2px);
-  box-shadow: inset;
+    background-color: rgb(160, 160, 160);
+    transform: translate(2px, 2px);
+    box-shadow: inset;
 }
 
 button:focus {
-  outline: 0;
+    outline: 0;
 }
 ```
 
@@ -62,26 +73,26 @@ See a live demo [here](https://codepen.io/drmikeh/pen/gOOVydG).
 
 ```css
 dl {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 0.5em;
-  width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.5em;
+    width: 300px;
 }
 dt {
-  float: left;
-  clear: left;
-  width: 100px;
-  text-align: right;
-  font-weight: bold;
-  color: #a0a0a0;
+    float: left;
+    clear: left;
+    width: 100px;
+    text-align: right;
+    font-weight: bold;
+    color: #a0a0a0;
 }
 dt::after {
-  content: ":";
+    content: ':';
 }
 dd {
-  margin: 0 0 0 110px;
-  padding: 0 0 0.5em 0;
-  font-style: italic;
+    margin: 0 0 0 110px;
+    padding: 0 0 0.5em 0;
+    font-style: italic;
 }
 ```
 
@@ -108,70 +119,70 @@ See live example [here](https://codepen.io/drmikeh/pen/xxxvRNW?editors=1100).
 
 ```css
 body {
-  text-align: center;
+    text-align: center;
 }
 
 .cards-flex {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: stretch;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
 }
 
 .cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  grid-column-gap: 5px;
-  grid-row-gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    grid-column-gap: 5px;
+    grid-row-gap: 10px;
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  background: lightgray;
-  border-radius: 10px;
-  margin: 10px;
-  padding: 10px;
-  width: 250px;
+    display: flex;
+    flex-direction: column;
+    background: lightgray;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    width: 250px;
 }
 
 .card .header {
-  border-bottom: 1px solid gray;
+    border-bottom: 1px solid gray;
 }
 
 .card .main {
-  text-align: left;
-  flex-grow: 1;
-  padding: 1px 10px;
+    text-align: left;
+    flex-grow: 1;
+    padding: 1px 10px;
 }
 
 .card .footer {
-  flex-grow: 0;
-  border-top: 1px solid gray;
-  padding: 15px;
-  display: flex;
-  justify-content: flex-end;
+    flex-grow: 0;
+    border-top: 1px solid gray;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
 }
 ```
 
 ### A Pretty Box in a Box
 
-``` scss
+```scss
 .container {
-  text-align: center;
-  background: rgb(240, 240, 240);
-  max-width: 600px;
-  margin-top: 40px;
-  padding: 20px;
-  border: 1px solid rgb(192, 192, 192);
-  border-radius: 10px;
+    text-align: center;
+    background: rgb(240, 240, 240);
+    max-width: 600px;
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 10px;
 }
 
 @mixin pretty-box {
-  border: 1px solid rgba(192, 192, 192, 0.2);
-  border-radius: 10px;
-  background: rgb(228, 228, 228);
-  padding: 20px;
+    border: 1px solid rgba(192, 192, 192, 0.2);
+    border-radius: 10px;
+    background: rgb(228, 228, 228);
+    padding: 20px;
 }
 ```
 
@@ -211,59 +222,59 @@ Also see: [Holy Grail Layout with Grid and Flexbox with Cards](https://codepen.i
 ```css
 /* for smaller screens we use flexbox */
 .container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* for larger screens we use a grid */
 @media (min-width: 600px) {
-  .container {
-    display: grid;
-    grid-template-columns: 150px 1fr 150px;
-    grid-template-rows: auto 1fr auto;
-  }
+    .container {
+        display: grid;
+        grid-template-columns: 150px 1fr 150px;
+        grid-template-rows: auto 1fr auto;
+    }
 }
 
 header {
-  grid-column: span 3;
-  padding: 20px;
-  text-align: center;
-  font-size: 1rem;
-  background-color: #369;
-  color: white;
-  display: flex;       /* header is a container that uses flexbox */
+    grid-column: span 3;
+    padding: 20px;
+    text-align: center;
+    font-size: 1rem;
+    background-color: #369;
+    color: white;
+    display: flex; /* header is a container that uses flexbox */
 }
 
 header *:not(:last-child) {
-  margin-right: 20px;
+    margin-right: 20px;
 }
 
 header > div:last-child {
-  margin-left: auto;
+    margin-left: auto;
 }
 
 main {
-  flex: 1;
-  padding: 20px;
+    flex: 1;
+    padding: 20px;
 }
 
 nav {
-  background-color: #f90;
-  padding: 20px;
+    background-color: #f90;
+    padding: 20px;
 }
- 
+
 aside {
-  padding: 20px;
-  background-color: #f7e;
+    padding: 20px;
+    background-color: #f7e;
 }
 
 footer {
-  grid-column: span 3;
-  padding: 20px;
-  text-align: center;
-  font-size: 1.2rem;
-  background-color: #6a3;
-  color: white;
+    grid-column: span 3;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    background-color: #6a3;
+    color: white;
 }
 ```

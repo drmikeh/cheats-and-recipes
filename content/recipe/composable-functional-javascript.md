@@ -129,8 +129,8 @@ The Y combinator is an implementation of a fixed-point combinator in lambda calc
 
 ```js
 const Y = f => {
-const g = h => (...args) => f(h(h))(...args)
-return f(g(g))
+  const g = h => (...args) => f(h(h))(...args)
+  return f(g(g))
 }
 
 // example:

@@ -136,9 +136,7 @@ function useCrud(service, initialValue, initialLoading) {
             const response = await service.put(updatedItem)
             const updatedItemFromServer = response.data
             const newItems = items.map(item =>
-                item.id !== updatedItemFromServer.id
-                    ? item
-                    : updatedItemFromServer
+                item.id !== updatedItemFromServer.id ? item : updatedItemFromServer
             )
             setItems(newItems)
         } catch (error) {
@@ -211,4 +209,43 @@ const TodoApp = () => {
         todos.destroyMany(todo => todo.completed)
     }
 }
+```
+
+### A useInterval Custom Hook
+
+This code was taken from an [article](https://overreacted.io/making-setinterval-declarative-with-react-hooks/) by Dan Abramov.
+
+```js
+import React, { useEffect, useRef } from 'react'
+
+function useInterval(callback, delay) {
+    const savedCallback = useRef()
+
+    // Remember the latest callback.
+    useEffect(() => {
+        savedCallback.current = callback
+    }, [callback])
+
+    // Set up the interval.
+    useEffect(() => {
+        function tick() {
+            savedCallback.current()
+        }
+        if (delay !== null) {
+            let timer = setInterval(tick, delay)
+            return () => clearInterval(timer)
+        }
+    }, [delay])
+}
+
+export default useInterval
+```
+
+usage:
+
+```js
+useInterval(() => {
+    // Your custom logic here
+    setCount(count + 1)
+}, 1000)
 ```
