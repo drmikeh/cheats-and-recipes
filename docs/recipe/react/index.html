@@ -60,6 +60,7 @@
         <li><a href="#how-to-count-renders">How to Count Renders</a></li>
         <li><a href="#using-useeffect-to-consolelog-updates-to-state-variables">Using useEffect to console.log updates to state variables</a></li>
         <li><a href="#a-restful--crud-custom-hook">A RESTful / CRUD Custom Hook</a></li>
+        <li><a href="#a-useinterval-custom-hook">A useInterval Custom Hook</a></li>
       </ul>
     </li>
   </ul>
@@ -174,9 +175,7 @@
             <span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">service</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">updatedItem</span><span class="p">)</span>
             <span class="kr">const</span> <span class="nx">updatedItemFromServer</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span>
             <span class="kr">const</span> <span class="nx">newItems</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span>
-                <span class="nx">item</span><span class="p">.</span><span class="nx">id</span> <span class="o">!==</span> <span class="nx">updatedItemFromServer</span><span class="p">.</span><span class="nx">id</span>
-                    <span class="o">?</span> <span class="nx">item</span>
-                    <span class="o">:</span> <span class="nx">updatedItemFromServer</span>
+                <span class="nx">item</span><span class="p">.</span><span class="nx">id</span> <span class="o">!==</span> <span class="nx">updatedItemFromServer</span><span class="p">.</span><span class="nx">id</span> <span class="o">?</span> <span class="nx">item</span> <span class="o">:</span> <span class="nx">updatedItemFromServer</span>
             <span class="p">)</span>
             <span class="nx">setItems</span><span class="p">(</span><span class="nx">newItems</span><span class="p">)</span>
         <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
@@ -245,6 +244,36 @@
         <span class="nx">todos</span><span class="p">.</span><span class="nx">destroyMany</span><span class="p">(</span><span class="nx">todo</span> <span class="p">=&gt;</span> <span class="nx">todo</span><span class="p">.</span><span class="nx">completed</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
+</code></pre></div><h3 id="a-useinterval-custom-hook">A useInterval Custom Hook</h3>
+<p>This code was taken from an <a href="https://overreacted.io/making-setinterval-declarative-with-react-hooks/">article</a> by Dan Abramov.</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useEffect</span><span class="p">,</span> <span class="nx">useRef</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
+
+<span class="kd">function</span> <span class="nx">useInterval</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">delay</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">savedCallback</span> <span class="o">=</span> <span class="nx">useRef</span><span class="p">(</span><span class="p">)</span>
+
+    <span class="c1">// Remember the latest callback.
+</span><span class="c1"></span>    <span class="nx">useEffect</span><span class="p">(</span><span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">savedCallback</span><span class="p">.</span><span class="nx">current</span> <span class="o">=</span> <span class="nx">callback</span>
+    <span class="p">}</span><span class="p">,</span> <span class="p">[</span><span class="nx">callback</span><span class="p">]</span><span class="p">)</span>
+
+    <span class="c1">// Set up the interval.
+</span><span class="c1"></span>    <span class="nx">useEffect</span><span class="p">(</span><span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="kd">function</span> <span class="nx">tick</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">savedCallback</span><span class="p">.</span><span class="nx">current</span><span class="p">(</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">delay</span> <span class="o">!==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nx">timer</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(</span><span class="nx">tick</span><span class="p">,</span> <span class="nx">delay</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">clearInterval</span><span class="p">(</span><span class="nx">timer</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span><span class="p">,</span> <span class="p">[</span><span class="nx">delay</span><span class="p">]</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">useInterval</span>
+</code></pre></div><p>usage:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">useInterval</span><span class="p">(</span><span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Your custom logic here
+</span><span class="c1"></span>    <span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 </code></pre></div></div>
 				
 				<footer class="post__footer">

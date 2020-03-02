@@ -107,11 +107,11 @@
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/css/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/css/</loc>
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/css/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/css/</loc>
   </url>
   
   <url>
@@ -131,15 +131,23 @@
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/database/</loc>
-  </url>
-  
-  <url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/database/</loc>
   </url>
   
   <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/database/</loc>
+  </url>
+  
+  <url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/date/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/development/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/development/</loc>
   </url>
   
   <url>
@@ -203,6 +211,10 @@
   </url>
   
   <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/golang/</loc>
+  </url>
+  
+  <url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/grid/</loc>
   </url>
   
@@ -212,6 +224,10 @@
   
   <url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/homebrew/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/hugo/</loc>
   </url>
   
   <url>
@@ -267,11 +283,11 @@
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/nodejs/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/nodejs/</loc>
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/nodejs/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/nodejs/</loc>
   </url>
   
   <url>
@@ -311,11 +327,11 @@
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/react/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/react/</loc>
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/react/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/react/</loc>
   </url>
   
   <url>
@@ -364,6 +380,14 @@
   
   <url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/styling/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/templates/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/themes/</loc>
   </url>
   
   <url>

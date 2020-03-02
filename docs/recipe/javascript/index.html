@@ -57,7 +57,9 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#a-delay-function-with-async--await">A Delay function with Async / Await</a></li>
+        <li><a href="#a-range-function">A range function</a></li>
+        <li><a href="#a-sleep-function-with-async--await">A sleep function with Async / Await</a></li>
+        <li><a href="#lifting-promises-via-transforming-a-function">Lifting promises via transforming a function</a></li>
         <li><a href="#reading-a-data-file">Reading a Data File</a></li>
         <li><a href="#writing-a-json-file">Writing a JSON file</a></li>
         <li><a href="#writing-to-a-file-using-streams">Writing to a file using streams</a></li>
@@ -69,16 +71,51 @@
 </details>
 
 				<div class="post__content"><p>Recipes for the JavaScript language.</p>
-<h3 id="a-delay-function-with-async--await">A Delay function with Async / Await</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">delay</span><span class="p">(</span><span class="nx">millis</span><span class="p">)</span> <span class="p">{</span>
+<h3 id="a-range-function">A range function</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">range</span> <span class="o">=</span> <span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="nx">stop</span><span class="p">,</span> <span class="nx">step</span><span class="p">)</span> <span class="p">=&gt;</span>
+    <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="p">{</span> <span class="nx">length</span><span class="o">:</span> <span class="p">(</span><span class="nx">stop</span> <span class="o">-</span> <span class="nx">start</span><span class="p">)</span> <span class="o">/</span> <span class="nx">step</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span><span class="p">,</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">start</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">*</span> <span class="nx">step</span><span class="p">)</span>
+</code></pre></div><p>usage:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">// [0, 2, 4, 6, 8, 10]
+</span></code></pre></div><h3 id="a-sleep-function-with-async--await">A sleep function with Async / Await</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// as a classic function
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">sleep</span><span class="p">(</span><span class="nx">millis</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">millis</span><span class="p">)</span><span class="p">)</span>
 <span class="p">}</span>
+<span class="c1">// or as a one-liner:
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">sleep</span> <span class="o">=</span> <span class="nx">millis</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">millis</span><span class="p">)</span><span class="p">)</span>
 </code></pre></div><p>usage:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">async</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
-    <span class="nx">await</span> <span class="nx">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+    <span class="nx">await</span> <span class="nx">sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;World&#39;</span><span class="p">)</span>
 <span class="p">}</span>
+</code></pre></div><h3 id="lifting-promises-via-transforming-a-function">Lifting promises via transforming a function</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// Using Lift to transform a function that works with values
+</span><span class="c1"></span><span class="c1">// to a function that works with Promises
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">liftP</span> <span class="o">=</span> <span class="nx">func</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="p">...</span><span class="nx">args</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">values</span> <span class="p">=&gt;</span> <span class="nx">func</span><span class="p">(</span><span class="p">...</span><span class="nx">values</span><span class="p">)</span><span class="p">)</span>
+</code></pre></div><p><strong>Usage:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/**
+</span><span class="cm"> * @param {number} x
+</span><span class="cm"> * @param {number} x
+</span><span class="cm"> * @returns {number}
+</span><span class="cm"> */</span>
+<span class="kr">const</span> <span class="nx">add</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span> <span class="c1">// a simple function
+</span><span class="c1"></span>
+<span class="cm">/**
+</span><span class="cm"> * @param {Promise&lt;number&gt;} x
+</span><span class="cm"> * @param {Promise&lt;number&gt;} x
+</span><span class="cm"> * @returns {Promise&lt;number&gt;}
+</span><span class="cm"> */</span>
+<span class="kr">const</span> <span class="nx">addP</span> <span class="o">=</span> <span class="nx">liftP</span><span class="p">(</span><span class="nx">add</span><span class="p">)</span> <span class="c1">// transform the function to work with promises
+</span><span class="c1"></span>
+<span class="kr">const</span> <span class="nx">promise1</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">promise2</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">promiseValue</span> <span class="o">=</span> <span class="nx">addP</span><span class="p">(</span><span class="nx">promise1</span><span class="p">,</span> <span class="nx">promise2</span><span class="p">)</span>
+<span class="nx">promiseValue</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">v</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="p">{</span> <span class="nx">v</span> <span class="p">}</span><span class="p">)</span><span class="p">)</span>
+
+<span class="kr">const</span> <span class="nx">pv3</span> <span class="o">=</span> <span class="nx">addP</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="p">{</span> <span class="nx">pv3</span> <span class="p">}</span><span class="p">)</span>
+<span class="nx">pv3</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">v3</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="p">{</span> <span class="nx">v3</span> <span class="p">}</span><span class="p">)</span><span class="p">)</span>
 </code></pre></div><h3 id="reading-a-data-file">Reading a Data File</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">)</span>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">readFile</span> <span class="o">=</span> <span class="p">(</span><span class="nx">fileName</span><span class="p">,</span> <span class="nx">separator</span> <span class="o">=</span> <span class="s1">&#39;\n&#39;</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
