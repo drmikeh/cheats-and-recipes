@@ -5,15 +5,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#1b1b1b">
-	<title>Tags | Cheats and Recipes</title>
+	<title>npm vs yarn Cheatsheet | Cheats and Recipes</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	<meta name="description" content="">
+	<meta name="description" content="Cheat sheet comparing npm and yarn">
 	<link rel="stylesheet" href="/mah3093/cheats-and-recipes/css/main.css">
 	<link rel="stylesheet" href="/mah3093/cheats-and-recipes/css/dracula.css">
 	<link rel="stylesheet" href="/mah3093/cheats-and-recipes/css/custom.css">
 	<link rel="icon" href="/mah3093/cheats-and-recipes/icons/16.png" sizes="16x16" type="image/png">
 	<link rel="icon" href="/mah3093/cheats-and-recipes/icons/32.png" sizes="32x32" type="image/png">
-	<link rel="alternate" type="application/rss+xml" href="/mah3093/cheats-and-recipes/tags/index.xml" title="Cheats and Recipes">
 		
 </head>
 <body>
@@ -49,123 +48,127 @@
 	<div class="primary">
 	
 	<main class="main">
-            <div class="page block">
-                <h1 class="page__title">Tags</h1>
-                
-            </div>
-		<div class="cards">
-			
-				<div class="card card--3col">
-                    <article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/tags/nodejs/">NodeJS</a>
-    </h1>
-</article>
-				</div>
-			
-				<div class="card card--3col">
-                    <article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/tags/npm/">npm</a>
-    </h1>
-</article>
-				</div>
-			
-				<div class="card card--3col">
-                    <article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/tags/other/">other</a>
-    </h1>
-</article>
-				</div>
-			
-				<div class="card card--3col">
-                    <article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/tags/pcf/">pcf</a>
-    </h1>
-</article>
-				</div>
-			
-				<div class="card card--3col">
-                    <article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/tags/pivotal/">pivotal</a>
-    </h1>
-</article>
-				</div>
-			
-				<div class="card card--3col">
-                    <article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/tags/postgresql/">PostgreSQL</a>
-    </h1>
-</article>
-				</div>
-			
-				<div class="card card--3col">
-                    <article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/tags/promises/">promises</a>
-    </h1>
-</article>
-				</div>
-			
-				<div class="card card--3col">
-                    <article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/tags/react/">react</a>
-    </h1>
-</article>
-				</div>
-			
-				<div class="card card--3col">
-                    <article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/tags/regex/">regex</a>
-    </h1>
-</article>
-				</div>
-			
-				<div class="card card--3col">
-                    <article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/tags/rest/">rest</a>
-    </h1>
-</article>
-				</div>
-			
-				<div class="card card--3col">
-                    <article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/tags/router/">router</a>
-    </h1>
-</article>
-				</div>
-			
-				<div class="card card--3col">
-                    <article class="post card__box block">
-	<h1 class="post__title title-excerpt">
-        <a class="post__title-link" href="/mah3093/cheats-and-recipes/tags/server/">server</a>
-    </h1>
-</article>
-				</div>
-			
+		<div class="single block">
+			<article class="post">
+				<h1 class="post__title">npm vs yarn Cheatsheet</h1>
+				<div class="post__content"><p>Compares npm and yarn commands.
+Taken from <a href="https://infinite.red/files/yarn.pdf">Infinite Red&rsquo;s NPM vs YARN Cheatsheet</a>.</p>
+<table>
+<thead>
+<tr>
+<th>npm</th>
+<th>yarn</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>npm init</td>
+<td>yarn init</td>
+<td>Create a new package.json file</td>
+</tr>
+<tr>
+<td>npm install</td>
+<td>yarn</td>
+<td>Install is the default behavior</td>
+</tr>
+<tr>
+<td>npm install taco &ndash;save</td>
+<td>yarn add taco</td>
+<td>Add package to package.json</td>
+</tr>
+<tr>
+<td>npm uninstall taco &ndash;save</td>
+<td>yarn remove taco</td>
+<td>Remove package from package.json</td>
+</tr>
+<tr>
+<td>npm install taco &ndash;save-dev</td>
+<td>yarn add taco &ndash;dev</td>
+<td>Add package to package.json as a dev dependency</td>
+</tr>
+<tr>
+<td>npm update &ndash;save</td>
+<td>yarn upgrade</td>
+<td>Upgrade to newest versions of packages</td>
+</tr>
+<tr>
+<td>npm install taco &ndash;global</td>
+<td>yarn global add taco</td>
+<td>Install a package globally</td>
+</tr>
+<tr>
+<td>npm link</td>
+<td>yarn link</td>
+<td>Links a project for local testing</td>
+</tr>
+<tr>
+<td>npm outdated</td>
+<td>yarn outdated</td>
+<td>List the outdated dependencies</td>
+</tr>
+<tr>
+<td>npm publish</td>
+<td>yarn publish</td>
+<td>Publish a package to a repository</td>
+</tr>
+<tr>
+<td>npm run</td>
+<td>yarn run</td>
+<td>Run a script from package.json</td>
+</tr>
+<tr>
+<td>npm cache clean</td>
+<td>yarn cache clean</td>
+<td>Clean the local cache</td>
+</tr>
+<tr>
+<td>npm login</td>
+<td>yarn login</td>
+<td>login to a repository</td>
+</tr>
+<tr>
+<td>npm logout</td>
+<td>yarn logout</td>
+<td>logout to a repository</td>
+</tr>
+<tr>
+<td>np test</td>
+<td>yarn test</td>
+<td>run unit tests</td>
+</tr>
+<tr>
+<td>no equivalent</td>
+<td>yarn why taco</td>
+<td>Explain why taco package is installed (transitive dependencies)</td>
+</tr>
+</tbody>
+</table></div>
+				
+				<footer class="post__footer">
+					
+					
+				</footer>
+				
+			</article>
 		</div>
-	</main>
-	
-<div class="pagination block">
-	<a class="pagination__item pagination__item--desktop" href="/mah3093/cheats-and-recipes/tags/">1</a>
-	
-	<a class="pagination__item pagination__item--desktop" href="/mah3093/cheats-and-recipes/tags/page/2/">2</a>
-	
-	<a class="pagination__item pagination__item--desktop" href="/mah3093/cheats-and-recipes/tags/page/3/">3</a>
-	
-	<span class="pagination__item pagination__item--active" data-total="5">4</span>
-	
-	<a class="pagination__item pagination__item--desktop" href="/mah3093/cheats-and-recipes/tags/page/5/">5</a>
-	
+    </main>
+    
+
+<div class="tags block">
+    <h3 class="tags__title">Tags</h3>
+    <div class="post__tags">
+                <a class="post__tag btn" href="/mah3093/cheats-and-recipes/tags/npm/">npm</a>
+                <a class="post__tag btn" href="/mah3093/cheats-and-recipes/tags/yarn/">yarn</a>
+    </div>
 </div>
+
+	
+	
+
+
+
+	
 
 	</div>
 	<footer class="footer">

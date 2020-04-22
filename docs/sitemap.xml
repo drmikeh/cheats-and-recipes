@@ -307,11 +307,23 @@
   </url>
   
   <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/npm/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/npm-vs-yarn/</loc>
+  </url>
+  
+  <url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/other/</loc>
   </url>
   
   <url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/other/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/package-managers/</loc>
   </url>
   
   <url>
@@ -416,6 +428,10 @@
   
   <url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/web/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/yarn/</loc>
   </url>
   
 </urlset>
