@@ -148,7 +148,7 @@
         <li><a href="#reading-input">Reading input</a></li>
         <li><a href="#special-variables">Special variables</a></li>
         <li><a href="#go-to-previous-directory">Go to previous directory</a></li>
-        <li><a href="#check-for-commands-result">Check for command's result</a></li>
+        <li><a href="#check-for-commands-result">Check for command&rsquo;s result</a></li>
         <li><a href="#grep-check">Grep check</a></li>
       </ul>
     </li>
@@ -163,18 +163,18 @@
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/env bash
 </span><span class="cp"></span>
 <span class="nv">NAME</span><span class="o">=</span><span class="s2">&#34;John&#34;</span>
-<span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">Hello </span><span class="nv">$NAME</span><span class="s2">!</span><span class="s2">&#34;</span>
+<span class="nb">echo</span> <span class="s2">&#34;Hello </span><span class="nv">$NAME</span><span class="s2">!&#34;</span>
 </code></pre></div><h3 id="variables">Variables</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">NAME</span><span class="o">=</span><span class="s2">&#34;John&#34;</span>
 <span class="nb">echo</span> <span class="nv">$NAME</span>
 <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$NAME</span><span class="s2">&#34;</span>
-<span class="nb">echo</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">NAME</span><span class="si">}</span><span class="s2">!</span><span class="s2">&#34;</span>
+<span class="nb">echo</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">NAME</span><span class="si">}</span><span class="s2">!&#34;</span>
 </code></pre></div><h3 id="string-quotes">String quotes</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">NAME</span><span class="o">=</span><span class="s2">&#34;John&#34;</span>
-<span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">Hi </span><span class="nv">$NAME</span><span class="s2">&#34;</span>  <span class="c1">#=&gt; Hi John</span>
+<span class="nb">echo</span> <span class="s2">&#34;Hi </span><span class="nv">$NAME</span><span class="s2">&#34;</span>  <span class="c1">#=&gt; Hi John</span>
 <span class="nb">echo</span> <span class="s1">&#39;Hi $NAME&#39;</span>  <span class="c1">#=&gt; Hi $NAME</span>
 </code></pre></div><h3 id="shell-execution">Shell execution</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">I&#39;m in </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">&#34;I&#39;m in </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&#34;</span>
 <span class="nb">echo</span> <span class="s2">&#34;I&#39;m in `pwd`&#34;</span>
 <span class="c1"># Same</span>
 </code></pre></div><p>See <a href="http://wiki.bash-hackers.org/syntax/expansion/cmdsubst">Command substitution</a></p>
@@ -182,15 +182,15 @@
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git commit <span class="o">&amp;&amp;</span> git push
 git commit <span class="o">||</span> <span class="nb">echo</span> <span class="s2">&#34;Commit failed&#34;</span>
 </code></pre></div><h3 id="functions">Functions</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">get_name<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">get_name<span class="o">()</span> <span class="o">{</span>
   <span class="nb">echo</span> <span class="s2">&#34;John&#34;</span>
 <span class="o">}</span>
 
-<span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">You are </span><span class="k">$(</span>get_name<span class="k">)</span><span class="s2">&#34;</span>
+<span class="nb">echo</span> <span class="s2">&#34;You are </span><span class="k">$(</span>get_name<span class="k">)</span><span class="s2">&#34;</span>
 </code></pre></div><h3 id="conditionals">Conditionals</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">[</span><span class="o">[</span> -z <span class="s2">&#34;</span><span class="nv">$string</span><span class="s2">&#34;</span> <span class="o">]</span><span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">[[</span> -z <span class="s2">&#34;</span><span class="nv">$string</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span> <span class="s2">&#34;String is empty&#34;</span>
-<span class="k">elif</span> <span class="o">[</span><span class="o">[</span> -n <span class="s2">&#34;</span><span class="nv">$string</span><span class="s2">&#34;</span> <span class="o">]</span><span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+<span class="k">elif</span> <span class="o">[[</span> -n <span class="s2">&#34;</span><span class="nv">$string</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span> <span class="s2">&#34;String is not empty&#34;</span>
 <span class="k">fi</span>
 </code></pre></div><p>See: <a href="#conditionals">Conditionals</a></p>
@@ -229,10 +229,10 @@ git commit <span class="o">||</span> <span class="nb">echo</span> <span class="s
 <span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="si">}</span>
 <span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="p">/J/j</span><span class="si">}</span>    <span class="c1">#=&gt; &#34;john&#34; (substitution)</span>
 <span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">2</span><span class="si">}</span>    <span class="c1">#=&gt; &#34;Jo&#34; (slicing)</span>
-<span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="p">:</span><span class="p">:</span><span class="nv">2</span><span class="si">}</span>     <span class="c1">#=&gt; &#34;Jo&#34; (slicing)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="p">::</span><span class="nv">2</span><span class="si">}</span>     <span class="c1">#=&gt; &#34;Jo&#34; (slicing)</span>
 <span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="p">:</span><span class="k">:-</span><span class="nv">1</span><span class="si">}</span>    <span class="c1">#=&gt; &#34;Joh&#34; (slicing)</span>
-<span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="p">:</span><span class="p">(-1)</span><span class="si">}</span>   <span class="c1">#=&gt; &#34;n&#34; (slicing from right)</span>
-<span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="p">:</span><span class="p">(-2)</span><span class="p">:</span><span class="nv">1</span><span class="si">}</span> <span class="c1">#=&gt; &#34;h&#34; (slicing from right)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="p">:(-1)</span><span class="si">}</span>   <span class="c1">#=&gt; &#34;n&#34; (slicing from right)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="p">:(-2):</span><span class="nv">1</span><span class="si">}</span> <span class="c1">#=&gt; &#34;h&#34; (slicing from right)</span>
 <span class="nb">echo</span> <span class="si">${</span><span class="nv">food</span><span class="k">:-</span><span class="nv">Cake</span><span class="si">}</span>  <span class="c1">#=&gt; $food or &#34;Cake&#34;</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">length</span><span class="o">=</span><span class="m">2</span>
 <span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">length</span><span class="si">}</span>  <span class="c1">#=&gt; &#34;Jo&#34;</span>
@@ -363,16 +363,16 @@ git commit <span class="o">||</span> <span class="nb">echo</span> <span class="s
   <span class="nb">echo</span> <span class="nv">$i</span>
 <span class="k">done</span>
 </code></pre></div><h3 id="c-like-for-loop">C-like for loop</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">for</span> <span class="o">(</span><span class="o">(</span><span class="nv">i</span> <span class="o">=</span> <span class="m">0</span> <span class="p">;</span> i &lt; <span class="m">100</span> <span class="p">;</span> i++<span class="o">)</span><span class="o">)</span><span class="p">;</span> <span class="k">do</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">for</span> <span class="o">((</span><span class="nv">i</span> <span class="o">=</span> <span class="m">0</span> <span class="p">;</span> i &lt; <span class="m">100</span> <span class="p">;</span> i++<span class="o">))</span><span class="p">;</span> <span class="k">do</span>
   <span class="nb">echo</span> <span class="nv">$i</span>
 <span class="k">done</span>
 </code></pre></div><h3 id="ranges">Ranges</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">for</span> i in <span class="o">{</span>1..5<span class="o">}</span><span class="p">;</span> <span class="k">do</span>
-    <span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">Welcome </span><span class="nv">$i</span><span class="s2">&#34;</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Welcome </span><span class="nv">$i</span><span class="s2">&#34;</span>
 <span class="k">done</span>
 </code></pre></div><h4 id="with-step-size">With step size</h4>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">for</span> i in <span class="o">{</span>5..50..5<span class="o">}</span><span class="p">;</span> <span class="k">do</span>
-    <span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">Welcome </span><span class="nv">$i</span><span class="s2">&#34;</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Welcome </span><span class="nv">$i</span><span class="s2">&#34;</span>
 <span class="k">done</span>
 </code></pre></div><h3 id="reading-lines">Reading lines</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">&lt; file.txt <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> line<span class="p">;</span> <span class="k">do</span>
@@ -384,22 +384,22 @@ git commit <span class="o">||</span> <span class="nb">echo</span> <span class="s
 <span class="k">done</span>
 </code></pre></div><h2 id="functions-1">Functions</h2>
 <h3 id="defining-functions">Defining functions</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">myfunc<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">hello </span><span class="nv">$1</span><span class="s2">&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">myfunc<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&#34;hello </span><span class="nv">$1</span><span class="s2">&#34;</span>
 <span class="o">}</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Same as above (alternate syntax)</span>
-<span class="k">function</span> myfunc<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">hello </span><span class="nv">$1</span><span class="s2">&#34;</span>
+<span class="k">function</span> myfunc<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&#34;hello </span><span class="nv">$1</span><span class="s2">&#34;</span>
 <span class="o">}</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">myfunc <span class="s2">&#34;John&#34;</span>
 </code></pre></div><h3 id="returning-values">Returning values</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">myfunc<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">myfunc<span class="o">()</span> <span class="o">{</span>
     <span class="nb">local</span> <span class="nv">myresult</span><span class="o">=</span><span class="s1">&#39;some value&#39;</span>
     <span class="nb">echo</span> <span class="nv">$myresult</span>
 <span class="o">}</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">result</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>myfunc<span class="k">)</span><span class="s2">&#34;</span>
 </code></pre></div><h3 id="raising-errors">Raising errors</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">myfunc<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">myfunc<span class="o">()</span> <span class="o">{</span>
   <span class="k">return</span> <span class="m">1</span>
 <span class="o">}</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">if</span> myfunc<span class="p">;</span> <span class="k">then</span>
@@ -593,46 +593,46 @@ git commit <span class="o">||</span> <span class="nb">echo</span> <span class="s
 </table>
 <h3 id="example">Example</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># String</span>
-<span class="k">if</span> <span class="o">[</span><span class="o">[</span> -z <span class="s2">&#34;</span><span class="nv">$string</span><span class="s2">&#34;</span> <span class="o">]</span><span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+<span class="k">if</span> <span class="o">[[</span> -z <span class="s2">&#34;</span><span class="nv">$string</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span> <span class="s2">&#34;String is empty&#34;</span>
-<span class="k">elif</span> <span class="o">[</span><span class="o">[</span> -n <span class="s2">&#34;</span><span class="nv">$string</span><span class="s2">&#34;</span> <span class="o">]</span><span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+<span class="k">elif</span> <span class="o">[[</span> -n <span class="s2">&#34;</span><span class="nv">$string</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span> <span class="s2">&#34;String is not empty&#34;</span>
 <span class="k">fi</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Combinations</span>
-<span class="k">if</span> <span class="o">[</span><span class="o">[</span> X <span class="o">]</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span><span class="o">[</span> Y <span class="o">]</span><span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+<span class="k">if</span> <span class="o">[[</span> X <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">[[</span> Y <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
   ...
 <span class="k">fi</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Equal</span>
-<span class="k">if</span> <span class="o">[</span><span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$A</span><span class="s2">&#34;</span> <span class="o">=</span><span class="o">=</span> <span class="s2">&#34;</span><span class="nv">$B</span><span class="s2">&#34;</span> <span class="o">]</span><span class="o">]</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$A</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;</span><span class="nv">$B</span><span class="s2">&#34;</span> <span class="o">]]</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Regex</span>
-<span class="k">if</span> <span class="o">[</span><span class="o">[</span> <span class="s2">&#34;A&#34;</span> <span class="o">=</span>~ <span class="s2">&#34;.&#34;</span> <span class="o">]</span><span class="o">]</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">(</span><span class="o">(</span> <span class="nv">$a</span> &lt; <span class="nv">$b</span> <span class="o">)</span><span class="o">)</span><span class="p">;</span> <span class="k">then</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;A&#34;</span> <span class="o">=</span>~ <span class="s2">&#34;.&#34;</span> <span class="o">]]</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">((</span> <span class="nv">$a</span> &lt; <span class="nv">$b</span> <span class="o">))</span><span class="p">;</span> <span class="k">then</span>
    <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$a</span><span class="s2"> is smaller than </span><span class="nv">$b</span><span class="s2">&#34;</span>
 <span class="k">fi</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">[</span><span class="o">[</span> -e <span class="s2">&#34;file.txt&#34;</span> <span class="o">]</span><span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">[[</span> -e <span class="s2">&#34;file.txt&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span> <span class="s2">&#34;file exists&#34;</span>
 <span class="k">fi</span>
 </code></pre></div><h2 id="arrays">Arrays</h2>
 <h3 id="defining-arrays">Defining arrays</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">Fruits</span><span class="o">=</span><span class="o">(</span><span class="s1">&#39;Apple&#39;</span> <span class="s1">&#39;Banana&#39;</span> <span class="s1">&#39;Orange&#39;</span><span class="o">)</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">Fruits<span class="o">[</span>0<span class="o">]</span><span class="o">=</span><span class="s2">&#34;Apple&#34;</span>
-Fruits<span class="o">[</span>1<span class="o">]</span><span class="o">=</span><span class="s2">&#34;Banana&#34;</span>
-Fruits<span class="o">[</span>2<span class="o">]</span><span class="o">=</span><span class="s2">&#34;Orange&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">Fruits</span><span class="o">=(</span><span class="s1">&#39;Apple&#39;</span> <span class="s1">&#39;Banana&#39;</span> <span class="s1">&#39;Orange&#39;</span><span class="o">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">Fruits<span class="o">[</span>0<span class="o">]=</span><span class="s2">&#34;Apple&#34;</span>
+Fruits<span class="o">[</span>1<span class="o">]=</span><span class="s2">&#34;Banana&#34;</span>
+Fruits<span class="o">[</span>2<span class="o">]=</span><span class="s2">&#34;Orange&#34;</span>
 </code></pre></div><h3 id="working-with-arrays">Working with arrays</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="si">${</span><span class="nv">Fruits</span><span class="p">[0]</span><span class="si">}</span>           <span class="c1"># Element #0</span>
 <span class="nb">echo</span> <span class="si">${</span><span class="nv">Fruits</span><span class="p">[@]</span><span class="si">}</span>           <span class="c1"># All elements, space-separated</span>
 <span class="nb">echo</span> <span class="si">${#</span><span class="nv">Fruits</span><span class="p">[@]</span><span class="si">}</span>          <span class="c1"># Number of elements</span>
 <span class="nb">echo</span> <span class="si">${#</span><span class="nv">Fruits</span><span class="si">}</span>             <span class="c1"># String length of the 1st element</span>
 <span class="nb">echo</span> <span class="si">${#</span><span class="nv">Fruits</span><span class="p">[3]</span><span class="si">}</span>          <span class="c1"># String length of the Nth element</span>
-<span class="nb">echo</span> <span class="si">${</span><span class="nv">Fruits</span><span class="p">[@]</span><span class="p">:</span><span class="nv">3</span><span class="p">:</span><span class="nv">2</span><span class="si">}</span>       <span class="c1"># Range (from position 3, length 2)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">Fruits</span><span class="p">[@]:</span><span class="nv">3</span><span class="p">:</span><span class="nv">2</span><span class="si">}</span>       <span class="c1"># Range (from position 3, length 2)</span>
 </code></pre></div><h3 id="operations">Operations</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">Fruits</span><span class="o">=</span><span class="o">(</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">Fruits</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;Watermelon&#34;</span><span class="o">)</span>    <span class="c1"># Push</span>
-<span class="nv">Fruits</span><span class="o">+=</span><span class="o">(</span><span class="s1">&#39;Watermelon&#39;</span><span class="o">)</span>                  <span class="c1"># Also Push</span>
-<span class="nv">Fruits</span><span class="o">=</span><span class="o">(</span> <span class="si">${</span><span class="nv">Fruits</span><span class="p">[@]/Ap*/</span><span class="si">}</span> <span class="o">)</span>            <span class="c1"># Remove by regex match</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">Fruits</span><span class="o">=(</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">Fruits</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;Watermelon&#34;</span><span class="o">)</span>    <span class="c1"># Push</span>
+<span class="nv">Fruits</span><span class="o">+=(</span><span class="s1">&#39;Watermelon&#39;</span><span class="o">)</span>                  <span class="c1"># Also Push</span>
+<span class="nv">Fruits</span><span class="o">=(</span> <span class="si">${</span><span class="nv">Fruits</span><span class="p">[@]/Ap*/</span><span class="si">}</span> <span class="o">)</span>            <span class="c1"># Remove by regex match</span>
 <span class="nb">unset</span> Fruits<span class="o">[</span>2<span class="o">]</span>                         <span class="c1"># Remove one item</span>
-<span class="nv">Fruits</span><span class="o">=</span><span class="o">(</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">Fruits</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="o">)</span>                 <span class="c1"># Duplicate</span>
-<span class="nv">Fruits</span><span class="o">=</span><span class="o">(</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">Fruits</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">Veggies</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="o">)</span> <span class="c1"># Concatenate</span>
-<span class="nv">lines</span><span class="o">=</span><span class="o">(</span><span class="sb">`</span>cat <span class="s2">&#34;logfile&#34;</span><span class="sb">`</span><span class="o">)</span>                 <span class="c1"># Read from file</span>
+<span class="nv">Fruits</span><span class="o">=(</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">Fruits</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="o">)</span>                 <span class="c1"># Duplicate</span>
+<span class="nv">Fruits</span><span class="o">=(</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">Fruits</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">Veggies</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="o">)</span> <span class="c1"># Concatenate</span>
+<span class="nv">lines</span><span class="o">=(</span><span class="sb">`</span>cat <span class="s2">&#34;logfile&#34;</span><span class="sb">`</span><span class="o">)</span>                 <span class="c1"># Read from file</span>
 </code></pre></div><h3 id="iteration">Iteration</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">for</span> i in <span class="s2">&#34;</span><span class="si">${</span><span class="nv">arrayName</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">do</span>
   <span class="nb">echo</span> <span class="nv">$i</span>
@@ -640,10 +640,10 @@ Fruits<span class="o">[</span>2<span class="o">]</span><span class="o">=</span><
 </code></pre></div><h2 id="dictionaries">Dictionaries</h2>
 <h3 id="defining">Defining</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">declare</span> -A sounds
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sounds<span class="o">[</span>dog<span class="o">]</span><span class="o">=</span><span class="s2">&#34;bark&#34;</span>
-sounds<span class="o">[</span>cow<span class="o">]</span><span class="o">=</span><span class="s2">&#34;moo&#34;</span>
-sounds<span class="o">[</span>bird<span class="o">]</span><span class="o">=</span><span class="s2">&#34;tweet&#34;</span>
-sounds<span class="o">[</span>wolf<span class="o">]</span><span class="o">=</span><span class="s2">&#34;howl&#34;</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sounds<span class="o">[</span>dog<span class="o">]=</span><span class="s2">&#34;bark&#34;</span>
+sounds<span class="o">[</span>cow<span class="o">]=</span><span class="s2">&#34;moo&#34;</span>
+sounds<span class="o">[</span>bird<span class="o">]=</span><span class="s2">&#34;tweet&#34;</span>
+sounds<span class="o">[</span>wolf<span class="o">]=</span><span class="s2">&#34;howl&#34;</span>
 </code></pre></div><p>Declares <code>sound</code> as a Dictionary object (aka associative array).</p>
 <h3 id="working-with-dictionaries">Working with dictionaries</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="si">${</span><span class="nv">sounds</span><span class="p">[dog]</span><span class="si">}</span> <span class="c1"># Dog&#39;s sound</span>
@@ -690,7 +690,7 @@ matches.</p>
 </tr>
 <tr>
 <td><code>shopt -s histverify</code></td>
-<td>Don't execute expanded result immediately</td>
+<td>Don&rsquo;t execute expanded result immediately</td>
 </tr>
 </tbody>
 </table>
@@ -794,7 +794,7 @@ matches.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">$((</span>a <span class="o">+</span> <span class="m">200</span><span class="k">))</span>      <span class="c1"># Add 200 to $a</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">$((</span>RANDOM%<span class="o">=</span><span class="m">200</span><span class="k">))</span>  <span class="c1"># Random number 0..200</span>
 </code></pre></div><h3 id="subshells">Subshells</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">(</span><span class="nb">cd</span> somedir<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">I&#39;m now in </span><span class="nv">$PWD</span><span class="s2">&#34;</span><span class="o">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">(</span><span class="nb">cd</span> somedir<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&#34;I&#39;m now in </span><span class="nv">$PWD</span><span class="s2">&#34;</span><span class="o">)</span>
 <span class="nb">pwd</span> <span class="c1"># still in first directory</span>
 </code></pre></div><h3 id="redirection">Redirection</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">python hello.py &gt; output.txt   <span class="c1"># stdout to (file)</span>
@@ -810,8 +810,8 @@ python hello.py <span class="p">&amp;</span>&gt;/dev/null    <span class="c1"># 
 </code></pre></div><h3 id="trap-errors">Trap errors</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">trap</span> <span class="s1">&#39;echo Error at about $LINENO&#39;</span> ERR
 </code></pre></div><p>or</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">traperr<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-  <span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">ERROR: </span><span class="si">${</span><span class="nv">BASH_SOURCE</span><span class="p">[1]</span><span class="si">}</span><span class="s2"> at about </span><span class="si">${</span><span class="nv">BASH_LINENO</span><span class="p">[0]</span><span class="si">}</span><span class="s2">&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">traperr<span class="o">()</span> <span class="o">{</span>
+  <span class="nb">echo</span> <span class="s2">&#34;ERROR: </span><span class="si">${</span><span class="nv">BASH_SOURCE</span><span class="p">[1]</span><span class="si">}</span><span class="s2"> at about </span><span class="si">${</span><span class="nv">BASH_LINENO</span><span class="p">[0]</span><span class="si">}</span><span class="s2">&#34;</span>
 <span class="o">}</span>
 
 <span class="nb">set</span> -o errtrace
@@ -820,14 +820,14 @@ python hello.py <span class="p">&amp;</span>&gt;/dev/null    <span class="c1"># 
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">case</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> in
   start <span class="p">|</span> up<span class="o">)</span>
     vagrant up
-    <span class="p">;</span><span class="p">;</span>
+    <span class="p">;;</span>
 
   *<span class="o">)</span>
-    <span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">Usage: </span><span class="nv">$0</span><span class="s2"> {start|stop|ssh}</span><span class="s2">&#34;</span>
-    <span class="p">;</span><span class="p">;</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Usage: </span><span class="nv">$0</span><span class="s2"> {start|stop|ssh}&#34;</span>
+    <span class="p">;;</span>
 <span class="k">esac</span>
 </code></pre></div><h3 id="source-relative">Source relative</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">source</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">0</span><span class="p">%/*</span><span class="si">}</span><span class="s2">/../share/foo.sh</span><span class="s2">&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">source</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">0</span><span class="p">%/*</span><span class="si">}</span><span class="s2">/../share/foo.sh&#34;</span>
 </code></pre></div><h3 id="printf">printf</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">printf</span> <span class="s2">&#34;Hello %s, I&#39;m %s&#34;</span> Sven Olga
 <span class="c1">#=&gt; &#34;Hello Sven, I&#39;m Olga</span>
@@ -840,19 +840,19 @@ python hello.py <span class="p">&amp;</span>&gt;/dev/null    <span class="c1"># 
 </code></pre></div><h3 id="directory-of-script">Directory of script</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">0</span><span class="p">%/*</span><span class="si">}</span><span class="s2">&#34;</span>
 </code></pre></div><h3 id="getting-options">Getting options</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">while</span> <span class="o">[</span><span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">=</span>~ ^- <span class="o">&amp;&amp;</span> ! <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">=</span><span class="o">=</span> <span class="s2">&#34;--&#34;</span> <span class="o">]</span><span class="o">]</span><span class="p">;</span> <span class="k">do</span> <span class="k">case</span> <span class="nv">$1</span> in
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">while</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">=</span>~ ^- <span class="o">&amp;&amp;</span> ! <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;--&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">do</span> <span class="k">case</span> <span class="nv">$1</span> in
   -V <span class="p">|</span> --version <span class="o">)</span>
     <span class="nb">echo</span> <span class="nv">$version</span>
     <span class="nb">exit</span>
-    <span class="p">;</span><span class="p">;</span>
+    <span class="p">;;</span>
   -s <span class="p">|</span> --string <span class="o">)</span>
     shift<span class="p">;</span> <span class="nv">string</span><span class="o">=</span><span class="nv">$1</span>
-    <span class="p">;</span><span class="p">;</span>
+    <span class="p">;;</span>
   -f <span class="p">|</span> --flag <span class="o">)</span>
     <span class="nv">flag</span><span class="o">=</span><span class="m">1</span>
-    <span class="p">;</span><span class="p">;</span>
+    <span class="p">;;</span>
 <span class="k">esac</span><span class="p">;</span> shift<span class="p">;</span> <span class="k">done</span>
-<span class="k">if</span> <span class="o">[</span><span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">=</span><span class="o">=</span> <span class="s1">&#39;--&#39;</span> <span class="o">]</span><span class="o">]</span><span class="p">;</span> <span class="k">then</span> shift<span class="p">;</span> <span class="k">fi</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s1">&#39;--&#39;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span> shift<span class="p">;</span> <span class="k">fi</span>
 </code></pre></div><h3 id="heredoc">Heredoc</h3>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">cat <span class="s">&lt;&lt;END
 </span><span class="s">hello world
@@ -896,7 +896,7 @@ python hello.py <span class="p">&amp;</span>&gt;/dev/null    <span class="c1"># 
 <span class="nb">pwd</span> <span class="c1"># /home/user/foo/bar</span>
 <span class="nb">cd</span> -
 <span class="nb">pwd</span> <span class="c1"># /home/user/foo</span>
-</code></pre></div><h3 id="check-for-commands-result">Check for command's result</h3>
+</code></pre></div><h3 id="check-for-commands-result">Check for command&rsquo;s result</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">if</span> ping -c <span class="m">1</span> google.com<span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span> <span class="s2">&#34;It appears you have a working internet connection&#34;</span>
 <span class="k">fi</span>

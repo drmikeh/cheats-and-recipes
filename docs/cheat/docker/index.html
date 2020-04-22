@@ -5,9 +5,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#1b1b1b">
-	<title>Pivotal Cloud Foundry Cheatsheet | Cheats and Recipes</title>
+	<title>Docker Cheatsheet | Cheats and Recipes</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	<meta name="description" content="Cheat sheet for Pivotal Cloud Foundry">
+	<meta name="description" content="Cheat sheet for Docker CLI Commands">
 	<link rel="stylesheet" href="/mah3093/cheats-and-recipes/css/main.css">
 	<link rel="stylesheet" href="/mah3093/cheats-and-recipes/css/dracula.css">
 	<link rel="stylesheet" href="/mah3093/cheats-and-recipes/css/custom.css">
@@ -50,76 +50,54 @@
 	<main class="main">
 		<div class="single block">
 			<article class="post">
-				<h1 class="post__title">Pivotal Cloud Foundry Cheatsheet</h1>
+				<h1 class="post__title">Docker Cheatsheet</h1>
 <details class="post__toc toc" >
 	<summary class="toc__title">Table of Contents</summary>
 	<nav id="TableOfContents">
   <ul>
     <li>
       <ul>
-        <li><a href="#cf-commands">cf commands</a></li>
+        <li><a href="#general-commands">General Commands</a></li>
+        <li><a href="#docker-images">Docker Images</a></li>
+        <li><a href="#docker-builds">Docker Builds</a></li>
+        <li><a href="#docker-containers">Docker Containers</a></li>
+        <li><a href="#running-docker-commands-to-access-a-remote-docker-host">Running Docker Commands to access a Remote Docker Host</a></li>
       </ul>
     </li>
   </ul>
 </nav>
 </details>
 
-				<div class="post__content"><p>PCF is an application PaaS (Platform as a Service) cloud platform.</p>
-<h3 id="cf-commands">cf commands</h3>
-<table>
-<thead>
-<tr>
-<th>Action</th>
-<th>Command</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Get help</td>
-<td><code>cf -h</code> or <code>cf command -h</code></td>
-</tr>
-<tr>
-<td>Login and specify target</td>
-<td><code>cf login -a https://api.run-np.homedepot.com -u ldap_id -o org_name -s space_name</code></td>
-</tr>
-<tr>
-<td>List organizations</td>
-<td><code>cf orgs</code> or <code>cf o</code></td>
-</tr>
-<tr>
-<td>Create a new org</td>
-<td><code>cf co org_name</code></td>
-</tr>
-<tr>
-<td>Create a new space</td>
-<td><code>cf create-space org_name</code></td>
-</tr>
-<tr>
-<td>Show list of buildpacks</td>
-<td><code>cf buildpacks</code></td>
-</tr>
-<tr>
-<td>Deploy an app</td>
-<td><code>cf push</code></td>
-</tr>
-<tr>
-<td>Restart an app</td>
-<td><code>cf restage</code></td>
-</tr>
-<tr>
-<td>See what apps are running</td>
-<td><code>cf apps</code> or <code>cf a</code></td>
-</tr>
-<tr>
-<td>Show environment variables</td>
-<td><code>cf env [app_name]</code></td>
-</tr>
-<tr>
-<td>Show the recent log entries</td>
-<td><code>cf logs app_name -recent</code></td>
-</tr>
-</tbody>
-</table></div>
+				<div class="post__content"><p>Cheat sheet for Docker CLI Commands</p>
+<h3 id="general-commands">General Commands</h3>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">docker --help                       <span class="c1"># list all docker commands</span>
+docker &lt;command&gt; --help             <span class="c1"># show help for a specific command</span>
+docker info                         <span class="c1"># show system information</span>
+docker system prune -a              <span class="c1"># stop and remove all containers and remove all images</span>
+</code></pre></div><h3 id="docker-images">Docker Images</h3>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">docker images                       <span class="c1"># list all installed images</span>
+docker image ls                     <span class="c1"># list all installed images</span>
+docker pull &lt;image&gt;                 <span class="c1"># pull an image from a docker registry</span>
+docker push &lt;image&gt;                 <span class="c1"># push an image to a docker registry</span>
+docker rmi &lt;image&gt;                  <span class="c1"># remove an image</span>
+docker <span class="nb">history</span> &lt;image&gt;              <span class="c1"># show image layers</span>
+docker inspect &lt;image&gt;              <span class="c1"># show lots of detailed information about an image</span>
+</code></pre></div><h3 id="docker-builds">Docker Builds</h3>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">docker build -t &lt;image name&gt; .      <span class="c1"># build and tag an image using current directory as the build context</span>
+</code></pre></div><h3 id="docker-containers">Docker Containers</h3>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">docker ps                                                         <span class="c1"># list all running containers</span>
+docker ps -a                                                      <span class="c1"># list all containers (running or stopped)</span>
+docker create --name &lt;container_name&gt; -p 8080:80 &lt;image&gt;          <span class="c1"># create a container with port mapping</span>
+docker start <span class="o">[</span>-i <span class="p">|</span> -d<span class="o">]</span> &lt;container_name&gt;                           <span class="c1"># start a container</span>
+docker restart &lt;container_name&gt;                                   <span class="c1"># restart a container</span>
+docker run --name &lt;container_name&gt; <span class="o">[</span>-i <span class="p">|</span> -d<span class="o">]</span> -p 8080:80 &lt;image&gt;   <span class="c1"># create and start a container with port mapping</span>
+docker attach &lt;container&gt;                                         <span class="c1"># Attach stdin/stdout/stderr streams to a running container</span>
+docker <span class="nb">exec</span> &lt;container&gt; &lt;command&gt;                                 <span class="c1"># Run a command in a running container</span>
+docker <span class="nb">exec</span> &lt;container&gt; -it bash                                  <span class="c1"># Create a bash process inside the container and connect it to the terminal</span>
+docker container stats --no-stream &lt;container&gt;                    <span class="c1"># Display a live stream of container(s) resource usage statistics</span>
+</code></pre></div><h3 id="running-docker-commands-to-access-a-remote-docker-host">Running Docker Commands to access a Remote Docker Host</h3>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">DOCKER_HOST</span><span class="o">=</span>&lt;hostname <span class="p">|</span> ip&gt; docker &lt;command&gt;
+</code></pre></div></div>
 				
 				<footer class="post__footer">
 					
@@ -134,10 +112,10 @@
 <div class="tags block">
     <h3 class="tags__title">Tags</h3>
     <div class="post__tags">
-                <a class="post__tag btn" href="/mah3093/cheats-and-recipes/tags/pivotal/">pivotal</a>
-                <a class="post__tag btn" href="/mah3093/cheats-and-recipes/tags/cloud-foundry/">cloud foundry</a>
-                <a class="post__tag btn" href="/mah3093/cheats-and-recipes/tags/pcf/">pcf</a>
+                <a class="post__tag btn" href="/mah3093/cheats-and-recipes/tags/docker/">docker</a>
+                <a class="post__tag btn" href="/mah3093/cheats-and-recipes/tags/containers/">containers</a>
                 <a class="post__tag btn" href="/mah3093/cheats-and-recipes/tags/cloud/">cloud</a>
+                <a class="post__tag btn" href="/mah3093/cheats-and-recipes/tags/virtualization/">virtualization</a>
     </div>
 </div>
 
@@ -150,9 +128,9 @@
 	<h3 class="related__title">Related</h3>
 	<ul class="related__list">
 		
-		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/concourse/">Pivotal Concourse Cheatsheet</a></li>
+		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/pcf/">Pivotal Cloud Foundry Cheatsheet</a></li>
 		
-		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/docker/">Docker Cheatsheet</a></li>
+		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/concourse/">Pivotal Concourse Cheatsheet</a></li>
 		
 	</ul>
 </div>

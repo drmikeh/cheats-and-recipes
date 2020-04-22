@@ -117,7 +117,7 @@
 				<div class="post__content"><p>A quick overview of new JavaScript features in ES2015, ES2016, ES2017, ES2018 and beyond.</p>
 <h3 id="block-scoping">Block scoping</h3>
 <h4 id="let">let</h4>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">fn</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">fn</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">// only inside this `if`
@@ -125,15 +125,15 @@
 <span class="p">}</span>
 </code></pre></div><h4 id="const">const</h4>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span>
-</code></pre></div><p><code>let</code> is the new <code>var</code>. Constants work just like <code>let</code>, but can't be reassigned. See: <a href="https://babeljs.io/learn-es2015/#let--const">let and const</a></p>
+</code></pre></div><p><code>let</code> is the new <code>var</code>. Constants work just like <code>let</code>, but can&rsquo;t be reassigned. See: <a href="https://babeljs.io/learn-es2015/#let--const">let and const</a></p>
 <h3 id="backtick-strings">Backtick strings</h3>
 <h4 id="interpolation">Interpolation</h4>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">message</span> <span class="o">=</span> <span class="sb">`</span><span class="sb">Hello </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">message</span> <span class="o">=</span> <span class="sb">`Hello </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span>
 </code></pre></div><h4 id="multiline-strings">Multiline strings</h4>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="sb">`</span><span class="sb">
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="sb">`
 </span><span class="sb">hello
 </span><span class="sb">world
-</span><span class="sb"></span><span class="sb">`</span>
+</span><span class="sb">`</span>
 </code></pre></div><p>Templates and multiline strings.
 See: <a href="https://babeljs.io/learn-es2015/#template-strings">Template strings</a></p>
 <h3 id="binary-and-octal-literals">Binary and octal literals</h3>
@@ -157,7 +157,7 @@ See: <a href="https://babeljs.io/learn-es2015/#template-strings">Template string
     <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">=</span> <span class="nx">radius</span>
   <span class="p">}</span>
 </code></pre></div><h4 id="methods">Methods</h4>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="nx">getArea</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="nx">getArea</span> <span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span>
   <span class="p">}</span>
 </code></pre></div><h4 id="calling-superclass-methods">Calling superclass methods</h4>
@@ -172,7 +172,7 @@ See: <a href="https://babeljs.io/learn-es2015/#template-strings">Template string
 </code></pre></div><p>Syntactic sugar for prototypes.
 See: <a href="https://babeljs.io/learn-es2015/#classes">Classes</a></p>
 <h3 id="exponent-operator">Exponent operator</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="kr">byte</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span><span class="o">*</span> <span class="mi">8</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="kr">byte</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">8</span>
 <span class="c1">// Same as: Math.pow(2, 8)
 </span></code></pre></div><h2 id="promises">Promises</h2>
 <p>See: <a href="https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/js-promises/">JavaScript Promises</a></p>
@@ -191,29 +191,29 @@ See: <a href="https://babeljs.io/learn-es2015/#destructuring">Destructuring</a><
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">]</span>
 <span class="kr">const</span> <span class="p">[</span><span class="nx">math</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="nx">sci</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="nx">arts</span> <span class="o">=</span> <span class="mi">50</span><span class="p">]</span> <span class="o">=</span> <span class="nx">scores</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// Result:
-</span><span class="c1"></span><span class="c1">// math === 22, sci === 33, arts === 50
+</span><span class="c1">// math === 22, sci === 33, arts === 50
 </span></code></pre></div><p>Default values can be assigned while destructuring arrays or objects.</p>
 <h3 id="function-arguments">Function arguments</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">greet</span><span class="p">(</span><span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">greeting</span> <span class="p">}</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">greeting</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">!</span><span class="sb">`</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">greet</span><span class="p">({</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">greeting</span> <span class="p">})</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">greeting</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">!`</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">greet</span><span class="p">(</span><span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Larry&#39;</span><span class="p">,</span> <span class="nx">greeting</span><span class="o">:</span> <span class="s1">&#39;Ahoy&#39;</span> <span class="p">}</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">greet</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Larry&#39;</span><span class="p">,</span> <span class="nx">greeting</span><span class="o">:</span> <span class="s1">&#39;Ahoy&#39;</span> <span class="p">})</span>
 </code></pre></div><p>Destructuring of objects and arrays can also be done in function arguments.</p>
 <h3 id="default-values-1">Default values</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">greet</span><span class="p">(</span><span class="p">{</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;Rauno&#39;</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="p">}</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="sb">Hi </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">!</span><span class="sb">`</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">greet</span><span class="p">({</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;Rauno&#39;</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Hi </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">!`</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">greet</span><span class="p">(</span><span class="p">)</span> <span class="c1">// Hi Rauno!
-</span><span class="c1"></span><span class="nx">greet</span><span class="p">(</span><span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Larry&#39;</span> <span class="p">}</span><span class="p">)</span> <span class="c1">// Hi Larry!
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">greet</span><span class="p">()</span> <span class="c1">// Hi Rauno!
+</span><span class="c1"></span><span class="nx">greet</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Larry&#39;</span> <span class="p">})</span> <span class="c1">// Hi Larry!
 </span></code></pre></div><h3 id="reassigning-keys">Reassigning keys</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">printCoordinates</span><span class="p">(</span><span class="p">{</span> <span class="nx">left</span><span class="o">:</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">top</span><span class="o">:</span> <span class="nx">y</span> <span class="p">}</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="sb">x: </span><span class="si">${</span><span class="nx">x</span><span class="si">}</span><span class="sb">, y: </span><span class="si">${</span><span class="nx">y</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">printCoordinates</span><span class="p">({</span> <span class="nx">left</span><span class="o">:</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">top</span><span class="o">:</span> <span class="nx">y</span> <span class="p">})</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`x: </span><span class="si">${</span><span class="nx">x</span><span class="si">}</span><span class="sb">, y: </span><span class="si">${</span><span class="nx">y</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">printCoordinates</span><span class="p">(</span><span class="p">{</span> <span class="nx">left</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span> <span class="nx">top</span><span class="o">:</span> <span class="mi">90</span> <span class="p">}</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">printCoordinates</span><span class="p">({</span> <span class="nx">left</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span> <span class="nx">top</span><span class="o">:</span> <span class="mi">90</span> <span class="p">})</span>
 </code></pre></div><p>This example assigns <code>x</code> to the value of the <code>left</code> key.</p>
 <h3 id="loops">Loops</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="p">{</span><span class="nx">title</span><span class="p">,</span> <span class="nx">artist</span><span class="p">}</span> <span class="k">of</span> <span class="nx">songs</span><span class="p">)</span> <span class="p">{</span>
-  <span class="err">·</span><span class="err">·</span><span class="err">·</span>
+  <span class="err">···</span>
 <span class="p">}</span>
 </code></pre></div><p>The assignment expressions work in loops, too.</p>
 <h3 id="object-destructuring">Object destructuring</h3>
@@ -227,21 +227,21 @@ See: <a href="https://babeljs.io/learn-es2015/#destructuring">Destructuring</a><
     <span class="nx">visible</span><span class="o">:</span> <span class="kc">true</span>
 <span class="p">}</span>
 </code></pre></div><h4 id="without-object-spread">without Object spread</h4>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="p">{</span><span class="p">}</span><span class="p">,</span> <span class="nx">defaults</span><span class="p">,</span> <span class="p">{</span> <span class="nx">visible</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">defaults</span><span class="p">,</span> <span class="p">{</span> <span class="nx">visible</span><span class="o">:</span> <span class="kc">true</span> <span class="p">})</span>
 </code></pre></div><p>The Object spread operator lets you build new objects from other objects.</p>
 <p>See: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator">Object spread</a></p>
 <h3 id="array-spread">Array spread</h3>
 <h4 id="with-array-spread">with Array spread</h4>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">users</span> <span class="o">=</span> <span class="p">[</span><span class="p">...</span><span class="nx">admins</span><span class="p">,</span> <span class="p">...</span><span class="nx">editors</span><span class="p">,</span> <span class="s1">&#39;rstacruz&#39;</span><span class="p">]</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">users</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">admins</span><span class="p">,</span> <span class="p">...</span><span class="nx">editors</span><span class="p">,</span> <span class="s1">&#39;rstacruz&#39;</span><span class="p">]</span>
 </code></pre></div><h4 id="without-array-spread">without Array spread</h4>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">admins</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">editors</span><span class="p">)</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="p">[</span><span class="s1">&#39;rstacruz&#39;</span><span class="p">]</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">admins</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">editors</span><span class="p">).</span><span class="nx">concat</span><span class="p">([</span><span class="s1">&#39;rstacruz&#39;</span><span class="p">])</span>
 </code></pre></div><p>The spread operator lets you build new arrays in the same way.</p>
 <p>See: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator">Spread operator</a></p>
 <h2 id="functions">Functions</h2>
 <h3 id="function-arguments-1">Function arguments</h3>
 <h4 id="default-arguments">Default arguments</h4>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">greet</span><span class="p">(</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;Jerry&#39;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="sb">`</span><span class="sb">Hello </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span>
+    <span class="k">return</span> <span class="sb">`Hello </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span>
 <span class="p">}</span>
 </code></pre></div><h4 id="rest-arguments">Rest arguments</h4>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">fn</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="p">...</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
@@ -249,26 +249,26 @@ See: <a href="https://babeljs.io/learn-es2015/#destructuring">Destructuring</a><
 </span><span class="c1"></span>    <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">y</span><span class="p">.</span><span class="nx">length</span>
 <span class="p">}</span>
 </code></pre></div><h4 id="spread-1">Spread</h4>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">fn</span><span class="p">(</span><span class="p">...</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">fn</span><span class="p">(...[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="c1">// same as fn(1, 2, 3)
 </span></code></pre></div><p>Default, rest, spread.
 See: <a href="https://babeljs.io/learn-es2015/#default--rest--spread">Function arguments</a></p>
 <h3 id="arrow-functions">Arrow functions</h3>
 <h4 id="arrow-functions-1">Arrow functions</h4>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">setTimeout</span><span class="p">(</span><span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="err">·</span><span class="err">·</span><span class="err">·</span>
-<span class="p">}</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="err">···</span>
+<span class="p">})</span>
 </code></pre></div><h4 id="with-arguments">With arguments</h4>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">readFile</span><span class="p">(</span><span class="s1">&#39;text.txt&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="p">...</span>
-<span class="p">}</span><span class="p">)</span>
+<span class="p">})</span>
 </code></pre></div><h4 id="implicit-return">Implicit return</h4>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">numbers</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">n</span> <span class="p">=&gt;</span> <span class="nx">n</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
 <span class="c1">// No curly braces = implicit return
-</span><span class="c1"></span><span class="c1">// Same as: numbers.map(function (n) { return n * 2 })
-</span><span class="c1"></span><span class="nx">numbers</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">n</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="p">{</span>
+</span><span class="c1">// Same as: numbers.map(function (n) { return n * 2 })
+</span><span class="c1"></span><span class="nx">numbers</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">n</span> <span class="p">=&gt;</span> <span class="p">({</span>
     <span class="nx">result</span><span class="o">:</span> <span class="nx">n</span> <span class="o">*</span> <span class="mi">2</span>
-<span class="p">}</span><span class="p">)</span><span class="p">)</span>
+<span class="p">}))</span>
 <span class="c1">// Implicitly returning objects requires parentheses around the object
 </span></code></pre></div><p>Like functions but with <code>this</code> preserved.
 See: <a href="https://babeljs.io/learn-es2015/#arrows-and-lexical-this">Arrow functions</a></p>
@@ -279,7 +279,7 @@ See: <a href="https://babeljs.io/learn-es2015/#arrows-and-lexical-this">Arrow fu
 </span></code></pre></div><p>See: <a href="https://babeljs.io/learn-es2015/#enhanced-object-literals">Object literal enhancements</a></p>
 <h3 id="methods-1">Methods</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">start</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">start</span><span class="p">()</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;running&#39;</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -287,9 +287,9 @@ See: <a href="https://babeljs.io/learn-es2015/#arrows-and-lexical-this">Arrow fu
 </span></code></pre></div><p>See: <a href="https://babeljs.io/learn-es2015/#enhanced-object-literals">Object literal enhancements</a></p>
 <h3 id="getters-and-setters">Getters and setters</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">get</span> <span class="nx">closed</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">get</span> <span class="nx">closed</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="s1">&#39;closed&#39;</span>
-    <span class="p">}</span><span class="p">,</span>
+    <span class="p">},</span>
     <span class="nx">set</span> <span class="nx">closed</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">status</span> <span class="o">=</span> <span class="nx">value</span> <span class="o">?</span> <span class="s1">&#39;closed&#39;</span> <span class="o">:</span> <span class="s1">&#39;open&#39;</span>
     <span class="p">}</span>
@@ -298,7 +298,7 @@ See: <a href="https://babeljs.io/learn-es2015/#arrows-and-lexical-this">Arrow fu
 <h3 id="computed-property-names">Computed property names</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">event</span> <span class="o">=</span> <span class="s1">&#39;click&#39;</span>
 <span class="kd">let</span> <span class="nx">handlers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="p">[</span><span class="sb">`</span><span class="sb">on</span><span class="si">${</span><span class="nx">event</span><span class="si">}</span><span class="sb">`</span><span class="p">]</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">[</span><span class="sb">`on</span><span class="si">${</span><span class="nx">event</span><span class="si">}</span><span class="sb">`</span><span class="p">]</span><span class="o">:</span> <span class="kc">true</span>
 <span class="p">}</span>
 <span class="c1">// Same as: handlers = { &#39;onclick&#39;: true }
 </span></code></pre></div><p>See: <a href="https://babeljs.io/learn-es2015/#enhanced-object-literals">Object literal enhancements</a></p>
@@ -324,9 +324,9 @@ See: <a href="https://babeljs.io/learn-es2015/#arrows-and-lexical-this">Arrow fu
 </span></code></pre></div><p><code>import</code> is the new <code>require()</code>.
 See: <a href="https://babeljs.io/learn-es2015/#modules">Module imports</a></p>
 <h3 id="exports">Exports</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span> <span class="err">·</span><span class="err">·</span><span class="err">·</span> <span class="p">}</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="err">···</span> <span class="p">}</span>
 <span class="c1">// aka: module.exports.default = ···
-</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">export</span> <span class="kd">function</span> <span class="nx">mymethod</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span> <span class="err">·</span><span class="err">·</span><span class="err">·</span> <span class="p">}</span>
+</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">export</span> <span class="kd">function</span> <span class="nx">mymethod</span> <span class="p">()</span> <span class="p">{</span> <span class="err">···</span> <span class="p">}</span>
 <span class="c1">// aka: module.exports.mymethod = ···
 </span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">pi</span> <span class="o">=</span> <span class="mf">3.14159</span>
 <span class="c1">// aka: module.exports.pi = ···
@@ -334,21 +334,21 @@ See: <a href="https://babeljs.io/learn-es2015/#modules">Module imports</a></p>
 See: <a href="https://babeljs.io/learn-es2015/#modules">Module exports</a></p>
 <h2 id="generators">Generators</h2>
 <h3 id="generators-1">Generators</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span><span class="o">*</span> <span class="nx">idMaker</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span><span class="o">*</span> <span class="nx">idMaker</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nx">id</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">yield</span> <span class="nx">id</span><span class="o">++</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">gen</span> <span class="o">=</span> <span class="nx">idMaker</span><span class="p">(</span><span class="p">)</span>
-<span class="nx">gen</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">value</span> <span class="c1">// → 0
-</span><span class="c1"></span><span class="nx">gen</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">value</span> <span class="c1">// → 1
-</span><span class="c1"></span><span class="nx">gen</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">value</span> <span class="c1">// → 2
-</span></code></pre></div><p>It's complicated.
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">gen</span> <span class="o">=</span> <span class="nx">idMaker</span><span class="p">()</span>
+<span class="nx">gen</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">value</span> <span class="c1">// → 0
+</span><span class="c1"></span><span class="nx">gen</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">value</span> <span class="c1">// → 1
+</span><span class="c1"></span><span class="nx">gen</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">value</span> <span class="c1">// → 2
+</span></code></pre></div><p>It&rsquo;s complicated.
 See: <a href="https://babeljs.io/learn-es2015/#generators">Generators</a></p>
 <h3 id="forof-iteration">For..of iteration</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="k">of</span> <span class="nx">iterable</span><span class="p">)</span> <span class="p">{</span>
-  <span class="err">·</span><span class="err">·</span><span class="err">·</span>
+  <span class="err">···</span>
 <span class="p">}</span>
 </code></pre></div><p>For iterating through generators and arrays.
 See: <a href="https://babeljs.io/learn-es2015/#iterators--forof">For..of iteration</a></p></div>

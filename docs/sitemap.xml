@@ -28,12 +28,12 @@
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/javascript/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/javascript/</loc>
     <lastmod>2019-11-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/javascript/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/javascript/</loc>
     <lastmod>2019-11-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -67,11 +67,11 @@
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/cli/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cli/</loc>
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cli/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/cli/</loc>
   </url>
   
   <url>
@@ -96,6 +96,10 @@
   
   <url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/concourse/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/containers/</loc>
   </url>
   
   <url>
@@ -131,11 +135,11 @@
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/database/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/database/</loc>
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/database/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/database/</loc>
   </url>
   
   <url>
@@ -151,6 +155,18 @@
   </url>
   
   <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/docker/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/docker/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/docker/</loc>
+  </url>
+  
+  <url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/es-2015/</loc>
   </url>
   
@@ -159,11 +175,11 @@
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/express/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/express/</loc>
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/express/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/express/</loc>
   </url>
   
   <url>
@@ -183,11 +199,11 @@
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/git/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/git/</loc>
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/git/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/git/</loc>
   </url>
   
   <url>
@@ -195,11 +211,11 @@
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/go/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/go/</loc>
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/go/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/go/</loc>
   </url>
   
   <url>
@@ -291,11 +307,11 @@
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/other/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/other/</loc>
   </url>
   
   <url>
-    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/other/</loc>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/other/</loc>
   </url>
   
   <url>
@@ -392,6 +408,10 @@
   
   <url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/version-control/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/virtualization/</loc>
   </url>
   
   <url>

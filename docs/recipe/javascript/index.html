@@ -73,26 +73,26 @@
 				<div class="post__content"><p>Recipes for the JavaScript language.</p>
 <h3 id="a-range-function">A range function</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">range</span> <span class="o">=</span> <span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="nx">stop</span><span class="p">,</span> <span class="nx">step</span><span class="p">)</span> <span class="p">=&gt;</span>
-    <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="p">{</span> <span class="nx">length</span><span class="o">:</span> <span class="p">(</span><span class="nx">stop</span> <span class="o">-</span> <span class="nx">start</span><span class="p">)</span> <span class="o">/</span> <span class="nx">step</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span><span class="p">,</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">start</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">*</span> <span class="nx">step</span><span class="p">)</span>
+    <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">({</span> <span class="nx">length</span><span class="o">:</span> <span class="p">(</span><span class="nx">stop</span> <span class="o">-</span> <span class="nx">start</span><span class="p">)</span> <span class="o">/</span> <span class="nx">step</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">},</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">start</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">*</span> <span class="nx">step</span><span class="p">)</span>
 </code></pre></div><p>usage:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">// [0, 2, 4, 6, 8, 10]
 </span></code></pre></div><h3 id="a-sleep-function-with-async--await">A sleep function with Async / Await</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// as a classic function
 </span><span class="c1"></span><span class="kd">function</span> <span class="nx">sleep</span><span class="p">(</span><span class="nx">millis</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">millis</span><span class="p">)</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">millis</span><span class="p">))</span>
 <span class="p">}</span>
 <span class="c1">// or as a one-liner:
-</span><span class="c1"></span><span class="kr">const</span> <span class="nx">sleep</span> <span class="o">=</span> <span class="nx">millis</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">millis</span><span class="p">)</span><span class="p">)</span>
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">sleep</span> <span class="o">=</span> <span class="nx">millis</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">millis</span><span class="p">))</span>
 </code></pre></div><p>usage:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">async</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">async</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
     <span class="nx">await</span> <span class="nx">sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;World&#39;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div><h3 id="lifting-promises-via-transforming-a-function">Lifting promises via transforming a function</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// Using Lift to transform a function that works with values
-</span><span class="c1"></span><span class="c1">// to a function that works with Promises
-</span><span class="c1"></span><span class="kr">const</span> <span class="nx">liftP</span> <span class="o">=</span> <span class="nx">func</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="p">...</span><span class="nx">args</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">values</span> <span class="p">=&gt;</span> <span class="nx">func</span><span class="p">(</span><span class="p">...</span><span class="nx">values</span><span class="p">)</span><span class="p">)</span>
+</span><span class="c1">// to a function that works with Promises
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">liftP</span> <span class="o">=</span> <span class="nx">func</span> <span class="p">=&gt;</span> <span class="p">(...</span><span class="nx">args</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">args</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">values</span> <span class="p">=&gt;</span> <span class="nx">func</span><span class="p">(...</span><span class="nx">values</span><span class="p">))</span>
 </code></pre></div><p><strong>Usage:</strong></p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/**
 </span><span class="cm"> * @param {number} x
@@ -111,11 +111,11 @@
 <span class="kr">const</span> <span class="nx">promise1</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="kr">const</span> <span class="nx">promise2</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="kr">const</span> <span class="nx">promiseValue</span> <span class="o">=</span> <span class="nx">addP</span><span class="p">(</span><span class="nx">promise1</span><span class="p">,</span> <span class="nx">promise2</span><span class="p">)</span>
-<span class="nx">promiseValue</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">v</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="p">{</span> <span class="nx">v</span> <span class="p">}</span><span class="p">)</span><span class="p">)</span>
+<span class="nx">promiseValue</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">v</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">({</span> <span class="nx">v</span> <span class="p">}))</span>
 
 <span class="kr">const</span> <span class="nx">pv3</span> <span class="o">=</span> <span class="nx">addP</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="p">{</span> <span class="nx">pv3</span> <span class="p">}</span><span class="p">)</span>
-<span class="nx">pv3</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">v3</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="p">{</span> <span class="nx">v3</span> <span class="p">}</span><span class="p">)</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">({</span> <span class="nx">pv3</span> <span class="p">})</span>
+<span class="nx">pv3</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">v3</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">({</span> <span class="nx">v3</span> <span class="p">}))</span>
 </code></pre></div><h3 id="reading-a-data-file">Reading a Data File</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">)</span>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">readFile</span> <span class="o">=</span> <span class="p">(</span><span class="nx">fileName</span><span class="p">,</span> <span class="nx">separator</span> <span class="o">=</span> <span class="s1">&#39;\n&#39;</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
@@ -123,7 +123,7 @@
         <span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">fileName</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="nx">separator</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nb">Boolean</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">n</span> <span class="p">=&gt;</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">n</span> <span class="p">=&gt;</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">n</span><span class="p">))</span>
 <span class="p">}</span>
 </code></pre></div><h3 id="writing-a-json-file">Writing a JSON file</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">)</span>
@@ -143,7 +143,7 @@
 <span class="k">try</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">writer</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">(</span><span class="s1">&#39;helloworld.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
     <span class="nx">writer</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
-    <span class="nx">writer</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="p">)</span>
+    <span class="nx">writer</span><span class="p">.</span><span class="nx">end</span><span class="p">()</span>
 <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;ERROR:&#39;</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>
 <span class="p">}</span>
@@ -151,27 +151,27 @@
 <p>You can use <code>requestIdleCallback</code> in the browser to nicely run long JavaScript programs without tying up the main thread for too long.
 This works nicely with <code>generator</code> functions because <code>requestIdleCallback</code> will need to run in batches to periodically give the main thread back to the browser for user interactions and other things that need processing.</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// Generic scheduler / runner for iterators (such as generator functions).
-</span><span class="c1"></span><span class="c1">// For every yield, it checks to see if there is time remaining on the idle loop
-</span><span class="c1"></span><span class="c1">// If so, it executes more work, otherwise it queues up for the next idle period
+</span><span class="c1">// For every yield, it checks to see if there is time remaining on the idle loop
+</span><span class="c1">// If so, it executes more work, otherwise it queues up for the next idle period
 </span><span class="c1"></span><span class="kd">function</span> <span class="nx">runNicely</span><span class="p">(</span><span class="nx">it</span><span class="p">,</span> <span class="nx">onYield</span><span class="p">,</span> <span class="nx">onComplete</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">function</span> <span class="nx">scheduleBatch</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">scheduleBatch</span><span class="p">()</span> <span class="p">{</span>
         <span class="nx">requestIdleCallback</span><span class="p">(</span><span class="nx">deadline</span> <span class="p">=&gt;</span> <span class="p">{</span>
             <span class="kd">let</span> <span class="nx">val</span> <span class="o">=</span> <span class="kc">null</span>
             <span class="k">do</span> <span class="p">{</span>
-                <span class="nx">val</span> <span class="o">=</span> <span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span>
+                <span class="nx">val</span> <span class="o">=</span> <span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">()</span>
                 <span class="nx">onYield</span> <span class="o">&amp;&amp;</span> <span class="nx">onYield</span><span class="p">(</span><span class="nx">val</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
-                <span class="k">if</span> <span class="p">(</span><span class="nx">deadline</span><span class="p">.</span><span class="nx">timeRemaining</span><span class="p">(</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="k">return</span> <span class="nx">scheduleBatch</span><span class="p">(</span><span class="p">)</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">deadline</span><span class="p">.</span><span class="nx">timeRemaining</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">return</span> <span class="nx">scheduleBatch</span><span class="p">()</span>
                 <span class="p">}</span>
             <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nx">val</span><span class="p">.</span><span class="nx">done</span><span class="p">)</span>
             <span class="nx">onComplete</span> <span class="o">&amp;&amp;</span> <span class="nx">onComplete</span><span class="p">(</span><span class="nx">val</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
-        <span class="p">}</span><span class="p">)</span>
+        <span class="p">})</span>
     <span class="p">}</span>
-    <span class="nx">scheduleBatch</span><span class="p">(</span><span class="p">)</span>
+    <span class="nx">scheduleBatch</span><span class="p">()</span>
 <span class="p">}</span>
 </code></pre></div><p>usage:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// Sum all numbers up to the specified number.
-</span><span class="c1"></span><span class="c1">// Written as a generator and yields every `batchSize` steps,
+</span><span class="c1">// Written as a generator and yields every `batchSize` steps,
 </span><span class="c1"></span><span class="kd">function</span><span class="o">*</span> <span class="nx">summation</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">batchSize</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">n</span> <span class="o">&lt;=</span> <span class="nx">x</span><span class="p">;</span> <span class="nx">n</span><span class="o">++</span><span class="p">,</span> <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
@@ -188,7 +188,7 @@ This works nicely with <code>generator</code> functions because <code>requestIdl
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">function</span> <span class="nx">testItOut</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nx">testItOut</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">function</span> <span class="nx">onYield</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">render</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">result</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span> <span class="s1">&#39;result running&#39;</span><span class="p">)</span>
     <span class="p">}</span>
@@ -196,13 +196,13 @@ This works nicely with <code>generator</code> functions because <code>requestIdl
     <span class="kd">function</span> <span class="nx">onComplete</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">render</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="nx">result</span><span class="p">,</span> <span class="s1">&#39;result done&#39;</span><span class="p">)</span>
     <span class="p">}</span>
-    <span class="nx">runNicely</span><span class="p">(</span><span class="nx">summation</span><span class="p">(</span><span class="mi">100000000</span><span class="p">)</span><span class="p">,</span> <span class="nx">onYield</span><span class="p">,</span> <span class="nx">onComplete</span><span class="p">)</span>
+    <span class="nx">runNicely</span><span class="p">(</span><span class="nx">summation</span><span class="p">(</span><span class="mi">100000000</span><span class="p">),</span> <span class="nx">onYield</span><span class="p">,</span> <span class="nx">onComplete</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="nx">testItOut</span><span class="p">(</span><span class="p">)</span>
+<span class="nx">testItOut</span><span class="p">()</span>
 </code></pre></div><p>And the HTML for this example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">h1</span><span class="p"></span><span class="p">&gt;</span>Using requestIdleCallback with a JavaScript Generator<span class="p">&lt;</span><span class="p">/</span><span class="nt">h1</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;result&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;result&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Using requestIdleCallback with a JavaScript Generator<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;result&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;result&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div></div>
 				
 				<footer class="post__footer">

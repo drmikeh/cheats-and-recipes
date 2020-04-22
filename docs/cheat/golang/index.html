@@ -135,7 +135,7 @@
 
 <span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
 
-<span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">message</span> <span class="o">:=</span> <span class="nf">greetMe</span><span class="p">(</span><span class="s">&#34;world&#34;</span><span class="p">)</span>
   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
 <span class="p">}</span>
@@ -158,8 +158,8 @@
 <h2 id="basic-types">Basic types</h2>
 <h3 id="strings">Strings</h3>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">str</span> <span class="o">:=</span> <span class="s">&#34;Hello&#34;</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">str</span> <span class="o">:=</span> <span class="s">`</span><span class="s">Multiline
-</span><span class="s">string</span><span class="s">`</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">str</span> <span class="o">:=</span> <span class="s">`Multiline
+</span><span class="s">string`</span>
 </code></pre></div><p>Strings are of type <code>string</code>.</p>
 <h3 id="numbers">Numbers</h3>
 <h4 id="typical-types">Typical types</h4>
@@ -175,15 +175,15 @@
 </span><span class="c1"></span><span class="nx">numbers</span> <span class="o">:=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">}</span>
 </code></pre></div><p>Arrays have a fixed size.</p>
 <h3 id="slices">Slices</h3>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">slice</span> <span class="o">:=</span> <span class="p">[</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">slice</span> <span class="o">:=</span> <span class="p">[</span><span class="p">]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;Hello&#34;</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">slice</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">slice</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;Hello&#34;</span><span class="p">)</span>
 </code></pre></div><p>Slices have a dynamic size, unlike arrays.</p>
 <h3 id="pointers">Pointers</h3>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">b</span> <span class="o">:=</span> <span class="o">*</span><span class="nf">getPointer</span><span class="p">(</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">b</span> <span class="o">:=</span> <span class="o">*</span><span class="nf">getPointer</span><span class="p">()</span>
   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Value is&#34;</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">getPointer</span> <span class="p">(</span><span class="p">)</span> <span class="p">(</span><span class="nx">myPointer</span> <span class="o">*</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">getPointer</span> <span class="p">()</span> <span class="p">(</span><span class="nx">myPointer</span> <span class="o">*</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">a</span> <span class="o">:=</span> <span class="mi">234</span>
   <span class="k">return</span> <span class="o">&amp;</span><span class="nx">a</span>
 <span class="p">}</span>
@@ -197,15 +197,15 @@
 <h2 id="flow-control">Flow control</h2>
 <h3 id="conditional">Conditional</h3>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="k">if</span> <span class="nx">day</span> <span class="o">==</span> <span class="s">&#34;sunday&#34;</span> <span class="o">||</span> <span class="nx">day</span> <span class="o">==</span> <span class="s">&#34;saturday&#34;</span> <span class="p">{</span>
-  <span class="nf">rest</span><span class="p">(</span><span class="p">)</span>
-<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="nx">day</span> <span class="o">==</span> <span class="s">&#34;monday&#34;</span> <span class="o">&amp;&amp;</span> <span class="nf">isTired</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nf">groan</span><span class="p">(</span><span class="p">)</span>
+  <span class="nf">rest</span><span class="p">()</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="nx">day</span> <span class="o">==</span> <span class="s">&#34;monday&#34;</span> <span class="o">&amp;&amp;</span> <span class="nf">isTired</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nf">groan</span><span class="p">()</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="nf">work</span><span class="p">(</span><span class="p">)</span>
+  <span class="nf">work</span><span class="p">()</span>
 <span class="p">}</span>
 </code></pre></div><p>See: <a href="https://tour.golang.org/flowcontrol/5">If</a></p>
 <h3 id="statements-in-if">Statements in if</h3>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="k">if</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">getResult</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="k">if</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">getResult</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Uh oh&#34;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div><p>A condition in an <code>if</code> statement can be preceded with a statement before a <code>;</code>.</p>
@@ -217,10 +217,10 @@
 </span><span class="c1"></span>    <span class="k">fallthrough</span>
 
   <span class="k">case</span> <span class="s">&#34;saturday&#34;</span><span class="p">:</span>
-    <span class="nf">rest</span><span class="p">(</span><span class="p">)</span>
+    <span class="nf">rest</span><span class="p">()</span>
 
   <span class="k">default</span><span class="p">:</span>
-    <span class="nf">work</span><span class="p">(</span><span class="p">)</span>
+    <span class="nf">work</span><span class="p">()</span>
 <span class="p">}</span>
 </code></pre></div><p>See: <a href="https://github.com/golang/go/wiki/Switch">Switch</a></p>
 <h3 id="for-loop">For loop</h3>
@@ -229,20 +229,20 @@
 	<span class="p">}</span>
 </code></pre></div><p>See: <a href="https://tour.golang.org/flowcontrol/1">For loops</a></p>
 <h3 id="for-range-loop">For-Range loop</h3>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go">  <span class="nx">entry</span> <span class="o">:=</span> <span class="p">[</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;Jack&#34;</span><span class="p">,</span><span class="s">&#34;John&#34;</span><span class="p">,</span><span class="s">&#34;Jones&#34;</span><span class="p">}</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go">  <span class="nx">entry</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;Jack&#34;</span><span class="p">,</span><span class="s">&#34;John&#34;</span><span class="p">,</span><span class="s">&#34;Jones&#34;</span><span class="p">}</span>
   <span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">val</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">entry</span> <span class="p">{</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;At position %d, the character %s is present\n&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">val</span><span class="p">)</span>
   <span class="p">}</span>
 </code></pre></div><p>See: <a href="https://gobyexample.com/range">For-Range loops</a></p>
 <h2 id="functions">Functions</h2>
 <h3 id="lambdas">Lambdas</h3>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">myfunc</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">(</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">myfunc</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">()</span> <span class="kt">bool</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">x</span> <span class="p">&gt;</span> <span class="mi">10000</span>
 <span class="p">}</span>
 </code></pre></div><p>Functions are first class objects.</p>
 <h3 id="multiple-return-types">Multiple return types</h3>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="o">:=</span> <span class="nf">getMessage</span><span class="p">(</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">getMessage</span><span class="p">(</span><span class="p">)</span> <span class="p">(</span><span class="nx">a</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="o">:=</span> <span class="nf">getMessage</span><span class="p">()</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">getMessage</span><span class="p">()</span> <span class="p">(</span><span class="nx">a</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="s">&#34;Hello&#34;</span><span class="p">,</span> <span class="s">&#34;World&#34;</span>
 <span class="p">}</span>
 </code></pre></div><h3 id="named-return-values">Named return values</h3>
@@ -265,10 +265,10 @@
 <p>See: <a href="https://tour.golang.org/basics/1">Importing</a></p>
 <h3 id="aliases">Aliases</h3>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">import</span> <span class="nx">r</span> <span class="s">&#34;math/rand&#34;</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">r</span><span class="p">.</span><span class="nf">Intn</span><span class="p">(</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">r</span><span class="p">.</span><span class="nf">Intn</span><span class="p">()</span>
 </code></pre></div><h3 id="exporting-names">Exporting names</h3>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">Hello</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-  <span class="err">·</span><span class="err">·</span><span class="err">·</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">Hello</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="err">···</span>
 <span class="p">}</span>
 </code></pre></div><p>Exported names begin with capital letters.</p>
 <p>See: <a href="https://tour.golang.org/basics/3">Exported names</a></p>
@@ -277,7 +277,7 @@
 </code></pre></div><p>Every package file has to start with <code>package</code>.</p>
 <h2 id="concurrency">Concurrency</h2>
 <h3 id="goroutines">Goroutines</h3>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="c1">// A &#34;channel&#34;
 </span><span class="c1"></span>  <span class="nx">ch</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">)</span>
 
@@ -303,7 +303,7 @@
 <span class="nx">ch</span> <span class="o">&lt;-</span> <span class="mi">2</span>
 <span class="nx">ch</span> <span class="o">&lt;-</span> <span class="mi">3</span>
 <span class="c1">// fatal error:
-</span><span class="c1"></span><span class="c1">// all goroutines are asleep - deadlock!
+</span><span class="c1">// all goroutines are asleep - deadlock!
 </span></code></pre></div><p>Buffered channels limit the amount of messages it can keep.</p>
 <p>See: <a href="https://tour.golang.org/concurrency/3">Buffered channels</a></p>
 <h3 id="closing-channels">Closing channels</h3>
@@ -314,14 +314,14 @@
 <span class="nb">close</span><span class="p">(</span><span class="nx">ch</span><span class="p">)</span>
 </code></pre></div><h4 id="iterates-across-a-channel-until-its-closed">Iterates across a channel until its closed</h4>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">ch</span> <span class="p">{</span>
-  <span class="err">·</span><span class="err">·</span><span class="err">·</span>
+  <span class="err">···</span>
 <span class="p">}</span>
 </code></pre></div><h4 id="closed-if-ok--false">Closed if <code>ok == false</code></h4>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">v</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="o">&lt;-</span> <span class="nx">ch</span>
 </code></pre></div><p>See: <a href="https://tour.golang.org/concurrency/4">Range and close</a></p>
 <h2 id="error-control">Error control</h2>
 <h3 id="defer">Defer</h3>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">defer</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Done&#34;</span><span class="p">)</span>
   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Working...&#34;</span><span class="p">)</span>
 <span class="p">}</span>
@@ -329,10 +329,10 @@
 The arguments are evaluated immediately, but the function call is not ran until later.</p>
 <p>See: <a href="https://blog.golang.org/defer-panic-and-recover">Defer, panic and recover</a></p>
 <h3 id="deferring-functions">Deferring functions</h3>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">defer</span> <span class="kd">func</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Done&#34;</span><span class="p">)</span>
-  <span class="p">}</span><span class="p">(</span><span class="p">)</span>
+  <span class="p">}()</span>
   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Working...&#34;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div><p>Lambdas are better suited for defer blocks.</p>
@@ -342,7 +342,7 @@ The arguments are evaluated immediately, but the function call is not ran until 
   <span class="nx">X</span> <span class="kt">int</span>
   <span class="nx">Y</span> <span class="kt">int</span>
 <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">v</span> <span class="o">:=</span> <span class="nx">Vertex</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
   <span class="nx">v</span><span class="p">.</span><span class="nx">X</span> <span class="p">=</span> <span class="mi">4</span>
   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">v</span><span class="p">.</span><span class="nx">Y</span><span class="p">)</span>
@@ -364,11 +364,11 @@ The arguments are evaluated immediately, but the function call is not ran until 
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Vertex</span> <span class="kd">struct</span> <span class="p">{</span>
   <span class="nx">X</span><span class="p">,</span> <span class="nx">Y</span> <span class="kt">float64</span>
 <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="p">(</span><span class="nx">v</span> <span class="nx">Vertex</span><span class="p">)</span> <span class="nf">Abs</span><span class="p">(</span><span class="p">)</span> <span class="kt">float64</span> <span class="p">{</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="p">(</span><span class="nx">v</span> <span class="nx">Vertex</span><span class="p">)</span> <span class="nf">Abs</span><span class="p">()</span> <span class="kt">float64</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">math</span><span class="p">.</span><span class="nf">Sqrt</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">X</span> <span class="o">*</span> <span class="nx">v</span><span class="p">.</span><span class="nx">X</span> <span class="o">+</span> <span class="nx">v</span><span class="p">.</span><span class="nx">Y</span> <span class="o">*</span> <span class="nx">v</span><span class="p">.</span><span class="nx">Y</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">v</span><span class="p">:</span> <span class="p">=</span> <span class="nx">Vertex</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
-<span class="nx">v</span><span class="p">.</span><span class="nf">Abs</span><span class="p">(</span><span class="p">)</span>
+<span class="nx">v</span><span class="p">.</span><span class="nf">Abs</span><span class="p">()</span>
 </code></pre></div><p>There are no classes, but you can define functions with <em>receivers</em>.</p>
 <p>See: <a href="https://tour.golang.org/methods/1">Methods</a></p>
 <h3 id="mutation">Mutation</h3>

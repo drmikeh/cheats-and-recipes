@@ -108,31 +108,31 @@
 <hr>
 <h2 id="getting-started">Getting started</h2>
 <h3 id="connect">Connect</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;knex&#39;</span><span class="p">)</span><span class="p">(</span><span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;knex&#39;</span><span class="p">)({</span>
     <span class="nx">client</span><span class="o">:</span> <span class="s1">&#39;pg&#39;</span><span class="p">,</span>
     <span class="nx">connection</span><span class="o">:</span> <span class="s1">&#39;postgres://user:pass@localhost:5432/dbname&#39;</span>
-<span class="p">}</span><span class="p">)</span>
+<span class="p">})</span>
 </code></pre></div><p>See: <a href="#connect-1">Connect</a></p>
 <h3 id="create-table">Create table</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">knex</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">createTable</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">table</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="nx">table</span><span class="p">.</span><span class="nx">increments</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
   <span class="nx">table</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
   <span class="nx">table</span><span class="p">.</span><span class="nx">integer</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
-<span class="p">}</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="err">···</span><span class="p">)</span>
 </code></pre></div><p>See: <a href="#schema">Schema</a></p>
 <h3 id="select">Select</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">knex</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">where</span><span class="p">(</span><span class="p">{</span> <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;hi@example.com&#39;</span> <span class="p">}</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">rows</span> <span class="p">=&gt;</span> <span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">where</span><span class="p">({</span> <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;hi@example.com&#39;</span> <span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">rows</span> <span class="p">=&gt;</span> <span class="err">···</span><span class="p">)</span>
 </code></pre></div><p>See: <a href="#select-1">Select</a></p>
 <h3 id="insert">Insert</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">knex</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="p">{</span> <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;hi@example.com&#39;</span> <span class="p">}</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">knex</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">insert</span><span class="p">({</span> <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;hi@example.com&#39;</span> <span class="p">})</span>
 </code></pre></div><p>See: <a href="#insert-1">Insert</a></p>
 <h3 id="update">Update</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">knex</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">where</span><span class="p">(</span><span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="mi">135</span> <span class="p">}</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="p">{</span> <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;hi@example.com&#39;</span> <span class="p">}</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">where</span><span class="p">({</span> <span class="nx">id</span><span class="o">:</span> <span class="mi">135</span> <span class="p">})</span>
+    <span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;hi@example.com&#39;</span> <span class="p">})</span>
 </code></pre></div><p>See: <a href="#update-1">Update</a></p>
 <h3 id="migrations">Migrations</h3>
 <pre><code>knex init
@@ -171,89 +171,89 @@ knex migrate:rollback
 <p>Install any of these packages along with <code>knex</code>.</p>
 <p>See: <a href="http://knexjs.org/#Installation-node">Node.js installation</a></p>
 <h3 id="connect-via-host">Connect via host</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">knex</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;knex&#39;</span><span class="p">)</span><span class="p">(</span><span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">knex</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;knex&#39;</span><span class="p">)({</span>
     <span class="nx">client</span><span class="o">:</span> <span class="s1">&#39;mysql&#39;</span><span class="p">,</span>
     <span class="nx">connection</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
         <span class="nx">user</span><span class="o">:</span> <span class="s1">&#39;your_database_user&#39;</span><span class="p">,</span>
         <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;your_database_password&#39;</span><span class="p">,</span>
         <span class="nx">database</span><span class="o">:</span> <span class="s1">&#39;myapp_test&#39;</span>
-    <span class="p">}</span><span class="p">,</span>
+    <span class="p">},</span>
     <span class="nx">pool</span><span class="o">:</span> <span class="p">{</span> <span class="nx">min</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">max</span><span class="o">:</span> <span class="mi">7</span> <span class="p">}</span>
-<span class="p">}</span><span class="p">)</span>
+<span class="p">})</span>
 </code></pre></div><p>See: <a href="http://knexjs.org/#Installation-client">Initializing the library</a></p>
 <h3 id="connect-via-url">Connect via URL</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">pg</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;knex&#39;</span><span class="p">)</span><span class="p">(</span><span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">pg</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;knex&#39;</span><span class="p">)({</span>
     <span class="nx">client</span><span class="o">:</span> <span class="s1">&#39;pg&#39;</span><span class="p">,</span>
     <span class="nx">connection</span><span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DATABASE_URL</span><span class="p">,</span>
     <span class="nx">searchPath</span><span class="o">:</span> <span class="s1">&#39;knex,public&#39;</span><span class="p">,</span>
     <span class="nx">pool</span><span class="o">:</span> <span class="p">{</span> <span class="nx">min</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">max</span><span class="o">:</span> <span class="mi">7</span> <span class="p">}</span>
-<span class="p">}</span><span class="p">)</span>
+<span class="p">})</span>
 </code></pre></div><h3 id="connect-via-sqlite">Connect via Sqlite</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">knex</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;knex&#39;</span><span class="p">)</span><span class="p">(</span><span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">knex</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;knex&#39;</span><span class="p">)({</span>
     <span class="nx">client</span><span class="o">:</span> <span class="s1">&#39;sqlite3&#39;</span><span class="p">,</span>
     <span class="nx">connection</span><span class="o">:</span> <span class="p">{</span> <span class="nx">filename</span><span class="o">:</span> <span class="s1">&#39;./mydb.sqlite&#39;</span> <span class="p">}</span>
-<span class="p">}</span><span class="p">)</span>
+<span class="p">})</span>
 </code></pre></div><h2 id="select-1">Select</h2>
 <h3 id="where">Where</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">knex</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="s1">&#39;books&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">knex</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="s1">&#39;books&#39;</span><span class="p">).</span><span class="nx">select</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">)</span>
 </code></pre></div><h4 id="where-1">Where</h4>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">where</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">where</span><span class="p">(</span><span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Hello&#39;</span> <span class="p">}</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">whereIn</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">whereNot</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">where</span><span class="p">({</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Hello&#39;</span> <span class="p">})</span>
+  <span class="p">.</span><span class="nx">whereIn</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+  <span class="p">.</span><span class="nx">whereNot</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
 </code></pre></div><h4 id="where-conditions">Where conditions</h4>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">whereNull</span><span class="p">(</span><span class="s1">&#39;updated_at&#39;</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">whereNotNull</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">whereNotNull</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">whereExists</span><span class="p">(</span><span class="s1">&#39;updated_at&#39;</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">whereNotExists</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">whereBetween</span><span class="p">(</span><span class="s1">&#39;votes&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">whereNotBetween</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">whereRaw</span><span class="p">(</span><span class="s1">&#39;id = ?&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">whereNotExists</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">whereBetween</span><span class="p">(</span><span class="s1">&#39;votes&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+  <span class="p">.</span><span class="nx">whereNotBetween</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">whereRaw</span><span class="p">(</span><span class="s1">&#39;id = ?&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </code></pre></div><h4 id="where-grouping">Where grouping</h4>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">where</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">where</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="k">this</span>
       <span class="p">.</span><span class="nx">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
       <span class="p">.</span><span class="nx">orWhere</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-  <span class="p">}</span><span class="p">)</span>
+  <span class="p">})</span>
 </code></pre></div><p>See: <a href="http://knexjs.org/#Builder-wheres">Where clauses</a></p>
 <h3 id="join">Join</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">knex</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
 </code></pre></div><h4 id="basic-join">Basic join</h4>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;contacts&#39;</span><span class="p">,</span> <span class="s1">&#39;users.id&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;contacts.id&#39;</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;contacts&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;users.id&#39;</span><span class="o">:</span> <span class="s1">&#39;contacts.id&#39;</span><span class="p">}</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;contacts&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;users.id&#39;</span><span class="o">:</span> <span class="s1">&#39;contacts.id&#39;</span><span class="p">})</span>
 </code></pre></div><h4 id="strings">Strings</h4>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;accounts&#39;</span><span class="p">,</span> <span class="s1">&#39;accounts.type&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="nx">knex</span><span class="p">.</span><span class="nx">raw</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;admin&#39;</span><span class="p">]</span><span class="p">)</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;accounts&#39;</span><span class="p">,</span> <span class="s1">&#39;accounts.type&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="nx">knex</span><span class="p">.</span><span class="nx">raw</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;admin&#39;</span><span class="p">]))</span>
 </code></pre></div><h4 id="directions">Directions</h4>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">leftJoin</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">leftOuterJoin</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">rightJoin</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">rightOuterJoin</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">outerJoin</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">fullOuterJoin</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">crossJoin</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">leftJoin</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">leftOuterJoin</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">rightJoin</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">rightOuterJoin</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">outerJoin</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">fullOuterJoin</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">crossJoin</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
 </code></pre></div><h4 id="raw">Raw</h4>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">joinRaw</span><span class="p">(</span><span class="s1">&#39;natural full join table1&#39;</span><span class="p">)</span>
 </code></pre></div><h4 id="grouping">Grouping</h4>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;accounts&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;accounts&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="k">this</span>
       <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;accounts.id&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;users.account_id&#39;</span><span class="p">)</span>
       <span class="p">.</span><span class="nx">orOn</span><span class="p">(</span><span class="s1">&#39;accounts.owner_id&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;users.id&#39;</span><span class="p">)</span>
 
-      <span class="p">.</span><span class="nx">onIn</span><span class="p">(</span><span class="s1">&#39;accounts.id&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span><span class="p">)</span>
-      <span class="p">.</span><span class="nx">onNotIn</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">onIn</span><span class="p">(</span><span class="s1">&#39;accounts.id&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+      <span class="p">.</span><span class="nx">onNotIn</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
 
       <span class="p">.</span><span class="nx">onNull</span><span class="p">(</span><span class="s1">&#39;accounts.email&#39;</span><span class="p">)</span>
-      <span class="p">.</span><span class="nx">onNotNull</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">onNotNull</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
 
-      <span class="p">.</span><span class="nx">onExists</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
-      <span class="p">}</span><span class="p">)</span>
-      <span class="p">.</span><span class="nx">onNotExists</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
-  <span class="p">}</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">onExists</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
+      <span class="p">})</span>
+      <span class="p">.</span><span class="nx">onNotExists</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
+  <span class="p">})</span>
 </code></pre></div><p>See: <a href="http://knexjs.org/#Builder-join">Join methods</a></p>
 <h3 id="others">Others</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">knex</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">distinct</span><span class="p">(</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">knex</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">distinct</span><span class="p">()</span>
 </code></pre></div><h4 id="group">Group</h4>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
   <span class="p">.</span><span class="nx">groupByRaw</span><span class="p">(</span><span class="s1">&#39;year WITH ROLLUP&#39;</span><span class="p">)</span>
@@ -265,20 +265,20 @@ knex migrate:rollback
   <span class="p">.</span><span class="nx">limit</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </code></pre></div><h4 id="having">Having</h4>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">having</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">havingIn</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">havingIn</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
 </code></pre></div><h4 id="union">Union</h4>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">union</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
-  <span class="p">}</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">unionAll</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">union</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">unionAll</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
 </code></pre></div><p>See: <a href="http://knexjs.org/#Builder">Query builder</a></p>
 <h3 id="etc">Etc</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">knex</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
   <span class="p">.</span><span class="nx">pluck</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">ids</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="err">·</span><span class="err">·</span><span class="err">·</span> <span class="p">}</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">ids</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="err">···</span> <span class="p">})</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">knex</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">first</span><span class="p">(</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">user</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="err">·</span><span class="err">·</span><span class="err">·</span> <span class="p">}</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">first</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">user</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="err">···</span> <span class="p">})</span>
 </code></pre></div><h4 id="booleans">Booleans</h4>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">count</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">)</span>
   <span class="p">.</span><span class="nx">count</span><span class="p">(</span><span class="s1">&#39;active as is_active&#39;</span><span class="p">)</span>
@@ -301,63 +301,63 @@ knex migrate:rollback
 <span class="nx">table</span><span class="p">.</span><span class="kr">boolean</span><span class="p">(</span><span class="s1">&#39;is_admin&#39;</span><span class="p">)</span>
 <span class="nx">table</span><span class="p">.</span><span class="nx">date</span><span class="p">(</span><span class="s1">&#39;birthday&#39;</span><span class="p">)</span>
 <span class="nx">table</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s1">&#39;created_at&#39;</span><span class="p">)</span>
-<span class="nx">table</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">(</span><span class="s1">&#39;created_at&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">defaultTo</span><span class="p">(</span><span class="nx">knex</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">now</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">(</span><span class="s1">&#39;created_at&#39;</span><span class="p">).</span><span class="nx">defaultTo</span><span class="p">(</span><span class="nx">knex</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">now</span><span class="p">())</span>
 <span class="nx">table</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">)</span>
 <span class="nx">table</span><span class="p">.</span><span class="nx">jsonb</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">)</span>
-<span class="nx">table</span><span class="p">.</span><span class="nx">uuid</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">primary</span><span class="p">(</span><span class="p">)</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">uuid</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">).</span><span class="nx">primary</span><span class="p">()</span>
 </code></pre></div><h4 id="constraints">Constraints</h4>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="nx">table</span><span class="p">.</span><span class="nx">unique</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span>
-  <span class="nx">table</span><span class="p">.</span><span class="nx">unique</span><span class="p">(</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;company_id&#39;</span><span class="p">]</span><span class="p">)</span>
-  <span class="nx">table</span><span class="p">.</span><span class="nx">dropUnique</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
+  <span class="nx">table</span><span class="p">.</span><span class="nx">unique</span><span class="p">([</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;company_id&#39;</span><span class="p">])</span>
+  <span class="nx">table</span><span class="p">.</span><span class="nx">dropUnique</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
 </code></pre></div><h4 id="indices">Indices</h4>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="nx">table</span><span class="p">.</span><span class="nx">foreign</span><span class="p">(</span><span class="s1">&#39;company_id&#39;</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">references</span><span class="p">(</span><span class="s1">&#39;companies.id&#39;</span><span class="p">)</span>
-  <span class="nx">table</span><span class="p">.</span><span class="nx">dropForeign</span><span class="p">(</span><span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
+  <span class="nx">table</span><span class="p">.</span><span class="nx">dropForeign</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
 </code></pre></div><h4 id="variations">Variations</h4>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">table</span>
     <span class="p">.</span><span class="nx">integer</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">unsigned</span><span class="p">(</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">unsigned</span><span class="p">()</span>
     <span class="p">.</span><span class="nx">references</span><span class="p">(</span><span class="s1">&#39;users.id&#39;</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="p">}</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="err">···</span><span class="p">)</span>
 </code></pre></div><p>See: <a href="http://knexjs.org/#Schema">Schema builder</a></p>
 <h3 id="alter-table">Alter table</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">knex</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">table</span><span class="p">(</span><span class="s1">&#39;accounts&#39;</span><span class="p">,</span> <span class="nx">table</span> <span class="p">=&gt;</span> <span class="p">{</span>
 </code></pre></div><h4 id="create">Create</h4>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">table</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="s1">&#39;first_name&#39;</span><span class="p">)</span>
 </code></pre></div><h4 id="alter">Alter</h4>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">table</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="s1">&#39;first_name&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">alter</span><span class="p">(</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">table</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="s1">&#39;first_name&#39;</span><span class="p">).</span><span class="nx">alter</span><span class="p">()</span>
 <span class="nx">table</span><span class="p">.</span><span class="nx">renameColumn</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;is_admin&#39;</span><span class="p">)</span>
 </code></pre></div><h4 id="drop">Drop</h4>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">table</span><span class="p">.</span><span class="nx">dropColumn</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">)</span>
 <span class="nx">table</span><span class="p">.</span><span class="nx">dropTimestamps</span><span class="p">(</span><span class="s1">&#39;created_at&#39;</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="p">}</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="p">})</span>
 </code></pre></div><p>See: <a href="http://knexjs.org/#Schema">Schema builder</a></p>
 <h3 id="other-methods">Other methods</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">knex</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">renameTable</span><span class="p">(</span><span class="s1">&#39;persons&#39;</span><span class="p">,</span> <span class="s1">&#39;people&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">dropTable</span><span class="p">(</span><span class="s1">&#39;persons&#39;</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">hasTable</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">exists</span> <span class="p">=&gt;</span> <span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">hasColumn</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">exists</span> <span class="p">=&gt;</span> <span class="err">·</span><span class="err">·</span><span class="err">·</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">knex</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">renameTable</span><span class="p">(</span><span class="s1">&#39;persons&#39;</span><span class="p">,</span> <span class="s1">&#39;people&#39;</span><span class="p">).</span><span class="nx">dropTable</span><span class="p">(</span><span class="s1">&#39;persons&#39;</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">hasTable</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">exists</span> <span class="p">=&gt;</span> <span class="err">···</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">hasColumn</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">exists</span> <span class="p">=&gt;</span> <span class="err">···</span><span class="p">)</span>
 </code></pre></div><p>See: <a href="http://knexjs.org/#Schema">Schema builder</a></p>
 <h2 id="modifying">Modifying</h2>
 <h3 id="insert-1">Insert</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">knex</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
 </code></pre></div><h4 id="insert-one">Insert one</h4>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;John&#39;</span> <span class="p">}</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">insert</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;John&#39;</span> <span class="p">})</span>
 </code></pre></div><h4 id="insert-many">Insert many</h4>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="p">[</span>
-    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Starsky&#39;</span> <span class="p">}</span><span class="p">,</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="p">.</span><span class="nx">insert</span><span class="p">([</span>
+    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Starsky&#39;</span> <span class="p">},</span>
     <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Hutch&#39;</span> <span class="p">}</span>
-  <span class="p">]</span><span class="p">)</span>
+  <span class="p">])</span>
 </code></pre></div><p>See: <a href="http://knexjs.org/#Builder-insert">Insert</a></p>
 <h3 id="update-1">Update</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">knex</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">where</span><span class="p">(</span><span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="mi">2</span> <span class="p">}</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Homer&#39;</span> <span class="p">}</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">where</span><span class="p">({</span> <span class="nx">id</span><span class="o">:</span> <span class="mi">2</span> <span class="p">})</span>
+    <span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Homer&#39;</span> <span class="p">})</span>
 </code></pre></div><p>See: <a href="http://knexjs.org/#Builder-update">Update</a></p>
 <h3 id="delete">Delete</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">knex</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">where</span><span class="p">(</span><span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="mi">2</span> <span class="p">}</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">del</span><span class="p">(</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">where</span><span class="p">({</span> <span class="nx">id</span><span class="o">:</span> <span class="mi">2</span> <span class="p">})</span>
+    <span class="p">.</span><span class="nx">del</span><span class="p">()</span>
 </code></pre></div><p>See: <a href="http://knexjs.org/#Builder-del">Delete</a></p>
 <h2 id="migrations-1">Migrations</h2>
 <h3 id="setting-up">Setting up</h3>

@@ -83,29 +83,29 @@
     <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
         <span class="nx">count</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">initialCount</span>
     <span class="p">}</span>
-    <span class="nx">inc</span> <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">(</span><span class="p">{</span>
+    <span class="nx">inc</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
             <span class="nx">count</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="p">}</span><span class="p">)</span>
+        <span class="p">})</span>
     <span class="p">}</span>
-    <span class="nx">dec</span> <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">(</span><span class="p">{</span>
+    <span class="nx">dec</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
             <span class="nx">count</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span>
-        <span class="p">}</span><span class="p">)</span>
+        <span class="p">})</span>
     <span class="p">}</span>
-    <span class="nx">reset</span> <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">(</span><span class="p">{</span>
+    <span class="nx">reset</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
             <span class="nx">count</span><span class="o">:</span> <span class="mi">0</span>
-        <span class="p">}</span><span class="p">)</span>
+        <span class="p">})</span>
     <span class="p">}</span>
-    <span class="nx">render</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">return</span> <span class="p">(</span>
-            <span class="p">&lt;</span><span class="nt">div</span><span class="p"></span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">span</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;count&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="nx">The</span> <span class="nx">count</span> <span class="nx">is</span><span class="o">:</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span><span class="p">}</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">span</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">inc</span><span class="p">}</span><span class="p"></span><span class="p">&gt;</span><span class="o">+</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">button</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">dec</span><span class="p">}</span><span class="p"></span><span class="p">&gt;</span><span class="o">-</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">button</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">reset</span><span class="p">}</span><span class="p"></span><span class="p">&gt;</span><span class="mi">0</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">button</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">span</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;count&#34;</span><span class="p">&gt;</span><span class="nx">The</span> <span class="nx">count</span> <span class="nx">is</span><span class="o">:</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">inc</span><span class="p">}&gt;</span><span class="o">+</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">dec</span><span class="p">}&gt;</span><span class="o">-</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">reset</span><span class="p">}&gt;</span><span class="mi">0</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
         <span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -114,11 +114,11 @@
 </code></pre></div><h2 id="stateless-function-component">Stateless Function Component</h2>
 <div class="highlight"><pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
 
-<span class="kd">function</span> <span class="nx">Hello</span><span class="p">(</span><span class="p">{</span> <span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span> <span class="p">}</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nx">Hello</span><span class="p">({</span> <span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span> <span class="p">})</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">(</span>
-        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;greeting&#34;</span><span class="p"></span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;greeting&#34;</span><span class="p">&gt;</span>
             <span class="nx">Hello</span> <span class="p">{</span><span class="nx">firstName</span><span class="p">}</span> <span class="p">{</span><span class="nx">lastName</span><span class="p">}</span>
-        <span class="p">&lt;</span><span class="p">/</span><span class="nt">p</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
     <span class="p">)</span>
 <span class="p">}</span>
 
@@ -126,20 +126,20 @@
 </code></pre></div><h2 id="stateful-function-component">Stateful Function Component</h2>
 <div class="highlight"><pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
 
-<span class="kd">function</span> <span class="nx">Counter</span><span class="p">(</span><span class="p">{</span> <span class="nx">initialCount</span> <span class="p">}</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nx">Counter</span><span class="p">({</span> <span class="nx">initialCount</span> <span class="p">})</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">useState</span><span class="p">(</span><span class="nx">initialCount</span><span class="p">)</span>
 
-    <span class="kr">const</span> <span class="nx">inc</span> <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">setCount</span><span class="p">(</span><span class="nx">c</span> <span class="p">=&gt;</span> <span class="nx">c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="kr">const</span> <span class="nx">dec</span> <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">setCount</span><span class="p">(</span><span class="nx">c</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="nx">c</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="nx">c</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">)</span><span class="p">)</span>
-    <span class="kr">const</span> <span class="nx">reset</span> <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">setCount</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="kr">const</span> <span class="nx">inc</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">setCount</span><span class="p">(</span><span class="nx">c</span> <span class="p">=&gt;</span> <span class="nx">c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="kr">const</span> <span class="nx">dec</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">setCount</span><span class="p">(</span><span class="nx">c</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="nx">c</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="nx">c</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="kr">const</span> <span class="nx">reset</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">setCount</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="p">(</span>
-        <span class="p">&lt;</span><span class="nt">div</span><span class="p"></span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;count&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="nx">The</span> <span class="nx">count</span> <span class="nx">is</span><span class="o">:</span> <span class="p">{</span><span class="nx">count</span><span class="p">}</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">span</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">inc</span><span class="p">}</span><span class="p"></span><span class="p">&gt;</span><span class="o">+</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">button</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">dec</span><span class="p">}</span><span class="p"></span><span class="p">&gt;</span><span class="o">-</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">button</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">reset</span><span class="p">}</span><span class="p"></span><span class="p">&gt;</span><span class="mi">0</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">button</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;count&#34;</span><span class="p">&gt;</span><span class="nx">The</span> <span class="nx">count</span> <span class="nx">is</span><span class="o">:</span> <span class="p">{</span><span class="nx">count</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">inc</span><span class="p">}&gt;</span><span class="o">+</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">dec</span><span class="p">}&gt;</span><span class="o">-</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">reset</span><span class="p">}&gt;</span><span class="mi">0</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">)</span>
 <span class="p">}</span>
 
@@ -193,10 +193,10 @@
 <div class="highlight"><pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">const</span> <span class="p">[</span><span class="nx">state</span><span class="p">,</span> <span class="nx">setState</span><span class="p">]</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">useState</span><span class="p">(</span><span class="nx">initialStateValue</span><span class="p">)</span>
 </code></pre></div><h3 id="useeffect">useEffect</h3>
 <p>Handle side-effects such as getting data from a server or communicating with the browser API (such as history, local storage, or geolocation services).</p>
-<div class="highlight"><pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">React</span><span class="p">.</span><span class="nx">useEffect</span><span class="p">(</span><span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">React</span><span class="p">.</span><span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="cm">/* side-effect code goes here */</span>
   <span class="cm">/* optionally return a cleanup function */</span>
-  <span class="p">}</span><span class="p">,</span>
+  <span class="p">},</span>
   <span class="cm">/* optional array of triggers:
 </span><span class="cm">        - `undefined` (if not provided): runs the effect after every render
 </span><span class="cm">        - `[]`: an empty array, runs the effect after the component is mounted (componentDidMount)
@@ -212,17 +212,17 @@
 <p>Persist a value between renders, does <em>not</em> trigger a render.</p>
 <div class="highlight"><pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
 
-<span class="kd">function</span> <span class="nx">TextInputWithFocusButton</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nx">TextInputWithFocusButton</span><span class="p">()</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">inputRef</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">useRef</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span> <span class="c1">// initialize inputRef.current to null
-</span><span class="c1"></span>    <span class="kr">const</span> <span class="nx">onButtonClick</span> <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-        <span class="nx">inputRef</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">focus</span><span class="p">(</span><span class="p">)</span> <span class="c1">// inputRef.current points to the DOM node
+</span><span class="c1"></span>    <span class="kr">const</span> <span class="nx">onButtonClick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">inputRef</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">focus</span><span class="p">()</span> <span class="c1">// inputRef.current points to the DOM node
 </span><span class="c1"></span>    <span class="p">}</span>
     <span class="k">return</span> <span class="p">(</span>
-        <span class="o">&lt;</span><span class="o">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">ref</span><span class="o">=</span><span class="p">{</span><span class="nx">inputRef</span><span class="p">}</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="p">/</span><span class="p">&gt;</span><span class="p">{</span><span class="s1">&#39; &#39;</span><span class="p">}</span>
+        <span class="o">&lt;&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">ref</span><span class="o">=</span><span class="p">{</span><span class="nx">inputRef</span><span class="p">}</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="p">/&gt;{</span><span class="s1">&#39; &#39;</span><span class="p">}</span>
             <span class="p">{</span><span class="cm">/* React sets inputRef.current to the input DOM element */</span><span class="p">}</span>
-            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onButtonClick</span><span class="p">}</span><span class="p"></span><span class="p">&gt;</span><span class="nx">Focus</span> <span class="nx">the</span> <span class="nx">input</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">button</span><span class="p">&gt;</span>
-        <span class="o">&lt;</span><span class="err">/</span><span class="err">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onButtonClick</span><span class="p">}&gt;</span><span class="nx">Focus</span> <span class="nx">the</span> <span class="nx">input</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+        <span class="o">&lt;</span><span class="err">/&gt;</span>
     <span class="p">)</span>
 <span class="p">}</span>
 
@@ -245,34 +245,34 @@
         <span class="k">case</span> <span class="s1">&#39;reset&#39;</span><span class="o">:</span>
             <span class="k">return</span> <span class="p">{</span> <span class="nx">count</span><span class="o">:</span> <span class="mi">0</span> <span class="p">}</span>
         <span class="k">default</span><span class="o">:</span>
-            <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="p">)</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">()</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">function</span> <span class="nx">Counter</span><span class="p">(</span><span class="p">{</span> <span class="nx">initialCount</span> <span class="p">}</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nx">Counter</span><span class="p">({</span> <span class="nx">initialCount</span> <span class="p">})</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">initialState</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">count</span><span class="o">:</span> <span class="nx">initialCount</span> <span class="p">}</span>
     <span class="kr">const</span> <span class="p">[</span><span class="nx">state</span><span class="p">,</span> <span class="nx">dispatch</span><span class="p">]</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">useReducer</span><span class="p">(</span><span class="nx">reducer</span><span class="p">,</span> <span class="nx">initialState</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">(</span>
-        <span class="p">&lt;</span><span class="nt">div</span><span class="p"></span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;count&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="nx">The</span> <span class="nx">count</span> <span class="nx">is</span><span class="o">:</span> <span class="p">{</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span><span class="p">}</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">span</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">dispatch</span><span class="p">(</span><span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;increment&#39;</span> <span class="p">}</span><span class="p">)</span><span class="p">}</span><span class="p"></span><span class="p">&gt;</span><span class="o">+</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">button</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">dispatch</span><span class="p">(</span><span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;decrement&#39;</span> <span class="p">}</span><span class="p">)</span><span class="p">}</span><span class="p"></span><span class="p">&gt;</span><span class="o">-</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">button</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">dispatch</span><span class="p">(</span><span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;reset&#39;</span> <span class="p">}</span><span class="p">)</span><span class="p">}</span><span class="p"></span><span class="p">&gt;</span><span class="mi">0</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">button</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;count&#34;</span><span class="p">&gt;</span><span class="nx">The</span> <span class="nx">count</span> <span class="nx">is</span><span class="o">:</span> <span class="p">{</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">dispatch</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;increment&#39;</span> <span class="p">})}&gt;</span><span class="o">+</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">dispatch</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;decrement&#39;</span> <span class="p">})}&gt;</span><span class="o">-</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">dispatch</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;reset&#39;</span> <span class="p">})}&gt;</span><span class="mi">0</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">)</span>
 <span class="p">}</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Counter</span>
 </code></pre></div><h3 id="usememo">useMemo</h3>
 <p>Memoize a value between renders.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">memoizedValue</span> <span class="o">=</span> <span class="nx">useMemo</span><span class="p">(</span><span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">memoizedValue</span> <span class="o">=</span> <span class="nx">useMemo</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="nx">computeExpensiveValue</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span>
-<span class="p">}</span><span class="p">,</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">]</span><span class="p">)</span>
+<span class="p">},</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">])</span>
 </code></pre></div><h3 id="usecallback">useCallback</h3>
 <p>Memoize a function between renders.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">memoizedCallback</span> <span class="o">=</span> <span class="nx">useCallback</span><span class="p">(</span><span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">memoizedCallback</span> <span class="o">=</span> <span class="nx">useCallback</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="nx">doSomething</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span>
-<span class="p">}</span><span class="p">,</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">]</span><span class="p">)</span>
+<span class="p">},</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">])</span>
 </code></pre></div><h4 id="usememo-vs-usecallback">useMemo vs. useCallback</h4>
 <p>Both <code>useMemo</code> and <code>useCallback</code> take functions as arguments. The difference is that <code>useCallback</code> returns its function when the dependencies change while <code>useMemo</code> calls its function and returns the result.</p>
 <p>In other words:</p>
