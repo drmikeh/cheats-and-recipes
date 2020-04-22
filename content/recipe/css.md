@@ -27,6 +27,15 @@ You can have a font size grow or shrink based on the size of the viewport. This 
 }
 ```
 
+### Smooth Scrolling
+
+```css
+html {
+  scroll-behavior: smooth;
+}
+```
+
+
 ### Remove Blue Border From Focussed Buttons
 
 ```css
@@ -40,6 +49,7 @@ button:focus {
 ```css
 ul {
     list-style-type: none;
+    padding-left: 0;
 }
 ```
 
