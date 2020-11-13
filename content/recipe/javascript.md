@@ -15,6 +15,31 @@ Recipes for the JavaScript language.
 
 <!--more-->
 
+### Accurately Rounding Floating Point Numbers
+
+```js
+function roundAccurately(amount, decimalPlaces) {
+    const positiveAmount = Math.abs(amount);
+    const result = Number(Math.round(positiveAmount + "e" + decimalPlaces) + "e-" + decimalPlaces);
+    return amount < 0 ? -result : result;
+}
+```
+
+### Formatting a Floating Point Number to US Dollar and Cents
+
+```js
+function formatAmount(amount) {
+    const isNegative = amount < 0;
+    const absoluteAmount = Math.abs(amount);
+    const scaledAmount = roundAccurately(absoluteAmount, 2) * 100;
+    const dollars = Math.floor(scaledAmount / 100);
+    const cents = Math.abs(Math.round(scaledAmount % 100));
+    const paddedCents = String(cents).padStart(2, '0');
+    const sign = isNegative ? '-' : '';
+    return `$${sign}${dollars}.${paddedCents}`;
+}
+```
+
 ### A range function
 
 ```js

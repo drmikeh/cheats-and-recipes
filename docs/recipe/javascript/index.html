@@ -57,6 +57,8 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#accurately-rounding-floating-point-numbers">Accurately Rounding Floating Point Numbers</a></li>
+        <li><a href="#formatting-a-floating-point-number-to-us-dollar-and-cents">Formatting a Floating Point Number to US Dollar and Cents</a></li>
         <li><a href="#a-range-function">A range function</a></li>
         <li><a href="#a-sleep-function-with-async--await">A sleep function with Async / Await</a></li>
         <li><a href="#lifting-promises-via-transforming-a-function">Lifting promises via transforming a function</a></li>
@@ -71,7 +73,24 @@
 </details>
 
 				<div class="post__content"><p>Recipes for the JavaScript language.</p>
-<h3 id="a-range-function">A range function</h3>
+<h3 id="accurately-rounding-floating-point-numbers">Accurately Rounding Floating Point Numbers</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">roundAccurately</span><span class="p">(</span><span class="nx">amount</span><span class="p">,</span> <span class="nx">decimalPlaces</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">positiveAmount</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">amount</span><span class="p">);</span>
+    <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">positiveAmount</span> <span class="o">+</span> <span class="s2">&#34;e&#34;</span> <span class="o">+</span> <span class="nx">decimalPlaces</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;e-&#34;</span> <span class="o">+</span> <span class="nx">decimalPlaces</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">amount</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="o">-</span><span class="nx">result</span> <span class="o">:</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="formatting-a-floating-point-number-to-us-dollar-and-cents">Formatting a Floating Point Number to US Dollar and Cents</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">formatAmount</span><span class="p">(</span><span class="nx">amount</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">isNegative</span> <span class="o">=</span> <span class="nx">amount</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">absoluteAmount</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">amount</span><span class="p">);</span>
+    <span class="kr">const</span> <span class="nx">scaledAmount</span> <span class="o">=</span> <span class="nx">roundAccurately</span><span class="p">(</span><span class="nx">absoluteAmount</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">dollars</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">scaledAmount</span> <span class="o">/</span> <span class="mi">100</span><span class="p">);</span>
+    <span class="kr">const</span> <span class="nx">cents</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">scaledAmount</span> <span class="o">%</span> <span class="mi">100</span><span class="p">));</span>
+    <span class="kr">const</span> <span class="nx">paddedCents</span> <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="nx">cents</span><span class="p">).</span><span class="nx">padStart</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">);</span>
+    <span class="kr">const</span> <span class="nx">sign</span> <span class="o">=</span> <span class="nx">isNegative</span> <span class="o">?</span> <span class="s1">&#39;-&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="sb">`$</span><span class="si">${</span><span class="nx">sign</span><span class="si">}${</span><span class="nx">dollars</span><span class="si">}</span><span class="sb">.</span><span class="si">${</span><span class="nx">paddedCents</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="a-range-function">A range function</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">range</span> <span class="o">=</span> <span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="nx">stop</span><span class="p">,</span> <span class="nx">step</span><span class="p">)</span> <span class="p">=&gt;</span>
     <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">({</span> <span class="nx">length</span><span class="o">:</span> <span class="p">(</span><span class="nx">stop</span> <span class="o">-</span> <span class="nx">start</span><span class="p">)</span> <span class="o">/</span> <span class="nx">step</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">},</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">start</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">*</span> <span class="nx">step</span><span class="p">)</span>
 </code></pre></div><p>usage:</p>
