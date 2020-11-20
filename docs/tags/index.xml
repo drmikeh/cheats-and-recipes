@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Cheats and Recipes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cli</title>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cli/</link>
+      <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shell</title>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/shell/</link>
+      <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>terminal</title>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/terminal/</link>
+      <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/terminal/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>functional programming</title>
@@ -71,15 +98,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/ci/cd/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cli</title>
-      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cli/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cli/</guid>
       <description></description>
     </item>
     
@@ -440,15 +458,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/server/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>shell</title>
-      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/shell/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/shell/</guid>
       <description></description>
     </item>
     

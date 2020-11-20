@@ -55,6 +55,7 @@ docker start [-i | -d] <container_name>                           # start a cont
 docker restart <container_name>                                   # restart a container
 docker run --name <container_name> [-i | -d] -p 8080:80 <image>   # create and start a container with port mapping
 docker attach <container>                                         # Attach stdin/stdout/stderr streams to a running container
+docker container run -it node:alpine sh                           # Start a container and run an interactive shell
 docker exec <container> <command>                                 # Run a command in a running container
 docker exec <container> -it bash                                  # Create a bash process inside the container and connect it to the terminal
 docker container stats --no-stream <container>                    # Display a live stream of container(s) resource usage statistics

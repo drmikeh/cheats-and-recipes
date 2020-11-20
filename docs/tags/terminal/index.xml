@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>terminal on Cheats and Recipes</title>
+    <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/terminal/</link>
+    <description>Recent content in terminal on Cheats and Recipes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Nov 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>iTerm2 Cheatsheet</title>
+      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/iterm2/</link>
+      <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/iterm2/</guid>
+      <description>&lt;p&gt;iTerm2 is a terminal emulator for macOS that does amazing things.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

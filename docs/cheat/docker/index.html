@@ -92,6 +92,7 @@ docker start <span class="o">[</span>-i <span class="p">|</span> -d<span class="
 docker restart &lt;container_name&gt;                                   <span class="c1"># restart a container</span>
 docker run --name &lt;container_name&gt; <span class="o">[</span>-i <span class="p">|</span> -d<span class="o">]</span> -p 8080:80 &lt;image&gt;   <span class="c1"># create and start a container with port mapping</span>
 docker attach &lt;container&gt;                                         <span class="c1"># Attach stdin/stdout/stderr streams to a running container</span>
+docker container run -it node:alpine sh                           <span class="c1"># Start a container and run an interactive shell</span>
 docker <span class="nb">exec</span> &lt;container&gt; &lt;command&gt;                                 <span class="c1"># Run a command in a running container</span>
 docker <span class="nb">exec</span> &lt;container&gt; -it bash                                  <span class="c1"># Create a bash process inside the container and connect it to the terminal</span>
 docker container stats --no-stream &lt;container&gt;                    <span class="c1"># Display a live stream of container(s) resource usage statistics</span>
