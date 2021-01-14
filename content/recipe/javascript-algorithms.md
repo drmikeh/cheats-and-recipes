@@ -76,6 +76,21 @@ console.log(gcd(array))
 console.log(lcm(array))
 ```
 
+### Frequency Counting
+
+```js
+const freqCount = arr => arr.reduce((map, item) => {
+    const count = map.get(item)
+    map.set(item, count ? count + 1 : 1)
+    return map
+}, new Map())
+
+// usage:
+const array = ['apple', 'banana', 'apple', 'orange', 'apple', 'banana']
+const fq = freqCount(array)
+console.log(fq)                     // Map(3) { 'apple' => 3, 'banana' => 2, 'orange' => 1 }
+```
+
 ### Generating Combinations of Two
 
 ```js
@@ -94,11 +109,67 @@ function getCombinations(array) {
 console.log(getCombinations([1, 2, 3, 4, 5]))
 ```
 
+### Generating All Combinations of Zero or More
+
+```js
+/**
+ * Returns a 2D array of all unique combinations of zero or more items from the input array.
+ *
+ * @param {Array} arr - the array of values that needs all combinations
+ */
+function getAllCombinations(arr) {
+    return arr.reduce((subsets, value) =>
+        subsets.concat(
+            subsets.map(set => [...set, value])
+        ),
+        [[]]
+    )
+}
+
+// Usage:
+getAllCombinations([1, 2, 3])
+/* returns:
+[
+  [],       [ 1 ],
+  [ 2 ],    [ 2, 1 ],
+  [ 3 ],    [ 3, 1 ],
+  [ 3, 2 ], [ 3, 2, 1 ]
+]
+*/
+```
+
 ### Generating Permutations
 
 ```js
 /**
- * Permutate the elements in the specified array by swapping them in-place and
+ * Return a 2D array containing all of the permutations of the input array.
+ * Does not mutate the input array.
+ *
+ * @param {Array} input - the array of values that need permuting
+ */
+const permute = input => {
+    const array = Array.from(input)
+    const permute = (res, item, key, arr) => res.concat(arr.length > 1 &&
+        arr
+            .slice(0, key)
+            .concat(arr.slice(key + 1))
+            .reduce(permute, [])
+            .map(perm => [item].concat(perm))
+        || item
+    )
+
+    return array.reduce(permute, [])
+}
+
+// usage:
+console.log(permute([1, 2, 3, 4]))
+```
+
+Another version:
+
+```js
+/**
+ * Permute the elements in the specified array by swapping them in-place and
  * calling the specified callback function on the array for each permutation.
  *
  * NOTE: when permutation succeeds, the array should be in the original state on exit!
@@ -107,7 +178,7 @@ console.log(getCombinations([1, 2, 3, 4, 5]))
  * @param {function} callback - will be called for each permutation
  * @returns the number of permutations, returns 0 for an undefined, null, or empty array
  */
-function permutate(array, callback) {
+function permute(array, callback) {
     // Do the actual permuation work on array, starting at index
     function p(array, index, callback) {
         // Swap elements i1 and i2 in array a
@@ -137,7 +208,7 @@ function permutate(array, callback) {
 }
 
 // sample usage: prints each permutation and the total count of permutations
-console.log(permutate([1, 2, 3, 4], console.log))
+console.log(permute([1, 2, 3, 4], console.log))
 ```
 
 ### Binary Search

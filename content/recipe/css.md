@@ -141,7 +141,8 @@ body {
 
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     grid-column-gap: 5px;
     grid-row-gap: 10px;
 }

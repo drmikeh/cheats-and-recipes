@@ -17,7 +17,7 @@ iTerm2 is a terminal emulator for macOS that does amazing things.
 
 <!--more-->
 
-> NOTE: The following cheats were taken from `https://gist.github.com/squarism/ae3613daf5c01a98ba3a`.
+> NOTE: The following cheats were taken from Chris Dillon's [gist](https://gist.github.com/squarism/ae3613daf5c01a98ba3a).
 
 ## What is iTerm2?
 
