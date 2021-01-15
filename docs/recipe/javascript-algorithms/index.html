@@ -60,7 +60,9 @@
         <li><a href="#array-union-intersection-difference">Array Union, Intersection, Difference</a></li>
         <li><a href="#function-composition">Function Composition</a></li>
         <li><a href="#gcd--lcm">GCD &amp; LCM</a></li>
+        <li><a href="#frequency-counting">Frequency Counting</a></li>
         <li><a href="#generating-combinations-of-two">Generating Combinations of Two</a></li>
+        <li><a href="#generating-all-combinations-of-zero-or-more">Generating All Combinations of Zero or More</a></li>
         <li><a href="#generating-permutations">Generating Permutations</a></li>
         <li><a href="#binary-search">Binary Search</a></li>
         <li><a href="#breadth-first-and-depth-first-search">Breadth-First and Depth-First Search</a></li>
@@ -118,7 +120,18 @@
 </span><span class="c1"></span><span class="kr">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">42</span><span class="p">]</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">gcd</span><span class="p">(</span><span class="nx">array</span><span class="p">))</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lcm</span><span class="p">(</span><span class="nx">array</span><span class="p">))</span>
-</code></pre></div><h3 id="generating-combinations-of-two">Generating Combinations of Two</h3>
+</code></pre></div><h3 id="frequency-counting">Frequency Counting</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">freqCount</span> <span class="o">=</span> <span class="nx">arr</span> <span class="p">=&gt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">map</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">count</span> <span class="o">=</span> <span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span>
+    <span class="nx">map</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">count</span> <span class="o">?</span> <span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nx">map</span>
+<span class="p">},</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">())</span>
+
+<span class="c1">// usage:
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">]</span>
+<span class="kr">const</span> <span class="nx">fq</span> <span class="o">=</span> <span class="nx">freqCount</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fq</span><span class="p">)</span>                     <span class="c1">// Map(3) { &#39;apple&#39; =&gt; 3, &#39;banana&#39; =&gt; 2, &#39;orange&#39; =&gt; 1 }
+</span></code></pre></div><h3 id="generating-combinations-of-two">Generating Combinations of Two</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// returns an array of all unique combinations of two items from the input array
 </span><span class="c1"></span><span class="kd">function</span> <span class="nx">getCombinations</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">combinations</span> <span class="o">=</span> <span class="p">[]</span>
@@ -132,9 +145,57 @@
 
 <span class="c1">// usage:
 </span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">getCombinations</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>
+</code></pre></div><h3 id="generating-all-combinations-of-zero-or-more">Generating All Combinations of Zero or More</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/**
+</span><span class="cm"> * Returns a 2D array of all unique combinations of zero or more items from the input array.
+</span><span class="cm"> *
+</span><span class="cm"> * @param {Array} arr - the array of values that needs all combinations
+</span><span class="cm"> */</span>
+<span class="kd">function</span> <span class="nx">getAllCombinations</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">subsets</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">=&gt;</span>
+        <span class="nx">subsets</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span>
+            <span class="nx">subsets</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">set</span> <span class="p">=&gt;</span> <span class="p">[...</span><span class="nx">set</span><span class="p">,</span> <span class="nx">value</span><span class="p">])</span>
+        <span class="p">),</span>
+        <span class="p">[[]]</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// Usage:
+</span><span class="c1"></span><span class="nx">getAllCombinations</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="cm">/* returns:
+</span><span class="cm">[
+</span><span class="cm">  [],       [ 1 ],
+</span><span class="cm">  [ 2 ],    [ 2, 1 ],
+</span><span class="cm">  [ 3 ],    [ 3, 1 ],
+</span><span class="cm">  [ 3, 2 ], [ 3, 2, 1 ]
+</span><span class="cm">]
+</span><span class="cm">*/</span>
 </code></pre></div><h3 id="generating-permutations">Generating Permutations</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/**
-</span><span class="cm"> * Permutate the elements in the specified array by swapping them in-place and
+</span><span class="cm"> * Return a 2D array containing all of the permutations of the input array.
+</span><span class="cm"> * Does not mutate the input array.
+</span><span class="cm"> *
+</span><span class="cm"> * @param {Array} input - the array of values that need permuting
+</span><span class="cm"> */</span>
+<span class="kr">const</span> <span class="nx">permute</span> <span class="o">=</span> <span class="nx">input</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span>
+    <span class="kr">const</span> <span class="nx">permute</span> <span class="o">=</span> <span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">item</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">arr</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span>
+        <span class="nx">arr</span>
+            <span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">key</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="nx">permute</span><span class="p">,</span> <span class="p">[])</span>
+            <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">perm</span> <span class="p">=&gt;</span> <span class="p">[</span><span class="nx">item</span><span class="p">].</span><span class="nx">concat</span><span class="p">(</span><span class="nx">perm</span><span class="p">))</span>
+        <span class="o">||</span> <span class="nx">item</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="nx">array</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="nx">permute</span><span class="p">,</span> <span class="p">[])</span>
+<span class="p">}</span>
+
+<span class="c1">// usage:
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">permute</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
+</code></pre></div><p>Another version:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/**
+</span><span class="cm"> * Permute the elements in the specified array by swapping them in-place and
 </span><span class="cm"> * calling the specified callback function on the array for each permutation.
 </span><span class="cm"> *
 </span><span class="cm"> * NOTE: when permutation succeeds, the array should be in the original state on exit!
@@ -143,7 +204,7 @@
 </span><span class="cm"> * @param {function} callback - will be called for each permutation
 </span><span class="cm"> * @returns the number of permutations, returns 0 for an undefined, null, or empty array
 </span><span class="cm"> */</span>
-<span class="kd">function</span> <span class="nx">permutate</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nx">permute</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Do the actual permuation work on array, starting at index
 </span><span class="c1"></span>    <span class="kd">function</span> <span class="nx">p</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// Swap elements i1 and i2 in array a
@@ -173,7 +234,7 @@
 <span class="p">}</span>
 
 <span class="c1">// sample usage: prints each permutation and the total count of permutations
-</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">permutate</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">))</span>
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">permute</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">))</span>
 </code></pre></div><h3 id="binary-search">Binary Search</h3>
 <p>A binary search is a fast way to find a value in a large sorted array. To make this more flexible, the <code>binarySearch</code> computes values using the <code>f</code> callback function until is finds a computed value that is closest to <code>target</code> without going over, or null if no such value exists.</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/**
@@ -340,7 +401,7 @@
 			<svg class="social__icon" aria-label="Github" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg>
 		</a>
 </div>
-	<div class="footer__copyright">© 2020 Cheats and Recipes. <span class="footer__copyright-credits">Powered by <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/vimux/binario" rel="nofollow noopener" target="_blank">Binario</a> theme.</span></div>
+	<div class="footer__copyright">© 2021 Cheats and Recipes. <span class="footer__copyright-credits">Powered by <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/vimux/binario" rel="nofollow noopener" target="_blank">Binario</a> theme.</span></div>
 </footer>
 <script src="/mah3093/cheats-and-recipes/js/custom.js"></script>
 </body>
