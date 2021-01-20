@@ -116,26 +116,27 @@
 </code></pre></div><h3 id="styling-a-definition-list">Styling a Definition List</h3>
 <p>See a live demo <a href="https://codepen.io/drmikeh/pen/gOOVydG">here</a>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">dl</span> <span class="p">{</span>
-    <span class="k">border</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#ccc</span><span class="p">;</span>
-    <span class="k">border-radius</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
-    <span class="k">padding</span><span class="p">:</span> <span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
-    <span class="k">width</span><span class="p">:</span> <span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+  <span class="k">flex-flow</span><span class="p">:</span> <span class="kc">row</span> <span class="kc">wrap</span><span class="p">;</span>
+  <span class="k">border</span><span class="p">:</span> <span class="kc">solid</span> <span class="mh">#333</span><span class="p">;</span>
+  <span class="k">border-width</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nt">dt</span> <span class="p">{</span>
-    <span class="k">float</span><span class="p">:</span> <span class="kc">left</span><span class="p">;</span>
-    <span class="k">clear</span><span class="p">:</span> <span class="kc">left</span><span class="p">;</span>
-    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
-    <span class="k">text-align</span><span class="p">:</span> <span class="kc">right</span><span class="p">;</span>
-    <span class="k">font-weight</span><span class="p">:</span> <span class="kc">bold</span><span class="p">;</span>
-    <span class="k">color</span><span class="p">:</span> <span class="mh">#a0a0a0</span><span class="p">;</span>
+  <span class="k">flex-basis</span><span class="p">:</span> <span class="mi">20</span><span class="kt">%</span><span class="p">;</span>
+  <span class="k">padding</span><span class="p">:</span> <span class="mi">2</span><span class="kt">px</span> <span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">background</span><span class="p">:</span> <span class="mh">#333</span><span class="p">;</span>
+  <span class="k">text-align</span><span class="p">:</span> <span class="kc">right</span><span class="p">;</span>
+  <span class="k">color</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nt">dt</span><span class="p">::</span><span class="nd">after</span> <span class="p">{</span>
-    <span class="k">content</span><span class="p">:</span> <span class="s1">&#39;:&#39;</span><span class="p">;</span>
+  <span class="k">content</span><span class="p">:</span> <span class="s2">&#34;:&#34;</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nt">dd</span> <span class="p">{</span>
-    <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">110</span><span class="kt">px</span><span class="p">;</span>
-    <span class="k">padding</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mf">0.5</span><span class="kt">em</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">font-style</span><span class="p">:</span> <span class="kc">italic</span><span class="p">;</span>
+  <span class="k">flex-basis</span><span class="p">:</span> <span class="mi">70</span><span class="kt">%</span><span class="p">;</span>
+  <span class="k">flex-grow</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">padding</span><span class="p">:</span> <span class="mi">2</span><span class="kt">px</span> <span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">border-bottom</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#333</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div><h3 id="center-and-vertically-align-with-flexbox">Center and Vertically Align with Flexbox</h3>
 <p>For a demo see: <a href="https://codepen.io/drmikeh/pen/mdybNbd">Center and Vertically Align with Flexbox</a></p>
