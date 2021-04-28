@@ -100,7 +100,7 @@ const app = express()
 
 app.use(
     cors({
-        origin: /homedepot\.com$/,
+        origin: /\.homedepot\.com$/,
         optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
     })
 )

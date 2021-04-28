@@ -1,454 +1,236 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/</loc>
     <lastmod>2020-11-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/</loc>
     <lastmod>2020-11-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/</loc>
     <lastmod>2020-11-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cli/</loc>
     <lastmod>2020-11-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/cli/</loc>
     <lastmod>2020-11-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/iterm2/</loc>
     <lastmod>2020-11-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/shell/</loc>
     <lastmod>2020-11-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/</loc>
     <lastmod>2020-11-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/terminal/</loc>
     <lastmod>2020-11-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/functional-javascript/</loc>
     <lastmod>2019-11-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/functional-programming/</loc>
     <lastmod>2019-11-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/javascript/</loc>
     <lastmod>2019-11-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/javascript/</loc>
     <lastmod>2019-11-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/algorithms/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/api/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/array/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/bash/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/bash/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/ci/cd/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cloud/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/cloud/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cloud-foundry/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/recipe/composable-functional-javascript/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/composition/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/concourse/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/containers/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/cron/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/cron/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/css/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/css/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/css-flexbox/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/css-grid/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/recipe/css/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/data-structures/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/database/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/database/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/date/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/development/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/development/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/docker/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/docker/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/docker/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/es-2015/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/es-2015/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/express/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/express/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/recipe/express-restful-api/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/flexbox/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/fly/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/framework/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/git/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/git/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/recipe/git/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/go/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/go/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/golang/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/golang/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/golang/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/grid/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/homebrew/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/homebrew/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/hugo/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/recipe/javascript-algorithms/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/js-date/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/js-array-methods/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/js-promises/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/recipe/javascript/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/jsdoc/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/js-doc/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/knex/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/knex/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/language/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/layout/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/library/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/macos/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/nodejs/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/nodejs/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/npm/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/npm-vs-yarn/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/other/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/other/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/package-managers/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/pcf/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/pivotal/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/pcf/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/concourse/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/postgresql/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/postgresql/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/promises/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/react/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/categories/react/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/react/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/recipe/react/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/react-router/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/recipe/react-testing-library/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/recipe/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/regex/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/regex/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/rest/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/router/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/semver/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/server/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/styling/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/templates/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/themes/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/version-control/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/virtualization/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/web/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/yarn/</loc>
   </url>
-  
 </urlset>
