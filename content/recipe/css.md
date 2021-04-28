@@ -83,26 +83,27 @@ See a live demo [here](https://codepen.io/drmikeh/pen/gOOVydG).
 
 ```css
 dl {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 0.5em;
-    width: 300px;
+  display: flex;
+  flex-flow: row wrap;
+  border: solid #333;
+  border-width: 1px 1px 0 0;
 }
 dt {
-    float: left;
-    clear: left;
-    width: 100px;
-    text-align: right;
-    font-weight: bold;
-    color: #a0a0a0;
+  flex-basis: 20%;
+  padding: 2px 4px;
+  background: #333;
+  text-align: right;
+  color: #fff;
 }
 dt::after {
-    content: ':';
+  content: ":";
 }
 dd {
-    margin: 0 0 0 110px;
-    padding: 0 0 0.5em 0;
-    font-style: italic;
+  flex-basis: 70%;
+  flex-grow: 1;
+  margin: 0;
+  padding: 2px 4px;
+  border-bottom: 1px solid #333;
 }
 ```
 
