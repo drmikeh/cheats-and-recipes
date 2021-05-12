@@ -225,6 +225,35 @@ See a live demo [here](https://codepen.io/drmikeh/pen/wvvVZXy).
 background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
 ```
 
+### A Sticky Footer with Flexbox
+
+See a live demo [here](https://codepen.io/drmikeh/pen/YzZwvzy.)
+
+```html
+<body>
+  <div class="content">
+    content
+  </div>
+  <footer class="footer"></footer>
+</body>
+```
+
+```css
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1 0 auto;
+}
+.footer {
+  flex-shrink: 0;
+}
+```
+
 ### Holy Grail Layout with Grid and Flexbox
 
 For a live demo see [Holy Grail Layout with Grid and Flexbox](https://codepen.io/drmikeh/pen/BayBzLa?editors=1100)
