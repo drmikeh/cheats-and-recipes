@@ -2,43 +2,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>react on Cheats and Recipes</title>
-    <link>https://pages.github.com/drmikeh/cheats-and-recipes/categories/react/</link>
+    <link>https://drmikeh.github.com/cheats-and-recipes/categories/react/</link>
     <description>Recent content in react on Cheats and Recipes</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://pages.github.com/drmikeh/cheats-and-recipes/categories/react/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://drmikeh.github.com/cheats-and-recipes/categories/react/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>React Cheatsheet</title>
-      <link>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/react/</link>
+      <link>https://drmikeh.github.com/cheats-and-recipes/cheat/react/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/react/</guid>
+      <guid>https://drmikeh.github.com/cheats-and-recipes/cheat/react/</guid>
       <description>&lt;p&gt;React.js is a declarative, component based JavaScript library for building user interfaces.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>React Recipes</title>
-      <link>https://pages.github.com/drmikeh/cheats-and-recipes/recipe/react/</link>
+      <link>https://drmikeh.github.com/cheats-and-recipes/recipe/react/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pages.github.com/drmikeh/cheats-and-recipes/recipe/react/</guid>
+      <guid>https://drmikeh.github.com/cheats-and-recipes/recipe/react/</guid>
       <description>&lt;p&gt;Recipes for building React applications.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>React Router Cheatsheet</title>
-      <link>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/react-router/</link>
+      <link>https://drmikeh.github.com/cheats-and-recipes/cheat/react-router/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/react-router/</guid>
+      <guid>https://drmikeh.github.com/cheats-and-recipes/cheat/react-router/</guid>
       <description>&lt;p&gt;React Router is a dynamic, distributed router for React.js.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>React Testing Library Recipes</title>
-      <link>https://pages.github.com/drmikeh/cheats-and-recipes/recipe/react-testing-library/</link>
+      <link>https://drmikeh.github.com/cheats-and-recipes/recipe/react-testing-library/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pages.github.com/drmikeh/cheats-and-recipes/recipe/react-testing-library/</guid>
+      <guid>https://drmikeh.github.com/cheats-and-recipes/recipe/react-testing-library/</guid>
       <description>&lt;p&gt;Recipes for testing React applications.&lt;/p&gt;</description>
     </item>
     

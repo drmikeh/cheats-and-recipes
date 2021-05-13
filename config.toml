@@ -1,4 +1,4 @@
-baseURL = "https://pages.github.com/drmikeh/cheats-and-recipes/"
+baseURL = "https://drmikeh.github.com/cheats-and-recipes/"
 title = "Cheats and Recipes"
 languageCode = "en-us"
 buildDrafts = false
