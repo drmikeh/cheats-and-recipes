@@ -8,16 +8,16 @@
 	<title>CSS Recipes | Cheats and Recipes</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="Common recipes for CSS.">
-	<link rel="stylesheet" href="/mah3093/cheats-and-recipes/css/main.css">
-	<link rel="stylesheet" href="/mah3093/cheats-and-recipes/css/dracula.css">
-	<link rel="stylesheet" href="/mah3093/cheats-and-recipes/css/custom.css">
-	<link rel="icon" href="/mah3093/cheats-and-recipes/icons/16.png" sizes="16x16" type="image/png">
-	<link rel="icon" href="/mah3093/cheats-and-recipes/icons/32.png" sizes="32x32" type="image/png">
+	<link rel="stylesheet" href="/drmikeh/cheats-and-recipes/css/main.css">
+	<link rel="stylesheet" href="/drmikeh/cheats-and-recipes/css/dracula.css">
+	<link rel="stylesheet" href="/drmikeh/cheats-and-recipes/css/custom.css">
+	<link rel="icon" href="/drmikeh/cheats-and-recipes/icons/16.png" sizes="16x16" type="image/png">
+	<link rel="icon" href="/drmikeh/cheats-and-recipes/icons/32.png" sizes="32x32" type="image/png">
 		
 </head>
 <body>
 	<header class="header">
-	<a class="logo" href="/mah3093/cheats-and-recipes/">Cheats and Recipes</a>
+	<a class="logo" href="/drmikeh/cheats-and-recipes/">Cheats and Recipes</a>
 	<nav class="main-nav" role="navigation">
 	<button id="toggle" class="main-nav__btn" aria-label="Menu toggle" aria-expanded="false" tabindex="0">
 		<div class="main-nav__btn-box" tabindex="-1">
@@ -30,13 +30,13 @@
 	<ul id="menu" class="main-nav__list">
         
             <li class="main-nav__item">
-                <a class="main-nav__link" href="https://pages.github.homedepot.com/mah3093/cheats-and-recipes//cheat">
+                <a class="main-nav__link" href="https://pages.github.com/drmikeh/cheats-and-recipes//cheat">
                         <span class="main-nav__text">Cheats</span>
                 </a>
             </li>
         
             <li class="main-nav__item">
-                <a class="main-nav__link" href="https://pages.github.homedepot.com/mah3093/cheats-and-recipes//recipe">
+                <a class="main-nav__link" href="https://pages.github.com/drmikeh/cheats-and-recipes//recipe">
                         <span class="main-nav__text">Recipes</span>
                 </a>
             </li>
@@ -68,6 +68,7 @@
         <li><a href="#a-pretty-box-in-a-box">A Pretty Box in a Box</a></li>
         <li><a href="#color-palette">Color Palette</a></li>
         <li><a href="#background-with-gradient">Background with Gradient</a></li>
+        <li><a href="#a-sticky-footer-with-flexbox">A Sticky Footer with Flexbox</a></li>
         <li><a href="#holy-grail-layout-with-grid-and-flexbox">Holy Grail Layout with Grid and Flexbox</a></li>
       </ul>
     </li>
@@ -232,6 +233,27 @@
 </code></pre></div><h3 id="background-with-gradient">Background with Gradient</h3>
 <p>See a live demo <a href="https://codepen.io/drmikeh/pen/wvvVZXy">here</a>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">background</span><span class="o">:</span> <span class="nt">linear-gradient</span><span class="o">(</span><span class="nt">90deg</span><span class="o">,</span> <span class="p">#</span><span class="nn">667eea</span> <span class="nt">0</span><span class="o">%,</span> <span class="p">#</span><span class="nn">764ba2</span> <span class="nt">100</span><span class="o">%);</span>
+</code></pre></div><h3 id="a-sticky-footer-with-flexbox">A Sticky Footer with Flexbox</h3>
+<p>See a live demo <a href="https://codepen.io/drmikeh/pen/YzZwvzy.">here</a></p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;content&#34;</span><span class="p">&gt;</span>
+    content
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">footer</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;footer&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">html</span><span class="o">,</span> <span class="nt">body</span> <span class="p">{</span>
+  <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">body</span> <span class="p">{</span>
+  <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+  <span class="k">flex-direction</span><span class="p">:</span> <span class="kc">column</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">content</span> <span class="p">{</span>
+  <span class="k">flex</span><span class="p">:</span> <span class="mi">1</span> <span class="mi">0</span> <span class="kc">auto</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">footer</span> <span class="p">{</span>
+  <span class="k">flex-shrink</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div><h3 id="holy-grail-layout-with-grid-and-flexbox">Holy Grail Layout with Grid and Flexbox</h3>
 <p>For a live demo see <a href="https://codepen.io/drmikeh/pen/BayBzLa?editors=1100">Holy Grail Layout with Grid and Flexbox</a></p>
 <p>Also see: <a href="https://codepen.io/drmikeh/pen/GRgKmpy?editors=0100">Holy Grail Layout with Grid and Flexbox with Cards</a></p>
@@ -307,9 +329,9 @@
 <div class="tags block">
     <h3 class="tags__title">Tags</h3>
     <div class="post__tags">
-                <a class="post__tag btn" href="/mah3093/cheats-and-recipes/tags/css/">css</a>
-                <a class="post__tag btn" href="/mah3093/cheats-and-recipes/tags/styling/">styling</a>
-                <a class="post__tag btn" href="/mah3093/cheats-and-recipes/tags/web/">web</a>
+                <a class="post__tag btn" href="/drmikeh/cheats-and-recipes/tags/css/">css</a>
+                <a class="post__tag btn" href="/drmikeh/cheats-and-recipes/tags/styling/">styling</a>
+                <a class="post__tag btn" href="/drmikeh/cheats-and-recipes/tags/web/">web</a>
     </div>
 </div>
 
@@ -318,7 +340,7 @@
     <h3>Author</h3>
 	<div class="author">
 		<figure class="author__avatar">
-			<img class="author__img" alt="Dr. Mike Hopper avatar" src="/mah3093/cheats-and-recipes/img/avatar.jpg" height="90" width="90">
+			<img class="author__img" alt="Dr. Mike Hopper avatar" src="/drmikeh/cheats-and-recipes/img/avatar.jpg" height="90" width="90">
 		</figure>
 		<div class="author__body">
 			<div class="author__name">
@@ -336,9 +358,9 @@
 	<h3 class="related__title">Related</h3>
 	<ul class="related__list">
 		
-		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/css-flexbox/">CSS Flexbox Cheatsheet</a></li>
+		<li class="related__item"><a class="related__link" href="/drmikeh/cheats-and-recipes/cheat/css-flexbox/">CSS Flexbox Cheatsheet</a></li>
 		
-		<li class="related__item"><a class="related__link" href="/mah3093/cheats-and-recipes/cheat/css-grid/">CSS Grid Cheatsheet</a></li>
+		<li class="related__item"><a class="related__link" href="/drmikeh/cheats-and-recipes/cheat/css-grid/">CSS Grid Cheatsheet</a></li>
 		
 	</ul>
 </div>
@@ -366,6 +388,6 @@
 </div>
 	<div class="footer__copyright">© 2021 Cheats and Recipes. <span class="footer__copyright-credits">Powered by <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/vimux/binario" rel="nofollow noopener" target="_blank">Binario</a> theme.</span></div>
 </footer>
-<script src="/mah3093/cheats-and-recipes/js/custom.js"></script>
+<script src="/drmikeh/cheats-and-recipes/js/custom.js"></script>
 </body>
 </html>

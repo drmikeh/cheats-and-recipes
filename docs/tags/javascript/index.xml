@@ -2,134 +2,134 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>javascript on Cheats and Recipes</title>
-    <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/javascript/</link>
+    <link>https://pages.github.com/drmikeh/cheats-and-recipes/tags/javascript/</link>
     <description>Recent content in javascript on Cheats and Recipes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://pages.github.homedepot.com/mah3093/cheats-and-recipes/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://pages.github.com/drmikeh/cheats-and-recipes/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Functional JavaScript Cheatsheet</title>
-      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/functional-javascript/</link>
+      <link>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/functional-javascript/</link>
       <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/functional-javascript/</guid>
+      <guid>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/functional-javascript/</guid>
       <description>&lt;p&gt;Functional programming is writing functions and expressions that are free from any side-effects, including mutating variables.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Composable Functional JavaScript</title>
-      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/recipe/composable-functional-javascript/</link>
+      <link>https://pages.github.com/drmikeh/cheats-and-recipes/recipe/composable-functional-javascript/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/recipe/composable-functional-javascript/</guid>
+      <guid>https://pages.github.com/drmikeh/cheats-and-recipes/recipe/composable-functional-javascript/</guid>
       <description>&lt;p&gt;Recipes on Composing Functions in JavaScript&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ES2015&#43; Cheatsheet</title>
-      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/es-2015/</link>
+      <link>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/es-2015/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/es-2015/</guid>
+      <guid>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/es-2015/</guid>
       <description>&lt;p&gt;A quick overview of new JavaScript features in ES2015, ES2016, ES2017, ES2018 and beyond.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Express RESTful API Server Recipe</title>
-      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/recipe/express-restful-api/</link>
+      <link>https://pages.github.com/drmikeh/cheats-and-recipes/recipe/express-restful-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/recipe/express-restful-api/</guid>
+      <guid>https://pages.github.com/drmikeh/cheats-and-recipes/recipe/express-restful-api/</guid>
       <description>&lt;p&gt;Express RESTful API Server with Knex and PostgreSQL and deployed to PCF.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>JavaScript Algorithms</title>
-      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/recipe/javascript-algorithms/</link>
+      <link>https://pages.github.com/drmikeh/cheats-and-recipes/recipe/javascript-algorithms/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/recipe/javascript-algorithms/</guid>
+      <guid>https://pages.github.com/drmikeh/cheats-and-recipes/recipe/javascript-algorithms/</guid>
       <description>&lt;p&gt;Common reusable algorithms for the JavaScript language.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>JavaScript Date Cheatsheet</title>
-      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/js-date/</link>
+      <link>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/js-date/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/js-date/</guid>
+      <guid>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/js-date/</guid>
       <description>&lt;p&gt;The JavaScript Date constructor function and methods of Date objects.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>JavaScript Modern Array Methods Cheatsheet</title>
-      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/js-array-methods/</link>
+      <link>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/js-array-methods/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/js-array-methods/</guid>
+      <guid>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/js-array-methods/</guid>
       <description>&lt;p&gt;Array methods are a powerful way to iterate over an array to create a new Array or value.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>JavaScript Promises Cheatsheet</title>
-      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/js-promises/</link>
+      <link>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/js-promises/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/js-promises/</guid>
+      <guid>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/js-promises/</guid>
       <description>&lt;p&gt;A promise represents the eventual result of an asynchronous operation. JavaScript promises were added to the language in ES-2015.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>JavaScript Recipes</title>
-      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/recipe/javascript/</link>
+      <link>https://pages.github.com/drmikeh/cheats-and-recipes/recipe/javascript/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/recipe/javascript/</guid>
+      <guid>https://pages.github.com/drmikeh/cheats-and-recipes/recipe/javascript/</guid>
       <description>&lt;p&gt;Recipes for the JavaScript language.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>JSDoc Cheatsheet</title>
-      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/js-doc/</link>
+      <link>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/js-doc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/js-doc/</guid>
+      <guid>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/js-doc/</guid>
       <description>&lt;p&gt;JSDoc 3 is an API documentation generator for JavaScript, similar to Javadoc or phpDocumentor. You add documentation comments directly to your source code, right alongside the code itself. The JSDoc tool will scan your source code and generate an HTML documentation website for you.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Knex Cheatsheet</title>
-      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/knex/</link>
+      <link>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/knex/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/knex/</guid>
+      <guid>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/knex/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://knexjs.org/&#34;&gt;Knex&lt;/a&gt; is an SQL query builder for Node.js. This guide targets v0.13.0.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>React Cheatsheet</title>
-      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/react/</link>
+      <link>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/react/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/react/</guid>
+      <guid>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/react/</guid>
       <description>&lt;p&gt;React.js is a declarative, component based JavaScript library for building user interfaces.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>React Router Cheatsheet</title>
-      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/react-router/</link>
+      <link>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/react-router/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/react-router/</guid>
+      <guid>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/react-router/</guid>
       <description>&lt;p&gt;React Router is a dynamic, distributed router for React.js.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>RegEx Cheatsheet</title>
-      <link>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/regex/</link>
+      <link>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/regex/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://pages.github.homedepot.com/mah3093/cheats-and-recipes/cheat/regex/</guid>
+      <guid>https://pages.github.com/drmikeh/cheats-and-recipes/cheat/regex/</guid>
       <description>&lt;p&gt;Regular Expressions are a powerful way to do pattern matching on strings.&lt;/p&gt;</description>
     </item>
     
