@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>version control on Cheats and Recipes</title>
-    <link>https://drmikeh.github.com/cheats-and-recipes/tags/version-control/</link>
+    <link>https://drmikeh.github.io/cheats-and-recipes/tags/version-control/</link>
     <description>Recent content in version control on Cheats and Recipes</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://drmikeh.github.com/cheats-and-recipes/tags/version-control/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://drmikeh.github.io/cheats-and-recipes/tags/version-control/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git Recipes</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/recipe/git/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/recipe/git/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/recipe/git/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/recipe/git/</guid>
       <description>&lt;p&gt;Recipes for using Git.&lt;/p&gt;</description>
     </item>
     

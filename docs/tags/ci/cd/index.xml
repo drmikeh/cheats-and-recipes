@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ci/cd on Cheats and Recipes</title>
-    <link>https://drmikeh.github.com/cheats-and-recipes/tags/ci/cd/</link>
+    <link>https://drmikeh.github.io/cheats-and-recipes/tags/ci/cd/</link>
     <description>Recent content in ci/cd on Cheats and Recipes</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://drmikeh.github.com/cheats-and-recipes/tags/ci/cd/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://drmikeh.github.io/cheats-and-recipes/tags/ci/cd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pivotal Concourse Cheatsheet</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/cheat/concourse/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/cheat/concourse/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/cheat/concourse/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/cheat/concourse/</guid>
       <description>&lt;p&gt;Pivotal Concourse is a CI/CD tool.&lt;/p&gt;</description>
     </item>
     

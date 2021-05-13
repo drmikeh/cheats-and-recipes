@@ -2,521 +2,521 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Cheats and Recipes</title>
-    <link>https://drmikeh.github.com/cheats-and-recipes/tags/</link>
+    <link>https://drmikeh.github.io/cheats-and-recipes/tags/</link>
     <description>Recent content in Tags on Cheats and Recipes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://drmikeh.github.com/cheats-and-recipes/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://drmikeh.github.io/cheats-and-recipes/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>cli</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/cli/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/cli/</link>
       <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/cli/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/cli/</guid>
       <description></description>
     </item>
     
     <item>
       <title>shell</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/shell/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/shell/</link>
       <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/shell/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/shell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>terminal</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/terminal/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/terminal/</link>
       <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/terminal/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/terminal/</guid>
       <description></description>
     </item>
     
     <item>
       <title>functional programming</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/functional-programming/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/functional-programming/</link>
       <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/functional-programming/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/functional-programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>javascript</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/javascript/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/javascript/</link>
       <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/javascript/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>algorithms</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/algorithms/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/algorithms/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/algorithms/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/algorithms/</guid>
       <description></description>
     </item>
     
     <item>
       <title>api</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/api/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/api/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/api/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Array</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/array/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/array/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/array/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/array/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bash</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/bash/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/bash/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/bash/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/bash/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ci/cd</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/ci/cd/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/ci/cd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/ci/cd/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/ci/cd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cloud</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/cloud/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/cloud/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/cloud/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/cloud/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cloud foundry</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/cloud-foundry/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/cloud-foundry/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/cloud-foundry/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/cloud-foundry/</guid>
       <description></description>
     </item>
     
     <item>
       <title>composition</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/composition/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/composition/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/composition/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/composition/</guid>
       <description></description>
     </item>
     
     <item>
       <title>concourse</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/concourse/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/concourse/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/concourse/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/concourse/</guid>
       <description></description>
     </item>
     
     <item>
       <title>containers</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/containers/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/containers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/containers/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/containers/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cron</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/cron/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/cron/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/cron/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/cron/</guid>
       <description></description>
     </item>
     
     <item>
       <title>css</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/css/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/css/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/css/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/css/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data structures</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/data-structures/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/data-structures/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/data-structures/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/data-structures/</guid>
       <description></description>
     </item>
     
     <item>
       <title>database</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/database/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/database/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/database/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/database/</guid>
       <description></description>
     </item>
     
     <item>
       <title>date</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/date/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/date/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/date/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/date/</guid>
       <description></description>
     </item>
     
     <item>
       <title>development</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/development/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/development/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/development/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>docker</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/docker/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/docker/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/docker/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ES-2015</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/es-2015/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/es-2015/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/es-2015/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/es-2015/</guid>
       <description></description>
     </item>
     
     <item>
       <title>express</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/express/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/express/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/express/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/express/</guid>
       <description></description>
     </item>
     
     <item>
       <title>flexbox</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/flexbox/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/flexbox/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/flexbox/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/flexbox/</guid>
       <description></description>
     </item>
     
     <item>
       <title>fly</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/fly/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/fly/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/fly/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/fly/</guid>
       <description></description>
     </item>
     
     <item>
       <title>framework</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/framework/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/framework/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/framework/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/framework/</guid>
       <description></description>
     </item>
     
     <item>
       <title>git</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/git/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/git/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/git/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/go/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/go/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/go/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>golang</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/golang/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/golang/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/golang/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>grid</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/grid/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/grid/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/grid/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/grid/</guid>
       <description></description>
     </item>
     
     <item>
       <title>homebrew</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/homebrew/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/homebrew/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/homebrew/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/homebrew/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jsdoc</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/jsdoc/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/jsdoc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/jsdoc/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/jsdoc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>knex</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/knex/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/knex/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/knex/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/knex/</guid>
       <description></description>
     </item>
     
     <item>
       <title>language</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/language/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/language/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/language/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/language/</guid>
       <description></description>
     </item>
     
     <item>
       <title>layout</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/layout/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/layout/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/layout/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/layout/</guid>
       <description></description>
     </item>
     
     <item>
       <title>library</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/library/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/library/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/library/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/library/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MacOS</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/macos/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/macos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/macos/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/macos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>NodeJS</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/nodejs/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/nodejs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/nodejs/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/nodejs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>npm</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/npm/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/npm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/npm/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/npm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>other</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/other/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/other/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/other/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/other/</guid>
       <description></description>
     </item>
     
     <item>
       <title>pcf</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/pcf/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/pcf/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/pcf/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/pcf/</guid>
       <description></description>
     </item>
     
     <item>
       <title>pivotal</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/pivotal/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/pivotal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/pivotal/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/pivotal/</guid>
       <description></description>
     </item>
     
     <item>
       <title>PostgreSQL</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/postgresql/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/postgresql/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/postgresql/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/postgresql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>promises</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/promises/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/promises/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/promises/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/promises/</guid>
       <description></description>
     </item>
     
     <item>
       <title>react</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/react/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/react/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/react/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/react/</guid>
       <description></description>
     </item>
     
     <item>
       <title>regex</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/regex/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/regex/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/regex/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/regex/</guid>
       <description></description>
     </item>
     
     <item>
       <title>rest</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/rest/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/rest/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/rest/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/rest/</guid>
       <description></description>
     </item>
     
     <item>
       <title>router</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/router/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/router/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/router/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/router/</guid>
       <description></description>
     </item>
     
     <item>
       <title>server</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/server/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/server/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/server/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/server/</guid>
       <description></description>
     </item>
     
     <item>
       <title>styling</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/styling/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/styling/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/styling/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/styling/</guid>
       <description></description>
     </item>
     
     <item>
       <title>templates</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/templates/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/templates/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/templates/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/templates/</guid>
       <description></description>
     </item>
     
     <item>
       <title>themes</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/themes/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/themes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/themes/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/themes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>version control</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/version-control/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/version-control/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/version-control/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/version-control/</guid>
       <description></description>
     </item>
     
     <item>
       <title>virtualization</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/virtualization/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/virtualization/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/virtualization/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/virtualization/</guid>
       <description></description>
     </item>
     
     <item>
       <title>web</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/web/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/web/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/web/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/web/</guid>
       <description></description>
     </item>
     
     <item>
       <title>yarn</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/tags/yarn/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/tags/yarn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/tags/yarn/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/tags/yarn/</guid>
       <description></description>
     </item>
     

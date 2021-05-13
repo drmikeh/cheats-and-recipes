@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>jsdoc on Cheats and Recipes</title>
-    <link>https://drmikeh.github.com/cheats-and-recipes/tags/jsdoc/</link>
+    <link>https://drmikeh.github.io/cheats-and-recipes/tags/jsdoc/</link>
     <description>Recent content in jsdoc on Cheats and Recipes</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://drmikeh.github.com/cheats-and-recipes/tags/jsdoc/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://drmikeh.github.io/cheats-and-recipes/tags/jsdoc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JSDoc Cheatsheet</title>
-      <link>https://drmikeh.github.com/cheats-and-recipes/cheat/js-doc/</link>
+      <link>https://drmikeh.github.io/cheats-and-recipes/cheat/js-doc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://drmikeh.github.com/cheats-and-recipes/cheat/js-doc/</guid>
+      <guid>https://drmikeh.github.io/cheats-and-recipes/cheat/js-doc/</guid>
       <description>&lt;p&gt;JSDoc 3 is an API documentation generator for JavaScript, similar to Javadoc or phpDocumentor. You add documentation comments directly to your source code, right alongside the code itself. The JSDoc tool will scan your source code and generate an HTML documentation website for you.&lt;/p&gt;</description>
     </item>
     
