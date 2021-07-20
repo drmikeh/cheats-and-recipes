@@ -72,6 +72,7 @@
         <li><a href="#holy-grail-layout-with-grid-and-flexbox">Holy Grail Layout with Grid and Flexbox</a></li>
       </ul>
     </li>
+    <li><a href="#centering-a-left-justified-paragraph">Centering a Left-Justified Paragraph</a></li>
   </ul>
 </nav>
 </details>
@@ -313,6 +314,37 @@
     <span class="k">font-size</span><span class="p">:</span> <span class="mf">1.2</span><span class="kt">rem</span><span class="p">;</span>
     <span class="k">background-color</span><span class="p">:</span> <span class="mh">#6a3</span><span class="p">;</span>
     <span class="k">color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="centering-a-left-justified-paragraph">Centering a Left-Justified Paragraph</h2>
+<p>This recipe centers a paragraph - the text is left-justified but the container <code>div</code> is centered.</p>
+<p>A live demo is <a href="https://codepen.io/drmikeh/pen/BaRZvJP">here</a>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Our Title Is Centered<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;description&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;left&#34;</span><span class="p">&gt;</span>We want this paragraph to be centered on the page but also left-justified. Let&#39;s see how to do it.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">body</span> <span class="p">{</span>
+  <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="kc">auto</span><span class="p">;</span>
+  <span class="k">max-width</span><span class="p">:</span> <span class="mi">400</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+  <span class="k">flex-direction</span><span class="p">:</span> <span class="kc">column</span><span class="p">;</span>
+  <span class="k">align-items</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+  <span class="k">align-content</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+  <span class="k">justify-items</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+  <span class="n">justifiy-content</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">description</span> <span class="p">{</span>
+  <span class="k">width</span><span class="p">:</span> <span class="mi">80</span><span class="kt">%</span><span class="p">;</span>
+  <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="kc">auto</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">left</span> <span class="p">{</span>
+  <span class="k">text-align</span><span class="p">:</span> <span class="kc">left</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
 				
