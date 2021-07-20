@@ -319,3 +319,43 @@ footer {
     color: white;
 }
 ```
+
+## Centering a Left-Justified Paragraph
+
+This recipe centers a paragraph - the text is left-justified but the container `div` is centered.
+
+A live demo is [here](https://codepen.io/drmikeh/pen/BaRZvJP).
+
+```html
+<section class="container">
+  <h1>Our Title Is Centered</h1>
+  <div class="description">
+    <p class="left">We want this paragraph to be centered on the page but also left-justified. Let's see how to do it.</p>
+  </div>
+</section>
+```
+
+```css
+body {
+  text-align: center;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  justifiy-content: center;
+}
+.description {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.left {
+  text-align: left;
+}
+```
