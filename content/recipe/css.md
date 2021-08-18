@@ -27,6 +27,37 @@ You can have a font size grow or shrink based on the size of the viewport. This 
 }
 ```
 
+### Responsive Tricks
+
+I found this in the article [3 easy CSS tricks for responsive websites I use for every project](https://sjorswijsman.medium.com/3-easy-css-tricks-for-responsive-websites-i-use-in-every-project-68ec334a1522).
+
+There is a live demo [here](https://codepen.io/drmikeh/pen/jOmjzqL).
+
+
+```css
+html {
+  font-size: calc(60% + 0.8vmin);
+}
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+* {
+  font-size: 1rem;
+}
+h1 {
+  font-size: 2.2rem;
+}
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+```
+
+
 ### Smooth Scrolling
 
 ```css
