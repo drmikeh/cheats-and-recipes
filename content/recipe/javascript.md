@@ -15,6 +15,38 @@ Recipes for the JavaScript language.
 
 <!--more-->
 
+### Pretty Print
+
+Inspired by Ruby's `pp`.
+
+```js
+const { inspect } = require('util')
+
+function pp(o, options = {}) {
+    console.log(inspect(o, {
+        showHidden: false,
+        depth: 20,
+        colors: true,
+        ...options
+    }))
+}
+```
+
+Usage:
+
+```js
+const mike = {
+    firstName: 'Mike',
+    lastName: 'Hopper',
+    hobbies: ['chess', 'photography', 'cycling'],
+    age: 54,
+    languages: ['C', 'C++', 'Java', 'JavaScript', 'HTML', 'CSS', 'Ruby']
+}
+
+pp(mike)
+```
+
+
 ### Accurately Rounding Floating Point Numbers
 
 ```js
@@ -43,8 +75,8 @@ function formatAmount(amount) {
 ### A range function
 
 ```js
-const range = (start, stop, step) =>
-    Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step)
+const range = (start, end, step) =>
+    Array.from({ length: (end - start) / step + 1 }, (_, i) => start + i * step)
 ```
 
 usage:
