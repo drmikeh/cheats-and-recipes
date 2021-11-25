@@ -12,7 +12,7 @@ tags:
     - 'language'
 ---
 
-Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.
+Go is an open source programming language from Google that makes it easy to build simple, reliable, and efficient software.
 
 <!--more-->
 
