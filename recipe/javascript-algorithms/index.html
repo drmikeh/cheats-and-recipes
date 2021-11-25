@@ -1,0 +1,238 @@
+<!doctype html><html class=no-js lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#1b1b1b"><title>JavaScript Algorithms | Cheats and Recipes</title><script>(function(a,b){a[b]=a[b].replace("no-js","js")})(document.documentElement,"className")</script><meta name=description content="Common algorithms implemented in the JavaScript language."><link rel=stylesheet href=/cheats-and-recipes/css/main.css><link rel=stylesheet href=/cheats-and-recipes/css/dracula.css><link rel=stylesheet href=/cheats-and-recipes/css/custom.css><link rel=icon href=/cheats-and-recipes/icons/16.png sizes=16x16 type=image/png><link rel=icon href=/cheats-and-recipes/icons/32.png sizes=32x32 type=image/png></head><body><header class=header><a class=logo href=/cheats-and-recipes/>Cheats and Recipes</a></header><div class=primary><main class=main><div class="single block"><article class=post><h1 class=post__title>JavaScript Algorithms</h1><details class="post__toc toc"><summary class=toc__title>Table of Contents</summary><nav id=TableOfContents><ul><li><ul><li><a href=#array-union-intersection-difference>Array Union, Intersection, Difference</a></li><li><a href=#function-composition>Function Composition</a></li><li><a href=#gcd--lcm>GCD & LCM</a></li><li><a href=#frequency-counting>Frequency Counting</a></li><li><a href=#generating-combinations-of-two>Generating Combinations of Two</a></li><li><a href=#generating-all-combinations-of-zero-or-more>Generating All Combinations of Zero or More</a></li><li><a href=#generating-permutations>Generating Permutations</a></li><li><a href=#binary-search>Binary Search</a></li><li><a href=#breadth-first-and-depth-first-search>Breadth-First and Depth-First Search</a></li><li><a href=#topological-sort-of-a-dag>Topological Sort of a DAG</a></li></ul></li></ul></nav></details><div class=post__content><p>Common reusable algorithms for the JavaScript language.</p><h3 id=array-union-intersection-difference>Array Union, Intersection, Difference</h3><p>See: <a href=https://medium.com/@alvaro.saburido/set-theory-for-arrays-in-es6-eb2f20a61848>Array intersection, difference and union in ES6 - Alvaro Saburido - Medium</a></p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>arrA</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>]</span>
+<span class=kr>const</span> <span class=nx>arrB</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>7</span><span class=p>]</span>
+
+<span class=kr>const</span> <span class=nx>union</span> <span class=o>=</span> <span class=p>[...</span><span class=k>new</span> <span class=nx>Set</span><span class=p>([...</span><span class=nx>arrA</span><span class=p>,</span> <span class=p>...</span><span class=nx>arrB</span><span class=p>])]</span> <span class=c1>// [ 1, 3, 4, 5, 2, 6, 7
+</span><span class=c1></span><span class=kr>const</span> <span class=nx>intersection</span> <span class=o>=</span> <span class=nx>arrA</span><span class=p>.</span><span class=nx>filter</span><span class=p>(</span><span class=nx>x</span> <span class=p>=&gt;</span> <span class=nx>arrB</span><span class=p>.</span><span class=nx>includes</span><span class=p>(</span><span class=nx>x</span><span class=p>))</span> <span class=c1>// [1, 5]
+</span><span class=c1></span><span class=kr>const</span> <span class=nx>differenceAB</span> <span class=o>=</span> <span class=nx>arrA</span><span class=p>.</span><span class=nx>filter</span><span class=p>(</span><span class=nx>x</span> <span class=p>=&gt;</span> <span class=o>!</span><span class=nx>arrB</span><span class=p>.</span><span class=nx>includes</span><span class=p>(</span><span class=nx>x</span><span class=p>))</span> <span class=c1>// [3, 4]
+</span><span class=c1></span><span class=kr>const</span> <span class=nx>differenceBA</span> <span class=o>=</span> <span class=nx>arrB</span><span class=p>.</span><span class=nx>filter</span><span class=p>(</span><span class=nx>x</span> <span class=p>=&gt;</span> <span class=o>!</span><span class=nx>arrA</span><span class=p>.</span><span class=nx>includes</span><span class=p>(</span><span class=nx>x</span><span class=p>))</span> <span class=c1>// [2, 6, 7]
+</span><span class=c1></span>
+<span class=kr>const</span> <span class=nx>symmetricalDifference</span> <span class=o>=</span> <span class=nx>arrA</span>
+    <span class=p>.</span><span class=nx>filter</span><span class=p>(</span><span class=nx>x</span> <span class=p>=&gt;</span> <span class=o>!</span><span class=nx>arrB</span><span class=p>.</span><span class=nx>includes</span><span class=p>(</span><span class=nx>x</span><span class=p>))</span>
+    <span class=p>.</span><span class=nx>concat</span><span class=p>(</span><span class=nx>arrB</span><span class=p>.</span><span class=nx>filter</span><span class=p>(</span><span class=nx>x</span> <span class=p>=&gt;</span> <span class=o>!</span><span class=nx>arrA</span><span class=p>.</span><span class=nx>includes</span><span class=p>(</span><span class=nx>x</span><span class=p>)))</span> <span class=c1>// [2, 3, 4, 6, 7]
+</span><span class=c1>// another way: const symmetricalDifference = [...differenceAB, ...differenceBA]
+</span></code></pre></div><h3 id=function-composition>Function Composition</h3><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>pipe</span> <span class=o>=</span> <span class=p>(...</span><span class=nx>fns</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>x</span> <span class=p>=&gt;</span> <span class=nx>fns</span><span class=p>.</span><span class=nx>reduce</span><span class=p>((</span><span class=nx>y</span><span class=p>,</span> <span class=nx>f</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>f</span><span class=p>(</span><span class=nx>y</span><span class=p>),</span> <span class=nx>x</span><span class=p>)</span>
+
+<span class=kr>double</span> <span class=o>=</span> <span class=nx>n</span> <span class=p>=&gt;</span> <span class=nx>n</span> <span class=o>*</span> <span class=mi>2</span>
+<span class=nx>inc</span> <span class=o>=</span> <span class=nx>n</span> <span class=p>=&gt;</span> <span class=nx>n</span> <span class=o>+</span> <span class=mi>1</span>
+<span class=kr>const</span> <span class=nx>incAndDouble</span> <span class=o>=</span> <span class=nx>pipe</span><span class=p>(</span><span class=nx>inc</span><span class=p>,</span> <span class=kr>double</span><span class=p>)</span>
+<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>incAndDouble</span><span class=p>(</span><span class=mi>3</span><span class=p>))</span>
+</code></pre></div><h3 id=gcd--lcm>GCD & LCM</h3><div class=highlight><pre class=chroma><code class=language-js data-lang=js><span class=c1>// Greatest common divisor of 2 integers
+</span><span class=c1></span><span class=kr>const</span> <span class=nx>gcd2</span> <span class=o>=</span> <span class=p>(</span><span class=nx>a</span><span class=p>,</span> <span class=nx>b</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>(</span><span class=nx>b</span> <span class=o>?</span> <span class=nx>gcd2</span><span class=p>(</span><span class=nx>b</span><span class=p>,</span> <span class=nx>a</span> <span class=o>%</span> <span class=nx>b</span><span class=p>)</span> <span class=o>:</span> <span class=nx>b</span> <span class=o>===</span> <span class=mi>0</span> <span class=o>?</span> <span class=nx>a</span> <span class=o>:</span> <span class=kc>NaN</span><span class=p>)</span>
+
+<span class=c1>// Greatest common divisor of a list of integers
+</span><span class=c1></span><span class=kd>function</span> <span class=nx>gcd</span><span class=p>(</span><span class=nx>array</span><span class=p>)</span> <span class=p>{</span>
+    <span class=kd>let</span> <span class=nx>n</span> <span class=o>=</span> <span class=mi>0</span>
+    <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>array</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=nx>n</span> <span class=o>=</span> <span class=nx>gcd2</span><span class=p>(</span><span class=nx>array</span><span class=p>[</span><span class=nx>i</span><span class=p>],</span> <span class=nx>n</span><span class=p>)</span>
+    <span class=k>return</span> <span class=nx>n</span>
+<span class=p>}</span>
+
+<span class=c1>// Least common multiple of 2 integers
+</span><span class=c1></span><span class=kr>const</span> <span class=nx>lcm2</span> <span class=o>=</span> <span class=p>(</span><span class=nx>a</span><span class=p>,</span> <span class=nx>b</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>(</span><span class=nx>a</span> <span class=o>*</span> <span class=nx>b</span><span class=p>)</span> <span class=o>/</span> <span class=nx>gcd2</span><span class=p>(</span><span class=nx>a</span><span class=p>,</span> <span class=nx>b</span><span class=p>)</span>
+
+<span class=c1>// Least common multiple of a list of integers
+</span><span class=c1></span><span class=kd>function</span> <span class=nx>lcm</span><span class=p>(</span><span class=nx>array</span><span class=p>)</span> <span class=p>{</span>
+    <span class=kd>let</span> <span class=nx>n</span> <span class=o>=</span> <span class=mi>1</span>
+    <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>array</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=nx>n</span> <span class=o>=</span> <span class=nx>lcm2</span><span class=p>(</span><span class=nx>array</span><span class=p>[</span><span class=nx>i</span><span class=p>],</span> <span class=nx>n</span><span class=p>)</span>
+    <span class=k>return</span> <span class=nx>n</span>
+<span class=p>}</span>
+
+<span class=c1>// usage:
+</span><span class=c1></span><span class=kr>const</span> <span class=nx>array</span> <span class=o>=</span> <span class=p>[</span><span class=mi>6</span><span class=p>,</span> <span class=mi>18</span><span class=p>,</span> <span class=mi>42</span><span class=p>]</span>
+<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>gcd</span><span class=p>(</span><span class=nx>array</span><span class=p>))</span>
+<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>lcm</span><span class=p>(</span><span class=nx>array</span><span class=p>))</span>
+</code></pre></div><h3 id=frequency-counting>Frequency Counting</h3><div class=highlight><pre class=chroma><code class=language-js data-lang=js><span class=kr>const</span> <span class=nx>freqCount</span> <span class=o>=</span> <span class=nx>arr</span> <span class=p>=&gt;</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>reduce</span><span class=p>((</span><span class=nx>map</span><span class=p>,</span> <span class=nx>item</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+    <span class=kr>const</span> <span class=nx>count</span> <span class=o>=</span> <span class=nx>map</span><span class=p>.</span><span class=nx>get</span><span class=p>(</span><span class=nx>item</span><span class=p>)</span>
+    <span class=nx>map</span><span class=p>.</span><span class=nx>set</span><span class=p>(</span><span class=nx>item</span><span class=p>,</span> <span class=nx>count</span> <span class=o>?</span> <span class=nx>count</span> <span class=o>+</span> <span class=mi>1</span> <span class=o>:</span> <span class=mi>1</span><span class=p>)</span>
+    <span class=k>return</span> <span class=nx>map</span>
+<span class=p>},</span> <span class=k>new</span> <span class=nx>Map</span><span class=p>())</span>
+
+<span class=c1>// usage:
+</span><span class=c1></span><span class=kr>const</span> <span class=nx>array</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;apple&#39;</span><span class=p>,</span> <span class=s1>&#39;banana&#39;</span><span class=p>,</span> <span class=s1>&#39;apple&#39;</span><span class=p>,</span> <span class=s1>&#39;orange&#39;</span><span class=p>,</span> <span class=s1>&#39;apple&#39;</span><span class=p>,</span> <span class=s1>&#39;banana&#39;</span><span class=p>]</span>
+<span class=kr>const</span> <span class=nx>fq</span> <span class=o>=</span> <span class=nx>freqCount</span><span class=p>(</span><span class=nx>array</span><span class=p>)</span>
+<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>fq</span><span class=p>)</span>                     <span class=c1>// Map(3) { &#39;apple&#39; =&gt; 3, &#39;banana&#39; =&gt; 2, &#39;orange&#39; =&gt; 1 }
+</span></code></pre></div><h3 id=generating-combinations-of-two>Generating Combinations of Two</h3><div class=highlight><pre class=chroma><code class=language-js data-lang=js><span class=c1>// returns an array of all unique combinations of two items from the input array
+</span><span class=c1></span><span class=kd>function</span> <span class=nx>getCombinations</span><span class=p>(</span><span class=nx>array</span><span class=p>)</span> <span class=p>{</span>
+    <span class=kr>const</span> <span class=nx>combinations</span> <span class=o>=</span> <span class=p>[]</span>
+    <span class=kr>const</span> <span class=nx>a2</span> <span class=o>=</span> <span class=p>[...</span><span class=nx>array</span><span class=p>]</span>
+    <span class=k>while</span> <span class=p>(</span><span class=nx>a2</span><span class=p>.</span><span class=nx>length</span> <span class=o>&gt;</span> <span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kr>const</span> <span class=nx>first</span> <span class=o>=</span> <span class=nx>a2</span><span class=p>.</span><span class=nx>shift</span><span class=p>()</span>
+        <span class=nx>a2</span><span class=p>.</span><span class=nx>forEach</span><span class=p>(</span><span class=nx>second</span> <span class=p>=&gt;</span> <span class=nx>combinations</span><span class=p>.</span><span class=nx>push</span><span class=p>([</span><span class=nx>first</span><span class=p>,</span> <span class=nx>second</span><span class=p>]))</span>
+    <span class=p>}</span>
+    <span class=k>return</span> <span class=nx>combinations</span>
+<span class=p>}</span>
+
+<span class=c1>// usage:
+</span><span class=c1></span><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>getCombinations</span><span class=p>([</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>]))</span>
+</code></pre></div><h3 id=generating-all-combinations-of-zero-or-more>Generating All Combinations of Zero or More</h3><div class=highlight><pre class=chroma><code class=language-js data-lang=js><span class=cm>/**
+</span><span class=cm> * Returns a 2D array of all unique combinations of zero or more items from the input array.
+</span><span class=cm> *
+</span><span class=cm> * @param {Array} arr - the array of values that needs all combinations
+</span><span class=cm> */</span>
+<span class=kd>function</span> <span class=nx>getAllCombinations</span><span class=p>(</span><span class=nx>arr</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>reduce</span><span class=p>((</span><span class=nx>subsets</span><span class=p>,</span> <span class=nx>value</span><span class=p>)</span> <span class=p>=&gt;</span>
+        <span class=nx>subsets</span><span class=p>.</span><span class=nx>concat</span><span class=p>(</span>
+            <span class=nx>subsets</span><span class=p>.</span><span class=nx>map</span><span class=p>(</span><span class=nx>set</span> <span class=p>=&gt;</span> <span class=p>[...</span><span class=nx>set</span><span class=p>,</span> <span class=nx>value</span><span class=p>])</span>
+        <span class=p>),</span>
+        <span class=p>[[]]</span>
+    <span class=p>)</span>
+<span class=p>}</span>
+
+<span class=c1>// Usage:
+</span><span class=c1></span><span class=nx>getAllCombinations</span><span class=p>([</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>])</span>
+<span class=cm>/* returns:
+</span><span class=cm>[
+</span><span class=cm>  [],       [ 1 ],
+</span><span class=cm>  [ 2 ],    [ 2, 1 ],
+</span><span class=cm>  [ 3 ],    [ 3, 1 ],
+</span><span class=cm>  [ 3, 2 ], [ 3, 2, 1 ]
+</span><span class=cm>]
+</span><span class=cm>*/</span>
+</code></pre></div><h3 id=generating-permutations>Generating Permutations</h3><div class=highlight><pre class=chroma><code class=language-js data-lang=js><span class=cm>/**
+</span><span class=cm> * Return a 2D array containing all of the permutations of the input array.
+</span><span class=cm> * Does not mutate the input array.
+</span><span class=cm> *
+</span><span class=cm> * @param {Array} input - the array of values that need permuting
+</span><span class=cm> */</span>
+<span class=kr>const</span> <span class=nx>permute</span> <span class=o>=</span> <span class=nx>input</span> <span class=p>=&gt;</span> <span class=p>{</span>
+    <span class=kr>const</span> <span class=nx>array</span> <span class=o>=</span> <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>(</span><span class=nx>input</span><span class=p>)</span>
+    <span class=kr>const</span> <span class=nx>permute</span> <span class=o>=</span> <span class=p>(</span><span class=nx>res</span><span class=p>,</span> <span class=nx>item</span><span class=p>,</span> <span class=nx>key</span><span class=p>,</span> <span class=nx>arr</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>res</span><span class=p>.</span><span class=nx>concat</span><span class=p>(</span><span class=nx>arr</span><span class=p>.</span><span class=nx>length</span> <span class=o>&gt;</span> <span class=mi>1</span> <span class=o>&amp;&amp;</span>
+        <span class=nx>arr</span>
+            <span class=p>.</span><span class=nx>slice</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=nx>key</span><span class=p>)</span>
+            <span class=p>.</span><span class=nx>concat</span><span class=p>(</span><span class=nx>arr</span><span class=p>.</span><span class=nx>slice</span><span class=p>(</span><span class=nx>key</span> <span class=o>+</span> <span class=mi>1</span><span class=p>))</span>
+            <span class=p>.</span><span class=nx>reduce</span><span class=p>(</span><span class=nx>permute</span><span class=p>,</span> <span class=p>[])</span>
+            <span class=p>.</span><span class=nx>map</span><span class=p>(</span><span class=nx>perm</span> <span class=p>=&gt;</span> <span class=p>[</span><span class=nx>item</span><span class=p>].</span><span class=nx>concat</span><span class=p>(</span><span class=nx>perm</span><span class=p>))</span>
+        <span class=o>||</span> <span class=nx>item</span>
+    <span class=p>)</span>
+
+    <span class=k>return</span> <span class=nx>array</span><span class=p>.</span><span class=nx>reduce</span><span class=p>(</span><span class=nx>permute</span><span class=p>,</span> <span class=p>[])</span>
+<span class=p>}</span>
+
+<span class=c1>// usage:
+</span><span class=c1></span><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>permute</span><span class=p>([</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>]))</span>
+</code></pre></div><p>Another version:</p><div class=highlight><pre class=chroma><code class=language-js data-lang=js><span class=cm>/**
+</span><span class=cm> * Permute the elements in the specified array by swapping them in-place and
+</span><span class=cm> * calling the specified callback function on the array for each permutation.
+</span><span class=cm> *
+</span><span class=cm> * NOTE: when permutation succeeds, the array should be in the original state on exit!
+</span><span class=cm> *
+</span><span class=cm> * @param {Array} array - the array of values that need permutating
+</span><span class=cm> * @param {function} callback - will be called for each permutation
+</span><span class=cm> * @returns the number of permutations, returns 0 for an undefined, null, or empty array
+</span><span class=cm> */</span>
+<span class=kd>function</span> <span class=nx>permute</span><span class=p>(</span><span class=nx>array</span><span class=p>,</span> <span class=nx>callback</span><span class=p>)</span> <span class=p>{</span>
+    <span class=c1>// Do the actual permuation work on array, starting at index
+</span><span class=c1></span>    <span class=kd>function</span> <span class=nx>p</span><span class=p>(</span><span class=nx>array</span><span class=p>,</span> <span class=nx>index</span><span class=p>,</span> <span class=nx>callback</span><span class=p>)</span> <span class=p>{</span>
+        <span class=c1>// Swap elements i1 and i2 in array a
+</span><span class=c1></span>        <span class=kd>function</span> <span class=nx>swap</span><span class=p>(</span><span class=nx>a</span><span class=p>,</span> <span class=nx>i1</span><span class=p>,</span> <span class=nx>i2</span><span class=p>)</span> <span class=p>{</span>
+            <span class=kd>let</span> <span class=nx>t</span> <span class=o>=</span> <span class=nx>a</span><span class=p>[</span><span class=nx>i1</span><span class=p>]</span>
+            <span class=nx>a</span><span class=p>[</span><span class=nx>i1</span><span class=p>]</span> <span class=o>=</span> <span class=nx>a</span><span class=p>[</span><span class=nx>i2</span><span class=p>]</span>
+            <span class=nx>a</span><span class=p>[</span><span class=nx>i2</span><span class=p>]</span> <span class=o>=</span> <span class=nx>t</span>
+        <span class=p>}</span>
+        <span class=k>if</span> <span class=p>(</span><span class=nx>index</span> <span class=o>===</span> <span class=nx>array</span><span class=p>.</span><span class=nx>length</span> <span class=o>-</span> <span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
+            <span class=nx>callback</span><span class=p>(</span><span class=nx>array</span><span class=p>)</span>
+            <span class=k>return</span> <span class=mi>1</span>
+        <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+            <span class=kd>let</span> <span class=nx>count</span> <span class=o>=</span> <span class=nx>p</span><span class=p>(</span><span class=nx>array</span><span class=p>,</span> <span class=nx>index</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>callback</span><span class=p>)</span>
+            <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=nx>index</span> <span class=o>+</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>array</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+                <span class=nx>swap</span><span class=p>(</span><span class=nx>array</span><span class=p>,</span> <span class=nx>i</span><span class=p>,</span> <span class=nx>index</span><span class=p>)</span>
+                <span class=nx>count</span> <span class=o>+=</span> <span class=nx>p</span><span class=p>(</span><span class=nx>array</span><span class=p>,</span> <span class=nx>index</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>callback</span><span class=p>)</span>
+                <span class=nx>swap</span><span class=p>(</span><span class=nx>array</span><span class=p>,</span> <span class=nx>i</span><span class=p>,</span> <span class=nx>index</span><span class=p>)</span>
+            <span class=p>}</span>
+            <span class=k>return</span> <span class=nx>count</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+
+    <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>array</span> <span class=o>||</span> <span class=nx>array</span><span class=p>.</span><span class=nx>length</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=mi>0</span>
+    <span class=p>}</span>
+    <span class=k>return</span> <span class=nx>p</span><span class=p>(</span><span class=nx>array</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=nx>callback</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=c1>// sample usage: prints each permutation and the total count of permutations
+</span><span class=c1></span><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>permute</span><span class=p>([</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>],</span> <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>))</span>
+</code></pre></div><h3 id=binary-search>Binary Search</h3><p>A binary search is a fast way to find a value in a large sorted array. To make this more flexible, the <code>binarySearch</code> computes values using the <code>f</code> callback function until is finds a computed value that is closest to <code>target</code> without going over, or null if no such value exists.</p><div class=highlight><pre class=chroma><code class=language-js data-lang=js><span class=cm>/**
+</span><span class=cm> *
+</span><span class=cm> * @param {Array} array - an array of values each of which are passed into `f`
+</span><span class=cm> * @param {Function} f - the evaluation function (should return a Number)
+</span><span class=cm> * @param {Number} target - the target that we want to get closest to without going over
+</span><span class=cm> * @returns{Number} - the value from the `array` that evaluates to a result that is
+</span><span class=cm> *     closest to `target` without going over, or null if no valid value was found.
+</span><span class=cm> */</span>
+<span class=kd>function</span> <span class=nx>binarySearch</span><span class=p>(</span><span class=nx>array</span><span class=p>,</span> <span class=nx>f</span><span class=p>,</span> <span class=nx>target</span><span class=p>)</span> <span class=p>{</span>
+    <span class=kd>let</span> <span class=nx>low</span> <span class=o>=</span> <span class=mi>0</span>
+    <span class=kd>let</span> <span class=nx>high</span> <span class=o>=</span> <span class=nx>array</span><span class=p>.</span><span class=nx>length</span> <span class=o>-</span> <span class=mi>1</span>
+    <span class=k>while</span> <span class=p>(</span><span class=nx>low</span> <span class=o>&lt;</span> <span class=nx>high</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kr>const</span> <span class=nx>mid</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>ceil</span><span class=p>((</span><span class=nx>low</span> <span class=o>+</span> <span class=nx>high</span><span class=p>)</span> <span class=o>/</span> <span class=mi>2</span><span class=p>)</span>
+        <span class=k>if</span> <span class=p>(</span><span class=nx>f</span><span class=p>(</span><span class=nx>array</span><span class=p>[</span><span class=nx>mid</span><span class=p>])</span> <span class=o>&lt;=</span> <span class=nx>target</span><span class=p>)</span> <span class=p>{</span>
+            <span class=nx>low</span> <span class=o>=</span> <span class=nx>mid</span>
+        <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+            <span class=nx>high</span> <span class=o>=</span> <span class=nx>mid</span> <span class=o>-</span> <span class=mi>1</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+    <span class=k>return</span> <span class=nx>array</span><span class=p>[</span><span class=nx>low</span><span class=p>]</span> <span class=o>&lt;=</span> <span class=nx>target</span> <span class=o>?</span> <span class=nx>array</span><span class=p>[</span><span class=nx>low</span><span class=p>]</span> <span class=o>:</span> <span class=kc>null</span>
+<span class=p>}</span>
+
+<span class=c1>// example:
+</span><span class=c1></span><span class=kr>const</span> <span class=nx>data</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>12</span><span class=p>,</span> <span class=mi>29</span><span class=p>,</span> <span class=mi>63</span><span class=p>,</span> <span class=mi>81</span><span class=p>,</span> <span class=mi>94</span><span class=p>,</span> <span class=mi>99</span><span class=p>]</span>
+<span class=kr>const</span> <span class=nx>f</span> <span class=o>=</span> <span class=nx>n</span> <span class=p>=&gt;</span> <span class=nx>n</span> <span class=o>*</span> <span class=nx>n</span> <span class=o>+</span> <span class=mi>3</span> <span class=o>*</span> <span class=nx>n</span> <span class=o>+</span> <span class=mi>5</span>
+<span class=kr>const</span> <span class=nx>target</span> <span class=o>=</span> <span class=mi>5000</span>
+<span class=kr>const</span> <span class=nx>found</span> <span class=o>=</span> <span class=nx>binarySearch</span><span class=p>(</span><span class=nx>data</span><span class=p>,</span> <span class=nx>f</span><span class=p>,</span> <span class=nx>target</span><span class=p>)</span>
+<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>({</span> <span class=nx>target</span><span class=p>,</span> <span class=nx>found</span><span class=p>,</span> <span class=nx>value</span><span class=o>:</span> <span class=nx>f</span><span class=p>(</span><span class=nx>found</span><span class=p>)</span> <span class=p>})</span>
+</code></pre></div><h3 id=breadth-first-and-depth-first-search>Breadth-First and Depth-First Search</h3><p>I use recursion here for its elegance, but non-recursive implementations may be more appropriate when traversing deeper trees.</p><div class=highlight><pre class=chroma><code class=language-js data-lang=js><span class=kd>function</span> <span class=nx>dfs</span><span class=p>(</span><span class=nx>node</span><span class=p>,</span> <span class=nx>fn</span><span class=p>,</span> <span class=nx>level</span> <span class=o>=</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>fn</span><span class=p>(</span><span class=nx>node</span><span class=p>,</span> <span class=nx>level</span><span class=p>)</span>
+    <span class=k>if</span> <span class=p>(</span><span class=nx>node</span><span class=p>.</span><span class=nx>children</span><span class=p>)</span> <span class=p>{</span>
+        <span class=nx>node</span><span class=p>.</span><span class=nx>children</span><span class=p>.</span><span class=nx>forEach</span><span class=p>(</span><span class=kd>function</span><span class=p>(</span><span class=nx>child</span><span class=p>)</span> <span class=p>{</span>
+            <span class=nx>dfs</span><span class=p>(</span><span class=nx>child</span><span class=p>,</span> <span class=nx>fn</span><span class=p>,</span> <span class=nx>level</span> <span class=o>+</span> <span class=mi>1</span><span class=p>)</span>
+        <span class=p>})</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>function</span> <span class=nx>bfs</span><span class=p>(</span><span class=nx>root</span><span class=p>,</span> <span class=nx>fn</span><span class=p>)</span> <span class=p>{</span>
+    <span class=kd>function</span> <span class=nx>processLevel</span><span class=p>(</span><span class=nx>nodes</span><span class=p>,</span> <span class=nx>level</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kd>let</span> <span class=nx>nextLevelNodes</span> <span class=o>=</span> <span class=p>[]</span>
+        <span class=nx>nodes</span><span class=p>.</span><span class=nx>forEach</span><span class=p>(</span><span class=nx>node</span> <span class=p>=&gt;</span> <span class=p>{</span>
+            <span class=nx>fn</span><span class=p>(</span><span class=nx>node</span><span class=p>,</span> <span class=nx>level</span><span class=p>)</span>
+            <span class=k>if</span> <span class=p>(</span><span class=nx>node</span><span class=p>.</span><span class=nx>children</span><span class=p>)</span> <span class=p>{</span>
+                <span class=nx>nextLevelNodes</span> <span class=o>=</span> <span class=nx>nextLevelNodes</span><span class=p>.</span><span class=nx>concat</span><span class=p>(</span><span class=nx>node</span><span class=p>.</span><span class=nx>children</span><span class=p>)</span>
+            <span class=p>}</span>
+        <span class=p>})</span>
+        <span class=k>if</span> <span class=p>(</span><span class=nx>nextLevelNodes</span><span class=p>.</span><span class=nx>length</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+            <span class=nx>processLevel</span><span class=p>(</span><span class=nx>nextLevelNodes</span><span class=p>,</span> <span class=nx>level</span> <span class=o>+</span> <span class=mi>1</span><span class=p>)</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+    <span class=nx>fn</span><span class=p>(</span><span class=nx>root</span><span class=p>,</span> <span class=mi>0</span><span class=p>)</span>
+    <span class=nx>processLevel</span><span class=p>(</span><span class=nx>root</span><span class=p>.</span><span class=nx>children</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=c1>// example
+</span><span class=c1></span><span class=kr>const</span> <span class=nx>georgia</span> <span class=o>=</span> <span class=p>{</span>
+    <span class=nx>name</span><span class=o>:</span> <span class=s1>&#39;Georgia&#39;</span><span class=p>,</span>
+    <span class=nx>children</span><span class=o>:</span> <span class=p>[</span>
+        <span class=p>{</span>
+            <span class=nx>name</span><span class=o>:</span> <span class=s1>&#39;Cobb&#39;</span><span class=p>,</span>
+            <span class=nx>children</span><span class=o>:</span> <span class=p>[</span>
+                <span class=p>{</span> <span class=nx>name</span><span class=o>:</span> <span class=s1>&#39;Marietta&#39;</span> <span class=p>},</span>
+                <span class=p>{</span> <span class=nx>name</span><span class=o>:</span> <span class=s1>&#39;Smyrna&#39;</span> <span class=p>},</span>
+                <span class=p>{</span> <span class=nx>name</span><span class=o>:</span> <span class=s1>&#39;Kennesaw&#39;</span> <span class=p>}</span>
+            <span class=p>]</span>
+        <span class=p>},</span>
+        <span class=p>{</span>
+            <span class=nx>name</span><span class=o>:</span> <span class=s1>&#39;Gwinnett&#39;</span><span class=p>,</span>
+            <span class=nx>children</span><span class=o>:</span> <span class=p>[</span>
+                <span class=p>{</span> <span class=nx>name</span><span class=o>:</span> <span class=s1>&#39;Duluth&#39;</span> <span class=p>},</span>
+                <span class=p>{</span> <span class=nx>name</span><span class=o>:</span> <span class=s1>&#39;Lawrenceville&#39;</span> <span class=p>},</span>
+                <span class=p>{</span> <span class=nx>name</span><span class=o>:</span> <span class=s1>&#39;Norcross&#39;</span> <span class=p>},</span>
+                <span class=p>{</span> <span class=nx>name</span><span class=o>:</span> <span class=s1>&#39;Suwanee&#39;</span> <span class=p>}</span>
+            <span class=p>]</span>
+        <span class=p>}</span>
+    <span class=p>]</span>
+<span class=p>}</span>
+
+<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;dfs:&#39;</span><span class=p>)</span>
+<span class=nx>dfs</span><span class=p>(</span><span class=nx>georgia</span><span class=p>,</span> <span class=p>(</span><span class=nx>area</span><span class=p>,</span> <span class=nx>level</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39; &#39;</span><span class=p>.</span><span class=nx>repeat</span><span class=p>(</span><span class=nx>level</span> <span class=o>*</span> <span class=mi>2</span><span class=p>),</span> <span class=nx>area</span><span class=p>.</span><span class=nx>name</span><span class=p>))</span>
+
+<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;bfs:&#39;</span><span class=p>)</span>
+<span class=nx>bfs</span><span class=p>(</span><span class=nx>georgia</span><span class=p>,</span> <span class=p>(</span><span class=nx>area</span><span class=p>,</span> <span class=nx>level</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39; &#39;</span><span class=p>.</span><span class=nx>repeat</span><span class=p>(</span><span class=nx>level</span> <span class=o>*</span> <span class=mi>2</span><span class=p>),</span> <span class=nx>area</span><span class=p>.</span><span class=nx>name</span><span class=p>))</span>
+</code></pre></div><h3 id=topological-sort-of-a-dag>Topological Sort of a DAG</h3><p>Coming soon&mldr;</p></div><footer class=post__footer><div class=post__tags><a class="post__tag btn" href=/cheats-and-recipes/tags/javascript/>javascript</a>
+<a class="post__tag btn" href=/cheats-and-recipes/tags/algorithms/>algorithms</a>
+<a class="post__tag btn" href=/cheats-and-recipes/tags/data-structures/>data structures</a></div></footer></article></div></main><div class="authorbox block"><div class=author><figure class=author__avatar><img class=author__img alt="Dr. Mike Hopper avatar" src=/cheats-and-recipes/img/avatar.jpg height=90 width=90></figure><div class=author__body><div class=author__name>Dr. Mike Hopper</div><div class=author__bio>Software Architect, Engineer, and Instructor</div></div></div></div><div class="related block"><h3 class=related__title>Related</h3><ul class=related__list><li class=related__item><a class=related__link href=/cheats-and-recipes/cheat/functional-javascript/>Functional JavaScript Cheatsheet</a></li><li class=related__item><a class=related__link href=/cheats-and-recipes/recipe/composable-functional-javascript/>Composable Functional JavaScript</a></li><li class=related__item><a class=related__link href=/cheats-and-recipes/cheat/es-2015/>ES2015+ Cheatsheet</a></li><li class=related__item><a class=related__link href=/cheats-and-recipes/recipe/express-restful-api/>Express RESTful API Server Recipe</a></li><li class=related__item><a class=related__link href=/cheats-and-recipes/cheat/js-doc/>JSDoc Cheatsheet</a></li></ul></div></div><footer class=footer><div class="footer__social social"><a class=social__link target=_blank rel="noopener noreferrer" href=mailto:drmikeh@gmail.com><svg class="social__icon" aria-label="Email" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M299 268l124 106c-4 4-10 7-17 7H106c-7 0-13-3-17-7l124-106 43 38 43-38zm-43 13L89 138c4-4 10-7 17-7h3e2c7 0 13 3 17 7L256 281zm54-23 121-105v208L310 258zM81 153l121 105L81 361V153z"/></svg></a><a class=social__link target=_blank rel="noopener noreferrer" href=https://twitter.com/drmikeh><svg class="social__icon" aria-label="Twitter" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M437 152a72 72 0 01-40 12 72 72 0 0032-40 72 72 0 01-45 17 72 72 0 00-122 65 2e2 2e2.0 01-145-74 72 72 0 0022 94 72 72 0 01-32-7 72 72 0 0056 69 72 72 0 01-32 1 72 72 0 0067 50A2e2 2e2.0 0193 368a2e2 2e2.0 00309-179 2e2 2e2.0 0035-37"/></svg></a><a class=social__link target=_blank rel="noopener noreferrer" href=https://www.pinterest.com/drmikeh2297><svg class="social__icon" aria-label="Pinterest" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="m265 65c-104 0-157 75-157 138 0 37 14 71 45 83 5 2 10 0 12-5l3-18c2-6 1-7-2-12-9-11-15-24-15-43 0-56 41-106 108-106 60 0 92 37 92 85 0 64-28 116-70 116-23 0-40-18-34-42 6-27 19-57 19-77 0-18-9-34-30-34-24 0-42 25-42 58 0 20 7 34 7 34l-29 120a249 249 0 002 86l3-1c2-3 31-37 40-72l16-61c7 15 29 28 53 28 71 0 119-64 119-151 0-66-56-126-140-126z"/></svg></a><a class=social__link target=_blank rel="noopener noreferrer" href=https://linkedin.com/in/drmikehopper><svg class="social__icon" aria-label="LinkedIn" role="img" width="32" height="32" viewBox="0 0 512 512"><circle cx="142" cy="138" r="37"/><path stroke-width="66" d="M244 194v198M142 194v198"/><path d="M276 282c0-20 13-40 36-40 24 0 33 18 33 45v105h66V279c0-61-32-89-76-89-34 0-51 19-59 32"/></svg></a><a class=social__link target=_blank rel="noopener noreferrer" href=https://github.com/drmikeh><svg class="social__icon" aria-label="Github" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg></a></div><div class=footer__copyright>© 2021 Cheats and Recipes. <span class=footer__copyright-credits>Powered by <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> and <a href=https://github.com/vimux/binario rel="nofollow noopener" target=_blank>Binario</a> theme.</span></div></footer><script src=/cheats-and-recipes/js/custom.js></script></body></html>

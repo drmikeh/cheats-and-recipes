@@ -1,0 +1,194 @@
+<!doctype html><html class=no-js lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#1b1b1b"><title>React Recipes | Cheats and Recipes</title><script>(function(a,b){a[b]=a[b].replace("no-js","js")})(document.documentElement,"className")</script><meta name=description content="Recipes for building React applications"><link rel=stylesheet href=/cheats-and-recipes/css/main.css><link rel=stylesheet href=/cheats-and-recipes/css/dracula.css><link rel=stylesheet href=/cheats-and-recipes/css/custom.css><link rel=icon href=/cheats-and-recipes/icons/16.png sizes=16x16 type=image/png><link rel=icon href=/cheats-and-recipes/icons/32.png sizes=32x32 type=image/png></head><body><header class=header><a class=logo href=/cheats-and-recipes/>Cheats and Recipes</a></header><div class=primary><main class=main><div class="single block"><article class=post><h1 class=post__title>React Recipes</h1><details class="post__toc toc"><summary class=toc__title>Table of Contents</summary><nav id=TableOfContents><ul><li><ul><li><a href=#how-to-count-renders>How to Count Renders</a></li><li><a href=#using-useeffect-to-consolelog-updates-to-state-variables>Using <code>useEffect</code> to console.log updates to state variables</a></li><li><a href=#a-restful--crud-custom-hook>A RESTful / CRUD Custom Hook</a></li><li><a href=#a-useinterval-custom-hook>A useInterval Custom Hook</a></li></ul></li></ul></nav></details><div class=post__content><p>Recipes for building React applications.</p><h3 id=how-to-count-renders>How to Count Renders</h3><div class=highlight><pre class=chroma><code class=language-jsx data-lang=jsx><span class=c1>// define a Logger component that logs how many times it has been called
+</span><span class=c1></span><span class=kd>function</span> <span class=nx>Logger</span><span class=p>()</span> <span class=p>{</span>
+  <span class=kr>const</span> <span class=nx>numRenders</span> <span class=o>=</span> <span class=nx>React</span><span class=p>.</span><span class=nx>useRef</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
+  <span class=o>++</span><span class=nx>numRenders</span><span class=p>.</span><span class=nx>current</span>
+  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=sb>`You have rendered me </span><span class=si>${</span><span class=nx>numRenders</span><span class=p>.</span><span class=nx>current</span><span class=si>}</span><span class=sb> times.`</span><span class=p>)</span>
+  <span class=k>return</span> <span class=kc>null</span>
+<span class=p>}</span>
+
+<span class=c1>// use the Logger component in your component
+</span><span class=c1></span><span class=kd>function</span> <span class=nx>MyComponent</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=p>{</span>
+        <span class=p>&lt;</span><span class=nt>Logger</span> <span class=p>/&gt;</span>
+        <span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span><span class=nx>Hello</span><span class=p>,</span> <span class=nx>World</span><span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></div><h3 id=using-useeffect-to-consolelog-updates-to-state-variables>Using <code>useEffect</code> to console.log updates to state variables</h3><div class=highlight><pre class=chroma><code class=language-js data-lang=js><span class=nx>useEffect</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+    <span class=nx>console</span><span class=p>.</span><span class=nx>table</span><span class=p>(</span><span class=nx>todos</span><span class=p>)</span>
+<span class=p>},</span> <span class=p>[</span><span class=nx>todos</span><span class=p>])</span>
+</code></pre></div><h3 id=a-restful--crud-custom-hook>A RESTful / CRUD Custom Hook</h3><p>First define a service using Axios:</p><div class=highlight><pre class=chroma><code class=language-js data-lang=js><span class=c1>// TodoService.js
+</span><span class=c1></span><span class=kr>import</span> <span class=nx>axios</span> <span class=nx>from</span> <span class=s1>&#39;axios&#39;</span>
+
+<span class=kr>const</span> <span class=nx>API</span> <span class=o>=</span> <span class=nx>axios</span><span class=p>.</span><span class=nx>create</span><span class=p>({</span>
+    <span class=nx>baseURL</span><span class=o>:</span> <span class=s1>&#39;/api/todos&#39;</span>
+<span class=p>})</span>
+
+<span class=kr>const</span> <span class=nx>TodoService</span> <span class=o>=</span> <span class=p>{</span>
+    <span class=nx>reset</span><span class=o>:</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=nx>API</span><span class=p>.</span><span class=k>delete</span><span class=p>(</span><span class=s1>&#39;/reset&#39;</span><span class=p>),</span>
+    <span class=nx>get</span><span class=o>:</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=nx>API</span><span class=p>.</span><span class=nx>get</span><span class=p>(</span><span class=s1>&#39;/&#39;</span><span class=p>),</span>
+    <span class=nx>put</span><span class=o>:</span> <span class=nx>todo</span> <span class=p>=&gt;</span> <span class=nx>API</span><span class=p>.</span><span class=nx>put</span><span class=p>(</span><span class=sb>`/</span><span class=si>${</span><span class=nx>todo</span><span class=p>.</span><span class=nx>id</span><span class=si>}</span><span class=sb>`</span><span class=p>,</span> <span class=nx>todo</span><span class=p>),</span>
+    <span class=nx>post</span><span class=o>:</span> <span class=nx>todo</span> <span class=p>=&gt;</span> <span class=nx>API</span><span class=p>.</span><span class=nx>post</span><span class=p>(</span><span class=s1>&#39;/&#39;</span><span class=p>,</span> <span class=nx>todo</span><span class=p>),</span>
+    <span class=k>delete</span><span class=o>:</span> <span class=nx>id</span> <span class=p>=&gt;</span> <span class=nx>API</span><span class=p>.</span><span class=k>delete</span><span class=p>(</span><span class=sb>`/</span><span class=si>${</span><span class=nx>id</span><span class=si>}</span><span class=sb>`</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kr>export</span> <span class=k>default</span> <span class=nx>TodoService</span>
+</code></pre></div><p>Then define a <em>generic</em> custom hook:</p><ul><li>generic in that it works for any RESTful endpoint</li><li>uses Dependency Injection for doing CRUD operations via a Service</li></ul><div class=highlight><pre class=chroma><code class=language-jsx data-lang=jsx><span class=c1>// use-crud.js
+</span><span class=c1></span><span class=kr>import</span> <span class=p>{</span> <span class=nx>useState</span><span class=p>,</span> <span class=nx>useEffect</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span>
+<span class=kr>import</span> <span class=nx>toastr</span> <span class=nx>from</span> <span class=s1>&#39;../toastr&#39;</span>
+<span class=kr>import</span> <span class=s1>&#39;toastr/build/toastr.min.css&#39;</span>
+
+<span class=kd>function</span> <span class=nx>useCrud</span><span class=p>(</span><span class=nx>service</span><span class=p>,</span> <span class=nx>initialValue</span><span class=p>,</span> <span class=nx>initialLoading</span><span class=p>)</span> <span class=p>{</span>
+    <span class=kr>const</span> <span class=p>[</span><span class=nx>items</span><span class=p>,</span> <span class=nx>setItems</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useState</span><span class=p>(</span><span class=nx>initialValue</span><span class=p>)</span>
+    <span class=kr>const</span> <span class=p>[</span><span class=nx>loading</span><span class=p>,</span> <span class=nx>setLoading</span><span class=p>]</span> <span class=o>=</span> <span class=nx>useState</span><span class=p>(</span><span class=nx>initialLoading</span><span class=p>)</span>
+
+    <span class=c1>// initial load of items
+</span><span class=c1></span>    <span class=nx>useEffect</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+        <span class=p>;(</span><span class=kr>async</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+            <span class=k>try</span> <span class=p>{</span>
+                <span class=nx>setLoading</span><span class=p>(</span><span class=kc>true</span><span class=p>)</span>
+                <span class=kr>const</span> <span class=nx>response</span> <span class=o>=</span> <span class=kr>await</span> <span class=nx>service</span><span class=p>.</span><span class=nx>get</span><span class=p>()</span>
+                <span class=nx>setTimeout</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+                    <span class=nx>setLoading</span><span class=p>(</span><span class=kc>false</span><span class=p>)</span>
+                    <span class=nx>setItems</span><span class=p>(</span><span class=nx>response</span><span class=p>.</span><span class=nx>data</span><span class=p>)</span>
+                <span class=p>},</span> <span class=mi>800</span><span class=p>)</span>
+            <span class=p>}</span> <span class=k>catch</span> <span class=p>(</span><span class=nx>error</span><span class=p>)</span> <span class=p>{</span>
+                <span class=nx>toastr</span><span class=p>.</span><span class=nx>error</span><span class=p>(</span><span class=nx>error</span><span class=p>)</span>
+            <span class=p>}</span>
+        <span class=p>})()</span>
+    <span class=p>},</span> <span class=p>[])</span>
+
+    <span class=kr>async</span> <span class=kd>function</span> <span class=nx>create</span><span class=p>(</span><span class=nx>item</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>try</span> <span class=p>{</span>
+            <span class=kr>const</span> <span class=nx>response</span> <span class=o>=</span> <span class=kr>await</span> <span class=nx>service</span><span class=p>.</span><span class=nx>post</span><span class=p>(</span><span class=nx>item</span><span class=p>)</span>
+            <span class=nx>setItems</span><span class=p>([...</span><span class=nx>items</span><span class=p>,</span> <span class=nx>response</span><span class=p>.</span><span class=nx>data</span><span class=p>])</span>
+        <span class=p>}</span> <span class=k>catch</span> <span class=p>(</span><span class=nx>error</span><span class=p>)</span> <span class=p>{</span>
+            <span class=nx>toastr</span><span class=p>.</span><span class=nx>error</span><span class=p>(</span><span class=nx>error</span><span class=p>)</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+
+    <span class=kr>async</span> <span class=kd>function</span> <span class=nx>destroy</span><span class=p>(</span><span class=nx>id</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>try</span> <span class=p>{</span>
+            <span class=c1>// Filter all items except the one to be removed
+</span><span class=c1></span>            <span class=kr>const</span> <span class=nx>remaining</span> <span class=o>=</span> <span class=nx>items</span><span class=p>.</span><span class=nx>filter</span><span class=p>(</span><span class=nx>item</span> <span class=p>=&gt;</span> <span class=nx>item</span><span class=p>.</span><span class=nx>id</span> <span class=o>!==</span> <span class=nx>id</span><span class=p>)</span>
+            <span class=kr>await</span> <span class=nx>service</span><span class=p>.</span><span class=k>delete</span><span class=p>(</span><span class=nx>id</span><span class=p>)</span>
+            <span class=nx>setItems</span><span class=p>(</span><span class=nx>remaining</span><span class=p>)</span>
+        <span class=p>}</span> <span class=k>catch</span> <span class=p>(</span><span class=nx>error</span><span class=p>)</span> <span class=p>{</span>
+            <span class=nx>toastr</span><span class=p>.</span><span class=nx>error</span><span class=p>(</span><span class=nx>error</span><span class=p>)</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+
+    <span class=kr>async</span> <span class=kd>function</span> <span class=nx>destroyMany</span><span class=p>(</span><span class=nx>filter</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kr>const</span> <span class=nx>keepers</span> <span class=o>=</span> <span class=nx>items</span><span class=p>.</span><span class=nx>filter</span><span class=p>(</span><span class=nx>item</span> <span class=p>=&gt;</span> <span class=o>!</span><span class=nx>filter</span><span class=p>(</span><span class=nx>item</span><span class=p>))</span>
+        <span class=kr>const</span> <span class=nx>losers</span> <span class=o>=</span> <span class=nx>items</span><span class=p>.</span><span class=nx>filter</span><span class=p>(</span><span class=nx>item</span> <span class=p>=&gt;</span> <span class=nx>filter</span><span class=p>(</span><span class=nx>item</span><span class=p>))</span>
+        <span class=kr>const</span> <span class=nx>promises</span> <span class=o>=</span> <span class=nx>losers</span><span class=p>.</span><span class=nx>map</span><span class=p>(</span><span class=nx>item</span> <span class=p>=&gt;</span> <span class=nx>service</span><span class=p>.</span><span class=k>delete</span><span class=p>(</span><span class=nx>item</span><span class=p>.</span><span class=nx>id</span><span class=p>))</span>
+        <span class=nb>Promise</span><span class=p>.</span><span class=nx>all</span><span class=p>(</span><span class=nx>promises</span><span class=p>)</span>
+            <span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>responses</span> <span class=p>=&gt;</span> <span class=p>{</span>
+                <span class=nx>setItems</span><span class=p>(</span><span class=nx>keepers</span><span class=p>)</span>
+            <span class=p>})</span>
+            <span class=p>.</span><span class=k>catch</span><span class=p>(</span><span class=nx>error</span> <span class=p>=&gt;</span> <span class=p>{</span>
+                <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;HERE&#39;</span><span class=p>)</span>
+                <span class=nx>toastr</span><span class=p>.</span><span class=nx>error</span><span class=p>(</span><span class=nx>error</span><span class=p>)</span>
+            <span class=p>})</span>
+    <span class=p>}</span>
+
+    <span class=kr>async</span> <span class=kd>function</span> <span class=nx>update</span><span class=p>(</span><span class=nx>updatedItem</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>try</span> <span class=p>{</span>
+            <span class=kr>const</span> <span class=nx>response</span> <span class=o>=</span> <span class=kr>await</span> <span class=nx>service</span><span class=p>.</span><span class=nx>put</span><span class=p>(</span><span class=nx>updatedItem</span><span class=p>)</span>
+            <span class=kr>const</span> <span class=nx>updatedItemFromServer</span> <span class=o>=</span> <span class=nx>response</span><span class=p>.</span><span class=nx>data</span>
+            <span class=kr>const</span> <span class=nx>newItems</span> <span class=o>=</span> <span class=nx>items</span><span class=p>.</span><span class=nx>map</span><span class=p>(</span><span class=nx>item</span> <span class=p>=&gt;</span>
+                <span class=nx>item</span><span class=p>.</span><span class=nx>id</span> <span class=o>!==</span> <span class=nx>updatedItemFromServer</span><span class=p>.</span><span class=nx>id</span> <span class=o>?</span> <span class=nx>item</span> <span class=o>:</span> <span class=nx>updatedItemFromServer</span>
+            <span class=p>)</span>
+            <span class=nx>setItems</span><span class=p>(</span><span class=nx>newItems</span><span class=p>)</span>
+        <span class=p>}</span> <span class=k>catch</span> <span class=p>(</span><span class=nx>error</span><span class=p>)</span> <span class=p>{</span>
+            <span class=nx>toastr</span><span class=p>.</span><span class=nx>error</span><span class=p>(</span><span class=nx>error</span><span class=p>)</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+
+    <span class=kd>function</span> <span class=nx>length</span><span class=p>()</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=nx>items</span> <span class=o>?</span> <span class=nx>items</span><span class=p>.</span><span class=nx>length</span> <span class=o>:</span> <span class=mi>0</span>
+    <span class=p>}</span>
+
+    <span class=kd>function</span> <span class=nx>find</span><span class=p>(</span><span class=nx>id</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=nx>items</span><span class=p>.</span><span class=nx>find</span><span class=p>(</span><span class=nx>item</span> <span class=p>=&gt;</span> <span class=nx>item</span><span class=p>.</span><span class=nx>id</span> <span class=o>===</span> <span class=nx>id</span><span class=p>)</span>
+    <span class=p>}</span>
+
+    <span class=kd>function</span> <span class=nx>filter</span><span class=p>(</span><span class=nx>fn</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=nx>items</span><span class=p>.</span><span class=nx>filter</span><span class=p>(</span><span class=nx>fn</span><span class=p>)</span>
+    <span class=p>}</span>
+
+    <span class=kd>function</span> <span class=nx>reduce</span><span class=p>(</span><span class=nx>fn</span><span class=p>,</span> <span class=nx>initialValue</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=nx>items</span><span class=p>.</span><span class=nx>reduce</span><span class=p>(</span><span class=nx>fn</span><span class=p>,</span> <span class=nx>initialValue</span><span class=p>)</span>
+    <span class=p>}</span>
+
+    <span class=k>return</span> <span class=p>{</span>
+        <span class=nx>loading</span><span class=p>,</span>
+        <span class=nx>items</span><span class=p>,</span>
+        <span class=nx>setItems</span><span class=p>,</span>
+        <span class=nx>create</span><span class=p>,</span>
+        <span class=nx>destroy</span><span class=p>,</span>
+        <span class=nx>destroyMany</span><span class=p>,</span>
+        <span class=nx>update</span><span class=p>,</span>
+        <span class=nx>length</span><span class=p>,</span>
+        <span class=nx>find</span><span class=p>,</span>
+        <span class=nx>filter</span><span class=p>,</span>
+        <span class=nx>reduce</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kr>export</span> <span class=k>default</span> <span class=nx>useCrud</span>
+</code></pre></div><p>Usage:</p><div class=highlight><pre class=chroma><code class=language-jsx data-lang=jsx><span class=c1>// TodoApp.jsx
+</span><span class=c1></span><span class=kr>import</span> <span class=nx>useCrud</span> <span class=nx>from</span> <span class=s1>&#39;../../hooks/use-crud&#39;</span>
+
+<span class=kr>const</span> <span class=nx>TodoApp</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+    <span class=kr>const</span> <span class=nx>todos</span> <span class=o>=</span> <span class=nx>useCrud</span><span class=p>(</span><span class=nx>TodoService</span><span class=p>,</span> <span class=p>[])</span>
+
+    <span class=kd>function</span> <span class=nx>onUpdateTitle</span><span class=p>(</span><span class=nx>id</span><span class=p>,</span> <span class=nx>title</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kr>const</span> <span class=nx>foundTodo</span> <span class=o>=</span> <span class=nx>todos</span><span class=p>.</span><span class=nx>find</span><span class=p>(</span><span class=nx>id</span><span class=p>)</span>
+        <span class=kr>const</span> <span class=nx>updatedTodo</span> <span class=o>=</span> <span class=p>{</span>
+            <span class=p>...</span><span class=nx>foundTodo</span><span class=p>,</span>
+            <span class=nx>title</span>
+        <span class=p>}</span>
+        <span class=nx>todos</span><span class=p>.</span><span class=nx>update</span><span class=p>(</span><span class=nx>updatedTodo</span><span class=p>)</span>
+    <span class=p>}</span>
+
+    <span class=kd>function</span> <span class=nx>onToggleCompleted</span><span class=p>(</span><span class=nx>id</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kr>const</span> <span class=nx>foundTodo</span> <span class=o>=</span> <span class=nx>todos</span><span class=p>.</span><span class=nx>find</span><span class=p>(</span><span class=nx>id</span><span class=p>)</span>
+        <span class=kr>const</span> <span class=nx>updatedTodo</span> <span class=o>=</span> <span class=p>{</span>
+            <span class=p>...</span><span class=nx>foundTodo</span><span class=p>,</span>
+            <span class=nx>completed</span><span class=o>:</span> <span class=o>!</span><span class=nx>foundTodo</span><span class=p>.</span><span class=nx>completed</span>
+        <span class=p>}</span>
+        <span class=nx>todos</span><span class=p>.</span><span class=nx>update</span><span class=p>(</span><span class=nx>updatedTodo</span><span class=p>)</span>
+    <span class=p>}</span>
+
+    <span class=kd>function</span> <span class=nx>onDeleteCompleted</span><span class=p>()</span> <span class=p>{</span>
+        <span class=nx>todos</span><span class=p>.</span><span class=nx>destroyMany</span><span class=p>(</span><span class=nx>todo</span> <span class=p>=&gt;</span> <span class=nx>todo</span><span class=p>.</span><span class=nx>completed</span><span class=p>)</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></div><h3 id=a-useinterval-custom-hook>A useInterval Custom Hook</h3><p>This code was taken from an <a href=https://overreacted.io/making-setinterval-declarative-with-react-hooks/>article</a> by Dan Abramov.</p><div class=highlight><pre class=chroma><code class=language-js data-lang=js><span class=kr>import</span> <span class=nx>React</span><span class=p>,</span> <span class=p>{</span> <span class=nx>useEffect</span><span class=p>,</span> <span class=nx>useRef</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;react&#39;</span>
+
+<span class=kd>function</span> <span class=nx>useInterval</span><span class=p>(</span><span class=nx>callback</span><span class=p>,</span> <span class=nx>delay</span><span class=p>)</span> <span class=p>{</span>
+    <span class=kr>const</span> <span class=nx>savedCallback</span> <span class=o>=</span> <span class=nx>useRef</span><span class=p>()</span>
+
+    <span class=c1>// Remember the latest callback.
+</span><span class=c1></span>    <span class=nx>useEffect</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+        <span class=nx>savedCallback</span><span class=p>.</span><span class=nx>current</span> <span class=o>=</span> <span class=nx>callback</span>
+    <span class=p>},</span> <span class=p>[</span><span class=nx>callback</span><span class=p>])</span>
+
+    <span class=c1>// Set up the interval.
+</span><span class=c1></span>    <span class=nx>useEffect</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+        <span class=kd>function</span> <span class=nx>tick</span><span class=p>()</span> <span class=p>{</span>
+            <span class=nx>savedCallback</span><span class=p>.</span><span class=nx>current</span><span class=p>()</span>
+        <span class=p>}</span>
+        <span class=k>if</span> <span class=p>(</span><span class=nx>delay</span> <span class=o>!==</span> <span class=kc>null</span><span class=p>)</span> <span class=p>{</span>
+            <span class=kd>let</span> <span class=nx>timer</span> <span class=o>=</span> <span class=nx>setInterval</span><span class=p>(</span><span class=nx>tick</span><span class=p>,</span> <span class=nx>delay</span><span class=p>)</span>
+            <span class=k>return</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=nx>clearInterval</span><span class=p>(</span><span class=nx>timer</span><span class=p>)</span>
+        <span class=p>}</span>
+    <span class=p>},</span> <span class=p>[</span><span class=nx>delay</span><span class=p>])</span>
+<span class=p>}</span>
+
+<span class=kr>export</span> <span class=k>default</span> <span class=nx>useInterval</span>
+</code></pre></div><p>usage:</p><div class=highlight><pre class=chroma><code class=language-js data-lang=js><span class=nx>useInterval</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+    <span class=c1>// Your custom logic here
+</span><span class=c1></span>    <span class=nx>setCount</span><span class=p>(</span><span class=nx>count</span> <span class=o>+</span> <span class=mi>1</span><span class=p>)</span>
+<span class=p>},</span> <span class=mi>1000</span><span class=p>)</span>
+</code></pre></div></div><footer class=post__footer><div class=post__tags><a class="post__tag btn" href=/cheats-and-recipes/tags/react/>react</a></div></footer></article></div></main><div class="authorbox block"><div class=author><figure class=author__avatar><img class=author__img alt="Dr. Mike Hopper avatar" src=/cheats-and-recipes/img/avatar.jpg height=90 width=90></figure><div class=author__body><div class=author__name>Dr. Mike Hopper</div><div class=author__bio>Software Architect, Engineer, and Instructor</div></div></div></div><div class="related block"><h3 class=related__title>Related</h3><ul class=related__list><li class=related__item><a class=related__link href=/cheats-and-recipes/cheat/react/>React Cheatsheet</a></li><li class=related__item><a class=related__link href=/cheats-and-recipes/cheat/react-router/>React Router Cheatsheet</a></li><li class=related__item><a class=related__link href=/cheats-and-recipes/recipe/react-testing-library/>React Testing Library Recipes</a></li></ul></div></div><footer class=footer><div class="footer__social social"><a class=social__link target=_blank rel="noopener noreferrer" href=mailto:drmikeh@gmail.com><svg class="social__icon" aria-label="Email" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M299 268l124 106c-4 4-10 7-17 7H106c-7 0-13-3-17-7l124-106 43 38 43-38zm-43 13L89 138c4-4 10-7 17-7h3e2c7 0 13 3 17 7L256 281zm54-23 121-105v208L310 258zM81 153l121 105L81 361V153z"/></svg></a><a class=social__link target=_blank rel="noopener noreferrer" href=https://twitter.com/drmikeh><svg class="social__icon" aria-label="Twitter" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M437 152a72 72 0 01-40 12 72 72 0 0032-40 72 72 0 01-45 17 72 72 0 00-122 65 2e2 2e2.0 01-145-74 72 72 0 0022 94 72 72 0 01-32-7 72 72 0 0056 69 72 72 0 01-32 1 72 72 0 0067 50A2e2 2e2.0 0193 368a2e2 2e2.0 00309-179 2e2 2e2.0 0035-37"/></svg></a><a class=social__link target=_blank rel="noopener noreferrer" href=https://www.pinterest.com/drmikeh2297><svg class="social__icon" aria-label="Pinterest" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="m265 65c-104 0-157 75-157 138 0 37 14 71 45 83 5 2 10 0 12-5l3-18c2-6 1-7-2-12-9-11-15-24-15-43 0-56 41-106 108-106 60 0 92 37 92 85 0 64-28 116-70 116-23 0-40-18-34-42 6-27 19-57 19-77 0-18-9-34-30-34-24 0-42 25-42 58 0 20 7 34 7 34l-29 120a249 249 0 002 86l3-1c2-3 31-37 40-72l16-61c7 15 29 28 53 28 71 0 119-64 119-151 0-66-56-126-140-126z"/></svg></a><a class=social__link target=_blank rel="noopener noreferrer" href=https://linkedin.com/in/drmikehopper><svg class="social__icon" aria-label="LinkedIn" role="img" width="32" height="32" viewBox="0 0 512 512"><circle cx="142" cy="138" r="37"/><path stroke-width="66" d="M244 194v198M142 194v198"/><path d="M276 282c0-20 13-40 36-40 24 0 33 18 33 45v105h66V279c0-61-32-89-76-89-34 0-51 19-59 32"/></svg></a><a class=social__link target=_blank rel="noopener noreferrer" href=https://github.com/drmikeh><svg class="social__icon" aria-label="Github" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg></a></div><div class=footer__copyright>© 2021 Cheats and Recipes. <span class=footer__copyright-credits>Powered by <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> and <a href=https://github.com/vimux/binario rel="nofollow noopener" target=_blank>Binario</a> theme.</span></div></footer><script src=/cheats-and-recipes/js/custom.js></script></body></html>

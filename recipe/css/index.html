@@ -1,0 +1,265 @@
+<!doctype html><html class=no-js lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#1b1b1b"><title>CSS Recipes | Cheats and Recipes</title><script>(function(a,b){a[b]=a[b].replace("no-js","js")})(document.documentElement,"className")</script><meta name=description content="Common recipes for CSS."><link rel=stylesheet href=/cheats-and-recipes/css/main.css><link rel=stylesheet href=/cheats-and-recipes/css/dracula.css><link rel=stylesheet href=/cheats-and-recipes/css/custom.css><link rel=icon href=/cheats-and-recipes/icons/16.png sizes=16x16 type=image/png><link rel=icon href=/cheats-and-recipes/icons/32.png sizes=32x32 type=image/png></head><body><header class=header><a class=logo href=/cheats-and-recipes/>Cheats and Recipes</a></header><div class=primary><main class=main><div class="single block"><article class=post><h1 class=post__title>CSS Recipes</h1><details class="post__toc toc"><summary class=toc__title>Table of Contents</summary><nav id=TableOfContents><ul><li><ul><li><a href=#responsive-font-size>Responsive Font Size</a></li><li><a href=#responsive-tricks>Responsive Tricks</a></li><li><a href=#smooth-scrolling>Smooth Scrolling</a></li><li><a href=#remove-blue-border-from-focussed-buttons>Remove Blue Border From Focussed Buttons</a></li><li><a href=#remove-bullets-from-an-unordered-list>Remove bullets from an Unordered List</a></li><li><a href=#button-click-animation>Button Click Animation</a></li><li><a href=#styling-a-definition-list>Styling a Definition List</a></li><li><a href=#center-and-vertically-align-with-flexbox>Center and Vertically Align with Flexbox</a></li><li><a href=#a-card-layout-with-flexbox-or-grid>A Card Layout with Flexbox or Grid</a></li><li><a href=#a-pretty-box-in-a-box>A Pretty Box in a Box</a></li><li><a href=#color-palette>Color Palette</a></li><li><a href=#background-with-gradient>Background with Gradient</a></li><li><a href=#a-sticky-footer-with-flexbox>A Sticky Footer with Flexbox</a></li><li><a href=#holy-grail-layout-with-grid-and-flexbox>Holy Grail Layout with Grid and Flexbox</a></li></ul></li><li><a href=#centering-a-left-justified-paragraph>Centering a Left-Justified Paragraph</a></li></ul></nav></details><div class=post__content><p>Common recipes for CSS and SCSS.</p><h3 id=responsive-font-size>Responsive Font Size</h3><p>You can have a font size grow or shrink based on the size of the viewport. This is handy for banners and headers.</p><div class=highlight><pre class=chroma><code class=language-css data-lang=css><span class=p>.</span><span class=nc>header</span> <span class=p>{</span>
+    <span class=k>font-size</span><span class=p>:</span> <span class=nb>calc</span><span class=p>(</span><span class=mi>10</span><span class=kt>px</span> <span class=o>+</span> <span class=mi>1</span><span class=kt>vmin</span><span class=p>);</span>  <span class=err>/*</span> <span class=err>minimum</span> <span class=err>of</span> <span class=err>10px</span> <span class=err>+</span> <span class=err>1%</span> <span class=err>of</span> <span class=err>the</span> <span class=err>viewport&#39;s</span> <span class=err>larger</span> <span class=err>dimension</span> <span class=err>(width</span> <span class=err>or</span> <span class=err>height)</span>
+<span class=p>}</span>
+</code></pre></div><h3 id=responsive-tricks>Responsive Tricks</h3><p>I found this in the article <a href=https://sjorswijsman.medium.com/3-easy-css-tricks-for-responsive-websites-i-use-in-every-project-68ec334a1522>3 easy CSS tricks for responsive websites I use for every project</a>.</p><p>There is a live demo <a href=https://codepen.io/drmikeh/pen/jOmjzqL>here</a>.</p><div class=highlight><pre class=chroma><code class=language-css data-lang=css><span class=nt>html</span> <span class=p>{</span>
+  <span class=k>font-size</span><span class=p>:</span> <span class=nb>calc</span><span class=p>(</span><span class=mi>60</span><span class=kt>%</span> <span class=o>+</span> <span class=mf>0.8</span><span class=kt>vmin</span><span class=p>);</span>
+<span class=p>}</span>
+<span class=nt>main</span> <span class=p>{</span>
+  <span class=k>max-width</span><span class=p>:</span> <span class=mi>40</span><span class=kt>rem</span><span class=p>;</span>
+  <span class=k>margin</span><span class=p>:</span> <span class=mi>0</span> <span class=kc>auto</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=o>*</span> <span class=p>{</span>
+  <span class=k>font-size</span><span class=p>:</span> <span class=mi>1</span><span class=kt>rem</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=nt>h1</span> <span class=p>{</span>
+  <span class=k>font-size</span><span class=p>:</span> <span class=mf>2.2</span><span class=kt>rem</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=nt>h2</span> <span class=p>{</span>
+  <span class=k>font-size</span><span class=p>:</span> <span class=mf>1.6</span><span class=kt>rem</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=nt>h3</span> <span class=p>{</span>
+  <span class=k>font-size</span><span class=p>:</span> <span class=mf>1.3</span><span class=kt>rem</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div><h3 id=smooth-scrolling>Smooth Scrolling</h3><div class=highlight><pre class=chroma><code class=language-css data-lang=css><span class=nt>html</span> <span class=p>{</span>
+  <span class=n>scroll-behavior</span><span class=p>:</span> <span class=kc>smooth</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div><h3 id=remove-blue-border-from-focussed-buttons>Remove Blue Border From Focussed Buttons</h3><div class=highlight><pre class=chroma><code class=language-css data-lang=css><span class=nt>button</span><span class=p>:</span><span class=nd>focus</span> <span class=p>{</span>
+    <span class=k>outline</span><span class=p>:</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div><h3 id=remove-bullets-from-an-unordered-list>Remove bullets from an Unordered List</h3><div class=highlight><pre class=chroma><code class=language-css data-lang=css><span class=nt>ul</span> <span class=p>{</span>
+    <span class=k>list-style-type</span><span class=p>:</span> <span class=kc>none</span><span class=p>;</span>
+    <span class=k>padding-left</span><span class=p>:</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div><h3 id=button-click-animation>Button Click Animation</h3><p>See a live demo <a href=https://codepen.io/drmikeh/pen/LYYwvgN>here</a>.</p><div class=highlight><pre class=chroma><code class=language-css data-lang=css><span class=nt>button</span> <span class=p>{</span>
+    <span class=k>background</span><span class=p>:</span> <span class=nb>rgb</span><span class=p>(</span><span class=mi>211</span><span class=p>,</span> <span class=mi>211</span><span class=p>,</span> <span class=mi>211</span><span class=p>);</span>
+    <span class=k>border</span><span class=p>:</span> <span class=kc>none</span><span class=p>;</span>
+    <span class=k>border-radius</span><span class=p>:</span> <span class=mi>5</span><span class=kt>px</span><span class=p>;</span>
+    <span class=k>font-size</span><span class=p>:</span> <span class=mf>1.5</span><span class=kt>rem</span><span class=p>;</span>
+    <span class=k>box-shadow</span><span class=p>:</span> <span class=mi>2</span><span class=kt>px</span> <span class=mi>2</span><span class=kt>px</span> <span class=mi>5</span><span class=kt>px</span> <span class=mi>2</span><span class=kt>px</span> <span class=nb>rgb</span><span class=p>(</span><span class=mi>96</span><span class=p>,</span> <span class=mi>96</span><span class=p>,</span> <span class=mi>96</span><span class=p>);</span>
+<span class=p>}</span>
+
+<span class=nt>button</span><span class=p>:</span><span class=nd>active</span> <span class=p>{</span>
+    <span class=k>background-color</span><span class=p>:</span> <span class=nb>rgb</span><span class=p>(</span><span class=mi>160</span><span class=p>,</span> <span class=mi>160</span><span class=p>,</span> <span class=mi>160</span><span class=p>);</span>
+    <span class=k>transform</span><span class=p>:</span> <span class=nb>translate</span><span class=p>(</span><span class=mi>2</span><span class=kt>px</span><span class=p>,</span> <span class=mi>2</span><span class=kt>px</span><span class=p>);</span>
+    <span class=k>box-shadow</span><span class=p>:</span> <span class=kc>inset</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=nt>button</span><span class=p>:</span><span class=nd>focus</span> <span class=p>{</span>
+    <span class=k>outline</span><span class=p>:</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div><h3 id=styling-a-definition-list>Styling a Definition List</h3><p>See a live demo <a href=https://codepen.io/drmikeh/pen/gOOVydG>here</a>.</p><div class=highlight><pre class=chroma><code class=language-css data-lang=css><span class=nt>dl</span> <span class=p>{</span>
+  <span class=k>display</span><span class=p>:</span> <span class=kc>flex</span><span class=p>;</span>
+  <span class=k>flex-flow</span><span class=p>:</span> <span class=kc>row</span> <span class=kc>wrap</span><span class=p>;</span>
+  <span class=k>border</span><span class=p>:</span> <span class=kc>solid</span> <span class=mh>#333</span><span class=p>;</span>
+  <span class=k>border-width</span><span class=p>:</span> <span class=mi>1</span><span class=kt>px</span> <span class=mi>1</span><span class=kt>px</span> <span class=mi>0</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=nt>dt</span> <span class=p>{</span>
+  <span class=k>flex-basis</span><span class=p>:</span> <span class=mi>20</span><span class=kt>%</span><span class=p>;</span>
+  <span class=k>padding</span><span class=p>:</span> <span class=mi>2</span><span class=kt>px</span> <span class=mi>4</span><span class=kt>px</span><span class=p>;</span>
+  <span class=k>background</span><span class=p>:</span> <span class=mh>#333</span><span class=p>;</span>
+  <span class=k>text-align</span><span class=p>:</span> <span class=kc>right</span><span class=p>;</span>
+  <span class=k>color</span><span class=p>:</span> <span class=mh>#fff</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=nt>dt</span><span class=p>::</span><span class=nd>after</span> <span class=p>{</span>
+  <span class=k>content</span><span class=p>:</span> <span class=s2>&#34;:&#34;</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=nt>dd</span> <span class=p>{</span>
+  <span class=k>flex-basis</span><span class=p>:</span> <span class=mi>70</span><span class=kt>%</span><span class=p>;</span>
+  <span class=k>flex-grow</span><span class=p>:</span> <span class=mi>1</span><span class=p>;</span>
+  <span class=k>margin</span><span class=p>:</span> <span class=mi>0</span><span class=p>;</span>
+  <span class=k>padding</span><span class=p>:</span> <span class=mi>2</span><span class=kt>px</span> <span class=mi>4</span><span class=kt>px</span><span class=p>;</span>
+  <span class=k>border-bottom</span><span class=p>:</span> <span class=mi>1</span><span class=kt>px</span> <span class=kc>solid</span> <span class=mh>#333</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div><h3 id=center-and-vertically-align-with-flexbox>Center and Vertically Align with Flexbox</h3><p>For a demo see: <a href=https://codepen.io/drmikeh/pen/mdybNbd>Center and Vertically Align with Flexbox</a></p><div class=highlight><pre class=chroma><code class=language-css data-lang=css><span class=p>.</span><span class=nc>container</span> <span class=p>{</span>
+    <span class=k>display</span><span class=p>:</span> <span class=kc>flex</span><span class=p>;</span>
+    <span class=k>justify-content</span><span class=p>:</span> <span class=kc>center</span><span class=p>;</span>
+    <span class=k>align-content</span><span class=p>:</span> <span class=kc>space-between</span><span class=p>;</span>
+    <span class=k>align-items</span><span class=p>:</span> <span class=kc>center</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=p>.</span><span class=nc>container</span> <span class=o>&gt;</span> <span class=o>*</span> <span class=p>{</span>
+    <span class=k>margin</span><span class=p>:</span> <span class=mi>10</span><span class=kt>px</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div><h3 id=a-card-layout-with-flexbox-or-grid>A Card Layout with Flexbox or Grid</h3><p>See live example <a href="https://codepen.io/drmikeh/pen/xxxvRNW?editors=1100">here</a>.</p><div class=highlight><pre class=chroma><code class=language-css data-lang=css><span class=nt>body</span> <span class=p>{</span>
+    <span class=k>text-align</span><span class=p>:</span> <span class=kc>center</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=p>.</span><span class=nc>cards-flex</span> <span class=p>{</span>
+    <span class=k>display</span><span class=p>:</span> <span class=kc>flex</span><span class=p>;</span>
+    <span class=k>flex-wrap</span><span class=p>:</span> <span class=kc>wrap</span><span class=p>;</span>
+    <span class=k>justify-content</span><span class=p>:</span> <span class=kc>flex-start</span><span class=p>;</span>
+    <span class=k>align-items</span><span class=p>:</span> <span class=kc>stretch</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=p>.</span><span class=nc>cards-grid</span> <span class=p>{</span>
+    <span class=k>display</span><span class=p>:</span> <span class=k>grid</span><span class=p>;</span>
+    <span class=k>justify-content</span><span class=p>:</span> <span class=kc>center</span><span class=p>;</span>
+    <span class=k>grid-template-columns</span><span class=p>:</span> <span class=nf>repeat</span><span class=p>(</span><span class=kc>auto</span><span class=o>-</span><span class=n>fit</span><span class=p>,</span> <span class=nf>minmax</span><span class=p>(</span><span class=mi>270</span><span class=kt>px</span><span class=p>,</span> <span class=mi>1</span><span class=n>fr</span><span class=p>));</span>
+    <span class=k>grid-column-gap</span><span class=p>:</span> <span class=mi>5</span><span class=kt>px</span><span class=p>;</span>
+    <span class=k>grid-row-gap</span><span class=p>:</span> <span class=mi>10</span><span class=kt>px</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=p>.</span><span class=nc>card</span> <span class=p>{</span>
+    <span class=k>display</span><span class=p>:</span> <span class=kc>flex</span><span class=p>;</span>
+    <span class=k>flex-direction</span><span class=p>:</span> <span class=kc>column</span><span class=p>;</span>
+    <span class=k>background</span><span class=p>:</span> <span class=kc>lightgray</span><span class=p>;</span>
+    <span class=k>border-radius</span><span class=p>:</span> <span class=mi>10</span><span class=kt>px</span><span class=p>;</span>
+    <span class=k>margin</span><span class=p>:</span> <span class=mi>10</span><span class=kt>px</span><span class=p>;</span>
+    <span class=k>padding</span><span class=p>:</span> <span class=mi>10</span><span class=kt>px</span><span class=p>;</span>
+    <span class=k>width</span><span class=p>:</span> <span class=mi>250</span><span class=kt>px</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=p>.</span><span class=nc>card</span> <span class=p>.</span><span class=nc>header</span> <span class=p>{</span>
+    <span class=k>border-bottom</span><span class=p>:</span> <span class=mi>1</span><span class=kt>px</span> <span class=kc>solid</span> <span class=kc>gray</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=p>.</span><span class=nc>card</span> <span class=p>.</span><span class=nc>main</span> <span class=p>{</span>
+    <span class=k>text-align</span><span class=p>:</span> <span class=kc>left</span><span class=p>;</span>
+    <span class=k>flex-grow</span><span class=p>:</span> <span class=mi>1</span><span class=p>;</span>
+    <span class=k>padding</span><span class=p>:</span> <span class=mi>1</span><span class=kt>px</span> <span class=mi>10</span><span class=kt>px</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=p>.</span><span class=nc>card</span> <span class=p>.</span><span class=nc>footer</span> <span class=p>{</span>
+    <span class=k>flex-grow</span><span class=p>:</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=k>border-top</span><span class=p>:</span> <span class=mi>1</span><span class=kt>px</span> <span class=kc>solid</span> <span class=kc>gray</span><span class=p>;</span>
+    <span class=k>padding</span><span class=p>:</span> <span class=mi>15</span><span class=kt>px</span><span class=p>;</span>
+    <span class=k>display</span><span class=p>:</span> <span class=kc>flex</span><span class=p>;</span>
+    <span class=k>justify-content</span><span class=p>:</span> <span class=kc>flex-end</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div><h3 id=a-pretty-box-in-a-box>A Pretty Box in a Box</h3><div class=highlight><pre class=chroma><code class=language-scss data-lang=scss><span class=nc>.container</span> <span class=p>{</span>
+    <span class=na>text-align</span><span class=o>:</span> <span class=ni>center</span><span class=p>;</span>
+    <span class=na>background</span><span class=o>:</span> <span class=nf>rgb</span><span class=p>(</span><span class=mi>240</span><span class=o>,</span> <span class=mi>240</span><span class=o>,</span> <span class=mi>240</span><span class=p>);</span>
+    <span class=na>max-width</span><span class=o>:</span> <span class=mi>600</span><span class=kt>px</span><span class=p>;</span>
+    <span class=na>margin-top</span><span class=o>:</span> <span class=mi>40</span><span class=kt>px</span><span class=p>;</span>
+    <span class=na>padding</span><span class=o>:</span> <span class=mi>20</span><span class=kt>px</span><span class=p>;</span>
+    <span class=na>border</span><span class=o>:</span> <span class=mi>1</span><span class=kt>px</span> <span class=ni>solid</span> <span class=nf>rgb</span><span class=p>(</span><span class=mi>192</span><span class=o>,</span> <span class=mi>192</span><span class=o>,</span> <span class=mi>192</span><span class=p>);</span>
+    <span class=na>border-radius</span><span class=o>:</span> <span class=mi>10</span><span class=kt>px</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=k>@mixin</span><span class=nf> pretty-box</span> <span class=p>{</span>
+    <span class=na>border</span><span class=o>:</span> <span class=mi>1</span><span class=kt>px</span> <span class=ni>solid</span> <span class=nf>rgba</span><span class=p>(</span><span class=mi>192</span><span class=o>,</span> <span class=mi>192</span><span class=o>,</span> <span class=mi>192</span><span class=o>,</span> <span class=mi>0</span><span class=mf>.2</span><span class=p>);</span>
+    <span class=na>border-radius</span><span class=o>:</span> <span class=mi>10</span><span class=kt>px</span><span class=p>;</span>
+    <span class=na>background</span><span class=o>:</span> <span class=nf>rgb</span><span class=p>(</span><span class=mi>228</span><span class=o>,</span> <span class=mi>228</span><span class=o>,</span> <span class=mi>228</span><span class=p>);</span>
+    <span class=na>padding</span><span class=o>:</span> <span class=mi>20</span><span class=kt>px</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div><h3 id=color-palette>Color Palette</h3><p>See a live demo <a href="https://codepen.io/drmikeh/pen/RwwxWrM?editors=1100">here</a>.</p><div class=highlight><pre class=chroma><code class=language-scss data-lang=scss><span class=nv>$color-red</span><span class=o>:</span> <span class=mh>#FF0000</span><span class=p>;</span>
+<span class=nv>$color-green</span><span class=o>:</span> <span class=mh>#00FF00</span><span class=p>;</span>
+<span class=nv>$color-blue</span><span class=o>:</span> <span class=mh>#0000FF</span><span class=p>;</span>
+
+<span class=c1>// colors from my Bear theme
+</span><span class=c1></span><span class=nv>$grayblue1</span><span class=o>:</span> <span class=nf>rgb</span><span class=p>(</span><span class=mi>20</span><span class=o>,</span> <span class=mi>28</span><span class=o>,</span> <span class=mi>41</span><span class=p>)</span><span class=na>
+</span><span class=na>$grayblue2</span><span class=o>:</span> <span class=nf>rgb</span><span class=p>(</span><span class=mi>25</span><span class=o>,</span> <span class=mi>33</span><span class=o>,</span> <span class=mi>51</span><span class=p>)</span><span class=na>
+</span><span class=na>$orangeyellow</span><span class=o>:</span> <span class=nf>rgb</span><span class=p>(</span><span class=mi>240</span><span class=o>,</span> <span class=mi>182</span><span class=o>,</span> <span class=mi>82</span><span class=p>)</span><span class=na>
+</span><span class=na>$gray</span><span class=o>:</span> <span class=nf>rgb</span><span class=p>(</span><span class=mi>177</span><span class=o>,</span> <span class=mi>176</span><span class=o>,</span> <span class=mi>176</span><span class=p>)</span><span class=na>
+</span><span class=na>$slateblue</span><span class=o>:</span> <span class=nf>rgb</span><span class=p>(</span><span class=mi>82</span><span class=o>,</span> <span class=mi>138</span><span class=o>,</span> <span class=mi>157</span><span class=p>)</span><span class=na>
+</span><span class=na>$almostblack</span><span class=o>:</span> <span class=nf>rgb</span><span class=p>(</span><span class=mi>9</span><span class=o>,</span> <span class=mi>12</span><span class=o>,</span> <span class=mi>18</span><span class=p>)</span><span class=na>
+</span><span class=na>$almostwhite</span><span class=o>:</span> <span class=nf>rgb</span><span class=p>(</span><span class=mi>247</span><span class=o>,</span> <span class=mi>247</span><span class=o>,</span> <span class=mi>239</span><span class=p>)</span>
+</code></pre></div><h3 id=background-with-gradient>Background with Gradient</h3><p>See a live demo <a href=https://codepen.io/drmikeh/pen/wvvVZXy>here</a>.</p><div class=highlight><pre class=chroma><code class=language-css data-lang=css><span class=nt>background</span><span class=o>:</span> <span class=nt>linear-gradient</span><span class=o>(</span><span class=nt>90deg</span><span class=o>,</span> <span class=p>#</span><span class=nn>667eea</span> <span class=nt>0</span><span class=o>%,</span> <span class=p>#</span><span class=nn>764ba2</span> <span class=nt>100</span><span class=o>%);</span>
+</code></pre></div><h3 id=a-sticky-footer-with-flexbox>A Sticky Footer with Flexbox</h3><p>See a live demo <a href=https://codepen.io/drmikeh/pen/YzZwvzy.>here</a></p><div class=highlight><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
+  <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;content&#34;</span><span class=p>&gt;</span>
+    content
+  <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+  <span class=p>&lt;</span><span class=nt>footer</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;footer&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>footer</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+</code></pre></div><div class=highlight><pre class=chroma><code class=language-css data-lang=css><span class=nt>html</span><span class=o>,</span> <span class=nt>body</span> <span class=p>{</span>
+  <span class=k>height</span><span class=p>:</span> <span class=mi>100</span><span class=kt>%</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=nt>body</span> <span class=p>{</span>
+  <span class=k>display</span><span class=p>:</span> <span class=kc>flex</span><span class=p>;</span>
+  <span class=k>flex-direction</span><span class=p>:</span> <span class=kc>column</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=p>.</span><span class=nc>content</span> <span class=p>{</span>
+  <span class=k>flex</span><span class=p>:</span> <span class=mi>1</span> <span class=mi>0</span> <span class=kc>auto</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=p>.</span><span class=nc>footer</span> <span class=p>{</span>
+  <span class=k>flex-shrink</span><span class=p>:</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div><h3 id=holy-grail-layout-with-grid-and-flexbox>Holy Grail Layout with Grid and Flexbox</h3><p>For a live demo see <a href="https://codepen.io/drmikeh/pen/BayBzLa?editors=1100">Holy Grail Layout with Grid and Flexbox</a></p><p>Also see: <a href="https://codepen.io/drmikeh/pen/GRgKmpy?editors=0100">Holy Grail Layout with Grid and Flexbox with Cards</a></p><div class=highlight><pre class=chroma><code class=language-css data-lang=css><span class=c>/* for smaller screens we use flexbox */</span>
+<span class=p>.</span><span class=nc>container</span> <span class=p>{</span>
+    <span class=k>display</span><span class=p>:</span> <span class=kc>flex</span><span class=p>;</span>
+    <span class=k>flex-direction</span><span class=p>:</span> <span class=kc>column</span><span class=p>;</span>
+    <span class=k>min-height</span><span class=p>:</span> <span class=mi>100</span><span class=kt>vh</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=c>/* for larger screens we use a grid */</span>
+<span class=p>@</span><span class=k>media</span> <span class=o>(</span><span class=nt>min-width</span><span class=o>:</span> <span class=nt>600px</span><span class=o>)</span> <span class=p>{</span>
+    <span class=p>.</span><span class=nc>container</span> <span class=p>{</span>
+        <span class=k>display</span><span class=p>:</span> <span class=k>grid</span><span class=p>;</span>
+        <span class=k>grid-template-columns</span><span class=p>:</span> <span class=mi>150</span><span class=kt>px</span> <span class=mi>1</span><span class=n>fr</span> <span class=mi>150</span><span class=kt>px</span><span class=p>;</span>
+        <span class=k>grid-template-rows</span><span class=p>:</span> <span class=kc>auto</span> <span class=mi>1</span><span class=n>fr</span> <span class=kc>auto</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=nt>header</span> <span class=p>{</span>
+    <span class=k>grid-column</span><span class=p>:</span> <span class=n>span</span> <span class=mi>3</span><span class=p>;</span>
+    <span class=k>padding</span><span class=p>:</span> <span class=mi>20</span><span class=kt>px</span><span class=p>;</span>
+    <span class=k>text-align</span><span class=p>:</span> <span class=kc>center</span><span class=p>;</span>
+    <span class=k>font-size</span><span class=p>:</span> <span class=mi>1</span><span class=kt>rem</span><span class=p>;</span>
+    <span class=k>background-color</span><span class=p>:</span> <span class=mh>#369</span><span class=p>;</span>
+    <span class=k>color</span><span class=p>:</span> <span class=kc>white</span><span class=p>;</span>
+    <span class=k>display</span><span class=p>:</span> <span class=kc>flex</span><span class=p>;</span> <span class=c>/* header is a container that uses flexbox */</span>
+<span class=p>}</span>
+
+<span class=nt>header</span> <span class=o>*</span><span class=p>:</span><span class=nd>not</span><span class=o>(</span><span class=p>:</span><span class=nd>last-child</span><span class=o>)</span> <span class=p>{</span>
+    <span class=k>margin-right</span><span class=p>:</span> <span class=mi>20</span><span class=kt>px</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=nt>header</span> <span class=o>&gt;</span> <span class=nt>div</span><span class=p>:</span><span class=nd>last-child</span> <span class=p>{</span>
+    <span class=k>margin-left</span><span class=p>:</span> <span class=kc>auto</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=nt>main</span> <span class=p>{</span>
+    <span class=k>flex</span><span class=p>:</span> <span class=mi>1</span><span class=p>;</span>
+    <span class=k>padding</span><span class=p>:</span> <span class=mi>20</span><span class=kt>px</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=nt>nav</span> <span class=p>{</span>
+    <span class=k>background-color</span><span class=p>:</span> <span class=mh>#f90</span><span class=p>;</span>
+    <span class=k>padding</span><span class=p>:</span> <span class=mi>20</span><span class=kt>px</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=nt>aside</span> <span class=p>{</span>
+    <span class=k>padding</span><span class=p>:</span> <span class=mi>20</span><span class=kt>px</span><span class=p>;</span>
+    <span class=k>background-color</span><span class=p>:</span> <span class=mh>#f7e</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=nt>footer</span> <span class=p>{</span>
+    <span class=k>grid-column</span><span class=p>:</span> <span class=n>span</span> <span class=mi>3</span><span class=p>;</span>
+    <span class=k>padding</span><span class=p>:</span> <span class=mi>20</span><span class=kt>px</span><span class=p>;</span>
+    <span class=k>text-align</span><span class=p>:</span> <span class=kc>center</span><span class=p>;</span>
+    <span class=k>font-size</span><span class=p>:</span> <span class=mf>1.2</span><span class=kt>rem</span><span class=p>;</span>
+    <span class=k>background-color</span><span class=p>:</span> <span class=mh>#6a3</span><span class=p>;</span>
+    <span class=k>color</span><span class=p>:</span> <span class=kc>white</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div><h2 id=centering-a-left-justified-paragraph>Centering a Left-Justified Paragraph</h2><p>This recipe centers a paragraph - the text is left-justified but the container <code>div</code> is centered.</p><p>A live demo is <a href=https://codepen.io/drmikeh/pen/BaRZvJP>here</a>.</p><div class=highlight><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>section</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;container&#34;</span><span class=p>&gt;</span>
+  <span class=p>&lt;</span><span class=nt>h1</span><span class=p>&gt;</span>Our Title Is Centered<span class=p>&lt;/</span><span class=nt>h1</span><span class=p>&gt;</span>
+  <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;description&#34;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>p</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;left&#34;</span><span class=p>&gt;</span>We want this paragraph to be centered on the page but also left-justified. Let&#39;s see how to do it.<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+  <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>section</span><span class=p>&gt;</span>
+</code></pre></div><div class=highlight><pre class=chroma><code class=language-css data-lang=css><span class=nt>body</span> <span class=p>{</span>
+  <span class=k>text-align</span><span class=p>:</span> <span class=kc>center</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=p>.</span><span class=nc>container</span> <span class=p>{</span>
+  <span class=k>margin</span><span class=p>:</span> <span class=mi>0</span> <span class=kc>auto</span><span class=p>;</span>
+  <span class=k>max-width</span><span class=p>:</span> <span class=mi>400</span><span class=kt>px</span><span class=p>;</span>
+  <span class=k>display</span><span class=p>:</span> <span class=kc>flex</span><span class=p>;</span>
+  <span class=k>flex-direction</span><span class=p>:</span> <span class=kc>column</span><span class=p>;</span>
+  <span class=k>align-items</span><span class=p>:</span> <span class=kc>center</span><span class=p>;</span>
+  <span class=k>align-content</span><span class=p>:</span> <span class=kc>center</span><span class=p>;</span>
+  <span class=k>justify-items</span><span class=p>:</span> <span class=kc>center</span><span class=p>;</span>
+  <span class=n>justifiy-content</span><span class=p>:</span> <span class=kc>center</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=p>.</span><span class=nc>description</span> <span class=p>{</span>
+  <span class=k>width</span><span class=p>:</span> <span class=mi>80</span><span class=kt>%</span><span class=p>;</span>
+  <span class=k>margin</span><span class=p>:</span> <span class=mi>0</span> <span class=kc>auto</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=p>.</span><span class=nc>left</span> <span class=p>{</span>
+  <span class=k>text-align</span><span class=p>:</span> <span class=kc>left</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></div></div><footer class=post__footer><div class=post__tags><a class="post__tag btn" href=/cheats-and-recipes/tags/css/>css</a>
+<a class="post__tag btn" href=/cheats-and-recipes/tags/styling/>styling</a>
+<a class="post__tag btn" href=/cheats-and-recipes/tags/web/>web</a></div></footer></article></div></main><div class="authorbox block"><div class=author><figure class=author__avatar><img class=author__img alt="Dr. Mike Hopper avatar" src=/cheats-and-recipes/img/avatar.jpg height=90 width=90></figure><div class=author__body><div class=author__name>Dr. Mike Hopper</div><div class=author__bio>Software Architect, Engineer, and Instructor</div></div></div></div><div class="related block"><h3 class=related__title>Related</h3><ul class=related__list><li class=related__item><a class=related__link href=/cheats-and-recipes/cheat/css-flexbox/>CSS Flexbox Cheatsheet</a></li><li class=related__item><a class=related__link href=/cheats-and-recipes/cheat/css-grid/>CSS Grid Cheatsheet</a></li></ul></div></div><footer class=footer><div class="footer__social social"><a class=social__link target=_blank rel="noopener noreferrer" href=mailto:drmikeh@gmail.com><svg class="social__icon" aria-label="Email" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M299 268l124 106c-4 4-10 7-17 7H106c-7 0-13-3-17-7l124-106 43 38 43-38zm-43 13L89 138c4-4 10-7 17-7h3e2c7 0 13 3 17 7L256 281zm54-23 121-105v208L310 258zM81 153l121 105L81 361V153z"/></svg></a><a class=social__link target=_blank rel="noopener noreferrer" href=https://twitter.com/drmikeh><svg class="social__icon" aria-label="Twitter" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M437 152a72 72 0 01-40 12 72 72 0 0032-40 72 72 0 01-45 17 72 72 0 00-122 65 2e2 2e2.0 01-145-74 72 72 0 0022 94 72 72 0 01-32-7 72 72 0 0056 69 72 72 0 01-32 1 72 72 0 0067 50A2e2 2e2.0 0193 368a2e2 2e2.0 00309-179 2e2 2e2.0 0035-37"/></svg></a><a class=social__link target=_blank rel="noopener noreferrer" href=https://www.pinterest.com/drmikeh2297><svg class="social__icon" aria-label="Pinterest" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="m265 65c-104 0-157 75-157 138 0 37 14 71 45 83 5 2 10 0 12-5l3-18c2-6 1-7-2-12-9-11-15-24-15-43 0-56 41-106 108-106 60 0 92 37 92 85 0 64-28 116-70 116-23 0-40-18-34-42 6-27 19-57 19-77 0-18-9-34-30-34-24 0-42 25-42 58 0 20 7 34 7 34l-29 120a249 249 0 002 86l3-1c2-3 31-37 40-72l16-61c7 15 29 28 53 28 71 0 119-64 119-151 0-66-56-126-140-126z"/></svg></a><a class=social__link target=_blank rel="noopener noreferrer" href=https://linkedin.com/in/drmikehopper><svg class="social__icon" aria-label="LinkedIn" role="img" width="32" height="32" viewBox="0 0 512 512"><circle cx="142" cy="138" r="37"/><path stroke-width="66" d="M244 194v198M142 194v198"/><path d="M276 282c0-20 13-40 36-40 24 0 33 18 33 45v105h66V279c0-61-32-89-76-89-34 0-51 19-59 32"/></svg></a><a class=social__link target=_blank rel="noopener noreferrer" href=https://github.com/drmikeh><svg class="social__icon" aria-label="Github" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg></a></div><div class=footer__copyright>© 2021 Cheats and Recipes. <span class=footer__copyright-credits>Powered by <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> and <a href=https://github.com/vimux/binario rel="nofollow noopener" target=_blank>Binario</a> theme.</span></div></footer><script src=/cheats-and-recipes/js/custom.js></script></body></html>
