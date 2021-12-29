@@ -95,9 +95,9 @@
 <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
 <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="err">···</span><span class="p">)</span>
 </code></pre></div><h3 id="async-await">Async-await</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">async</span> <span class="kd">function</span> <span class="nx">run</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">getUser</span><span class="p">()</span>
-    <span class="kr">const</span> <span class="nx">tweets</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">getTweets</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">async</span> <span class="kd">function</span> <span class="nx">run</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">getUser</span><span class="p">()</span>
+    <span class="kr">const</span> <span class="nx">tweets</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">getTweets</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">[</span><span class="nx">user</span><span class="p">,</span> <span class="nx">tweets</span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div><p><code>async</code> functions are another way of using promises.</p>
@@ -107,7 +107,7 @@
 <p>Example:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">try</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="p">[</span><span class="nx">departments</span><span class="p">,</span> <span class="nx">products</span><span class="p">,</span> <span class="nx">cart</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="kr">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+        <span class="nx">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
             <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/departments&#39;</span><span class="p">),</span>
             <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/products&#39;</span><span class="p">),</span>
             <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/cart&#39;</span><span class="p">)</span>

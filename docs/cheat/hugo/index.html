@@ -282,10 +282,10 @@ notoc: true
 <p>In your top-level configuration file (eg, <code>config.yaml</code>) you can define site
 parameters, which are values which will be available to you in chrome.</p>
 <p>For instance, you might declare:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">params</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">CopyrightHTML</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Copyright &amp;#xA9; 2013 John Doe. All Rights Reserved.&#39;</span><span class="w">
-</span><span class="w">    </span><span class="nt">TwitterUser</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;spf13&#39;</span><span class="w">
-</span><span class="w">    </span><span class="nt">SidebarRecentLimit</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">params</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">CopyrightHTML</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Copyright &amp;#xA9; 2013 John Doe. All Rights Reserved.&#39;</span><span class="w">
+</span><span class="w">    </span><span class="k">TwitterUser</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;spf13&#39;</span><span class="w">
+</span><span class="w">    </span><span class="k">SidebarRecentLimit</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
 </span></code></pre></div><p>Within a footer layout, you might then declare a <code>&lt;footer&gt;</code> which is only
 provided if the <code>CopyrightHTML</code> parameter is provided, and if it is given,
 you would declare it to be HTML-safe, so that the HTML entity is not escaped

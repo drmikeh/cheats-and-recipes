@@ -6,7 +6,11 @@
     <description>Recent content in Cheats on Cheats and Recipes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://drmikeh.github.io/cheats-and-recipes/cheat/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Nov 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://drmikeh.github.io/cheats-and-recipes/cheat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>iTerm2 Cheatsheet</title>
       <link>https://drmikeh.github.io/cheats-and-recipes/cheat/iterm2/</link>
@@ -85,7 +89,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://drmikeh.github.io/cheats-and-recipes/cheat/golang/</guid>
-      <description>&lt;p&gt;Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Go is an open source programming language from Google that makes it easy to build simple, reliable, and efficient software.&lt;/p&gt;</description>
     </item>
     
     <item>

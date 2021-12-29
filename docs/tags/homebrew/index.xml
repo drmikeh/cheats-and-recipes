@@ -5,7 +5,11 @@
     <link>https://drmikeh.github.io/cheats-and-recipes/tags/homebrew/</link>
     <description>Recent content in homebrew on Cheats and Recipes</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://drmikeh.github.io/cheats-and-recipes/tags/homebrew/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    
+	<atom:link href="https://drmikeh.github.io/cheats-and-recipes/tags/homebrew/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Homebrew Cheatsheet</title>
       <link>https://drmikeh.github.io/cheats-and-recipes/cheat/homebrew/</link>
