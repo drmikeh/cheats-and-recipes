@@ -4,4 +4,4 @@ This is a website of cheatsheets and recipes for JavaScript, React, Go, and othe
 
 The website uses the [Hugo](https://gohugo.io/) static site generator.
 
-The website is deployed [here](https://pages.github.com/drmikeh/cheats-and-recipes/).
+The website is deployed [here](https://drmikeh.github.io/cheats-and-recipes/).
